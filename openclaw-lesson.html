@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learn OpenClaw | Viben</title>
+  <style>
+    :root {
+      --bg: #0a0a0b;
+      --card: #141416;
+      --card-hover: #1a1a1e;
+      --border: #2a2a2e;
+      --text: #e4e4e7;
+      --text-dim: #a1a1aa;
+      --text-muted: #71717a;
+      --accent: #8b5cf6;
+      --accent-glow: rgba(139, 92, 246, 0.15);
+      --green: #22c55e;
+      --green-bg: rgba(34, 197, 94, 0.1);
+      --yellow: #eab308;
+      --yellow-bg: rgba(234, 179, 8, 0.1);
+      --red: #ef4444;
+      --red-bg: rgba(239, 68, 68, 0.08);
+      --blue: #3b82f6;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Top bar ── */
+    .top-bar {
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+    }
+    .top-brand {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+    .top-brand span {
+      background: linear-gradient(135deg, var(--accent), #a78bfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .progress-wrap {
+      flex: 1;
+      max-width: 300px;
+      margin: 0 24px;
+    }
+    .progress-track {
+      height: 6px;
+      background: var(--border);
+      border-radius: 100px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent), #a78bfa);
+      border-radius: 100px;
+      transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .progress-text {
+      font-size: 12px;
+      color: var(--text-muted);
+      text-align: right;
+      margin-top: 4px;
+    }
+    .top-exit {
+      font-size: 13px;
+      color: var(--text-muted);
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .top-exit:hover { color: var(--text-dim); }
+
+    /* ── Card container ── */
+    .lesson-area {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    /* ── Card ── */
+    .card {
+      width: 100%;
+      max-width: 560px;
+      display: none;
+      animation: cardIn 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .card.active { display: block; }
+    @keyframes cardIn {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .card-emoji {
+      font-size: 48px;
+      margin-bottom: 20px;
+      line-height: 1;
+    }
+    .card h2 {
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 12px;
+      letter-spacing: -0.3px;
+    }
+    .card p {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--text-dim);
+      margin-bottom: 16px;
+    }
+    .card p strong { color: var(--text); }
+
+    /* ── Choice buttons ── */
+    .choices {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 24px;
+    }
+    .choice-btn {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 20px;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.15s;
+      color: var(--text);
+      font-size: 15px;
+      font-family: inherit;
+      line-height: 1.5;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .choice-btn:hover {
+      border-color: var(--accent);
+      background: var(--accent-glow);
+    }
+    .choice-btn.selected {
+      border-color: var(--accent);
+      background: var(--accent-glow);
+    }
+    .choice-icon {
+      font-size: 20px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .choice-text { flex: 1; }
+    .choice-label {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 2px;
+    }
+    .choice-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* ── Continue button ── */
+    .continue-btn {
+      margin-top: 28px;
+      background: rgba(139, 92, 246, 0.15);
+      color: var(--accent);
+      border: 1px solid rgba(139, 92, 246, 0.25);
+      border-radius: 12px;
+      padding: 14px 32px;
+      font-size: 15px;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.2s;
+      width: 100%;
+    }
+    .continue-btn:hover {
+      background: rgba(139, 92, 246, 0.25);
+      border-color: rgba(139, 92, 246, 0.4);
+    }
+    .continue-btn.ready {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+    .continue-btn.ready:hover {
+      background: #7c3aed;
+      border-color: #7c3aed;
+    }
+
+    /* ── Nav buttons row ── */
+    .nav-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 28px;
+    }
+    .nav-row .continue-btn { margin-top: 0; }
+    .back-btn {
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 20px;
+      font-size: 15px;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+      color: var(--text-muted);
+      transition: all 0.15s;
+      flex-shrink: 0;
+    }
+    .back-btn:hover {
+      border-color: var(--border-accent, #3b3b40);
+      color: var(--text-dim);
+    }
+
+    /* ── Concept card (the "learn" cards) ── */
+    .concept-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+      margin: 20px 0;
+    }
+    .concept-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .concept-box h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .concept-box p {
+      font-size: 14px;
+      margin-bottom: 0;
+    }
+
+    /* ── Code block (inline in lesson) ── */
+    .lesson-code {
+      background: #1a1a1e;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 18px;
+      margin: 16px 0;
+      font-family: 'JetBrains Mono', 'SF Mono', monospace;
+      font-size: 13.5px;
+      line-height: 1.8;
+      color: var(--green);
+      position: relative;
+      overflow-x: auto;
+    }
+    .lesson-code .dim { color: var(--text-muted); }
+    .lesson-code .flag { color: var(--accent); }
+    .lesson-code-copy {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: var(--card-hover);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 11px;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .lesson-code-copy:hover { color: var(--text); }
+
+    /* ── Analogy / visual ── */
+    .analogy {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+      margin: 20px 0;
+    }
+    .analogy-icon { font-size: 36px; flex-shrink: 0; }
+    .analogy-text { font-size: 15px; color: var(--text-dim); line-height: 1.6; }
+    .analogy-text strong { color: var(--text); }
+
+    /* ── Diagram ── */
+    .diagram {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px 24px;
+      margin: 20px 0;
+      text-align: center;
+    }
+    .diagram-flow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .diagram-node {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 16px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .diagram-node.highlight {
+      border-color: var(--accent);
+      background: var(--accent-glow);
+      color: var(--accent);
+    }
+    .diagram-arrow {
+      color: var(--text-muted);
+      font-size: 18px;
+    }
+    .diagram-caption {
+      margin-top: 14px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* ── Quiz ── */
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin: 16px 0;
+    }
+    .quiz-opt {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 18px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.15s;
+      font-family: inherit;
+      color: var(--text-dim);
+      text-align: left;
+    }
+    .quiz-opt:hover { border-color: var(--accent); }
+    .quiz-opt.correct {
+      border-color: var(--green);
+      background: var(--green-bg);
+      color: var(--green);
+    }
+    .quiz-opt.wrong {
+      border-color: var(--red);
+      background: var(--red-bg);
+      color: var(--red);
+    }
+    .quiz-feedback {
+      margin-top: 12px;
+      padding: 12px 16px;
+      border-radius: 10px;
+      font-size: 14px;
+      line-height: 1.6;
+      display: none;
+    }
+    .quiz-feedback.show { display: block; }
+    .quiz-feedback.correct-fb {
+      background: var(--green-bg);
+      border: 1px solid rgba(34,197,94,0.15);
+      color: #4ade80;
+    }
+    .quiz-feedback.wrong-fb {
+      background: var(--red-bg);
+      border: 1px solid rgba(239,68,68,0.15);
+      color: #f87171;
+    }
+
+    /* ── Celebration ── */
+    .celebration {
+      text-align: center;
+      padding: 20px 0;
+    }
+    .celebration-emoji {
+      font-size: 64px;
+      margin-bottom: 20px;
+      animation: bounce 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    @keyframes bounce {
+      0% { transform: scale(0.3); opacity: 0; }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .celebration h2 {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+
+    /* ── Warning box ── */
+    .warn-box {
+      background: var(--yellow-bg);
+      border: 1px solid rgba(234,179,8,0.15);
+      border-radius: 12px;
+      padding: 16px 18px;
+      margin: 16px 0;
+      font-size: 14px;
+      color: #d4a406;
+      line-height: 1.6;
+    }
+    .warn-box strong { color: var(--yellow); }
+
+    .safe-box {
+      background: var(--green-bg);
+      border: 1px solid rgba(34,197,94,0.15);
+      border-radius: 12px;
+      padding: 16px 18px;
+      margin: 16px 0;
+      font-size: 14px;
+      color: #4ade80;
+      line-height: 1.6;
+    }
+    .safe-box strong { color: var(--green); }
+
+    /* ── Inline code ── */
+    code {
+      font-family: 'JetBrains Mono', 'SF Mono', monospace;
+      font-size: 0.88em;
+      background: #1a1a1e;
+      border: 1px solid var(--border);
+      padding: 2px 7px;
+      border-radius: 5px;
+      color: var(--accent);
+    }
+
+    /* ── Contextual help ── */
+    .help-toggle {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 20px;
+      padding: 12px 16px;
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--text-muted);
+      font-size: 13px;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.15s;
+      width: 100%;
+      text-align: left;
+    }
+    .help-toggle:hover { border-color: var(--border-accent, #3b3b40); color: var(--text-dim); }
+    .help-toggle.open { border-color: var(--accent); color: var(--accent); border-radius: 10px 10px 0 0; border-bottom: none; }
+    .help-toggle svg { flex-shrink: 0; transition: transform 0.2s; }
+    .help-toggle.open svg { transform: rotate(180deg); }
+
+    .help-panel {
+      display: none;
+      border: 1px solid var(--accent);
+      border-top: none;
+      border-radius: 0 0 10px 10px;
+      overflow: hidden;
+      margin-bottom: 8px;
+    }
+    .help-panel.open { display: block; }
+
+    .help-q {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      cursor: pointer;
+      transition: background 0.1s;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .help-q:last-child { border-bottom: none; }
+    .help-q:hover { background: var(--card-hover); }
+    .help-q-icon { color: var(--accent); flex-shrink: 0; margin-top: 2px; font-size: 14px; }
+    .help-q-text {
+      font-size: 13px;
+      color: var(--text-dim);
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    .help-answer {
+      display: none;
+      padding: 12px 16px 16px 40px;
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      border-bottom: 1px solid var(--border);
+      background: rgba(139, 92, 246, 0.03);
+    }
+    .help-answer.open { display: block; }
+    .help-answer strong { color: var(--text-dim); }
+
+    /* ── Troubleshoot (error help) ── */
+    .trouble-toggle {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 12px;
+      padding: 12px 16px;
+      background: transparent;
+      border: 1px solid rgba(239, 68, 68, 0.2);
+      border-radius: 10px;
+      color: var(--text-muted);
+      font-size: 13px;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.15s;
+      width: 100%;
+      text-align: left;
+    }
+    .trouble-toggle:hover { border-color: rgba(239, 68, 68, 0.4); color: var(--text-dim); }
+    .trouble-toggle.open { border-color: var(--red); color: #f87171; border-radius: 10px 10px 0 0; border-bottom: none; }
+    .trouble-toggle svg { flex-shrink: 0; transition: transform 0.2s; }
+    .trouble-toggle.open svg { transform: rotate(180deg); }
+
+    .trouble-panel {
+      display: none;
+      border: 1px solid var(--red);
+      border-top: none;
+      border-radius: 0 0 10px 10px;
+      overflow: hidden;
+      margin-bottom: 8px;
+    }
+    .trouble-panel.open { display: block; }
+
+    .trouble-item {
+      border-bottom: 1px solid var(--border);
+      cursor: pointer;
+      transition: background 0.1s;
+    }
+    .trouble-item:last-child { border-bottom: none; }
+    .trouble-item:hover { background: var(--card-hover); }
+    .trouble-header {
+      padding: 12px 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .trouble-icon { color: var(--red); flex-shrink: 0; margin-top: 1px; font-size: 14px; }
+    .trouble-label {
+      font-size: 13px;
+      color: var(--text-dim);
+      font-weight: 500;
+      line-height: 1.4;
+    }
+    .trouble-error {
+      font-family: 'JetBrains Mono', 'SF Mono', monospace;
+      font-size: 11px;
+      color: #f87171;
+      background: rgba(239, 68, 68, 0.06);
+      padding: 2px 6px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-top: 4px;
+    }
+    .trouble-fix {
+      display: none;
+      padding: 12px 16px 16px 40px;
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      border-bottom: 1px solid var(--border);
+      background: rgba(239, 68, 68, 0.02);
+    }
+    .trouble-fix.open { display: block; }
+    .trouble-fix strong { color: var(--text-dim); }
+    .trouble-fix code {
+      font-size: 0.85em;
+      color: var(--green);
+      background: #1a1a1e;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Top bar -->
+<div class="top-bar">
+  <div class="top-brand"><span>viben</span> learn</div>
+  <div class="progress-wrap">
+    <div class="progress-track">
+      <div class="progress-fill" id="progress" style="width: 0%"></div>
+    </div>
+    <div class="progress-text" id="progressText">0 / 0</div>
+  </div>
+  <a class="top-exit" onclick="if(confirm('Leave lesson?')) window.close()">Exit</a>
+</div>
+
+<!-- Lesson area -->
+<div class="lesson-area">
+  <div id="cardContainer"></div>
+</div>
+
+<script>
+// ─── Lesson data ───
+const cards = [
+  // ── 0: Welcome ──
+  {
+    type: 'intro',
+    emoji: '👋',
+    title: "Let's learn OpenClaw",
+    body: "By the end of this lesson, you'll have a personal AI agent running on your machine that you can message from your phone. It'll take about 15 minutes.",
+    cta: "Let's go"
+  },
+
+  // ── 1: Who are you? ──
+  {
+    type: 'choice',
+    emoji: '🤔',
+    title: "First — how would you describe yourself?",
+    body: "This helps us adjust the lesson for you.",
+    choices: [
+      { icon: '🎨', label: "Creative / non-technical", desc: "Designer, writer, marketer. Terminal sounds scary.", tag: 'beginner' },
+      { icon: '🔧', label: "Tech-comfortable", desc: "I use dev tools but I'm not a programmer. I've used Claude Code, ChatGPT, etc.", tag: 'comfortable' },
+      { icon: '💻', label: "Developer", desc: "I write code. I know what Docker is.", tag: 'developer' },
+    ],
+    store: 'level',
+    cta: "Continue"
+  },
+
+  // ── 2: What's OpenClaw (concept) ──
+  {
+    type: 'concept',
+    emoji: '🦞',
+    title: "OpenClaw is an AI agent that lives on your computer",
+    body: "You already use AI through chat windows — Claude, ChatGPT. OpenClaw is different. It <strong>runs on your machine</strong>, connects to your messaging apps, and can actually <em>do things</em> for you.",
+    diagram: {
+      nodes: ['You (WhatsApp)', '→', 'OpenClaw (your computer)', '→', 'Does the thing'],
+      highlight: [2],
+      caption: "You message it. It acts."
+    },
+    cta: "Got it"
+  },
+
+  // ── 3: Analogy ──
+  {
+    type: 'concept',
+    emoji: '💡',
+    title: "Think of it like this",
+    analogy: {
+      icon: '🤖',
+      text: "<strong>Claude Code</strong> is like a coworker who sits next to you at your desk. You talk, they help, then they leave.<br><br><strong>OpenClaw</strong> is like a personal assistant who has the keys to your apartment. They're always there, checking your mail, organizing your calendar, sending messages on your behalf — even when you're not home."
+    },
+    cta: "I see the difference"
+  },
+
+  // ── 4: What would you use it for? ──
+  {
+    type: 'choice',
+    emoji: '✨',
+    title: "What sounds most useful to you?",
+    body: "Pick what gets you excited. There's no wrong answer.",
+    choices: [
+      { icon: '📱', label: "Message it from my phone", desc: "Send a WhatsApp message and have it do stuff on my computer", tag: 'whatsapp' },
+      { icon: '📧', label: "Email + calendar automation", desc: "Morning briefings, email triage, scheduling", tag: 'email' },
+      { icon: '🔄', label: "Always-on automation", desc: "Periodic tasks running 24/7 without me", tag: 'automation' },
+      { icon: '🧪', label: "Just curious, honestly", desc: "I want to see what the hype is about", tag: 'curious' },
+    ],
+    store: 'motivation',
+    cta: "Continue"
+  },
+
+  // ── 5: Security honest moment ──
+  {
+    type: 'concept',
+    emoji: '🔐',
+    title: "Let's talk about the elephant in the room",
+    body: "OpenClaw gets <strong>access to your computer</strong>. Terminal, files, everything. That's what makes it powerful — but it's also what makes people nervous. And honestly? You <em>should</em> be a little nervous. That's healthy.",
+    warn: "If someone sends your agent a cleverly-worded message, it could theoretically run commands on your machine. This is called <strong>prompt injection</strong>.",
+    cta: "Okay, so how do we stay safe?"
+  },
+
+  // ── 6: Security — the answer ──
+  {
+    type: 'concept',
+    emoji: '🐳',
+    title: "Docker: your safety net",
+    body: "Here's the good news: we can put OpenClaw inside a <strong>container</strong> — a sealed box on your computer. The agent can do its thing inside the box, but it <strong>can't touch anything outside</strong>. Your files, your passwords, your photos — all protected.",
+    analogy: {
+      icon: '📦',
+      text: "Think of Docker like a <strong>sandbox at a playground</strong>. The kid (your AI agent) can build whatever they want inside the sandbox. But they can't dig into your yard, your house, or your neighbor's property. Everything stays contained."
+    },
+    cta: "That makes sense"
+  },
+
+  // ── 7: Security quiz ──
+  {
+    type: 'quiz',
+    emoji: '🧠',
+    title: "Quick check",
+    question: "Why do we use Docker with OpenClaw?",
+    options: [
+      { text: "It makes OpenClaw run faster", correct: false },
+      { text: "It keeps the AI agent contained so it can't access your personal files", correct: true },
+      { text: "Docker is required — OpenClaw won't work without it", correct: false },
+      { text: "It's just a trendy developer thing", correct: false },
+    ],
+    correctFeedback: "Exactly. Docker creates a safe boundary. OpenClaw works fine without it — but with it, you get peace of mind.",
+    wrongFeedback: "Not quite. Docker creates a safe boundary around OpenClaw so it can't access your personal files. OpenClaw works without Docker, but it's much safer with it."
+  },
+
+  // ── 8: Do you have Docker? ──
+  {
+    type: 'choice',
+    emoji: '🐳',
+    title: "Do you have Docker installed?",
+    body: "We need it for the safe setup.",
+    choices: [
+      { icon: '✅', label: "Yes, I have Docker", desc: "Docker Desktop is installed", tag: 'has_docker' },
+      { icon: '❓', label: "I'm not sure", desc: "I might have it?", tag: 'unsure_docker' },
+      { icon: '❌', label: "No / What's Docker?", desc: "I'll need to install it", tag: 'no_docker' },
+    ],
+    store: 'docker',
+    cta: "Continue"
+  },
+
+  // ── 9: Install Docker (conditional-ish, show for everyone) ──
+  {
+    type: 'action',
+    emoji: '📥',
+    title: "Let's make sure Docker is ready",
+    body: "Open your terminal and type this:",
+    code: 'docker --version',
+    codeCaption: "If you see a version number, you're good. If you see an error:",
+    body2: "Download <strong>Docker Desktop</strong> from docker.com, install it, and make sure it's running (you'll see a whale icon in your menu bar).",
+    link: { url: 'https://docker.com/products/docker-desktop/', text: 'Download Docker Desktop' },
+    troubleshoot: [
+      {
+        label: "\"command not found: docker\"",
+        error: "zsh: command not found: docker",
+        fix: "Docker isn't installed yet. Download it from <a href='https://docker.com/products/docker-desktop/' target='_blank' style='color:var(--accent)'>docker.com</a>, run the installer, then open Docker Desktop from your Applications folder. Wait for the whale icon to appear in your menu bar before trying again."
+      },
+      {
+        label: "Docker version shows but commands fail",
+        error: "Cannot connect to the Docker daemon",
+        fix: "Docker is installed but not running. Open <strong>Docker Desktop</strong> from your Applications folder and wait for it to start (whale icon in menu bar stops animating). Then try again."
+      }
+    ],
+    cta: "Docker is running"
+  },
+
+  // ── 10: Install Node ──
+  {
+    type: 'action',
+    emoji: '📦',
+    title: "Next: make sure Node.js is installed",
+    body: "OpenClaw needs <strong>Node.js version 22.12 or higher</strong>. Check yours:",
+    code: 'node --version',
+    codeCaption: "You need to see <strong>v22.12.0</strong> or higher. Not v20, not v18 — specifically v22.12+.",
+    body2: "If your version is too old or you get an error, you'll need to upgrade.",
+    link: { url: 'https://nodejs.org/', text: 'Download Node.js (v22 LTS)' },
+    troubleshoot: [
+      {
+        label: "My version is v20 or v18 (too old)",
+        error: "v20.17.0 / v18.x.x",
+        fix: "<strong>If you use nvm</strong> (check with <code>nvm --version</code>):<br><code>nvm install 22</code><br><code>nvm use 22</code><br><code>nvm alias default 22</code><br><br><strong>If you don't use nvm</strong>, download the latest v22 LTS from <a href='https://nodejs.org/' target='_blank' style='color:var(--accent)'>nodejs.org</a> and run the installer. It'll replace your current version.<br><br>After upgrading, close your terminal, open a new one, and run <code>node --version</code> again to confirm."
+      },
+      {
+        label: "\"command not found: node\"",
+        error: "zsh: command not found: node",
+        fix: "Node.js isn't installed. The easiest way: download it from <a href='https://nodejs.org/' target='_blank' style='color:var(--accent)'>nodejs.org</a> (pick the LTS version, currently v22). Run the installer, then open a <strong>new</strong> terminal window and try <code>node --version</code> again."
+      },
+      {
+        label: "I upgraded but it still shows the old version",
+        error: "Still showing v20.x after install",
+        fix: "Your terminal is caching the old path. Try these in order:<br>1. Close your terminal completely and open a new one<br>2. Run <code>which node</code> to see which Node it's using<br>3. If you use nvm: <code>nvm use 22</code> then <code>nvm alias default 22</code><br>4. If you installed from nodejs.org: the installer may need a restart to update your PATH"
+      }
+    ],
+    cta: "Node v22.12+ confirmed"
+  },
+
+  // ── 11: Preempt Docker confusion ──
+  {
+    type: 'concept',
+    emoji: '🧩',
+    title: "Wait — didn't we just talk about Docker?",
+    body: "Good instinct. Here's how it works:",
+    bullets: [
+      "<strong>OpenClaw itself</strong> installs on your machine — just like any app. This is safe. It's just software sitting there.",
+      "<strong>The AI agent</strong> is the part that actually runs commands and does things. That's the part we put inside Docker.",
+      "Think of it this way: you install the <strong>remote control</strong> (OpenClaw) normally. The <strong>robot</strong> (the agent) goes in the sandbox."
+    ],
+    safe: "The next step installs OpenClaw. This is like downloading an app — it doesn't do anything until you tell it to. The sandboxing comes later, when we activate the agent.",
+    cta: "That makes sense"
+  },
+
+  // ── 12: THE install ──
+  {
+    type: 'action',
+    emoji: '🦞',
+    title: "Now the fun part — install OpenClaw",
+    body: "One command. That's it.",
+    code: 'npm install -g openclaw@latest',
+    body2: "This installs OpenClaw globally so you can run it from anywhere in your terminal. It might take a minute.",
+    helpItems: [
+      { q: "Is this safe? What does 'globally' mean?", a: "Global just means you can run the <code>openclaw</code> command from any folder. It's like installing an app to your Applications folder vs. only one specific folder. <strong>No code runs until you explicitly start it.</strong>" },
+      { q: "Shouldn't this install inside Docker?", a: "Nope — OpenClaw itself is just a tool, like installing Slack or VS Code. The <strong>agent</strong> (the part that runs commands) is what goes in the Docker sandbox. We'll set that up in a few steps." }
+    ],
+    troubleshoot: [
+      {
+        label: "EACCES / permission denied",
+        error: "npm ERR! Error: EACCES: permission denied",
+        fix: "Your system needs elevated permissions for global installs. Run:<br><code>sudo npm install -g openclaw@latest</code><br>It'll ask for your computer password. This is normal."
+      },
+      {
+        label: "npm: command not found",
+        error: "zsh: command not found: npm",
+        fix: "npm comes bundled with Node.js. If this happens, go back to the previous step and install Node.js first. Once Node is installed, npm will be available too."
+      },
+      {
+        label: "Network / timeout errors",
+        error: "npm ERR! network / ETIMEDOUT",
+        fix: "Check your internet connection and try again. If you're behind a VPN or corporate firewall, try disconnecting the VPN temporarily. You can also try:<br><code>npm install -g openclaw@latest --registry https://registry.npmjs.org/</code>"
+      }
+    ],
+    cta: "Installed!"
+  },
+
+  // ── 13: Preempt the security wall ──
+  {
+    type: 'concept',
+    emoji: '🛑',
+    title: "Heads up — you're about to see a scary warning",
+    body: "When you run the wizard, OpenClaw will show a security warning in red text. It says things like <em>\"hobby project\"</em>, <em>\"still in beta\"</em>, <em>\"a bad prompt can trick it into doing unsafe things.\"</em>",
+    body2: "Your gut reaction will be: <strong>should I even be doing this?</strong> That's normal. Here's how to read it:",
+    bullets: [
+      "<strong>This is actually a good sign.</strong> The developers are being transparent about the risks instead of hiding them. Most software has these risks — OpenClaw just tells you upfront.",
+      "<strong>\"Hobby project\" doesn't mean unsafe.</strong> It means a small team, moving fast. Linux started as a hobby project. So did most open-source tools you use.",
+      "<strong>The risks it describes are real — and that's exactly why we set up Docker.</strong> The sandbox we'll configure makes those risks manageable. You're doing this the careful way.",
+      "<strong>It'll ask: \"I understand this is powerful and inherently risky. Continue?\"</strong> Say <strong>Yes</strong>. You've already taken the safety precautions."
+    ],
+    cta: "I'm ready for it"
+  },
+
+  // ── 14: Onboard ──
+  {
+    type: 'action',
+    emoji: '🧙',
+    title: "Run the setup wizard",
+    body: "This walks you through configuring everything:",
+    code: 'openclaw onboard --install-daemon',
+    body2: "The wizard will ask you a bunch of questions. Don't stress — here's what to pick for each one. We'll go through them together on the next screens.",
+    helpItems: [
+      { q: "What does --install-daemon mean?", a: "A daemon is a program that runs in the background. This flag tells OpenClaw to set itself up so it can keep running even when you close the terminal. Think of it like setting an app to 'open at login.'" },
+      { q: "Can I redo the wizard later?", a: "Yes! You can run <code>openclaw onboard</code> again anytime to reconfigure. Nothing is permanent." }
+    ],
+    troubleshoot: [
+      {
+        label: "\"openclaw requires Node >=22.12.0\"",
+        error: "openclaw requires Node >=22.12.0",
+        fix: "Your Node.js version is too old. Go back one step — you need v22.12 or higher.<br><br><strong>If you use nvm:</strong><br><code>nvm install 22</code><br><code>nvm use 22</code><br><code>nvm alias default 22</code><br><br><strong>If you don't use nvm:</strong> download the latest from <a href='https://nodejs.org/' target='_blank' style='color:var(--accent)'>nodejs.org</a>.<br><br>Then open a <strong>new terminal window</strong> and try again."
+      },
+      {
+        label: "\"command not found: openclaw\"",
+        error: "zsh: command not found: openclaw",
+        fix: "OpenClaw didn't install properly in the previous step. Go back and try:<br><code>npm install -g openclaw@latest</code><br><br>If that gives a permission error:<br><code>sudo npm install -g openclaw@latest</code><br><br>Then try <code>openclaw onboard --install-daemon</code> again."
+      }
+    ],
+    cta: "Wizard is running"
+  },
+
+  // ── 15: Wizard choices (gateway) ──
+  {
+    type: 'concept',
+    emoji: '1️⃣',
+    title: "Wizard: Gateway type → Local",
+    body: "It asks: <em>Local or Remote?</em>",
+    concept: {
+      label: 'What to pick',
+      title: 'Local',
+      desc: "You're running this on your own computer. Pick Local."
+    },
+    cta: "Next question"
+  },
+
+  // ── 16: Wizard choices (workspace) ──
+  {
+    type: 'concept',
+    emoji: '2️⃣',
+    title: "Wizard: Workspace → Default",
+    body: "It asks where to store OpenClaw's files.",
+    concept: {
+      label: 'What to pick',
+      title: 'Just press Enter (accept the default)',
+      desc: "It'll use ~/.openclaw which is fine. No need to change this."
+    },
+    cta: "Next question"
+  },
+
+  // ── 17: Wizard choices (model) ──
+  {
+    type: 'concept',
+    emoji: '3️⃣',
+    title: "Wizard: AI Model — this one matters",
+    body: "The wizard asks which AI provider to use. This is where you choose the brain powering your agent.",
+    concept: {
+      label: 'Two good options',
+      title: 'Pick based on whether you want to pay or not',
+      desc: "See below."
+    },
+    bullets: [
+      "<strong>Free option: Google → Gemini Flash.</strong> 20 free requests/day. No credit card needed. Perfect for trying things out. Pick this if you just want to explore.",
+      "<strong>Paid option: Anthropic → Claude Opus.</strong> Best quality and most secure against prompt injection (bigger models are harder to trick). But you need a <strong>funded Anthropic API account</strong> — go to console.anthropic.com, add a payment method, and buy credits <em>before</em> you pick this option. If your balance is $0, your agent won't work."
+    ],
+    warn: "<strong>Important:</strong> An API key is not the same as a subscription. Even if you pay for Claude Pro ($20/month), that doesn't give you API credits. The API is billed separately at console.anthropic.com. When in doubt, start with Google's free tier.",
+    cta: "Next question"
+  },
+
+  // ── 18: Wizard choices (rest) ──
+  {
+    type: 'concept',
+    emoji: '4️⃣',
+    title: "Wizard: Everything else → Defaults",
+    body: "For the remaining questions:",
+    bullets: [
+      "<strong>Gateway port</strong> → Default (18789)",
+      "<strong>Gateway bind</strong> → Loopback (most secure)",
+      "<strong>Tailscale</strong> → Off",
+      "<strong>Chat channels</strong> → If it offers WhatsApp, go ahead and set it up now! It'll show a QR code — scan it with your phone (WhatsApp → Settings → Linked Devices → Link a Device). If you'd rather skip it, that's fine — we can do it later.",
+      "<strong>Skills</strong> → Skip (we'll add later)",
+      "<strong>Hooks</strong> → Enable boot.md",
+      "<strong>Service runtime</strong> → Node"
+    ],
+    safe: "If you see a default option, pick it. You can always change these later.",
+    cta: "Wizard complete!"
+  },
+
+  // ── 19: Meet your agent ──
+  {
+    type: 'action',
+    emoji: '🎉',
+    title: "Say hello to your agent",
+    body: "The wizard is done. Now launch the terminal interface:",
+    code: 'openclaw',
+    body2: "Your agent wakes up and introduces itself. It'll ask for a name, a personality vibe, and then it'll set up its <strong>SOUL.md</strong> file — think of this as your agent's personality config. Tell it who you are, how you like to communicate, and any boundaries. Have fun with it.",
+    troubleshoot: [
+      {
+        label: "\"Your credit balance is too low\"",
+        error: "LLM request rejected: Your credit balance is too low",
+        fix: "Your AI provider account doesn't have enough credits. Two ways to fix this:<br><br><strong>Option A — Add credits:</strong> Go to your provider's billing page (e.g. <a href='https://console.anthropic.com/settings/billing' target='_blank' style='color:var(--accent)'>console.anthropic.com/settings/billing</a> for Anthropic) and add funds.<br><br><strong>Option B — Switch to a free model:</strong> Exit OpenClaw (Ctrl+C), then run:<br><code>openclaw onboard</code><br>Pick <strong>Google → Gemini Flash</strong> instead — it's free (20 requests/day). You can always switch back later."
+      },
+      {
+        label: "\"Invalid API key\" or authentication error",
+        error: "401 / Invalid API key",
+        fix: "The API key you entered during setup might be wrong or expired. Run <code>openclaw onboard</code> again and re-enter your API key. Make sure you're copying the full key (starts with <code>sk-</code> for Anthropic)."
+      },
+      {
+        label: "It says \"connected\" but nothing happens",
+        error: "connected | error",
+        fix: "Wait about 10 seconds — the first response can be slow. If it still says error, check the status bar at the bottom. If it mentions your model provider, the API connection might be failing. Try <code>openclaw onboard</code> to reconfigure."
+      }
+    ],
+    cta: "We're chatting!"
+  },
+
+  // ── 20: Celebrate first milestone ──
+  {
+    type: 'milestone',
+    emoji: '🏆',
+    title: "Milestone: Your agent is alive",
+    body: "You just set up a personal AI agent running on your machine. It knows your name, it's listening, and it's ready to work. But right now it's just a chat — let's make it actually <em>useful</em>.",
+    cta: "Let's keep going"
+  },
+
+  // ── 21: Security setup ──
+  {
+    type: 'action',
+    emoji: '🔒',
+    title: "Lock it down — ask your agent to audit itself",
+    body: "Before we connect anything, let's check for issues. Type this <strong>in your agent chat</strong> (the OpenClaw TUI):",
+    code: 'openclaw security audit deep',
+    codeLabel: "TYPE THIS IN THE OPENCLAW CHAT",
+    body2: "Your agent will scan your setup, show you what it finds, and <strong>propose fixes with your approval</strong>. It'll walk you through each issue — what's wrong, what the fix is, and whether to proceed. You just review and say yes or no.",
+    safe: "This is one of the cool parts: your agent secures itself. You don't need to run separate terminal commands — it handles the audit and the fixes all in one conversation.",
+    helpItems: [
+      { q: "What kinds of issues does it look for?", a: "It checks things like: are your config files readable by other users on this machine? Is anything exposed to the network that shouldn't be? Are your API keys stored safely? Think of it like a home security check." },
+      { q: "What if it finds problems?", a: "Your agent will show you the findings and propose a remediation plan. You review each fix and approve it. The agent executes the commands for you — you don't need to run anything manually." }
+    ],
+    troubleshoot: [
+      {
+        label: "Agent says it can't find lsof or netstat",
+        error: "command not found: lsof / netstat",
+        fix: "The agent might not have these tools on its PATH. When it asks, tell it to adjust its PATH to include <code>/usr/sbin</code> and <code>/sbin</code>. Or just tell it: <em>\"Add /usr/sbin to your PATH and try again.\"</em>"
+      }
+    ],
+    cta: "Audit done, fixes applied"
+  },
+
+  // ── 22: Docker sandbox setup ──
+  {
+    type: 'action',
+    emoji: '🐳',
+    title: "Enable the Docker sandbox",
+    body: "Now let's put your agent in the safe container. Tell your agent (in the TUI chat):",
+    code: 'Enable Docker sandbox for the default agent on agent scope',
+    codeLabel: "TYPE THIS IN THE OPENCLAW CHAT (not your terminal)",
+    body2: "Your agent will configure the sandbox itself and restart the gateway. When it's done, it'll confirm the sandbox is active.",
+    safe: "<strong>You're now protected.</strong> Your agent can't access your personal files, desktop, or anything outside its container.",
+    warn: "<strong>Heads up:</strong> Once sandboxed, your agent can't run <code>openclaw</code> terminal commands (like enabling plugins). Any <code>openclaw ...</code> commands from this point on need to be run in <strong>your terminal</strong>, not through the agent chat.",
+    helpItems: [
+      { q: "What does 'agent scope' mean?", a: "It means the sandbox applies to this specific agent. If you create other agents later, you'd sandbox them separately. Each agent gets its own container." },
+      { q: "Can the agent still do useful things in a sandbox?", a: "Absolutely. It can read/write files in its workspace, run code, access the internet, send messages. It just can't touch <strong>your</strong> personal files, passwords, or system settings." },
+      { q: "What if I want to give it access to a specific folder?", a: "You can mount specific folders into the container later. That way the agent can see exactly what you choose — and nothing else. But for now, the default workspace is plenty." },
+      { q: "Why can't my agent run openclaw commands anymore?", a: "The <code>openclaw</code> binary lives on your host machine, not inside the Docker container. The agent can only see what's inside its sandbox. System-level commands like <code>openclaw plugins enable</code> need to be run in your regular terminal." }
+    ],
+    cta: "Sandboxed!"
+  },
+
+  // ── 23: Verify sandbox ──
+  {
+    type: 'action',
+    emoji: '🧪',
+    title: "Test it — try to break out",
+    body: "Ask your agent:",
+    code: 'Can you access my desktop files?',
+    codeLabel: "ASK YOUR AGENT THIS",
+    body2: "It should say something like: <em>\"Nope, I'm sandboxed. I can only see files in my workspace.\"</em>",
+    safe: "If it says it can't access your files, you're golden. The sandbox is working.",
+    cta: "It's contained!"
+  },
+
+  // ── 24: Quiz 2 ──
+  {
+    type: 'quiz',
+    emoji: '🧠',
+    title: "Quick check",
+    question: "Your agent is sandboxed. What can it access?",
+    options: [
+      { text: "Everything on my computer", correct: false },
+      { text: "Only files inside its Docker container workspace", correct: true },
+      { text: "Nothing at all — it's completely locked", correct: false },
+      { text: "Only my browser", correct: false },
+    ],
+    correctFeedback: "Right! It has a workspace inside the container where it can read and write files. But your personal stuff stays untouched.",
+    wrongFeedback: "Not quite. The sandbox gives the agent access to a workspace inside the container — but nothing else on your computer. It can still do useful work within that space."
+  },
+
+  // ── 25: Connect WhatsApp ──
+  {
+    type: 'concept',
+    emoji: '📱',
+    title: "The aha moment — message your agent from your phone",
+    body: "If you set up WhatsApp during the wizard, you're already connected — skip to the next card and send a message.",
+    body2: "If you skipped it, no problem. Run this in your terminal:",
+    code: 'openclaw plugins enable whatsapp && openclaw gateway restart && openclaw channels login',
+    codeCaption: "A QR code will appear. Scan it with your phone's WhatsApp (Settings → Linked Devices → Link a Device).",
+    warn: "<strong>Important:</strong> Only message your bot in a 1-on-1 chat. Never add it to a group — anyone in the group could control your agent.",
+    helpItems: [
+      { q: "Can anyone message my agent?", a: "By default, only you can — it's linked to your WhatsApp number. But if you add it to a group chat, anyone in that group could send it commands. That's why we say: <strong>keep it 1-on-1 only.</strong>" },
+      { q: "Does this use my WhatsApp account?", a: "It links as a 'Linked Device' — similar to WhatsApp Web. Your regular WhatsApp keeps working normally. You can unlink it anytime from Settings → Linked Devices." },
+      { q: "What if I don't use WhatsApp?", a: "OpenClaw also supports Discord, Telegram, and Signal. You can skip this and set up a different channel later. The aha moment works with any of them." }
+    ],
+    cta: "WhatsApp is ready"
+  },
+
+  // ── 26: Send your first message ──
+  {
+    type: 'action',
+    emoji: '💬',
+    title: "Send it a message from your phone",
+    body: "Open WhatsApp on your phone. To find the chat:",
+    bullets: [
+      "Tap the <strong>+</strong> button (top right)",
+      "Search for <strong>your own phone number</strong>",
+      "Open that chat — this is where your agent lives"
+    ],
+    body2: "Now send it something that shows it <em>remembers</em>:",
+    code: "What did we set up today? Give me a summary.",
+    codeLabel: "SEND THIS VIA WHATSAPP",
+    safe: "Wait a few seconds. Your agent — running on your computer — reads the message, thinks about it, and responds with a full summary of everything you did. <strong>From your phone. To your computer. And back.</strong>",
+    helpItems: [
+      { q: "I can't find a chat with my number", a: "WhatsApp links OpenClaw as a 'Linked Device.' Message your own phone number — that's where the agent receives messages. If you're unsure, ask your agent in the TUI: <em>\"How do I message you on WhatsApp?\"</em>" },
+      { q: "I sent a message but got no response", a: "Make sure OpenClaw is still running in your terminal (the TUI should be open). Also check that the gateway is connected — the status bar should say <code>connected | idle</code>. If the gateway disconnected, run <code>openclaw gateway restart</code> in your terminal." },
+      { q: "All the chat bubbles are on the right side — is that normal?", a: "Yes! Since you're messaging your own number, WhatsApp shows everything as 'sent by you.' Your messages and the agent's replies both appear on the right. It looks a bit odd but it works perfectly. This is a WhatsApp quirk, not an OpenClaw issue." }
+    ],
+    cta: "I got a response!"
+  },
+
+  // ── 27: AHA moment ──
+  {
+    type: 'milestone',
+    emoji: '🤯',
+    title: "That's the aha moment",
+    body: "You just messaged an AI from your phone, and it did something on your computer. This isn't a cloud service. This isn't someone else's server. This is <strong>your agent, on your machine, under your control.</strong>",
+    body2: "Now imagine: you're at the grocery store and you message it <em>\"What meetings do I have tomorrow?\"</em> Or you're on the couch and you say <em>\"Draft a response to that email from Sarah.\"</em> Or you set it up to send you a morning briefing every day at 7am.",
+    cta: "This is wild"
+  },
+
+  // ── 28: What's next ──
+  {
+    type: 'concept',
+    emoji: '🗺️',
+    title: "Where to go from here",
+    body: "You've got the foundation. Here's what to explore next:",
+    bullets: [
+      "<strong>Schedule daily audits</strong> — Ask your agent: <em>\"Set up a daily security audit at 3 AM\"</em>. It'll use cron and notify you via WhatsApp.",
+      "<strong>Refine your SOUL.md</strong> — The more you customize your agent's personality and boundaries, the better it works for you",
+      "<strong>Add skills</strong> — Install the Obsidian, email, or Google Workspace skills to expand what your agent can do",
+      "<strong>Set up Discord or Telegram</strong> — Add more messaging channels so you can reach your agent from anywhere",
+      "<strong>Write your own skill</strong> — Teach it something specific to your workflow"
+    ],
+    cta: "Got it!"
+  },
+
+  // ── 29: Celebration ──
+  {
+    type: 'celebration',
+    title: "Lesson complete!",
+    body: "You installed OpenClaw, gave it a personality, secured it with a full audit, and messaged your personal AI agent from your phone. It's running on your machine, under your control.",
+    stats: true
+  }
+];
+
+// ─── State ───
+let current = 0;
+let answers = {};
+const total = cards.length;
+
+// ─── Render ───
+function render() {
+  const c = cards[current];
+  const container = document.getElementById('cardContainer');
+
+  // Progress
+  const pct = ((current + 1) / total) * 100;
+  document.getElementById('progress').style.width = pct + '%';
+  document.getElementById('progressText').textContent = `${current + 1} / ${total}`;
+
+  let html = `<div class="card active">`;
+
+  if (c.type === 'celebration') {
+    html += `<div class="celebration">`;
+    html += `<div class="celebration-emoji">🎓</div>`;
+    html += `<h2>${c.title}</h2>`;
+    html += `<p>${c.body}</p>`;
+    if (c.stats) {
+      html += `<div style="margin-top:24px; display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">`;
+      html += `<div style="background:var(--card); border:1px solid var(--border); border-radius:12px; padding:16px 24px; text-align:center;"><div style="font-size:28px; font-weight:700; color:var(--green);">8</div><div style="font-size:12px; color:var(--text-muted); margin-top:4px;">Steps completed</div></div>`;
+      html += `<div style="background:var(--card); border:1px solid var(--border); border-radius:12px; padding:16px 24px; text-align:center;"><div style="font-size:28px; font-weight:700; color:var(--accent);">2</div><div style="font-size:12px; color:var(--text-muted); margin-top:4px;">Quizzes passed</div></div>`;
+      html += `<div style="background:var(--card); border:1px solid var(--border); border-radius:12px; padding:16px 24px; text-align:center;"><div style="font-size:28px; font-weight:700; color:var(--yellow);">1</div><div style="font-size:12px; color:var(--text-muted); margin-top:4px;">Agent created</div></div>`;
+      html += `</div>`;
+      html += `<button class="continue-btn" style="margin-top:28px; max-width:300px; margin-left:auto; margin-right:auto;" onclick="window.location.href='openclaw-setup.html'">View full reference guide →</button>`;
+    }
+    html += `</div>`;
+  }
+  else {
+    if (c.emoji) html += `<div class="card-emoji">${c.emoji}</div>`;
+    if (c.title) html += `<h2>${c.title}</h2>`;
+    if (c.body) html += `<p>${c.body}</p>`;
+
+    // Concept box
+    if (c.concept) {
+      html += `<div class="concept-box"><div class="concept-label">${c.concept.label}</div><h3>${c.concept.title}</h3><p>${c.concept.desc}</p></div>`;
+    }
+
+    // Analogy
+    if (c.analogy) {
+      html += `<div class="analogy"><div class="analogy-icon">${c.analogy.icon}</div><div class="analogy-text">${c.analogy.text}</div></div>`;
+    }
+
+    // Diagram
+    if (c.diagram) {
+      html += `<div class="diagram"><div class="diagram-flow">`;
+      c.diagram.nodes.forEach((n, i) => {
+        if (n === '→') {
+          html += `<div class="diagram-arrow">→</div>`;
+        } else {
+          const hl = c.diagram.highlight?.includes(i) ? ' highlight' : '';
+          html += `<div class="diagram-node${hl}">${n}</div>`;
+        }
+      });
+      html += `</div>`;
+      if (c.diagram.caption) html += `<div class="diagram-caption">${c.diagram.caption}</div>`;
+      html += `</div>`;
+    }
+
+    // Bullets
+    if (c.bullets) {
+      html += `<div style="margin:16px 0;"><ul style="list-style:none; padding:0;">`;
+      c.bullets.forEach(b => {
+        html += `<li style="padding:8px 0; border-bottom:1px solid var(--border); color:var(--text-dim); font-size:14px; line-height:1.6;">${b}</li>`;
+      });
+      html += `</ul></div>`;
+    }
+
+    // Code
+    if (c.code) {
+      if (c.codeLabel) html += `<div style="font-size:11px; text-transform:uppercase; letter-spacing:1px; color:var(--accent); font-weight:600; margin-bottom:6px; margin-top:16px;">${c.codeLabel}</div>`;
+      html += `<div class="lesson-code"><button class="lesson-code-copy" onclick="copyCode(this)">Copy</button>${c.code}</div>`;
+    }
+    if (c.codeCaption) html += `<p style="font-size:14px;">${c.codeCaption}</p>`;
+    if (c.body2) html += `<p>${c.body2}</p>`;
+    if (c.code2) {
+      html += `<div class="lesson-code"><button class="lesson-code-copy" onclick="copyCode(this)">Copy</button>${c.code2}</div>`;
+    }
+
+    // Link
+    if (c.link) {
+      html += `<a href="${c.link.url}" target="_blank" style="display:inline-block; margin:8px 0 16px; color:var(--accent); font-size:14px; font-weight:600; text-decoration:none;">${c.link.text} ↗</a>`;
+    }
+
+    // Warning
+    if (c.warn) html += `<div class="warn-box">${c.warn}</div>`;
+    // Safe
+    if (c.safe) html += `<div class="safe-box">${c.safe}</div>`;
+
+    // Contextual help
+    if (c.helpItems && c.helpItems.length) {
+      html += `<button class="help-toggle" onclick="toggleHelp(this)">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M6.5 6.5a1.5 1.5 0 1 1 1.5 1.5v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="8" cy="11.5" r="0.75" fill="currentColor"/></svg>
+        Have a question about this step?
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="margin-left:auto"><path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>`;
+      html += `<div class="help-panel">`;
+      c.helpItems.forEach((item, i) => {
+        html += `<div class="help-q" onclick="toggleHelpQ(this)"><span class="help-q-icon">?</span><span class="help-q-text">${item.q}</span></div>`;
+        html += `<div class="help-answer">${item.a}</div>`;
+      });
+      html += `</div>`;
+    }
+
+    // Troubleshoot (error help)
+    if (c.troubleshoot && c.troubleshoot.length) {
+      html += `<button class="trouble-toggle" onclick="toggleTrouble(this)">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1L1 14h14L8 1z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M8 6v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="8" cy="12" r="0.75" fill="currentColor"/></svg>
+        Got an error? Let's fix it
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="margin-left:auto"><path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>`;
+      html += `<div class="trouble-panel">`;
+      c.troubleshoot.forEach((item, i) => {
+        html += `<div class="trouble-item" onclick="toggleTroubleItem(this)">`;
+        html += `<div class="trouble-header"><span class="trouble-icon">!</span><div><span class="trouble-label">${item.label}</span>`;
+        if (item.error) html += `<div class="trouble-error">${item.error}</div>`;
+        html += `</div></div></div>`;
+        html += `<div class="trouble-fix">${item.fix}</div>`;
+      });
+      html += `</div>`;
+    }
+
+    // Choices
+    if (c.type === 'choice') {
+      html += `<div class="choices" id="choices">`;
+      c.choices.forEach((ch, i) => {
+        html += `<button class="choice-btn" onclick="selectChoice(${i}, '${c.store}', '${ch.tag}')">
+          <div class="choice-icon">${ch.icon}</div>
+          <div class="choice-text">
+            <span class="choice-label">${ch.label}</span>
+            <span class="choice-desc">${ch.desc}</span>
+          </div>
+        </button>`;
+      });
+      html += `</div>`;
+    }
+
+    // Quiz
+    if (c.type === 'quiz') {
+      html += `<p style="font-weight:600; margin-bottom:12px;">${c.question}</p>`;
+      html += `<div class="quiz-options" id="quizOpts">`;
+      c.options.forEach((o, i) => {
+        html += `<button class="quiz-opt" onclick="answerQuiz(${i}, ${o.correct})">${o.text}</button>`;
+      });
+      html += `</div>`;
+      html += `<div class="quiz-feedback correct-fb" id="correctFb">${c.correctFeedback}</div>`;
+      html += `<div class="quiz-feedback wrong-fb" id="wrongFb">${c.wrongFeedback}</div>`;
+      html += `<div class="nav-row" id="quizNav" style="display:none;">`;
+      if (current > 0) html += `<button class="back-btn" onclick="goBack()">← Back</button>`;
+      html += `<button class="continue-btn" onclick="advance()">Continue</button>`;
+      html += `</div>`;
+    }
+
+    // Navigation (back + continue)
+    if (c.type !== 'quiz') {
+      const ctaLabel = c.cta || 'Continue';
+      const showBack = current > 0;
+      if (c.type === 'choice') {
+        // Choice cards auto-advance on click — only show back
+        if (showBack) {
+          html += `<div class="nav-row"><button class="back-btn" onclick="goBack()">← Back</button></div>`;
+        }
+      } else {
+        html += `<div class="nav-row">`;
+        if (showBack) {
+          html += `<button class="back-btn" onclick="goBack()">← Back</button>`;
+        }
+        html += `<button class="continue-btn ready" onclick="advance()">${ctaLabel}</button>`;
+        html += `</div>`;
+      }
+    }
+  }
+
+  html += `</div>`;
+  container.innerHTML = html;
+}
+
+function advance() {
+  if (current < total - 1) {
+    current++;
+    render();
+    window.scrollTo(0, 0);
+  }
+}
+
+function goBack() {
+  if (current > 0) {
+    current--;
+    render();
+    window.scrollTo(0, 0);
+  }
+}
+
+function selectChoice(idx, store, tag) {
+  answers[store] = tag;
+  document.querySelectorAll('.choice-btn').forEach((b, i) => {
+    b.classList.toggle('selected', i === idx);
+    b.style.pointerEvents = 'none'; // prevent double-click
+  });
+  // Auto-advance after brief visual feedback
+  setTimeout(() => advance(), 400);
+}
+
+function answerQuiz(idx, correct) {
+  const opts = document.querySelectorAll('.quiz-opt');
+  opts.forEach((o, i) => {
+    o.style.pointerEvents = 'none';
+    if (i === idx) {
+      o.classList.add(correct ? 'correct' : 'wrong');
+    }
+    if (cards[current].options[i].correct) {
+      o.classList.add('correct');
+    }
+  });
+  document.getElementById(correct ? 'correctFb' : 'wrongFb').classList.add('show');
+  document.getElementById('quizNav').style.display = 'flex';
+}
+
+function copyCode(btn) {
+  const code = btn.parentElement.textContent.replace('Copy', '').replace('Copied', '').trim();
+  navigator.clipboard.writeText(code);
+  btn.textContent = 'Copied';
+  setTimeout(() => btn.textContent = 'Copy', 1500);
+}
+
+function toggleHelp(btn) {
+  btn.classList.toggle('open');
+  const panel = btn.nextElementSibling;
+  panel.classList.toggle('open');
+}
+
+function toggleHelpQ(el) {
+  const answer = el.nextElementSibling;
+  answer.classList.toggle('open');
+  const panel = el.parentElement;
+  panel.querySelectorAll('.help-answer').forEach(a => {
+    if (a !== answer) a.classList.remove('open');
+  });
+}
+
+function toggleTrouble(btn) {
+  btn.classList.toggle('open');
+  const panel = btn.nextElementSibling;
+  panel.classList.toggle('open');
+}
+
+function toggleTroubleItem(el) {
+  const fix = el.nextElementSibling;
+  fix.classList.toggle('open');
+  // Close other fixes in the same panel
+  const panel = el.parentElement;
+  panel.querySelectorAll('.trouble-fix').forEach(f => {
+    if (f !== fix) f.classList.remove('open');
+  });
+}
+
+// Init
+render();
+</script>
+</body>
+</html>
