@@ -1,0 +1,2463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tutorials | Viben</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+    :root {
+      --bg: #0a0a0a;
+      --sidebar-bg: #0f0f0f;
+      --card: #141414;
+      --card-hover: #1a1a1a;
+      --border: #222;
+      --text: #e4e4e7;
+      --text-dim: #a1a1aa;
+      --text-muted: #71717a;
+      --red: #e63946;
+      --red-dim: rgba(230, 57, 70, 0.15);
+      --red-glow: rgba(230, 57, 70, 0.25);
+      --green: #22c55e;
+      --green-bg: rgba(34, 197, 94, 0.12);
+      --yellow: #eab308;
+      --yellow-bg: rgba(234, 179, 8, 0.12);
+      --blue: #3b82f6;
+      --blue-bg: rgba(59, 130, 246, 0.12);
+      --purple: #8b5cf6;
+      --purple-bg: rgba(139, 92, 246, 0.12);
+      --orange: #f97316;
+      --orange-bg: rgba(249, 115, 22, 0.12);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Sidebar ── */
+    .sidebar {
+      width: 240px;
+      min-height: 100vh;
+      background: var(--sidebar-bg);
+      border-right: 1px solid var(--border);
+      padding: 20px 0;
+      position: fixed;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      z-index: 100;
+    }
+
+    .sidebar-brand {
+      padding: 0 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .sidebar-brand .logo {
+      width: 32px;
+      height: 32px;
+      background: var(--red);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 18px;
+      color: white;
+    }
+
+    .sidebar-brand .brand-text {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 20px;
+      color: var(--text-dim);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .nav-item:hover { color: var(--text); background: rgba(255,255,255,0.03); }
+    .nav-item.active { color: white; }
+    .nav-item.active::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      width: 3px;
+      height: 24px;
+      background: var(--red);
+      border-radius: 0 3px 3px 0;
+    }
+
+    .nav-icon { font-size: 18px; width: 24px; text-align: center; }
+
+    .nav-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 12px 20px;
+    }
+
+    .sidebar-user {
+      position: absolute;
+      bottom: 20px;
+      left: 0;
+      right: 0;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .user-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--red-dim);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--red);
+    }
+
+    .user-name { font-size: 13px; color: var(--text-dim); }
+
+    /* ── Main content ── */
+    .main {
+      margin-left: 240px;
+      flex: 1;
+      min-height: 100vh;
+    }
+
+    .content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 32px 40px;
+    }
+
+    .page-header {
+      margin-bottom: 32px;
+    }
+
+    .page-title {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .page-subtitle {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    /* ── Keep Building section ── */
+    .keep-building {
+      background: linear-gradient(135deg, rgba(230, 57, 70, 0.08), rgba(230, 57, 70, 0.02));
+      border: 1px solid rgba(230, 57, 70, 0.2);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 32px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .keep-building:hover {
+      border-color: rgba(230, 57, 70, 0.4);
+      background: linear-gradient(135deg, rgba(230, 57, 70, 0.12), rgba(230, 57, 70, 0.04));
+    }
+
+    .keep-building-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    .keep-building-label {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--red);
+    }
+
+    .keep-building-step {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .keep-building-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .keep-building-desc {
+      font-size: 13px;
+      color: var(--text-dim);
+      margin-bottom: 16px;
+    }
+
+    .keep-building-progress {
+      height: 6px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 100px;
+      overflow: hidden;
+      margin-bottom: 12px;
+    }
+
+    .keep-building-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--red), #ff6b7a);
+      border-radius: 100px;
+      transition: width 0.5s ease;
+    }
+
+    .keep-building-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .keep-building-tags {
+      display: flex;
+      gap: 8px;
+    }
+
+    .tag {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+
+    .tag-red { background: var(--red-dim); color: var(--red); }
+    .tag-green { background: var(--green-bg); color: var(--green); }
+    .tag-blue { background: var(--blue-bg); color: var(--blue); }
+    .tag-purple { background: var(--purple-bg); color: var(--purple); }
+    .tag-yellow { background: var(--yellow-bg); color: var(--yellow); }
+    .tag-orange { background: var(--orange-bg); color: var(--orange); }
+
+    .btn-resume {
+      background: var(--red);
+      color: white;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .btn-resume:hover { background: #d63040; transform: translateY(-1px); }
+
+    /* ── Section headers ── */
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .section-link {
+      font-size: 13px;
+      color: var(--red);
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .section-link:hover { text-decoration: underline; }
+
+    /* ── Skill Tracking ── */
+    .skills-and-target {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .skills-card, .target-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .skill-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .skill-row:last-child { margin-bottom: 0; }
+
+    .skill-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      flex-shrink: 0;
+    }
+
+    .skill-info { flex: 1; }
+
+    .skill-name {
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+
+    .skill-bar {
+      height: 6px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 100px;
+      overflow: hidden;
+    }
+
+    .skill-fill {
+      height: 100%;
+      border-radius: 100px;
+      transition: width 0.6s ease;
+    }
+
+    .skill-xp {
+      font-size: 12px;
+      color: var(--text-muted);
+      flex-shrink: 0;
+      min-width: 50px;
+      text-align: right;
+    }
+
+    .target-title {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .weekly-dots {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .weekly-dot {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .weekly-dot.done {
+      border-color: var(--green);
+      background: var(--green-bg);
+      color: var(--green);
+    }
+
+    .weekly-dot.today {
+      border-color: var(--red);
+      color: var(--red);
+    }
+
+    .streak-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px;
+      background: rgba(255,255,255,0.03);
+      border-radius: 8px;
+      margin-bottom: 12px;
+    }
+
+    .streak-icon { font-size: 20px; }
+    .streak-label { font-size: 13px; color: var(--text-dim); flex: 1; }
+    .streak-count { font-size: 18px; font-weight: 700; color: var(--yellow); }
+
+    .target-goal {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .target-goal-value {
+      font-size: 13px;
+      color: var(--text-dim);
+      font-weight: 500;
+    }
+
+    /* ── Build Paths ── */
+    .build-paths {
+      margin-bottom: 32px;
+    }
+
+    .paths-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .path-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      cursor: pointer;
+      transition: all 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .path-card:hover {
+      border-color: rgba(255,255,255,0.15);
+      background: var(--card-hover);
+      transform: translateY(-2px);
+    }
+
+    .path-emoji {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+
+    .path-title {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .path-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+
+    .path-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .path-steps {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .path-difficulty {
+      font-size: 11px;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    /* ── Filter rows ── */
+    .filter-group {
+      margin-bottom: 12px;
+    }
+
+    .filter-label {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .filter-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+
+    .filter-row:last-child { margin-bottom: 0; }
+
+    .vibe-btn {
+      padding: 7px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-dim);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.15s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .vibe-btn:hover { border-color: var(--text-muted); color: var(--text); }
+    .vibe-btn.active {
+      border-color: var(--red);
+      background: var(--red-dim);
+      color: var(--red);
+    }
+
+    .tool-chip {
+      padding: 6px 12px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-dim);
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.15s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: inherit;
+    }
+
+    .tool-chip:hover { border-color: var(--text-muted); color: var(--text); }
+    .tool-chip.active {
+      border-color: var(--red);
+      background: var(--red-dim);
+      color: var(--red);
+    }
+
+    .tool-chip-icon {
+      width: 18px;
+      height: 18px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .tool-chip-count {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-left: 2px;
+    }
+
+    /* ── Just Dropped ── */
+    .just-dropped {
+      margin-bottom: 32px;
+    }
+
+    .drops-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .drop-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .drop-card:hover {
+      border-color: rgba(255,255,255,0.15);
+      background: var(--card-hover);
+    }
+
+    .drop-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .drop-info { flex: 1; }
+
+    .drop-title {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 3px;
+    }
+
+    .drop-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .drop-time {
+      font-size: 11px;
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+
+    .drop-new {
+      background: var(--red);
+      color: white;
+      font-size: 10px;
+      font-weight: 600;
+      padding: 2px 6px;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+
+    /* ── Unstuck button ── */
+    .unstuck-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--red);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      box-shadow: 0 4px 24px rgba(230, 57, 70, 0.3);
+      transition: all 0.2s;
+      z-index: 200;
+    }
+
+    .unstuck-btn:hover {
+      transform: scale(1.08);
+      box-shadow: 0 6px 32px rgba(230, 57, 70, 0.45);
+    }
+
+    .unstuck-tooltip {
+      position: fixed;
+      bottom: 88px;
+      right: 24px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: 12px;
+      color: var(--text-dim);
+      white-space: nowrap;
+      opacity: 0;
+      transform: translateY(4px);
+      transition: all 0.2s;
+      pointer-events: none;
+      z-index: 200;
+    }
+
+    .unstuck-btn:hover + .unstuck-tooltip {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── Chat panel ── */
+    .chat-panel {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 380px;
+      height: 500px;
+      background: var(--sidebar-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      display: none;
+      flex-direction: column;
+      z-index: 300;
+      box-shadow: 0 8px 48px rgba(0,0,0,0.5);
+    }
+
+    .chat-panel.open { display: flex; }
+
+    .chat-header {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .chat-header-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .chat-header-title {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .chat-header-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+    }
+
+    .chat-close {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 18px;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .chat-close:hover { color: var(--text); }
+
+    .chat-messages {
+      flex: 1;
+      padding: 16px 20px;
+      overflow-y: auto;
+    }
+
+    .chat-msg {
+      margin-bottom: 16px;
+    }
+
+    .chat-msg-bot {
+      background: var(--card);
+      border-radius: 12px 12px 12px 4px;
+      padding: 12px 16px;
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--text-dim);
+      max-width: 90%;
+    }
+
+    .chat-msg-bot strong { color: var(--text); }
+
+    .chat-input-area {
+      padding: 12px 16px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .chat-input {
+      flex: 1;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 13px;
+      color: var(--text);
+      outline: none;
+      font-family: inherit;
+    }
+
+    .chat-input::placeholder { color: var(--text-muted); }
+    .chat-input:focus { border-color: var(--red); }
+
+    .chat-send {
+      background: var(--red);
+      border: none;
+      color: white;
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .chat-attach {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 18px;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .chat-attach:hover { color: var(--text-dim); }
+
+    /* ── Onboarding Modal ── */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(4px);
+      z-index: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-overlay.hidden { display: none; }
+
+    .modal {
+      background: var(--sidebar-bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      width: 520px;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 32px;
+    }
+
+    .modal-title {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .modal-subtitle {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+    }
+
+    .modal-section {
+      margin-bottom: 24px;
+    }
+
+    .modal-section-title {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .modal-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .modal-chip {
+      padding: 8px 16px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-dim);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.15s;
+      font-family: inherit;
+    }
+
+    .modal-chip:hover { border-color: var(--text-muted); color: var(--text); }
+    .modal-chip.selected {
+      border-color: var(--red);
+      background: var(--red-dim);
+      color: var(--red);
+    }
+
+    .modal-start {
+      width: 100%;
+      padding: 14px;
+      border-radius: 10px;
+      border: none;
+      background: var(--red);
+      color: white;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s;
+      font-family: inherit;
+      margin-top: 8px;
+    }
+
+    .modal-start:hover { background: #d63040; }
+
+    /* ── Lesson View (overlay) ── */
+    .lesson-overlay {
+      position: fixed;
+      inset: 0;
+      background: var(--bg);
+      z-index: 400;
+      display: none;
+      flex-direction: column;
+    }
+
+    .lesson-overlay.open { display: flex; }
+
+    .lesson-topbar {
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .lesson-brand {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .lesson-progress-wrap {
+      flex: 1;
+      max-width: 400px;
+      margin: 0 24px;
+    }
+
+    .lesson-progress-track {
+      height: 6px;
+      background: var(--border);
+      border-radius: 100px;
+      overflow: hidden;
+    }
+
+    .lesson-progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--red), #ff6b7a);
+      border-radius: 100px;
+      transition: width 0.4s ease;
+    }
+
+    .lesson-progress-text {
+      font-size: 12px;
+      color: var(--text-muted);
+      text-align: right;
+      margin-top: 4px;
+    }
+
+    .lesson-exit {
+      font-size: 13px;
+      color: var(--text-muted);
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-family: inherit;
+    }
+
+    .lesson-exit:hover { color: var(--text-dim); }
+
+    .lesson-body {
+      flex: 1;
+      overflow-y: auto;
+    }
+
+    .lesson-area {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 32px 24px 24px;
+      min-height: 0;
+    }
+
+    .lesson-card {
+      width: 100%;
+      max-width: 560px;
+      display: none;
+      animation: cardIn 0.35s ease;
+    }
+
+    .lesson-card.active { display: block; }
+
+    /* ── Fixed bottom bar ── */
+    .lesson-bottombar {
+      border-top: 1px solid var(--border);
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--bg);
+      flex-shrink: 0;
+    }
+
+    @keyframes cardIn {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .lc-type {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+    }
+
+    .lc-title {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .lc-body {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text-dim);
+      margin-bottom: 20px;
+    }
+
+    .lc-body code {
+      background: rgba(255,255,255,0.08);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 13px;
+      color: var(--red);
+    }
+
+    .lc-body ul {
+      margin: 10px 0;
+      padding-left: 20px;
+    }
+
+    .lc-body li {
+      margin-bottom: 6px;
+    }
+
+    .lc-vibe-select {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px;
+      margin-bottom: 20px;
+    }
+
+    .lc-vibe-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .lc-vibe-options {
+      display: flex;
+      gap: 6px;
+    }
+
+    .lc-vibe-opt {
+      padding: 6px 12px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 12px;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.15s;
+    }
+
+    .lc-vibe-opt:hover { border-color: var(--text-muted); color: var(--text-dim); }
+    .lc-vibe-opt.active { border-color: var(--red); background: var(--red-dim); color: var(--red); }
+
+    /* ── Modality content areas ── */
+    .modality-content { display: none; }
+    .modality-content.active { display: block; }
+
+    /* Watch mode */
+    .video-placeholder {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      aspect-ratio: 16/9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .video-play {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--red);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .video-meta {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .video-source {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--text-dim);
+      padding: 10px 14px;
+      background: rgba(255,255,255,0.03);
+      border-radius: 8px;
+      margin-bottom: 16px;
+    }
+
+    .video-source-avatar {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--red-dim);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--red);
+    }
+
+    /* Try mode */
+    .try-terminal {
+      background: #0c0c0c;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .try-terminal-header {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+
+    .try-terminal-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .try-prompt { color: var(--green); }
+    .try-comment { color: var(--text-muted); font-style: italic; }
+    .try-output { color: var(--text-dim); }
+    .try-cursor {
+      display: inline-block;
+      width: 8px;
+      height: 16px;
+      background: var(--text);
+      animation: blink 1s step-end infinite;
+      vertical-align: text-bottom;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    .try-task {
+      background: rgba(255,255,255,0.03);
+      border: 1px dashed var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .try-task-label {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--yellow);
+      margin-bottom: 6px;
+    }
+
+    .try-task-text {
+      font-size: 14px;
+      color: var(--text-dim);
+      line-height: 1.5;
+    }
+
+    .try-input-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .try-input {
+      flex: 1;
+      background: #0c0c0c;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 13px;
+      color: var(--text);
+      outline: none;
+    }
+
+    .try-input::placeholder { color: var(--text-muted); }
+    .try-input:focus { border-color: var(--green); }
+
+    .try-run {
+      background: var(--green);
+      border: none;
+      color: white;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    /* Ask mode */
+    .ask-chat {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 16px;
+      max-height: 340px;
+      overflow-y: auto;
+    }
+
+    .ask-msg {
+      margin-bottom: 14px;
+    }
+
+    .ask-msg:last-child { margin-bottom: 0; }
+
+    .ask-bot {
+      background: rgba(255,255,255,0.04);
+      border-radius: 12px 12px 12px 4px;
+      padding: 12px 16px;
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--text-dim);
+      max-width: 88%;
+    }
+
+    .ask-bot strong { color: var(--text); }
+
+    .ask-user {
+      background: var(--red-dim);
+      border-radius: 12px 12px 4px 12px;
+      padding: 10px 16px;
+      font-size: 13px;
+      color: var(--red);
+      max-width: 75%;
+      margin-left: auto;
+    }
+
+    .ask-input-row {
+      display: flex;
+      gap: 8px;
+    }
+
+    .ask-input {
+      flex: 1;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 13px;
+      color: var(--text);
+      outline: none;
+      font-family: inherit;
+    }
+
+    .ask-input::placeholder { color: var(--text-muted); }
+    .ask-input:focus { border-color: var(--red); }
+
+    .ask-send {
+      background: var(--red);
+      border: none;
+      color: white;
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .ask-attach {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 18px;
+      cursor: pointer;
+      padding: 4px;
+      flex-shrink: 0;
+    }
+
+    .ask-attach:hover { color: var(--text-dim); }
+
+    .ask-img {
+      max-width: 200px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      margin-top: 6px;
+    }
+
+    .ask-user-img {
+      max-width: 75%;
+      margin-left: auto;
+      text-align: right;
+    }
+
+    .typing-dots {
+      display: flex;
+      gap: 4px;
+      padding: 8px 0;
+    }
+
+    .typing-dots span {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--text-muted);
+      animation: typingBounce 1.2s infinite;
+    }
+
+    .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+    .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes typingBounce {
+      0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+      30% { transform: translateY(-4px); opacity: 1; }
+    }
+
+    /* ── Chat panel image support ── */
+    .chat-img-preview {
+      max-width: 200px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      margin-top: 6px;
+    }
+
+    .chat-msg-user {
+      background: var(--red-dim);
+      border-radius: 12px 12px 4px 12px;
+      padding: 10px 16px;
+      font-size: 13px;
+      color: var(--red);
+      max-width: 75%;
+      margin-left: auto;
+    }
+
+    .lc-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .lc-btn {
+      padding: 10px 24px;
+      border-radius: 8px;
+      border: none;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.15s;
+    }
+
+    .lc-btn-back {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-dim);
+    }
+
+    .lc-btn-back:hover { border-color: var(--text-muted); }
+
+    .lc-btn-next {
+      background: var(--red);
+      color: white;
+    }
+
+    .lc-btn-next:hover { background: #d63040; }
+
+    /* ── Quiz card ── */
+    .quiz-option {
+      display: block;
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-dim);
+      font-size: 14px;
+      text-align: left;
+      cursor: pointer;
+      font-family: inherit;
+      margin-bottom: 8px;
+      transition: all 0.15s;
+    }
+
+    .quiz-option:hover { border-color: var(--text-muted); color: var(--text); }
+    .quiz-option.correct {
+      border-color: var(--green);
+      background: var(--green-bg);
+      color: var(--green);
+    }
+    .quiz-option.wrong {
+      border-color: var(--red);
+      background: var(--red-dim);
+      color: var(--red);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; }
+      .content { padding: 20px 16px; }
+      .skills-and-target { grid-template-columns: 1fr; }
+      .paths-grid { grid-template-columns: 1fr; }
+      .chat-panel { width: calc(100% - 32px); right: 16px; bottom: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Sidebar ── -->
+  <nav class="sidebar">
+    <div class="sidebar-brand">
+      <div class="logo">V</div>
+      <span class="brand-text">The home of vibe coders</span>
+    </div>
+
+    <a class="nav-item" href="#"><span class="nav-icon">&#x1F3E0;</span> Home</a>
+    <a class="nav-item" href="#"><span class="nav-icon">&#x1F50D;</span> Explore</a>
+    <a class="nav-item" href="#"><span class="nav-icon">&#x1F465;</span> Creators</a>
+    <a class="nav-item" href="#"><span class="nav-icon">&#x1F6E0;</span> Tools</a>
+    <a class="nav-item" href="#"><span class="nav-icon">&#x1F516;</span> Bookmarks</a>
+    <a class="nav-item" href="#"><span class="nav-icon">&#x2709;</span> Digest</a>
+    <div class="nav-divider"></div>
+    <a class="nav-item" href="#"><span class="nav-icon">&#x1F4E1;</span> Go Live</a>
+    <a class="nav-item" href="#"><span class="nav-icon">&#x2728;</span> Vibe Mode</a>
+    <a class="nav-item active" href="#"><span class="nav-icon">&#x1F4D6;</span> Tutorials</a>
+
+    <div class="sidebar-user">
+      <div class="user-avatar">H</div>
+      <span class="user-name">Humayun Khan</span>
+    </div>
+  </nav>
+
+  <!-- ── Main Content ── -->
+  <div class="main">
+    <div class="content">
+
+      <!-- Page header -->
+      <div class="page-header">
+        <div class="page-title">My Vibe Journey</div>
+        <div class="page-subtitle">Pick up where you left off, or start something new.</div>
+      </div>
+
+      <!-- Keep Building -->
+      <div class="keep-building" onclick="openLesson()">
+        <div class="keep-building-top">
+          <span class="keep-building-label">&#x25B6; Keep Building</span>
+          <span class="keep-building-step">Step 4 of 7</span>
+        </div>
+        <div class="keep-building-title">Build a WhatsApp Bot from Zero</div>
+        <div class="keep-building-desc">Current step: Connecting OpenClaw to your WhatsApp number</div>
+        <div class="keep-building-progress">
+          <div class="keep-building-fill" style="width: 57%"></div>
+        </div>
+        <div class="keep-building-bottom">
+          <div class="keep-building-tags">
+            <span class="tag tag-red">OpenClaw</span>
+            <span class="tag tag-blue">Beginner</span>
+          </div>
+          <button class="btn-resume">Resume</button>
+        </div>
+      </div>
+
+      <!-- Skills + Weekly Target -->
+      <div class="section-header">
+        <div class="section-title">Your Skills</div>
+        <a class="section-link">View details</a>
+      </div>
+      <div class="skills-and-target">
+        <div class="skills-card">
+          <div class="skill-row">
+            <div class="skill-icon" style="background: var(--red-dim);">&#x1F4AC;</div>
+            <div class="skill-info">
+              <div class="skill-name">Prompting</div>
+              <div class="skill-bar"><div class="skill-fill" style="width:72%; background: var(--red);"></div></div>
+            </div>
+            <div class="skill-xp">340 XP</div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-icon" style="background: var(--green-bg);">&#x1F680;</div>
+            <div class="skill-info">
+              <div class="skill-name">Deployment</div>
+              <div class="skill-bar"><div class="skill-fill" style="width:47%; background: var(--green);"></div></div>
+            </div>
+            <div class="skill-xp">220 XP</div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-icon" style="background: var(--blue-bg);">&#x1F4BE;</div>
+            <div class="skill-info">
+              <div class="skill-name">Database Setup</div>
+              <div class="skill-bar"><div class="skill-fill" style="width:38%; background: var(--blue);"></div></div>
+            </div>
+            <div class="skill-xp">180 XP</div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-icon" style="background: var(--purple-bg);">&#x1F517;</div>
+            <div class="skill-info">
+              <div class="skill-name">API Integration</div>
+              <div class="skill-bar"><div class="skill-fill" style="width:32%; background: var(--purple);"></div></div>
+            </div>
+            <div class="skill-xp">150 XP</div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-icon" style="background: var(--orange-bg);">&#x1F41B;</div>
+            <div class="skill-info">
+              <div class="skill-name">Debugging with AI</div>
+              <div class="skill-bar"><div class="skill-fill" style="width:25%; background: var(--orange);"></div></div>
+            </div>
+            <div class="skill-xp">120 XP</div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-icon" style="background: var(--yellow-bg);">&#x1F3A8;</div>
+            <div class="skill-info">
+              <div class="skill-name">UI/UX with AI</div>
+              <div class="skill-bar"><div class="skill-fill" style="width:17%; background: var(--yellow);"></div></div>
+            </div>
+            <div class="skill-xp">85 XP</div>
+          </div>
+        </div>
+
+        <div class="target-card">
+          <div class="target-title">Weekly Target</div>
+          <div class="weekly-dots">
+            <div class="weekly-dot done">&#x2713;</div>
+            <div class="weekly-dot done">&#x2713;</div>
+            <div class="weekly-dot today">W</div>
+            <div class="weekly-dot">T</div>
+            <div class="weekly-dot">F</div>
+            <div class="weekly-dot">S</div>
+            <div class="weekly-dot">S</div>
+          </div>
+          <div class="streak-row">
+            <span class="streak-icon">&#x1F525;</span>
+            <span class="streak-label">Day streak</span>
+            <span class="streak-count">2</span>
+          </div>
+          <div class="streak-row">
+            <span class="streak-icon">&#x26A1;</span>
+            <span class="streak-label">Lessons this week</span>
+            <span class="streak-count">4</span>
+          </div>
+          <div style="margin-top: 16px;">
+            <div class="target-goal">Your goal</div>
+            <div class="target-goal-value">Build a SaaS product</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Build Paths -->
+      <div class="build-paths">
+        <div class="section-header">
+          <div class="section-title">Build Paths</div>
+          <a class="section-link">Browse all</a>
+        </div>
+
+        <!-- Filters -->
+        <div class="filter-group">
+          <div class="filter-label">By type</div>
+          <div class="filter-row">
+            <button class="vibe-btn active" onclick="selectFilter(this, 'type')">All</button>
+            <button class="vibe-btn" onclick="selectFilter(this, 'type')">&#x1F4F1; Mobile</button>
+            <button class="vibe-btn" onclick="selectFilter(this, 'type')">&#x1F916; Bots</button>
+            <button class="vibe-btn" onclick="selectFilter(this, 'type')">&#x1F4B3; SaaS</button>
+            <button class="vibe-btn" onclick="selectFilter(this, 'type')">&#x1F310; Websites</button>
+          </div>
+        </div>
+        <div class="filter-group" style="margin-bottom: 20px;">
+          <div class="filter-label">By tool</div>
+          <div class="filter-row">
+            <button class="tool-chip active" onclick="selectFilter(this, 'tool')">All</button>
+            <button class="tool-chip" onclick="selectFilter(this, 'tool')">
+              <span class="tool-chip-icon" style="background: var(--purple-bg); color: var(--purple);">A</span>
+              Claude Code <span class="tool-chip-count">120</span>
+            </button>
+            <button class="tool-chip" onclick="selectFilter(this, 'tool')">
+              <span class="tool-chip-icon" style="background: var(--blue-bg); color: var(--blue);">C</span>
+              Cursor <span class="tool-chip-count">80</span>
+            </button>
+            <button class="tool-chip" onclick="selectFilter(this, 'tool')">
+              <span class="tool-chip-icon" style="background: var(--red-dim); color: var(--red);">O</span>
+              OpenClaw <span class="tool-chip-count">70</span>
+            </button>
+            <button class="tool-chip" onclick="selectFilter(this, 'tool')">
+              <span class="tool-chip-icon" style="background: var(--orange-bg); color: var(--orange);">R</span>
+              Replit <span class="tool-chip-count">11</span>
+            </button>
+            <button class="tool-chip" onclick="selectFilter(this, 'tool')">
+              <span class="tool-chip-icon" style="background: var(--green-bg); color: var(--green);">&#x25B2;</span>
+              Vercel <span class="tool-chip-count">24</span>
+            </button>
+            <button class="tool-chip" onclick="selectFilter(this, 'tool')">
+              <span class="tool-chip-icon" style="background: var(--green-bg); color: var(--green);">S</span>
+              Supabase <span class="tool-chip-count">18</span>
+            </button>
+            <button class="tool-chip" onclick="selectFilter(this, 'tool')">
+              <span class="tool-chip-icon" style="background: var(--yellow-bg); color: var(--yellow);">L</span>
+              Lovable <span class="tool-chip-count">10</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="paths-grid">
+          <div class="path-card" onclick="openLesson()">
+            <div class="path-emoji">&#x1F4AC;</div>
+            <div class="path-title">Build a WhatsApp Bot from Zero</div>
+            <div class="path-desc">Set up OpenClaw, connect to WhatsApp, and build a bot that actually does something useful.</div>
+            <div class="path-meta">
+              <span class="tag tag-blue">Beginner</span>
+              <span class="path-steps">7 steps</span>
+            </div>
+          </div>
+          <div class="path-card">
+            <div class="path-emoji">&#x1F4F1;</div>
+            <div class="path-title">Ship a Mobile App with Expo</div>
+            <div class="path-desc">From "npm install" to the App Store. Build a real mobile app using Claude Code + Expo.</div>
+            <div class="path-meta">
+              <span class="tag tag-yellow">Intermediate</span>
+              <span class="path-steps">12 steps</span>
+            </div>
+          </div>
+          <div class="path-card">
+            <div class="path-emoji">&#x1F4B3;</div>
+            <div class="path-title">Add Stripe Payments to Next.js</div>
+            <div class="path-desc">Accept payments in your app. Covers checkout, webhooks, and subscriptions.</div>
+            <div class="path-meta">
+              <span class="tag tag-yellow">Intermediate</span>
+              <span class="path-steps">9 steps</span>
+            </div>
+          </div>
+          <div class="path-card">
+            <div class="path-emoji">&#x1F680;</div>
+            <div class="path-title">Deploy Your First App to Vercel</div>
+            <div class="path-desc">Go from localhost to a live URL. Push to GitHub, connect Vercel, ship it.</div>
+            <div class="path-meta">
+              <span class="tag tag-green">Starter</span>
+              <span class="path-steps">5 steps</span>
+            </div>
+          </div>
+          <div class="path-card">
+            <div class="path-emoji">&#x1F5A5;</div>
+            <div class="path-title">Set Up OpenClaw on a VPS</div>
+            <div class="path-desc">What's a VPS? Why use one? Get OpenClaw running 24/7 on your own cloud server.</div>
+            <div class="path-meta">
+              <span class="tag tag-yellow">Intermediate</span>
+              <span class="path-steps">8 steps</span>
+            </div>
+          </div>
+          <div class="path-card">
+            <div class="path-emoji">&#x1F9E0;</div>
+            <div class="path-title">Build a SaaS MVP in a Weekend</div>
+            <div class="path-desc">Auth, database, payments, deploy. The full stack sprint using Claude Code + Supabase.</div>
+            <div class="path-meta">
+              <span class="tag tag-red">Advanced</span>
+              <span class="path-steps">15 steps</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Just Dropped -->
+      <div class="just-dropped">
+        <div class="section-header">
+          <div class="section-title">&#x26A1; Just Dropped</div>
+          <a class="section-link">See all drops</a>
+        </div>
+        <div class="drops-list">
+          <div class="drop-card">
+            <div class="drop-icon" style="background: var(--green-bg);">&#x25B2;</div>
+            <div class="drop-info">
+              <div class="drop-title">Vercel shipped Agent Browser</div>
+              <div class="drop-desc">2x your QA ability — let agents browse and test your deployed app</div>
+            </div>
+            <span class="drop-new">NEW</span>
+            <span class="drop-time">2d ago</span>
+          </div>
+          <div class="drop-card">
+            <div class="drop-icon" style="background: var(--purple-bg);">&#x1F916;</div>
+            <div class="drop-info">
+              <div class="drop-title">Claude Opus 4.6 is live</div>
+              <div class="drop-desc">New flagship model — better at coding, longer context, agent workflows</div>
+            </div>
+            <span class="drop-new">NEW</span>
+            <span class="drop-time">3d ago</span>
+          </div>
+          <div class="drop-card">
+            <div class="drop-icon" style="background: var(--blue-bg);">&#x1F4E6;</div>
+            <div class="drop-info">
+              <div class="drop-title">Replit launched Deployments v2</div>
+              <div class="drop-desc">One-click deploy with custom domains and auto-scaling built in</div>
+            </div>
+            <span class="drop-time">5d ago</span>
+          </div>
+          <div class="drop-card">
+            <div class="drop-icon" style="background: var(--orange-bg);">&#x1F9EA;</div>
+            <div class="drop-info">
+              <div class="drop-title">Supabase Realtime v2 is out</div>
+              <div class="drop-desc">Broadcast, presence, and Postgres changes — all in one API</div>
+            </div>
+            <span class="drop-time">1w ago</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── Unstuck Button ── -->
+  <button class="unstuck-btn" onclick="toggleChat()" id="unstuckBtn">&#x1F198;</button>
+  <div class="unstuck-tooltip">Stuck? Ask me anything about your current lesson</div>
+
+  <!-- ── Chat Panel ── -->
+  <div class="chat-panel" id="chatPanel">
+    <div class="chat-header">
+      <div class="chat-header-left">
+        <div class="chat-header-dot"></div>
+        <div class="chat-header-title">Vibe Assistant</div>
+      </div>
+      <button class="chat-close" onclick="toggleChat()">&#x2715;</button>
+    </div>
+    <div class="chat-messages">
+      <div class="chat-msg">
+        <div class="chat-msg-bot">
+          Hey! I can see you're working on <strong>Build a WhatsApp Bot from Zero</strong>, step 4.<br><br>
+          What are you stuck on? You can describe the issue or paste a screenshot.
+        </div>
+      </div>
+    </div>
+    <div class="chat-input-area">
+      <input type="file" accept="image/*" style="display:none" id="chatFileInput" onchange="handleChatImage(this)">
+      <button class="chat-attach" title="Attach screenshot" onclick="document.getElementById('chatFileInput').click()">&#x1F4CE;</button>
+      <input class="chat-input" type="text" placeholder="Describe what's going wrong..." onkeydown="if(event.key==='Enter')sendChatMsg(this)">
+      <button class="chat-send" onclick="sendChatMsg(this.previousElementSibling)">&#x2191;</button>
+    </div>
+  </div>
+
+  <!-- ── Lesson View ── -->
+  <div class="lesson-overlay" id="lessonOverlay">
+    <div class="lesson-topbar">
+      <div class="lesson-brand">Viben <span style="color: var(--text-muted);">/ Build a WhatsApp Bot</span></div>
+      <div class="lesson-progress-wrap">
+        <div class="lesson-progress-track">
+          <div class="lesson-progress-fill" id="lessonProgressFill" style="width: 14%"></div>
+        </div>
+        <div class="lesson-progress-text" id="lessonProgressText">Step 1 of 7</div>
+      </div>
+      <button class="lesson-exit" onclick="closeLesson()">&#x2715; Exit</button>
+    </div>
+    <div class="lesson-body">
+    <div class="lesson-area">
+
+      <!-- Card 1: Intro + vibe picker -->
+      <div class="lesson-card active" id="lcard-0">
+        <div class="lc-type" style="color: var(--red);">Introduction</div>
+        <div class="lc-title">What are we building?</div>
+        <div class="lc-body">
+          By the end of this path, you'll have a <strong>WhatsApp bot</strong> that responds to messages using AI — powered by OpenClaw.<br><br>
+          No coding experience needed. We'll walk through every step together.
+        </div>
+        <div class="lc-vibe-select">
+          <div class="lc-vibe-label">Choose your tutorial vibe</div>
+          <div class="lc-vibe-options">
+            <button class="lc-vibe-opt active" onclick="switchModality('read')">&#x1F4D6; Read it</button>
+            <button class="lc-vibe-opt" onclick="switchModality('watch')">&#x1F3AC; Watch it</button>
+            <button class="lc-vibe-opt" onclick="switchModality('try')">&#x1F9E9; Try it</button>
+            <button class="lc-vibe-opt" onclick="switchModality('ask')">&#x1F4AC; Ask it</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: "What is OpenClaw?" — 4 modalities -->
+      <div class="lesson-card" id="lcard-1">
+        <div class="lc-type" style="color: var(--blue);">Concept</div>
+        <div class="lc-title">What is OpenClaw?</div>
+
+        <!-- Vibe switcher (persistent in lesson) -->
+        <div class="lc-vibe-select" style="margin-bottom: 20px;">
+          <div class="lc-vibe-label">Your vibe</div>
+          <div class="lc-vibe-options" id="card1VibeOpts">
+            <button class="lc-vibe-opt active" onclick="switchModality('read')">&#x1F4D6; Read</button>
+            <button class="lc-vibe-opt" onclick="switchModality('watch')">&#x1F3AC; Watch</button>
+            <button class="lc-vibe-opt" onclick="switchModality('try')">&#x1F9E9; Try</button>
+            <button class="lc-vibe-opt" onclick="switchModality('ask')">&#x1F4AC; Ask</button>
+          </div>
+        </div>
+
+        <!-- READ modality -->
+        <div class="modality-content active" data-mode="read">
+          <div class="lc-body">
+            Think of OpenClaw as a <strong>brain for your chatbots</strong>. It's an open-source tool that lets you create AI-powered agents that can:<br><br>
+            <ul>
+              <li>Respond to WhatsApp messages</li>
+              <li>Connect to APIs and databases</li>
+              <li>Run automations on a schedule</li>
+              <li>Use any AI model (Claude, GPT, Llama, etc.)</li>
+            </ul>
+            <br>
+            It's like having a developer on call 24/7 — except it's a bot you built yourself.
+          </div>
+        </div>
+
+        <!-- WATCH modality -->
+        <div class="modality-content" data-mode="watch">
+          <div class="video-placeholder">
+            <div class="video-play">&#x25B6;</div>
+            <div class="video-meta">1:42 — What is OpenClaw?</div>
+          </div>
+          <div class="video-source">
+            <div class="video-source-avatar">P</div>
+            <span>Clipped from <strong>Pat O'Brien</strong> — "OpenClaw Full Walkthrough" (14:23)</span>
+          </div>
+          <div class="lc-body" style="font-size: 13px;">
+            <strong>Key takeaways:</strong>
+            <ul>
+              <li>OpenClaw = open-source AI agent framework</li>
+              <li>Connects to WhatsApp, Telegram, Discord, etc.</li>
+              <li>Works with any LLM (Claude, GPT, Llama)</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- TRY modality -->
+        <div class="modality-content" data-mode="try">
+          <div class="try-task">
+            <div class="try-task-label">Your task</div>
+            <div class="try-task-text">Let's check if your system is ready for OpenClaw. Run the command below to verify Node.js is installed.</div>
+          </div>
+          <div class="try-terminal">
+            <div class="try-terminal-header">
+              <div class="try-terminal-dot" style="background: #ff5f57;"></div>
+              <div class="try-terminal-dot" style="background: #febc2e;"></div>
+              <div class="try-terminal-dot" style="background: #28c840;"></div>
+            </div>
+            <div class="try-comment"># Check your Node.js version</div>
+            <div><span class="try-prompt">$</span> <span class="try-output">node --version</span></div>
+            <div class="try-output" style="color: var(--green);">v22.3.0</div>
+            <br>
+            <div class="try-comment"># You need v18+ to run OpenClaw</div>
+            <div><span class="try-prompt">$</span> <span class="try-cursor"></span></div>
+          </div>
+          <div class="try-input-row">
+            <input class="try-input" type="text" placeholder="Type the command to check Node version...">
+            <button class="try-run" onclick="handleTryRun(this)">Run</button>
+          </div>
+        </div>
+
+        <!-- ASK modality -->
+        <div class="modality-content" data-mode="ask">
+          <div class="ask-chat">
+            <div class="ask-msg">
+              <div class="ask-bot">
+                I'm your OpenClaw tutor. Let's figure out what <strong>OpenClaw</strong> is together.<br><br>
+                Quick question to start: <strong>Have you ever used a chatbot before?</strong> Like ChatGPT, or even a customer service bot on a website?
+              </div>
+            </div>
+            <div class="ask-msg">
+              <div class="ask-user">Yeah I use ChatGPT all the time</div>
+            </div>
+            <div class="ask-msg">
+              <div class="ask-bot">
+                Perfect. So you know how ChatGPT lives inside a website and you go <em>to it</em> to chat?<br><br>
+                <strong>OpenClaw flips that.</strong> It lets you build a chatbot that comes to <em>you</em> — on WhatsApp, Telegram, Discord, wherever. And you control what it knows and does.<br><br>
+                Think of it as: <strong>ChatGPT + your own rules + any messaging app = OpenClaw.</strong><br><br>
+                What would you build with that? A personal assistant? A customer support bot? Something else?
+              </div>
+            </div>
+          </div>
+          <div class="ask-input-row">
+            <input type="file" accept="image/*" style="display:none" class="ask-file-input" onchange="handleAskImage(this)">
+            <button class="ask-attach" onclick="this.parentElement.querySelector('.ask-file-input').click()" title="Attach screenshot">&#x1F4CE;</button>
+            <input class="ask-input" type="text" placeholder="Type your answer or ask a question..." onkeydown="if(event.key==='Enter')sendAskMsg(this)">
+            <button class="ask-send" onclick="sendAskMsg(this.previousElementSibling)">&#x2191;</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Card 3: Quiz (same across modalities) -->
+      <div class="lesson-card" id="lcard-2">
+        <div class="lc-type" style="color: var(--yellow);">Quick Check</div>
+        <div class="lc-title">What's the best way to describe OpenClaw?</div>
+        <div class="lc-body" style="margin-bottom: 16px;">Pick the answer that fits best:</div>
+        <button class="quiz-option" onclick="handleQuiz(this, false)">A social media platform for coders</button>
+        <button class="quiz-option" onclick="handleQuiz(this, true)">An open-source tool for building AI-powered agents and chatbots</button>
+        <button class="quiz-option" onclick="handleQuiz(this, false)">A cloud hosting provider like AWS</button>
+        <button class="quiz-option" onclick="handleQuiz(this, false)">A JavaScript framework for web apps</button>
+      </div>
+
+      <!-- Card 4: Install — with modalities -->
+      <div class="lesson-card" id="lcard-3">
+        <div class="lc-type" style="color: var(--green);">Step 2</div>
+        <div class="lc-title">Installing OpenClaw</div>
+
+        <div class="lc-vibe-select" style="margin-bottom: 20px;">
+          <div class="lc-vibe-label">Your vibe</div>
+          <div class="lc-vibe-options">
+            <button class="lc-vibe-opt active" onclick="switchModality('read')">&#x1F4D6; Read</button>
+            <button class="lc-vibe-opt" onclick="switchModality('watch')">&#x1F3AC; Watch</button>
+            <button class="lc-vibe-opt" onclick="switchModality('try')">&#x1F9E9; Try</button>
+            <button class="lc-vibe-opt" onclick="switchModality('ask')">&#x1F4AC; Ask</button>
+          </div>
+        </div>
+
+        <!-- READ -->
+        <div class="modality-content active" data-mode="read">
+          <div class="lc-body">
+            <strong>Option A: Local install</strong><br>
+            Good for testing. Free. Only runs while your laptop is open.<br><br>
+            <code>npx openclaw init my-bot</code><br>
+            <code>cd my-bot</code><br>
+            <code>npm start</code><br><br>
+            <strong>Option B: VPS install</strong><br>
+            Runs 24/7 on a cloud server (~$5/month). Your bot never sleeps.<br><br>
+            <em>Don't know what a VPS is? We've got a whole path for that.</em>
+          </div>
+        </div>
+
+        <!-- WATCH -->
+        <div class="modality-content" data-mode="watch">
+          <div class="video-placeholder">
+            <div class="video-play">&#x25B6;</div>
+            <div class="video-meta">2:15 — Installing OpenClaw locally</div>
+          </div>
+          <div class="video-source">
+            <div class="video-source-avatar">K</div>
+            <span>Clipped from <strong>Kunal</strong> — "OpenClaw Setup Stream" at vibin.live (1:02:30)</span>
+          </div>
+          <div class="lc-body" style="font-size: 13px;">
+            <strong>What he does:</strong>
+            <ul>
+              <li>Runs <code>npx openclaw init</code> in the terminal</li>
+              <li>Walks through the interactive setup prompts</li>
+              <li>Starts the dev server and tests it</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- TRY -->
+        <div class="modality-content" data-mode="try">
+          <div class="try-task">
+            <div class="try-task-label">Your task</div>
+            <div class="try-task-text">Install OpenClaw and create your first project. Copy each command below into your terminal.</div>
+          </div>
+          <div class="try-terminal">
+            <div class="try-terminal-header">
+              <div class="try-terminal-dot" style="background: #ff5f57;"></div>
+              <div class="try-terminal-dot" style="background: #febc2e;"></div>
+              <div class="try-terminal-dot" style="background: #28c840;"></div>
+            </div>
+            <div class="try-comment"># Step 1: Create your bot project</div>
+            <div><span class="try-prompt">$</span> <span class="try-output">npx openclaw init my-whatsapp-bot</span></div>
+            <br>
+            <div class="try-comment"># Step 2: Enter the project folder</div>
+            <div><span class="try-prompt">$</span> <span class="try-output">cd my-whatsapp-bot</span></div>
+            <br>
+            <div class="try-comment"># Step 3: Start it up!</div>
+            <div><span class="try-prompt">$</span> <span class="try-output">npm start</span></div>
+            <div class="try-output" style="color: var(--green);">&#x2713; OpenClaw is running on http://localhost:3000</div>
+          </div>
+          <div class="try-task" style="border-color: var(--green); border-style: solid;">
+            <div class="try-task-label" style="color: var(--green);">Checkpoint</div>
+            <div class="try-task-text">Did you see "OpenClaw is running"? If yes, you're good to go!</div>
+          </div>
+        </div>
+
+        <!-- ASK -->
+        <div class="modality-content" data-mode="ask">
+          <div class="ask-chat">
+            <div class="ask-msg">
+              <div class="ask-bot">
+                Time to install OpenClaw! Quick question first:<br><br>
+                <strong>Do you want to run it on your own computer, or on a server that's always on?</strong><br><br>
+                (Local = your laptop, VPS = a cloud server that runs 24/7)
+              </div>
+            </div>
+            <div class="ask-msg">
+              <div class="ask-user">Local for now, just want to try it out</div>
+            </div>
+            <div class="ask-msg">
+              <div class="ask-bot">
+                Smart choice for learning. Here's exactly what to do:<br><br>
+                Open your terminal and paste this:<br>
+                <code style="background: rgba(255,255,255,0.08); padding: 2px 6px; border-radius: 4px; color: var(--green);">npx openclaw init my-bot</code><br><br>
+                It'll ask you a few setup questions. Just hit Enter for the defaults — you can change everything later.<br><br>
+                <strong>Let me know when it's done and I'll walk you through the next step.</strong>
+              </div>
+            </div>
+          </div>
+          <div class="ask-input-row">
+            <input type="file" accept="image/*" style="display:none" class="ask-file-input" onchange="handleAskImage(this)">
+            <button class="ask-attach" onclick="this.parentElement.querySelector('.ask-file-input').click()" title="Attach screenshot">&#x1F4CE;</button>
+            <input class="ask-input" type="text" placeholder="Tell me what happened or paste a screenshot..." onkeydown="if(event.key==='Enter')sendAskMsg(this)">
+            <button class="ask-send" onclick="sendAskMsg(this.previousElementSibling)">&#x2191;</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Card 5: Congrats checkpoint -->
+      <div class="lesson-card" id="lcard-4">
+        <div class="lc-type" style="color: var(--green);">&#x2713; Checkpoint</div>
+        <div class="lc-title">Nice work! You've earned +45 XP</div>
+        <div class="lc-body">
+          <strong>Skills gained:</strong><br><br>
+          <span class="tag tag-red" style="margin-right: 4px;">Prompting +15 XP</span>
+          <span class="tag tag-purple" style="margin-right: 4px;">API Integration +20 XP</span>
+          <span class="tag tag-orange">Debugging with AI +10 XP</span>
+          <br><br>
+          You now understand what OpenClaw is, how it works, and you've installed it locally.<br><br>
+          Next up: Connecting OpenClaw to your WhatsApp number.
+        </div>
+      </div>
+
+    </div>
+    </div><!-- /lesson-body -->
+
+    <!-- Fixed bottom bar -->
+    <div class="lesson-bottombar">
+      <button class="lc-btn lc-btn-back" id="lessonBackBtn" onclick="prevCard()">&#x2190; Back</button>
+      <button class="lc-btn lc-btn-next" id="lessonNextBtn" onclick="nextCard()">Next &#x2192;</button>
+    </div>
+  </div>
+
+  <!-- ── Onboarding Modal ── -->
+  <div class="modal-overlay" id="onboardingModal">
+    <div class="modal">
+      <div class="modal-title">What's your stack?</div>
+      <div class="modal-subtitle">We'll personalize your learning path based on the tools you use.</div>
+
+      <div class="modal-section">
+        <div class="modal-section-title">AI Agent</div>
+        <div class="modal-options">
+          <button class="modal-chip" onclick="toggleChip(this)">Claude Code</button>
+          <button class="modal-chip" onclick="toggleChip(this)">Cursor</button>
+          <button class="modal-chip" onclick="toggleChip(this)">Replit</button>
+          <button class="modal-chip" onclick="toggleChip(this)">Windsurf</button>
+          <button class="modal-chip" onclick="toggleChip(this)">Lovable</button>
+        </div>
+      </div>
+
+      <div class="modal-section">
+        <div class="modal-section-title">Deployment</div>
+        <div class="modal-options">
+          <button class="modal-chip" onclick="toggleChip(this)">Vercel</button>
+          <button class="modal-chip" onclick="toggleChip(this)">Railway</button>
+          <button class="modal-chip" onclick="toggleChip(this)">Replit</button>
+          <button class="modal-chip" onclick="toggleChip(this)">Netlify</button>
+          <button class="modal-chip" onclick="toggleChip(this)">Not sure yet</button>
+        </div>
+      </div>
+
+      <div class="modal-section">
+        <div class="modal-section-title">Database</div>
+        <div class="modal-options">
+          <button class="modal-chip" onclick="toggleChip(this)">Supabase</button>
+          <button class="modal-chip" onclick="toggleChip(this)">Firebase</button>
+          <button class="modal-chip" onclick="toggleChip(this)">Neon</button>
+          <button class="modal-chip" onclick="toggleChip(this)">PlanetScale</button>
+          <button class="modal-chip" onclick="toggleChip(this)">Not sure yet</button>
+        </div>
+      </div>
+
+      <div class="modal-section">
+        <div class="modal-section-title">What do you want to build?</div>
+        <div class="modal-options">
+          <button class="modal-chip" onclick="toggleChip(this)">&#x1F4F1; Mobile App</button>
+          <button class="modal-chip" onclick="toggleChip(this)">&#x1F4B3; SaaS</button>
+          <button class="modal-chip" onclick="toggleChip(this)">&#x1F916; Bot / Agent</button>
+          <button class="modal-chip" onclick="toggleChip(this)">&#x1F310; Portfolio Site</button>
+          <button class="modal-chip" onclick="toggleChip(this)">&#x1F50D; Just Exploring</button>
+        </div>
+      </div>
+
+      <button class="modal-start" onclick="closeOnboarding()">Start my journey</button>
+    </div>
+  </div>
+
+  <script>
+    // ── Onboarding ──
+    function toggleChip(el) {
+      el.classList.toggle('selected');
+    }
+
+    function closeOnboarding() {
+      document.getElementById('onboardingModal').classList.add('hidden');
+    }
+
+    // ── Filter tabs (type + tool) ──
+    function selectFilter(el, group) {
+      // Only deselect within the same filter row
+      el.closest('.filter-row').querySelectorAll(group === 'type' ? '.vibe-btn' : '.tool-chip').forEach(b => b.classList.remove('active'));
+      el.classList.add('active');
+    }
+
+    // ── Modality switching ──
+    let currentModality = 'read';
+
+    function switchModality(mode) {
+      currentModality = mode;
+      // Update all vibe option buttons across all cards
+      document.querySelectorAll('.lc-vibe-opt').forEach(btn => {
+        btn.classList.remove('active');
+        const label = btn.textContent.trim().toLowerCase();
+        if (
+          (mode === 'read' && label.includes('read')) ||
+          (mode === 'watch' && label.includes('watch')) ||
+          (mode === 'try' && label.includes('try')) ||
+          (mode === 'ask' && label.includes('ask'))
+        ) {
+          btn.classList.add('active');
+        }
+      });
+      // Show/hide modality content blocks
+      document.querySelectorAll('.modality-content').forEach(el => {
+        el.classList.toggle('active', el.dataset.mode === mode);
+      });
+    }
+
+    // ── Lesson navigation ──
+    let currentCard = 0;
+    const totalCards = 5;
+    let quizAnswered = false;
+
+    function updateLessonProgress() {
+      const pct = Math.round(((currentCard + 1) / totalCards) * 100);
+      document.getElementById('lessonProgressFill').style.width = pct + '%';
+      document.getElementById('lessonProgressText').textContent = `Step ${currentCard + 1} of ${totalCards}`;
+    }
+
+    function updateBottomBar() {
+      const backBtn = document.getElementById('lessonBackBtn');
+      const nextBtn = document.getElementById('lessonNextBtn');
+
+      // Back button
+      if (currentCard === 0) {
+        backBtn.style.visibility = 'hidden';
+      } else {
+        backBtn.style.visibility = 'visible';
+      }
+
+      // Next button text
+      if (currentCard === 0) {
+        nextBtn.textContent = "Let's go \u2192";
+      } else if (currentCard === totalCards - 1) {
+        nextBtn.textContent = 'Back to dashboard \u2192';
+        nextBtn.onclick = closeLesson;
+      } else {
+        nextBtn.textContent = 'Next \u2192';
+        nextBtn.onclick = nextCard;
+      }
+
+      // Quiz gate: disable next on quiz card until answered
+      if (currentCard === 2 && !quizAnswered) {
+        nextBtn.style.opacity = '0.4';
+        nextBtn.style.pointerEvents = 'none';
+      } else {
+        nextBtn.style.opacity = '1';
+        nextBtn.style.pointerEvents = 'auto';
+      }
+    }
+
+    function showCard(idx) {
+      document.querySelectorAll('.lesson-card').forEach((c, i) => {
+        c.classList.remove('active');
+        if (i === idx) c.classList.add('active');
+      });
+      currentCard = idx;
+      updateLessonProgress();
+      updateBottomBar();
+      // Scroll lesson body to top
+      const body = document.querySelector('.lesson-body');
+      if (body) body.scrollTop = 0;
+    }
+
+    function nextCard() {
+      if (currentCard < totalCards - 1) showCard(currentCard + 1);
+    }
+
+    function prevCard() {
+      if (currentCard > 0) showCard(currentCard - 1);
+    }
+
+    function openLesson() {
+      currentCard = 0;
+      quizAnswered = false;
+      showCard(0);
+      document.getElementById('lessonOverlay').classList.add('open');
+    }
+
+    function closeLesson() {
+      document.getElementById('lessonOverlay').classList.remove('open');
+    }
+
+    // ── Quiz ──
+    function handleQuiz(el, correct) {
+      if (el.parentElement.querySelector('.correct, .wrong')) return;
+
+      if (correct) {
+        el.classList.add('correct');
+        el.innerHTML = '&#x2713; ' + el.textContent;
+      } else {
+        el.classList.add('wrong');
+        const opts = el.parentElement.querySelectorAll('.quiz-option');
+        opts[1].classList.add('correct');
+      }
+
+      quizAnswered = true;
+      updateBottomBar();
+    }
+
+    // ── Try mode run button ──
+    function handleTryRun(btn) {
+      const input = btn.previousElementSibling;
+      const val = input.value.trim().toLowerCase();
+      if (val.includes('node') && val.includes('version') || val === 'node --version' || val === 'node -v') {
+        btn.innerHTML = '&#x2713;';
+        btn.style.background = 'var(--green)';
+        input.value = '';
+        input.placeholder = 'Correct! Node.js is installed.';
+        input.disabled = true;
+      } else {
+        btn.style.background = 'var(--red)';
+        setTimeout(() => { btn.style.background = 'var(--green)'; }, 600);
+      }
+    }
+
+    // ── Ask mode chat (simulated) ──
+    const askResponses = [
+      "Great question! OpenClaw uses a modular architecture — each \"skill\" is a plugin that gives your bot new abilities. You can mix and match based on what you need.",
+      "That's a common issue. The fix is usually to check your <strong>.env</strong> file and make sure your API key is set correctly. Try running <code>cat .env</code> to verify.",
+      "Totally makes sense. Think of it this way: the <strong>agent</strong> is the brain, and the <strong>channel</strong> (WhatsApp, Discord, etc.) is just how people talk to it. Same brain, different mouths.",
+      "Nice — you're getting it! Next you'd want to add a <strong>knowledge base</strong> so your bot can answer questions about specific topics. We'll cover that in step 5.",
+      "I can see the error in your screenshot. Looks like a missing dependency. Try running <code>npm install</code> again and then restart with <code>npm start</code>.",
+      "Good instinct. The VPS route is better for production because your bot stays online 24/7. We have a separate build path for that — want me to link it?"
+    ];
+    let askResponseIdx = 0;
+
+    function getAskChat(inputEl) {
+      return inputEl.closest('.modality-content, .chat-panel')?.querySelector('.ask-chat');
+    }
+
+    function addTypingIndicator(chatEl) {
+      const msg = document.createElement('div');
+      msg.className = 'ask-msg typing-msg';
+      msg.innerHTML = '<div class="ask-bot"><div class="typing-dots"><span></span><span></span><span></span></div></div>';
+      chatEl.appendChild(msg);
+      chatEl.scrollTop = chatEl.scrollHeight;
+      return msg;
+    }
+
+    function sendAskMsg(inputEl) {
+      const text = inputEl.value.trim();
+      if (!text) return;
+
+      const chatEl = inputEl.closest('.modality-content')?.querySelector('.ask-chat');
+      if (!chatEl) return;
+
+      // Add user message
+      const userMsg = document.createElement('div');
+      userMsg.className = 'ask-msg';
+      userMsg.innerHTML = `<div class="ask-user">${escapeHtml(text)}</div>`;
+      chatEl.appendChild(userMsg);
+      inputEl.value = '';
+      chatEl.scrollTop = chatEl.scrollHeight;
+
+      // Typing indicator
+      const typing = addTypingIndicator(chatEl);
+
+      // Simulated response
+      setTimeout(() => {
+        typing.remove();
+        const botMsg = document.createElement('div');
+        botMsg.className = 'ask-msg';
+        botMsg.innerHTML = `<div class="ask-bot">${askResponses[askResponseIdx % askResponses.length]}</div>`;
+        chatEl.appendChild(botMsg);
+        chatEl.scrollTop = chatEl.scrollHeight;
+        askResponseIdx++;
+      }, 1200 + Math.random() * 800);
+    }
+
+    function handleAskImage(fileInput) {
+      const file = fileInput.files[0];
+      if (!file) return;
+
+      const chatEl = fileInput.closest('.modality-content')?.querySelector('.ask-chat');
+      if (!chatEl) return;
+
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        // Add user image message
+        const userMsg = document.createElement('div');
+        userMsg.className = 'ask-msg ask-user-img';
+        userMsg.innerHTML = `<img src="${e.target.result}" class="ask-img" alt="Screenshot">`;
+        chatEl.appendChild(userMsg);
+        chatEl.scrollTop = chatEl.scrollHeight;
+
+        // Typing indicator
+        const typing = addTypingIndicator(chatEl);
+
+        // Simulated response to screenshot
+        setTimeout(() => {
+          typing.remove();
+          const botMsg = document.createElement('div');
+          botMsg.className = 'ask-msg';
+          botMsg.innerHTML = `<div class="ask-bot">I can see the error in your screenshot. Looks like a missing dependency. Try running <code>npm install</code> again and then restart with <code>npm start</code>. If that doesn't work, check that your Node version is 18+.</div>`;
+          chatEl.appendChild(botMsg);
+          chatEl.scrollTop = chatEl.scrollHeight;
+        }, 1500);
+      };
+      reader.readAsDataURL(file);
+      fileInput.value = '';
+    }
+
+    function escapeHtml(text) {
+      const d = document.createElement('div');
+      d.textContent = text;
+      return d.innerHTML;
+    }
+
+    // ── Unstuck chat (working) ──
+    const chatResponses = [
+      "Let me look into that. Based on the OpenClaw docs, this usually happens when the WhatsApp Business API credentials aren't configured. Check your <strong>.env</strong> file for <code>WHATSAPP_TOKEN</code>.",
+      "That's a known issue with the latest version. Try downgrading to <code>openclaw@2.1.3</code> — they broke the webhook handler in 2.2.0.",
+      "I can see the problem from your screenshot. The QR code scan timed out. Restart the server with <code>npm start</code> and scan the new QR code within 60 seconds.",
+      "Good question! The message handler needs to be registered before the bot connects. Move your <code>bot.on('message')</code> block above the <code>bot.start()</code> call.",
+      "That error means your bot is running but can't reach the OpenClaw API. Check your internet connection and make sure port 3000 isn't blocked by a firewall."
+    ];
+    let chatResponseIdx = 0;
+
+    function sendChatMsg(inputEl) {
+      const text = inputEl.value.trim();
+      if (!text) return;
+
+      const msgs = document.querySelector('#chatPanel .chat-messages');
+
+      // User message
+      const userMsg = document.createElement('div');
+      userMsg.className = 'chat-msg';
+      userMsg.innerHTML = `<div class="chat-msg-user">${escapeHtml(text)}</div>`;
+      msgs.appendChild(userMsg);
+      inputEl.value = '';
+      msgs.scrollTop = msgs.scrollHeight;
+
+      // Typing indicator
+      const typing = document.createElement('div');
+      typing.className = 'chat-msg';
+      typing.innerHTML = '<div class="chat-msg-bot"><div class="typing-dots"><span></span><span></span><span></span></div></div>';
+      msgs.appendChild(typing);
+      msgs.scrollTop = msgs.scrollHeight;
+
+      // Response
+      setTimeout(() => {
+        typing.remove();
+        const botMsg = document.createElement('div');
+        botMsg.className = 'chat-msg';
+        botMsg.innerHTML = `<div class="chat-msg-bot">${chatResponses[chatResponseIdx % chatResponses.length]}</div>`;
+        msgs.appendChild(botMsg);
+        msgs.scrollTop = msgs.scrollHeight;
+        chatResponseIdx++;
+      }, 1200 + Math.random() * 800);
+    }
+
+    function handleChatImage(fileInput) {
+      const file = fileInput.files[0];
+      if (!file) return;
+
+      const msgs = document.querySelector('#chatPanel .chat-messages');
+
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const userMsg = document.createElement('div');
+        userMsg.className = 'chat-msg';
+        userMsg.innerHTML = `<div class="chat-msg-user" style="text-align:right;"><img src="${e.target.result}" class="chat-img-preview" alt="Screenshot"></div>`;
+        msgs.appendChild(userMsg);
+        msgs.scrollTop = msgs.scrollHeight;
+
+        const typing = document.createElement('div');
+        typing.className = 'chat-msg';
+        typing.innerHTML = '<div class="chat-msg-bot"><div class="typing-dots"><span></span><span></span><span></span></div></div>';
+        msgs.appendChild(typing);
+        msgs.scrollTop = msgs.scrollHeight;
+
+        setTimeout(() => {
+          typing.remove();
+          const botMsg = document.createElement('div');
+          botMsg.className = 'chat-msg';
+          botMsg.innerHTML = `<div class="chat-msg-bot">I can see the error in your screenshot. ${chatResponses[chatResponseIdx % chatResponses.length]}</div>`;
+          msgs.appendChild(botMsg);
+          msgs.scrollTop = msgs.scrollHeight;
+          chatResponseIdx++;
+        }, 1500);
+      };
+      reader.readAsDataURL(file);
+      fileInput.value = '';
+    }
+
+    function toggleChat() {
+      const panel = document.getElementById('chatPanel');
+      const btn = document.getElementById('unstuckBtn');
+      const tooltip = document.querySelector('.unstuck-tooltip');
+
+      if (panel.classList.contains('open')) {
+        panel.classList.remove('open');
+        btn.style.display = 'flex';
+        tooltip.style.display = 'block';
+      } else {
+        panel.classList.add('open');
+        btn.style.display = 'none';
+        tooltip.style.display = 'none';
+      }
+    }
+
+    // ── Keyboard nav in lesson ──
+    document.addEventListener('keydown', (e) => {
+      if (!document.getElementById('lessonOverlay').classList.contains('open')) return;
+      if (e.key === 'ArrowRight') nextCard();
+      if (e.key === 'ArrowLeft') prevCard();
+      if (e.key === 'Escape') closeLesson();
+    });
+  </script>
+
+</body>
+</html>
