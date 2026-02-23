@@ -764,31 +764,6 @@
       justify-content: center; font-size: 11px; font-weight: 600; color: var(--red);
     }
 
-    .practice-q {
-      background: rgba(255,255,255,0.03); border: 1px solid var(--border);
-      border-radius: 12px; padding: 18px; margin-bottom: 16px;
-    }
-    .practice-q-label {
-      font-size: 11px; font-weight: 600; text-transform: uppercase;
-      letter-spacing: 0.5px; color: var(--yellow); margin-bottom: 8px;
-    }
-    .practice-q-text { font-size: 15px; color: var(--text); line-height: 1.5; margin-bottom: 14px; }
-    .practice-opt {
-      display: block; width: 100%; text-align: left; padding: 12px 16px;
-      background: rgba(255,255,255,0.03); border: 1px solid var(--border);
-      border-radius: 10px; margin-bottom: 8px; cursor: pointer;
-      font-size: 14px; color: var(--text-dim); line-height: 1.4;
-      font-family: inherit; transition: all 0.15s;
-    }
-    .practice-opt:hover { border-color: var(--text-muted); background: rgba(255,255,255,0.05); }
-    .practice-opt.correct { border-color: var(--green); background: rgba(34,197,94,0.1); color: var(--green); }
-    .practice-opt.wrong { border-color: var(--red); background: rgba(230,57,70,0.1); color: var(--red); opacity: 0.6; }
-    .practice-explain {
-      display: none; background: rgba(34,197,94,0.06); border: 1px solid rgba(34,197,94,0.15);
-      border-radius: 10px; padding: 14px 16px; margin-top: 12px;
-      font-size: 13px; color: #4ade80; line-height: 1.6;
-    }
-    .practice-explain.show { display: block; }
 
     .ask-chat {
       background: var(--card); border: 1px solid var(--border);
@@ -1520,7 +1495,7 @@ Bot: "Done! You're booked for Saturday at 2pm with Mike. I'll remind you Friday 
           <div class="lc-vibe-options">
             <button class="lc-vibe-opt active" onclick="switchModality('read')">&#x1F4D6; Read</button>
             <button class="lc-vibe-opt" onclick="switchModality('watch')">&#x1F3AC; Watch</button>
-            <button class="lc-vibe-opt" onclick="switchModality('practice')">&#x1F9E9; Practice</button>
+
             <button class="lc-vibe-opt" onclick="switchModality('ask')">&#x1F4AC; Ask</button>
           </div>
         </div>
@@ -1558,25 +1533,6 @@ Bot: "Done! You're booked for Saturday at 2pm with Mike. I'll remind you Friday 
           </div>
         </div>
 
-        <div class="modality-content" data-mode="practice">
-          <div class="practice-q">
-            <div class="practice-q-label">Check your understanding</div>
-            <div class="practice-q-text">What makes OpenClaw different from ChatGPT or Claude?</div>
-            <button class="practice-opt" onclick="handlePractice(this, false)">It uses a better AI model</button>
-            <button class="practice-opt" onclick="handlePractice(this, false)">It's free to use</button>
-            <button class="practice-opt" onclick="handlePractice(this, true)">It runs on your machine and connects to your messaging apps</button>
-            <button class="practice-opt" onclick="handlePractice(this, false)">It works offline without internet</button>
-            <div class="practice-explain">OpenClaw is a <strong>self-hosted agent</strong> — it runs on your computer, not in the cloud. It connects to WhatsApp, Telegram, and Discord so you can message it like a contact, and it can actually take actions on your behalf.</div>
-          </div>
-          <div class="practice-q">
-            <div class="practice-q-label">Think about it</div>
-            <div class="practice-q-text">In the analogy from this lesson, OpenClaw is like...</div>
-            <button class="practice-opt" onclick="handlePractice(this, false)">A coworker at your desk who helps and leaves</button>
-            <button class="practice-opt" onclick="handlePractice(this, true)">A personal assistant with the keys to your apartment</button>
-            <button class="practice-opt" onclick="handlePractice(this, false)">A search engine that finds answers faster</button>
-            <div class="practice-explain">The coworker analogy describes tools like Claude Code — you talk, they help, they leave. OpenClaw is the assistant who's <strong>always there</strong>, even when you're not home.</div>
-          </div>
-        </div>
 
         <div class="modality-content" data-mode="ask">
           <div class="ask-chat" id="askChat0">
@@ -1625,7 +1581,7 @@ Bot: "Done! You're booked for Saturday at 2pm with Mike. I'll remind you Friday 
           <div class="lc-vibe-options">
             <button class="lc-vibe-opt active" onclick="switchModality('read')">&#x1F4D6; Read</button>
             <button class="lc-vibe-opt" onclick="switchModality('watch')">&#x1F3AC; Watch</button>
-            <button class="lc-vibe-opt" onclick="switchModality('practice')">&#x1F9E9; Practice</button>
+
             <button class="lc-vibe-opt" onclick="switchModality('ask')">&#x1F4AC; Ask</button>
           </div>
         </div>
@@ -1659,26 +1615,6 @@ Bot: "Done! You're booked for Saturday at 2pm with Mike. I'll remind you Friday 
           </div>
         </div>
 
-        <div class="modality-content" data-mode="practice">
-          <div class="practice-q">
-            <div class="practice-q-label">Check your understanding</div>
-            <div class="practice-q-text">Why does OpenClaw need Docker?</div>
-            <button class="practice-opt" onclick="handlePractice(this, false)">Docker makes the AI model run faster</button>
-            <button class="practice-opt" onclick="handlePractice(this, true)">Docker sandboxes your agent so it can't access your personal files</button>
-            <button class="practice-opt" onclick="handlePractice(this, false)">Docker is required to download Node.js packages</button>
-            <button class="practice-opt" onclick="handlePractice(this, false)">Docker provides the AI model that OpenClaw uses</button>
-            <div class="practice-explain">Docker acts as a <strong>sandbox</strong> — like a playground. Your agent can build whatever it wants inside the container, but it can't dig into your yard, your house, or your neighbor's property. It's your safety net.</div>
-          </div>
-          <div class="practice-q">
-            <div class="practice-q-label">Quick recall</div>
-            <div class="practice-q-text">What's the minimum Node.js version for OpenClaw?</div>
-            <button class="practice-opt" onclick="handlePractice(this, false)">v18 LTS</button>
-            <button class="practice-opt" onclick="handlePractice(this, false)">v20.0</button>
-            <button class="practice-opt" onclick="handlePractice(this, true)">v22.12</button>
-            <button class="practice-opt" onclick="handlePractice(this, false)">Any recent version works</button>
-            <div class="practice-explain">OpenClaw requires Node.js <strong>v22.12 or higher</strong> specifically. Not v20, not v18. If you have an older version, use <code>nvm install 22 && nvm use 22</code> to upgrade.</div>
-          </div>
-        </div>
 
         <div class="modality-content" data-mode="ask">
           <div class="ask-chat" id="askChat2">
@@ -1719,7 +1655,7 @@ Bot: "Done! You're booked for Saturday at 2pm with Mike. I'll remind you Friday 
           <div class="lc-vibe-options">
             <button class="lc-vibe-opt active" onclick="switchModality('read')">&#x1F4D6; Read</button>
             <button class="lc-vibe-opt" onclick="switchModality('watch')">&#x1F3AC; Watch</button>
-            <button class="lc-vibe-opt" onclick="switchModality('practice')">&#x1F9E9; Practice</button>
+
             <button class="lc-vibe-opt" onclick="switchModality('ask')">&#x1F4AC; Ask</button>
           </div>
         </div>
@@ -1772,25 +1708,6 @@ Bot: "Done! You're booked for Saturday at 2pm with Mike. I'll remind you Friday 
           </div>
         </div>
 
-        <div class="modality-content" data-mode="practice">
-          <div class="practice-q">
-            <div class="practice-q-label">Check your understanding</div>
-            <div class="practice-q-text">You pay $20/month for Claude Pro. Does that give you API credits for OpenClaw?</div>
-            <button class="practice-opt" onclick="handlePractice(this, false)">Yes, Claude Pro includes API access</button>
-            <button class="practice-opt" onclick="handlePractice(this, true)">No — API credits are billed separately at console.anthropic.com</button>
-            <button class="practice-opt" onclick="handlePractice(this, false)">Only if you enable developer mode</button>
-            <div class="practice-explain"><strong>API key is not the same as a subscription.</strong> Claude Pro ($20/mo) gives you the Claude chat app. API access is billed separately at console.anthropic.com. When in doubt, start with Google Gemini Flash — it's free.</div>
-          </div>
-          <div class="practice-q">
-            <div class="practice-q-label">Wizard recall</div>
-            <div class="practice-q-text">During the onboarding wizard, which Gateway type should most beginners pick?</div>
-            <button class="practice-opt" onclick="handlePractice(this, true)">Local</button>
-            <button class="practice-opt" onclick="handlePractice(this, false)">Remote</button>
-            <button class="practice-opt" onclick="handlePractice(this, false)">Cloud</button>
-            <div class="practice-explain"><strong>Local</strong> is the right choice — you're running OpenClaw on your own computer. Remote is for more advanced setups where the gateway runs on a different machine.</div>
-          </div>
-        </div>
-
         <div class="modality-content" data-mode="ask">
           <div class="ask-chat" id="askChat3">
             <div class="ask-msg">
@@ -1830,7 +1747,7 @@ Bot: "Done! You're booked for Saturday at 2pm with Mike. I'll remind you Friday 
           <div class="lc-vibe-options">
             <button class="lc-vibe-opt active" onclick="switchModality('read')">&#x1F4D6; Read</button>
             <button class="lc-vibe-opt" onclick="switchModality('watch')">&#x1F3AC; Watch</button>
-            <button class="lc-vibe-opt" onclick="switchModality('practice')">&#x1F9E9; Practice</button>
+
             <button class="lc-vibe-opt" onclick="switchModality('ask')">&#x1F4AC; Ask</button>
           </div>
         </div>
@@ -1874,27 +1791,6 @@ Bot: "Done! You're booked for Saturday at 2pm with Mike. I'll remind you Friday 
           <div class="video-source">
             <div class="video-source-avatar">K</div>
             <span>From <strong>freeCodeCamp</strong> — Meet your agent + security (15:00–25:00)</span>
-          </div>
-        </div>
-
-        <div class="modality-content" data-mode="practice">
-          <div class="practice-q">
-            <div class="practice-q-label">Check your understanding</div>
-            <div class="practice-q-text">What is SOUL.md?</div>
-            <button class="practice-opt" onclick="handlePractice(this, false)">The install log for OpenClaw</button>
-            <button class="practice-opt" onclick="handlePractice(this, true)">Your agent's personality and boundaries config file</button>
-            <button class="practice-opt" onclick="handlePractice(this, false)">A security certificate</button>
-            <button class="practice-opt" onclick="handlePractice(this, false)">The AI model's training data</button>
-            <div class="practice-explain"><strong>SOUL.md</strong> is a markdown file in <code>~/.openclaw/</code> that defines your agent's personality, communication style, and boundaries. You can edit it to customize how your agent behaves.</div>
-          </div>
-          <div class="practice-q">
-            <div class="practice-q-label">Security check</div>
-            <div class="practice-q-text">After enabling Docker sandbox, what can your agent access?</div>
-            <button class="practice-opt" onclick="handlePractice(this, false)">Your entire file system</button>
-            <button class="practice-opt" onclick="handlePractice(this, false)">Your Desktop and Documents folders</button>
-            <button class="practice-opt" onclick="handlePractice(this, true)">Only its workspace inside the container</button>
-            <button class="practice-opt" onclick="handlePractice(this, false)">Everything except system files</button>
-            <div class="practice-explain">With Docker sandbox enabled, your agent is <strong>contained</strong>. It can only access files inside its container workspace — not your personal files, desktop, passwords, or system settings.</div>
           </div>
         </div>
 
@@ -1945,7 +1841,7 @@ Bot: "Done! You're booked for Saturday at 2pm with Mike. I'll remind you Friday 
           <div class="lc-vibe-options">
             <button class="lc-vibe-opt active" onclick="switchModality('read')">&#x1F4D6; Read</button>
             <button class="lc-vibe-opt" onclick="switchModality('watch')">&#x1F3AC; Watch</button>
-            <button class="lc-vibe-opt" onclick="switchModality('practice')">&#x1F9E9; Practice</button>
+
             <button class="lc-vibe-opt" onclick="switchModality('ask')">&#x1F4AC; Ask</button>
           </div>
         </div>
@@ -1984,25 +1880,6 @@ Bot: "Done! You're booked for Saturday at 2pm with Mike. I'll remind you Friday 
           <div class="video-source">
             <div class="video-source-avatar">K</div>
             <span>From <strong>freeCodeCamp</strong> — WhatsApp connection + first message (25:00–35:00)</span>
-          </div>
-        </div>
-
-        <div class="modality-content" data-mode="practice">
-          <div class="practice-q">
-            <div class="practice-q-label">Safety first</div>
-            <div class="practice-q-text">Why should you NEVER add your OpenClaw bot to a group chat?</div>
-            <button class="practice-opt" onclick="handlePractice(this, false)">Group chats are too noisy for the AI</button>
-            <button class="practice-opt" onclick="handlePractice(this, true)">Anyone in the group could send prompts that execute on your machine</button>
-            <button class="practice-opt" onclick="handlePractice(this, false)">WhatsApp limits bot messages in groups</button>
-            <div class="practice-explain">This is a <strong>security risk</strong>. Your agent executes commands on your computer. In a group chat, anyone could send it instructions — essentially giving strangers access to your machine. Keep it <strong>1-on-1 only</strong>.</div>
-          </div>
-          <div class="practice-q">
-            <div class="practice-q-label">Quick recall</div>
-            <div class="practice-q-text">How do you find your OpenClaw bot on WhatsApp?</div>
-            <button class="practice-opt" onclick="handlePractice(this, false)">Search for "OpenClaw" in contacts</button>
-            <button class="practice-opt" onclick="handlePractice(this, false)">It appears automatically after setup</button>
-            <button class="practice-opt" onclick="handlePractice(this, true)">Search for your own phone number and message yourself</button>
-            <div class="practice-explain">Your agent uses your <strong>own phone number</strong> as a linked device. To message it, tap + in WhatsApp, search for your own number, and send a message. The reply comes from your agent running on your computer.</div>
           </div>
         </div>
 
@@ -2166,7 +2043,6 @@ Bot: "Done! You're booked for Saturday at 2pm with Mike. I'll remind you Friday 
         if (
           (mode === 'read' && label.includes('read')) ||
           (mode === 'watch' && label.includes('watch')) ||
-          (mode === 'practice' && label.includes('practice')) ||
           (mode === 'ask' && label.includes('ask'))
         ) btn.classList.add('active');
       });
@@ -2269,23 +2145,6 @@ Bot: "Done! You're booked for Saturday at 2pm with Mike. I'll remind you Friday 
       updateBottomBar();
     }
 
-    // ── Try mode ──
-    function handlePractice(btn, correct) {
-      const q = btn.closest('.practice-q');
-      if (q.dataset.answered) return;
-      q.dataset.answered = 'true';
-      const opts = q.querySelectorAll('.practice-opt');
-      opts.forEach(o => {
-        o.style.pointerEvents = 'none';
-        if (o === btn) {
-          o.classList.add(correct ? 'correct' : 'wrong');
-        } else if (o.getAttribute('onclick')?.includes('true')) {
-          o.classList.add('correct');
-        }
-      });
-      const explain = q.querySelector('.practice-explain');
-      if (explain) explain.classList.add('show');
-    }
 
     // ── Ask mode chat ──
     const askResponses = [
