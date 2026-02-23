@@ -722,6 +722,35 @@
 
     .video-meta { font-size: 12px; color: var(--text-muted); }
 
+    .yt-thumb {
+      position: relative; border-radius: 10px; overflow: hidden; margin-bottom: 12px;
+      cursor: pointer; display: block; text-decoration: none;
+      aspect-ratio: 16/9; background: #000;
+    }
+    .yt-thumb img {
+      width: 100%; height: 100%; object-fit: cover; opacity: 0.85;
+      transition: opacity 0.2s;
+    }
+    .yt-thumb:hover img { opacity: 1; }
+    .yt-thumb-play {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      width: 68px; height: 48px; background: rgba(255,0,0,0.85); border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s;
+    }
+    .yt-thumb:hover .yt-thumb-play { background: #f00; }
+    .yt-thumb-play::after {
+      content: ''; display: block; width: 0; height: 0;
+      border-style: solid; border-width: 10px 0 10px 18px;
+      border-color: transparent transparent transparent #fff;
+      margin-left: 3px;
+    }
+    .yt-thumb-time {
+      position: absolute; bottom: 10px; right: 10px;
+      background: rgba(0,0,0,0.8); color: #fff; font-size: 12px; font-weight: 600;
+      padding: 3px 8px; border-radius: 4px;
+    }
+
     .video-source {
       display: flex; align-items: center; gap: 8px;
       font-size: 12px; color: var(--text-dim);
@@ -1542,9 +1571,11 @@ Bot: "Done! You're booked for Saturday at 2pm with Mike. I'll remind you Friday 
         </div>
 
         <div class="modality-content" data-mode="watch">
-          <div style="position: relative; padding-bottom: 56.25%; height: 0; border-radius: 10px; overflow: hidden; margin-bottom: 12px;">
-            <iframe src="https://www.youtube-nocookie.com/embed/n1sfrc-RjyM?start=0&rel=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allowfullscreen></iframe>
-          </div>
+          <a class="yt-thumb" href="https://www.youtube.com/watch?v=n1sfrc-RjyM&t=0s" target="_blank" rel="noopener">
+            <img src="https://img.youtube.com/vi/n1sfrc-RjyM/hqdefault.jpg" alt="OpenClaw Tutorial">
+            <div class="yt-thumb-play"></div>
+            <div class="yt-thumb-time">0:00</div>
+          </a>
           <div class="video-source">
             <div class="video-source-avatar">K</div>
             <span>From <strong>freeCodeCamp</strong> — "OpenClaw Full Tutorial for Beginners" by Kian (0:00–3:00)</span>
@@ -1646,9 +1677,11 @@ Bot: "Done! You're booked for Saturday at 2pm with Mike. I'll remind you Friday 
         </div>
 
         <div class="modality-content" data-mode="watch">
-          <div style="position: relative; padding-bottom: 56.25%; height: 0; border-radius: 10px; overflow: hidden; margin-bottom: 12px;">
-            <iframe src="https://www.youtube-nocookie.com/embed/n1sfrc-RjyM?start=180&rel=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allowfullscreen></iframe>
-          </div>
+          <a class="yt-thumb" href="https://www.youtube.com/watch?v=n1sfrc-RjyM&t=180s" target="_blank" rel="noopener">
+            <img src="https://img.youtube.com/vi/n1sfrc-RjyM/hqdefault.jpg" alt="OpenClaw Tutorial - Prerequisites">
+            <div class="yt-thumb-play"></div>
+            <div class="yt-thumb-time">3:00</div>
+          </a>
           <div class="video-source">
             <div class="video-source-avatar">K</div>
             <span>From <strong>freeCodeCamp</strong> — Prerequisites & install section (3:00–7:00)</span>
@@ -1763,9 +1796,11 @@ Bot: "Done! You're booked for Saturday at 2pm with Mike. I'll remind you Friday 
         </div>
 
         <div class="modality-content" data-mode="watch">
-          <div style="position: relative; padding-bottom: 56.25%; height: 0; border-radius: 10px; overflow: hidden; margin-bottom: 12px;">
-            <iframe src="https://www.youtube-nocookie.com/embed/n1sfrc-RjyM?start=420&rel=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allowfullscreen></iframe>
-          </div>
+          <a class="yt-thumb" href="https://www.youtube.com/watch?v=n1sfrc-RjyM&t=420s" target="_blank" rel="noopener">
+            <img src="https://img.youtube.com/vi/n1sfrc-RjyM/hqdefault.jpg" alt="OpenClaw Tutorial - Install & Wizard">
+            <div class="yt-thumb-play"></div>
+            <div class="yt-thumb-time">7:00</div>
+          </a>
           <div class="video-source">
             <div class="video-source-avatar">K</div>
             <span>From <strong>freeCodeCamp</strong> — Install + wizard walkthrough (7:00–15:00)</span>
@@ -1872,9 +1907,11 @@ Bot: "Done! You're booked for Saturday at 2pm with Mike. I'll remind you Friday 
         </div>
 
         <div class="modality-content" data-mode="watch">
-          <div style="position: relative; padding-bottom: 56.25%; height: 0; border-radius: 10px; overflow: hidden; margin-bottom: 12px;">
-            <iframe src="https://www.youtube-nocookie.com/embed/n1sfrc-RjyM?start=900&rel=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allowfullscreen></iframe>
-          </div>
+          <a class="yt-thumb" href="https://www.youtube.com/watch?v=n1sfrc-RjyM&t=900s" target="_blank" rel="noopener">
+            <img src="https://img.youtube.com/vi/n1sfrc-RjyM/hqdefault.jpg" alt="OpenClaw Tutorial - Agent & Security">
+            <div class="yt-thumb-play"></div>
+            <div class="yt-thumb-time">15:00</div>
+          </a>
           <div class="video-source">
             <div class="video-source-avatar">K</div>
             <span>From <strong>freeCodeCamp</strong> — Meet your agent + security (15:00–25:00)</span>
@@ -1987,9 +2024,11 @@ Bot: "Done! You're booked for Saturday at 2pm with Mike. I'll remind you Friday 
         </div>
 
         <div class="modality-content" data-mode="watch">
-          <div style="position: relative; padding-bottom: 56.25%; height: 0; border-radius: 10px; overflow: hidden; margin-bottom: 12px;">
-            <iframe src="https://www.youtube-nocookie.com/embed/n1sfrc-RjyM?start=1500&rel=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allowfullscreen></iframe>
-          </div>
+          <a class="yt-thumb" href="https://www.youtube.com/watch?v=n1sfrc-RjyM&t=1500s" target="_blank" rel="noopener">
+            <img src="https://img.youtube.com/vi/n1sfrc-RjyM/hqdefault.jpg" alt="OpenClaw Tutorial - WhatsApp Setup">
+            <div class="yt-thumb-play"></div>
+            <div class="yt-thumb-time">25:00</div>
+          </a>
           <div class="video-source">
             <div class="video-source-avatar">K</div>
             <span>From <strong>freeCodeCamp</strong> — WhatsApp connection + first message (25:00–35:00)</span>
