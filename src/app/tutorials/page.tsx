@@ -2,7 +2,7 @@
 
 import useSWR from "swr";
 import Link from "next/link";
-import { FileJson, Clock } from "lucide-react";
+import { FileJson, Clock, Play } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import type { TutorialListItem } from "@/types";
@@ -77,9 +77,19 @@ export default function TutorialsPage() {
                     </span>
                   </div>
                 </div>
-                <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                  <Clock className="h-3 w-3" />
-                  {new Date(t.createdAt).toLocaleDateString()}
+                <div className="flex items-center gap-3">
+                  <Link
+                    href={`/play/${t.id}`}
+                    onClick={(e) => e.stopPropagation()}
+                    className="flex items-center gap-1 rounded-lg bg-primary/15 px-3 py-1.5 text-xs font-medium text-primary transition-colors hover:bg-primary/25"
+                  >
+                    <Play className="h-3 w-3" />
+                    Play
+                  </Link>
+                  <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                    <Clock className="h-3 w-3" />
+                    {new Date(t.createdAt).toLocaleDateString()}
+                  </div>
                 </div>
               </div>
             </Link>

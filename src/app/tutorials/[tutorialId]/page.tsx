@@ -4,7 +4,7 @@ import { useState } from "react";
 import { use } from "react";
 import useSWR, { mutate } from "swr";
 import Link from "next/link";
-import { ArrowLeft, Save, Loader2, Code, Eye as EyeIcon } from "lucide-react";
+import { ArrowLeft, Save, Loader2, Code, Eye as EyeIcon, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Textarea } from "@/components/ui/textarea";
@@ -132,6 +132,12 @@ export default function TutorialDetailPage({
         </div>
 
         <div className="flex gap-2">
+          <Link href={`/play/${tutorialId}`}>
+            <Button variant="outline" size="sm">
+              <Play className="mr-1 h-3 w-3" />
+              Play
+            </Button>
+          </Link>
           {mode === "preview" ? (
             <Button variant="outline" size="sm" onClick={switchToJson}>
               <Code className="mr-1 h-3 w-3" />
