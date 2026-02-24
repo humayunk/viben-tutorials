@@ -1,0 +1,449 @@
+{
+  "id": "cursor-ai-modernize-enterprise-calls",
+  "title": "Replace Legacy Call Tasks with AI-Powered Voice Agents",
+  "description": "Build a modern portal that automates phone calls using Cursor, Claude, Supabase, and Retell AI to replace outdated enterprise software.",
+  "tool": "cursor",
+  "tags": [
+    "cursor",
+    "claude",
+    "supabase",
+    "retell-ai",
+    "n8n"
+  ],
+  "difficulty": "intermediate",
+  "estimatedMinutes": 45,
+  "source": {
+    "airtableRecordId": "rec0TCJ4XotZKEC4A",
+    "sourceUrl": "https://www.youtube.com/watch?v=NitOygP-9zY",
+    "author": "Bart Slodyczka",
+    "authorImage": "https://yt3.googleusercontent.com/0F2EkfLH4lFFt2oieQSrwfyiq0Bp006Es5QqCvppFRBme2ACBh3pKxt4jeBTWoutEL6BiJdLXMs=s900-c-k-c0x00ffffff-no-rj",
+    "thumbnailImage": "https://img.youtube.com/vi/NitOygP-9zY/maxresdefault.jpg",
+    "publishedAt": "2026-01-28T11:31:05.000Z"
+  },
+  "cards": [
+    {
+      "type": "intro",
+      "emoji": "🏢",
+      "title": "Transform Legacy Systems with AI Voice Agents",
+      "body": "You'll learn to replace outdated enterprise call tasks by building a modern portal with Cursor, Claude Code, Supabase, and Retell AI. By the end, you'll have an automated system that takes phone numbers and task descriptions, makes intelligent calls, and tracks results.",
+      "cta": "Let's modernize"
+    },
+    {
+      "type": "concept",
+      "emoji": "🔧",
+      "title": "The Modern AI Replacement Architecture",
+      "body": "Instead of manual calls or legacy systems, we're building an integrated solution that handles everything automatically.",
+      "diagram": {
+        "nodes": [
+          "Portal Form",
+          "→",
+          "Supabase Storage",
+          "→",
+          "n8n Automation",
+          "→",
+          "Retell AI Call",
+          "→",
+          "Status Update"
+        ],
+        "highlight": [
+          2,
+          4
+        ],
+        "caption": "Data flows from form submission to automated call completion"
+      },
+      "bullets": [
+        "<strong>Portal:</strong> Clean interface for inputting phone numbers and call tasks",
+        "<strong>Storage:</strong> Supabase handles user auth, data persistence, and real-time updates",
+        "<strong>Automation:</strong> n8n connects the portal to voice AI and handles status updates",
+        "<strong>Voice AI:</strong> Retell AI makes the actual calls with dynamic content injection"
+      ],
+      "cta": "I see the architecture",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/NitOygP-9zY",
+          "startTime": "0:00",
+          "endTime": "2:30",
+          "source": {
+            "author": "Bart Slodyczka",
+            "description": "See the complete workflow demo - from form submission to automated call completion"
+          }
+        }
+      }
+    },
+    {
+      "type": "action",
+      "emoji": "📥",
+      "title": "Clone the Starter Template into Cursor",
+      "body": "We'll start with Bart's pre-built template that includes login, dashboard, and Supabase integration. This saves hours of setup time.",
+      "code": "git clone https://github.com/bartslodyczka/cursor-supabase-starter.git ai-call-portal\ncd ai-call-portal\nnpm install",
+      "codeLabel": "CLONE AND SETUP",
+      "codeCaption": "This pulls the starter template and installs all dependencies",
+      "troubleshoot": [
+        {
+          "label": "Git not found",
+          "error": "command not found: git",
+          "fix": "Install Git from <a href='https://git-scm.com/downloads' target='_blank'>git-scm.com</a> and restart your terminal"
+        },
+        {
+          "label": "Permission denied",
+          "error": "Permission denied (publickey)",
+          "fix": "The repo is public, so use the HTTPS URL above instead of SSH. If you copied a different URL, use the one provided."
+        }
+      ],
+      "cta": "Template cloned",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/NitOygP-9zY",
+          "startTime": "4:20",
+          "endTime": "5:45",
+          "source": {
+            "author": "Bart Slodyczka",
+            "description": "Watch the template import process and initial file structure"
+          }
+        }
+      }
+    },
+    {
+      "type": "action",
+      "emoji": "⚙️",
+      "title": "Configure Your Supabase Environment",
+      "body": "Set up the connection between your local app and Supabase database by configuring environment variables.",
+      "code": "mv .env.local.example .env.local",
+      "codeLabel": "RENAME ENV FILE",
+      "bullets": [
+        "Open <code>.env.local</code> in Cursor",
+        "Go to your Supabase project → Project Settings → Data API",
+        "Copy your <strong>Project URL</strong> and paste it as <code>SUPABASE_URL</code>",
+        "Copy your <strong>anon/public key</strong> and paste it as <code>SUPABASE_ANON_KEY</code>"
+      ],
+      "warn": "Never commit real API keys to version control. The .env.local file is already in .gitignore.",
+      "cta": "Environment configured",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/NitOygP-9zY",
+          "startTime": "5:45",
+          "endTime": "7:30",
+          "source": {
+            "author": "Bart Slodyczka",
+            "description": "See exactly where to find your Supabase keys and how to configure them"
+          }
+        }
+      }
+    },
+    {
+      "type": "action",
+      "emoji": "🚀",
+      "title": "Launch and Test Your Portal",
+      "body": "Start the development server and create a test user to verify everything works.",
+      "code": "npm run dev",
+      "codeLabel": "START DEV SERVER",
+      "bullets": [
+        "Open <code>localhost:3000</code> in your browser",
+        "Go to your Supabase dashboard → Authentication → Users",
+        "Click <strong>Add user</strong> and create a test account",
+        "Enable <strong>Auto Confirm User</strong> to skip email verification",
+        "Log in with your test credentials"
+      ],
+      "safe": "This test user is only for development - you can delete it later when you set up proper authentication.",
+      "cta": "Portal verified",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/NitOygP-9zY",
+          "startTime": "7:30",
+          "endTime": "9:15",
+          "source": {
+            "author": "Bart Slodyczka",
+            "description": "Follow along with the local setup and user creation process"
+          }
+        }
+      }
+    },
+    {
+      "type": "quiz",
+      "emoji": "🧠",
+      "title": "Quick Setup Check",
+      "question": "What are the two essential Supabase keys needed for your .env.local file?",
+      "options": [
+        {
+          "text": "Project URL and service_role key",
+          "correct": false
+        },
+        {
+          "text": "Project URL and anon/public key",
+          "correct": true
+        },
+        {
+          "text": "Database URL and JWT secret",
+          "correct": false
+        },
+        {
+          "text": "API endpoint and private key",
+          "correct": false
+        }
+      ],
+      "correctFeedback": "Exactly! The Project URL connects to your specific Supabase instance, and the anon/public key allows safe client-side access to your database with Row Level Security rules.",
+      "wrongFeedback": "The service_role key has admin privileges and should never be used on the frontend. The anon/public key is designed for client-side use with proper security policies.",
+      "cta": "Security understood"
+    },
+    {
+      "type": "action",
+      "emoji": "🤖",
+      "title": "Build the New Call Page with Claude Code",
+      "body": "Use Claude Code to generate a form interface for capturing phone numbers and call descriptions.",
+      "bullets": [
+        "Open Claude Code in Cursor (Cmd/Ctrl + K)",
+        "Describe what you want: <em>\"Create a 'New Call' page with phone number input, description field, and submit button\"</em>",
+        "Ask Claude to save form data to a new Supabase table called <code>calls</code>",
+        "Include fields for: phone_number, description, status, transcript, recording_url",
+        "Request basic form validation and success feedback"
+      ],
+      "warn": "Be specific about the database schema - Claude will generate better code if you describe the complete data structure upfront.",
+      "cta": "Call form created",
+      "modalities": {
+        "ask": {
+          "initialMessages": [
+            {
+              "role": "bot",
+              "content": "I'm Claude Code, and I can help you build this New Call page! What specific functionality do you want beyond the basic phone number and description inputs? Should I include form validation, success states, or any specific styling requirements?"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "concept",
+      "emoji": "🗣️",
+      "title": "Voice Agent Architecture with Dynamic Content",
+      "body": "Retell AI agents use template variables to inject dynamic content into calls, making each conversation personalized and contextual.",
+      "bullets": [
+        "<strong>Single-prompt agents:</strong> Simple, predictable behavior with one core instruction",
+        "<strong>Template variables:</strong> Use <code>{{appointment_details}}</code> syntax to inject dynamic data",
+        "<strong>Webhook integration:</strong> Retell can receive context data and send results back",
+        "<strong>Call outcomes:</strong> Track success/failure and extract key information from conversations"
+      ],
+      "analogy": {
+        "icon": "📝",
+        "text": "Think of it like a mail merge for phone calls - you write one script template, and the AI fills in the blanks for each specific conversation."
+      },
+      "cta": "Agent pattern clear",
+      "modalities": {
+        "read": {
+          "body": "The key to successful AI voice agents is balancing structure with flexibility. <strong>Single-prompt agents</strong> work best for focused tasks like appointment confirmations because they're predictable and easy to debug.<br><br>Template variables like <code>{{appointment_details}}</code> let you inject dynamic content while maintaining conversational flow. The AI understands the context and adapts its responses naturally.<br><br><strong>Keep your first prompts simple.</strong> You can always iterate and improve after testing with real calls. Complex multi-step prompts often fail in unexpected ways when dealing with real human responses.",
+          "callouts": [
+            {
+              "type": "tip",
+              "text": "Start with 10-20 test calls using simple prompts before adding complexity. Real conversations will teach you what your agent actually needs to handle."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "milestone",
+      "emoji": "🎯",
+      "title": "Portal Foundation Complete!",
+      "body": "You've successfully built the core infrastructure: a working portal with authentication, a call submission form, and Supabase integration. Next, we'll create the AI voice agent and connect everything with automation.",
+      "cta": "Ready for voice AI"
+    },
+    {
+      "type": "action",
+      "emoji": "📞",
+      "title": "Create Your Retell AI Voice Agent",
+      "body": "Set up a simple voice agent that can confirm appointments using dynamic content from your portal.",
+      "bullets": [
+        "Go to <a href='https://retell.ai' target='_blank'>Retell AI</a> and create a new voice agent",
+        "Choose <strong>Single Prompt Agent</strong> for simplicity",
+        "Write a basic prompt: <em>\"You are calling to confirm an appointment. The details are: {{appointment_details}}. Ask for confirmation and be polite.\"</em>",
+        "Test the agent with sample data to ensure it works",
+        "Note your agent ID for the next step"
+      ],
+      "safe": "Start simple - you can always refine the prompt after testing real calls. Complex prompts often fail unexpectedly.",
+      "cta": "Voice agent ready",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/NitOygP-9zY",
+          "startTime": "12:30",
+          "endTime": "15:00",
+          "source": {
+            "author": "Bart Slodyczka",
+            "description": "Watch the Retell AI agent setup and prompt configuration process"
+          }
+        }
+      }
+    },
+    {
+      "type": "concept",
+      "emoji": "🔄",
+      "title": "Automation Glue with n8n Workflows",
+      "body": "n8n acts as the conductor, orchestrating data flow between your portal, voice AI, and database updates.",
+      "diagram": {
+        "nodes": [
+          "Form Submit",
+          "→",
+          "n8n Webhook",
+          "→",
+          "Retell API",
+          "→",
+          "Call Complete",
+          "→",
+          "Update Supabase"
+        ],
+        "highlight": [
+          1,
+          3
+        ],
+        "caption": "n8n receives form data, triggers calls, and handles status updates"
+      },
+      "bullets": [
+        "<strong>Webhook trigger:</strong> n8n listens for new call submissions from your portal",
+        "<strong>API orchestration:</strong> Automatically calls Retell AI with the right parameters",
+        "<strong>Status tracking:</strong> Updates your Supabase records when calls complete",
+        "<strong>Error handling:</strong> Manages failures and retries gracefully"
+      ],
+      "warn": "Set up proper error handling in n8n - voice calls can fail for various reasons (busy signals, voicemail, network issues).",
+      "cta": "Automation strategy clear",
+      "modalities": {
+        "read": {
+          "body": "n8n workflows excel at connecting different services that don't naturally talk to each other. In this case, we need to:<br><br>1. <strong>Receive webhook data</strong> from your portal when someone submits a call request<br>2. <strong>Format the payload</strong> for Retell AI's API requirements<br>3. <strong>Trigger the outbound call</strong> with dynamic content injection<br>4. <strong>Handle the response</strong> and update your database accordingly<br><br>The key is building in proper error handling and status tracking so you know when calls succeed or fail.",
+          "codeBlocks": [
+            {
+              "code": "{\n  \"phone_number\": \"+1234567890\",\n  \"appointment_details\": \"9:00 AM appointment on Monday\",\n  \"status\": \"pending\"\n}",
+              "caption": "Sample webhook payload structure for n8n processing"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "action",
+      "emoji": "🔗",
+      "title": "Wire Up the Complete Automation Flow",
+      "body": "Create an n8n workflow that connects your portal submission to Retell AI calls and database updates.",
+      "bullets": [
+        "Create a new n8n workflow with a webhook trigger",
+        "Add a Retell AI node to initiate outbound calls",
+        "Configure the call parameters: phone number, agent ID, and appointment details",
+        "Add a Supabase node to update call status when complete",
+        "Test the complete flow with a real phone number"
+      ],
+      "code": "curl -X POST https://your-n8n-webhook-url \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"phone_number\": \"+1234567890\", \"details\": \"test appointment\"}'",
+      "codeLabel": "TEST WEBHOOK",
+      "codeCaption": "Use this to test your n8n workflow directly",
+      "troubleshoot": [
+        {
+          "label": "Webhook not triggering",
+          "error": "Workflow doesn't start when form is submitted",
+          "fix": "Check that your portal is making POST requests to the correct n8n webhook URL. Verify the webhook is active in n8n."
+        },
+        {
+          "label": "Retell API errors",
+          "error": "401 Unauthorized or invalid agent ID",
+          "fix": "Verify your Retell API key is correct in n8n credentials. Double-check your agent ID matches the one created in Retell AI."
+        }
+      ],
+      "cta": "Automation connected",
+      "modalities": {
+        "try": {
+          "prompt": "Test your n8n webhook by sending a sample call request and verifying it triggers the complete workflow",
+          "commands": [
+            {
+              "input": "curl -X POST https://your-webhook-url -H 'Content-Type: application/json' -d '{\"phone_number\": \"+1234567890\", \"details\": \"test appointment\"}'",
+              "output": "Webhook received: {\n  \"workflowId\": \"abc123\",\n  \"executionId\": \"exec456\",\n  \"status\": \"running\"\n}",
+              "hint": "Replace 'your-webhook-url' with your actual n8n webhook URL"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "quiz",
+      "emoji": "🧠",
+      "title": "Integration Knowledge Check",
+      "question": "What happens when your portal form is submitted in the complete automation flow?",
+      "options": [
+        {
+          "text": "The form data is saved to Supabase, then manually processed later",
+          "correct": false
+        },
+        {
+          "text": "n8n receives the data, triggers a Retell AI call, and updates the database status",
+          "correct": true
+        },
+        {
+          "text": "Retell AI directly accesses your Supabase database to get call details",
+          "correct": false
+        },
+        {
+          "text": "The portal makes direct API calls to Retell AI without any middleware",
+          "correct": false
+        }
+      ],
+      "correctFeedback": "Perfect! n8n acts as the orchestrator, receiving form data, formatting it for Retell AI, managing the call process, and updating your database with results - all automatically.",
+      "wrongFeedback": "The power comes from automation - n8n handles the entire flow from form submission through call completion and status updates, eliminating manual steps.",
+      "cta": "Flow mastered"
+    },
+    {
+      "type": "action",
+      "emoji": "🧪",
+      "title": "Test Your Complete AI Call System",
+      "body": "Run an end-to-end test to verify your entire automated call system works as expected.",
+      "bullets": [
+        "Submit a test call through your portal with your own phone number",
+        "Answer the call and go through the confirmation process",
+        "Check your Supabase database to see the updated call status",
+        "Verify the call transcript and recording are properly stored",
+        "Test edge cases: busy signals, voicemail, declined calls"
+      ],
+      "safe": "Use your own phone number for initial testing to avoid bothering others. You can always expand to real customer calls once everything works smoothly.",
+      "warn": "Monitor your Retell AI usage during testing - voice calls consume credits even for test purposes.",
+      "cta": "System tested and verified",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/NitOygP-9zY",
+          "startTime": "1:00",
+          "endTime": "2:30",
+          "source": {
+            "author": "Bart Slodyczka",
+            "description": "See the complete system in action - from form submission to call completion"
+          }
+        }
+      }
+    },
+    {
+      "type": "concept",
+      "emoji": "📈",
+      "title": "Scaling Your AI Replacement Strategy",
+      "body": "Once you've proven this works, you can systematically identify and replace other legacy processes using the same architectural pattern.",
+      "bullets": [
+        "<strong>Start small:</strong> Pick simple, repetitive tasks that are clearly defined",
+        "<strong>Document success:</strong> Track time saved, accuracy improvements, and cost reductions",
+        "<strong>Expand gradually:</strong> Use learnings from your first automation to tackle more complex workflows",
+        "<strong>Build templates:</strong> Create reusable patterns for common enterprise tasks"
+      ],
+      "analogy": {
+        "icon": "🏗️",
+        "text": "Think of this as building your modernization toolkit - each successful automation becomes a blueprint for the next legacy system you want to replace."
+      },
+      "cta": "Strategy understood",
+      "modalities": {
+        "read": {
+          "body": "The real power of this approach isn't just replacing one call task - it's creating a <strong>systematic method</strong> for modernizing enterprise software.<br><br>Look for processes that involve:<br>• Manual data entry and status updates<br>• Repetitive phone calls or emails<br>• Simple decision-making based on clear criteria<br>• Tasks that require human attention but not human intelligence<br><br><strong>Start with the most painful, time-consuming tasks</strong> that happen frequently. These give you the biggest ROI and help build momentum for larger transformation projects.<br><br>Each automation you build teaches you more about integrating AI into existing business processes, making the next one easier and faster to implement.",
+          "callouts": [
+            {
+              "type": "tip",
+              "text": "Keep a 'modernization backlog' - document every manual process you encounter that could be automated. Prioritize by impact and complexity."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "celebration",
+      "emoji": "🏆",
+      "title": "You've Built an AI-Powered Enterprise Solution!",
+      "body": "You've successfully replaced a legacy manual process with a modern AI system. You can now: automatically trigger intelligent phone calls from a web portal, store and track call outcomes in real-time, integrate multiple AI services with workflow automation, and apply this pattern to modernize other enterprise tasks.",
+      "stats": true,
+      "cta": "Transform more processes"
+    }
+  ]
+}

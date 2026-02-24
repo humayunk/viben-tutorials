@@ -1,0 +1,444 @@
+{
+  "id": "claude-code-agent-threads",
+  "title": "Master Agent Threads: Scale Your AI Coding Output",
+  "description": "Learn the mental framework top engineers use to measure and improve their AI coding skills through parallel agent execution.",
+  "tool": "claude-code",
+  "tags": [
+    "agentic-engineering",
+    "cursor",
+    "claude-code",
+    "mental-model",
+    "prompting"
+  ],
+  "difficulty": "intermediate",
+  "estimatedMinutes": 25,
+  "source": {
+    "airtableRecordId": "rec1D4JTN2OgV9VkZ",
+    "sourceUrl": "https://www.youtube.com/watch?v=-WBHNFAB0OE",
+    "author": "IndyDevDan",
+    "authorImage": "https://yt3.googleusercontent.com/BMf5YUX1T-_JNAeS6bDrxU1Dw1DGDI9AEUSE2IMb0v5hUD2I0k0wEedFw2hJeLsyPq2v75Q0TQ=s900-c-k-c0x00ffffff-no-rj",
+    "thumbnailImage": "https://img.youtube.com/vi/-WBHNFAB0OE/maxresdefault.jpg",
+    "publishedAt": "2026-01-12T14:00:01.000Z"
+  },
+  "cards": [
+    {
+      "type": "intro",
+      "emoji": "🧠",
+      "title": "The Agent Thread Mental Model",
+      "body": "Learn how top engineers like Boris Cherny (creator of Claude Code) track and improve their AI coding skills. You'll master the <strong>thread framework</strong> that measures real progress and discover how to run 5-10 parallel agents like the pros. Takes about 25 minutes to transform your workflow.",
+      "cta": "Master agent threads"
+    },
+    {
+      "type": "concept",
+      "emoji": "🔗",
+      "title": "What Is an Agent Thread?",
+      "body": "A <strong>thread</strong> is a unit of work over time driven by you and your AI agent. Every time you hit enter on a prompt, you start a new thread.",
+      "diagram": {
+        "nodes": [
+          "You Prompt",
+          "→",
+          "Agent Tool Calls",
+          "→",
+          "You Review"
+        ],
+        "highlight": [
+          2
+        ],
+        "caption": "You show up at the beginning and end, agent does the middle work"
+      },
+      "analogy": {
+        "icon": "🎯",
+        "text": "Like a relay race: you hand off the baton (prompt), the agent runs the middle laps (tool calls), then hands back for you to cross the finish line (review)."
+      },
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/-WBHNFAB0OE",
+          "startTime": "2:45",
+          "endTime": "4:30",
+          "source": {
+            "author": "IndyDevDan",
+            "description": "Visual explanation of thread structure and tool calls"
+          }
+        }
+      },
+      "cta": "I see the thread pattern"
+    },
+    {
+      "type": "concept",
+      "emoji": "⚡",
+      "title": "Tool Calls = Impact",
+      "body": "The key insight: <strong>tool calls roughly equal impact</strong>. Pre-2023, you were the tool calls—writing code, reading files, making requests. Now agents do that work while you focus on prompting and reviewing.",
+      "bullets": [
+        "More tool calls = more work accomplished",
+        "You can measure agent productivity by counting tool calls",
+        "This gives you a concrete metric for improvement"
+      ],
+      "modalities": {
+        "ask": {
+          "initialMessages": [
+            {
+              "role": "bot",
+              "content": "Think about your last AI coding session. How many files did your agent read or modify? How many API calls did it make? Each of those was a tool call that used to be <em>your</em> manual work. What does this shift mean for how you should approach AI coding?"
+            }
+          ]
+        }
+      },
+      "cta": "Tool calls make sense"
+    },
+    {
+      "type": "quiz",
+      "emoji": "🧠",
+      "title": "Thread Knowledge Check",
+      "question": "In the agent thread model, what are the two mandatory nodes where you (the human) must show up?",
+      "options": [
+        {
+          "text": "Planning and debugging",
+          "correct": false
+        },
+        {
+          "text": "Prompting and reviewing",
+          "correct": true
+        },
+        {
+          "text": "Coding and testing",
+          "correct": false
+        },
+        {
+          "text": "Reading and writing",
+          "correct": false
+        }
+      ],
+      "correctFeedback": "Exactly! You show up at the <strong>beginning</strong> (prompt/plan) and <strong>end</strong> (review/validation), while your agent handles all the tool calls in between.",
+      "wrongFeedback": "Remember the thread structure: You → Agent → You. You're responsible for the prompt that starts the work and the review that validates it. Everything in between is agent tool calls.",
+      "cta": "Got the structure"
+    },
+    {
+      "type": "action",
+      "emoji": "🚀",
+      "title": "Run Your First Conscious Thread",
+      "body": "Open your terminal and run a prompt while <strong>actively tracking the thread</strong>. Pay attention to the tool call count when it finishes—this becomes your baseline.",
+      "code": "# In Claude Code, Cursor, or your preferred AI coding tool\n# Run any prompt and note the tool calls\n\"What does this codebase do?\"",
+      "codeLabel": "BASELINE THREAD PROMPT",
+      "codeCaption": "Watch the tool call counter as your agent works",
+      "troubleshoot": [
+        {
+          "label": "No tool call counter visible",
+          "error": "Can't see how many tool calls the agent made",
+          "fix": "In Claude Code, look at the bottom of responses for token/tool stats. In Cursor, check the status bar during generation."
+        }
+      ],
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/-WBHNFAB0OE",
+          "startTime": "4:45",
+          "endTime": "6:15",
+          "source": {
+            "author": "IndyDevDan",
+            "description": "Live demo of tracking tool calls in a thread"
+          }
+        }
+      },
+      "cta": "Baseline thread completed"
+    },
+    {
+      "type": "concept",
+      "emoji": "⚡",
+      "title": "Parallel Threads (P-Threads)",
+      "body": "After mastering single threads, you scale with <strong>parallel execution</strong>. This is how Boris Cherny (Claude Code creator) works: 5 terminals + 5-10 web sessions running simultaneously.",
+      "diagram": {
+        "nodes": [
+          "Terminal 1",
+          "Terminal 2",
+          "Terminal 3",
+          "Terminal 4",
+          "Terminal 5"
+        ],
+        "highlight": [],
+        "caption": "Boris numbers his tabs 1-5 and runs multiple Claude Code instances"
+      },
+      "bullets": [
+        "Kick off multiple prompts across time",
+        "Review each thread as it completes",
+        "Dramatically increase your compute usage"
+      ],
+      "modalities": {
+        "read": {
+          "body": "The magic happens when you realize you don't need to babysit each agent. You can <strong>fire and review</strong>—start a thread, let it work, move to the next terminal, start another thread. Come back to review the first when it's done. <br><br>This is fundamentally different from traditional coding where you're blocked waiting for each step. With agents, your bottleneck becomes your ability to prompt and review, not the actual work execution.",
+          "callouts": [
+            {
+              "type": "tip",
+              "text": "Start with 2-3 parallel threads before scaling to Boris's 5-15 setup. You need to build your review capacity first."
+            }
+          ]
+        }
+      },
+      "cta": "Ready to parallelize"
+    },
+    {
+      "type": "action",
+      "emoji": "🔥",
+      "title": "Launch Your First P-Thread Setup",
+      "body": "Open 3-5 separate terminals or agent sessions. Give each one a <strong>distinct task</strong> from your current project, then practice reviewing them in sequence as they complete.",
+      "bullets": [
+        "Terminal 1: Code review task",
+        "Terminal 2: Feature implementation",
+        "Terminal 3: Documentation update",
+        "Terminal 4: Bug investigation",
+        "Terminal 5: Architecture analysis"
+      ],
+      "troubleshoot": [
+        {
+          "label": "Getting overwhelmed by multiple threads",
+          "error": "Too many agents running, can't keep track",
+          "fix": "Start with just 2-3 threads. Number your terminals/tabs clearly. Use a simple text file to track what each thread is working on."
+        },
+        {
+          "label": "Agents interfering with each other",
+          "error": "Multiple agents editing the same files",
+          "fix": "Use separate git branches, different directories, or assign non-overlapping file sets to each agent thread."
+        }
+      ],
+      "modalities": {
+        "try": {
+          "prompt": "Set up 3 parallel agent threads on different aspects of your project",
+          "commands": [
+            {
+              "input": "# Terminal 1\nclaude-code \"Review the authentication system\"",
+              "output": "🤖 Starting code review thread...\nAnalyzing auth flow, checking security patterns...",
+              "hint": "Let this run while you start the next terminal"
+            },
+            {
+              "input": "# Terminal 2 (new tab)\nclaude-code \"Add input validation to the API\"",
+              "output": "🤖 Starting validation implementation...\nScanning API endpoints, adding validation logic...",
+              "hint": "Now start terminal 3 while both run in background"
+            },
+            {
+              "input": "# Terminal 3 (new tab)\nclaude-code \"Update README with new features\"",
+              "output": "🤖 Starting documentation update...\nReading codebase, generating updated docs...",
+              "hint": "All three threads now running in parallel!"
+            }
+          ]
+        }
+      },
+      "cta": "P-threads launched"
+    },
+    {
+      "type": "milestone",
+      "emoji": "🎯",
+      "title": "You're Thinking in Threads!",
+      "body": "You've mastered the core thread concept and started running parallel agents like a pro. You now have the mental framework to <strong>measure your AI coding progress</strong> through tool calls and parallel execution. Next up: advanced thread patterns for complex workflows.",
+      "cta": "Level up with advanced patterns"
+    },
+    {
+      "type": "concept",
+      "emoji": "⛓️",
+      "title": "Chained Threads for Risky Work",
+      "body": "For complex tasks like migrations or refactors, break work into <strong>sequential threads</strong>. Only prompt the next phase after reviewing the previous one.",
+      "diagram": {
+        "nodes": [
+          "Thread 1: Plan",
+          "→",
+          "Review",
+          "→",
+          "Thread 2: Execute",
+          "→",
+          "Review",
+          "→",
+          "Thread 3: Test"
+        ],
+        "highlight": [
+          2,
+          4
+        ],
+        "caption": "Human review gates between each phase"
+      },
+      "warn": "Never chain risky operations without human review checkpoints. One bad thread can cascade into bigger problems.",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/-WBHNFAB0OE",
+          "startTime": "12:30",
+          "endTime": "14:45",
+          "source": {
+            "author": "IndyDevDan",
+            "description": "Chained thread strategy for complex refactoring tasks"
+          }
+        }
+      },
+      "cta": "I see the safety pattern"
+    },
+    {
+      "type": "action",
+      "emoji": "🔗",
+      "title": "Execute a Chained Thread Workflow",
+      "body": "Take your next risky production task and break it into phases. Write a detailed plan, then execute only <strong>one phase at a time</strong> with review gates.",
+      "code": "# Phase 1: Analysis\n\"Analyze the current authentication system and identify migration risks\"\n\n# Wait for completion, review output, then:\n# Phase 2: Planning  \n\"Create step-by-step migration plan based on the analysis\"\n\n# Continue phase by phase...",
+      "codeLabel": "CHAINED THREAD PATTERN",
+      "codeCaption": "Each arrow represents a human review checkpoint",
+      "bullets": [
+        "Phase 1: Analysis and risk assessment",
+        "Phase 2: Detailed execution plan",
+        "Phase 3: Implementation with rollback plan",
+        "Phase 4: Testing and validation"
+      ],
+      "cta": "Chained workflow completed"
+    },
+    {
+      "type": "concept",
+      "emoji": "🔄",
+      "title": "Fusion Threads for Better Results",
+      "body": "Send the <strong>same prompt to 2-3 different agents</strong>, compare their outputs, then manually combine the strongest parts into one result. This technique gives you higher quality solutions.",
+      "analogy": {
+        "icon": "🎨",
+        "text": "Like asking three experts for advice on the same problem, then synthesizing their best ideas into your final approach."
+      },
+      "bullets": [
+        "Claude Code + Cursor + GitHub Copilot",
+        "Compare architectures, code styles, edge cases",
+        "Human synthesis creates the best hybrid solution"
+      ],
+      "modalities": {
+        "ask": {
+          "initialMessages": [
+            {
+              "role": "bot",
+              "content": "When might fusion threads be worth the extra effort? Think about scenarios where the cost of getting it wrong is high, or where you want to explore multiple solution approaches before committing. What's an example from your recent work where you wished you had multiple AI perspectives?"
+            }
+          ]
+        }
+      },
+      "cta": "Ready to fuse approaches"
+    },
+    {
+      "type": "quiz",
+      "emoji": "🧠",
+      "title": "Thread Pattern Mastery",
+      "question": "You're planning a database migration. Which thread pattern should you use?",
+      "options": [
+        {
+          "text": "Single thread - get it done fast",
+          "correct": false
+        },
+        {
+          "text": "Parallel threads - run migration steps simultaneously",
+          "correct": false
+        },
+        {
+          "text": "Chained threads - review each phase before proceeding",
+          "correct": true
+        },
+        {
+          "text": "Fusion threads - compare different migration strategies",
+          "correct": false
+        }
+      ],
+      "correctFeedback": "Perfect! Database migrations are risky and irreversible. <strong>Chained threads</strong> with human review gates prevent cascading failures and let you catch issues early.",
+      "wrongFeedback": "Database migrations need careful phase-by-phase execution. While fusion threads could help with initial planning, chained threads with review checkpoints are essential for risky operations that can't be easily undone.",
+      "cta": "Pattern selection mastered"
+    },
+    {
+      "type": "action",
+      "emoji": "⚡",
+      "title": "Try a Fusion Thread Experiment",
+      "body": "Pick a challenging technical decision you're facing. Send the <strong>same detailed prompt</strong> to 2-3 different AI tools, then compare and synthesize their responses.",
+      "code": "# Same prompt to multiple agents:\n\"Design a caching strategy for a high-traffic API with these constraints: [your specific requirements]\"\n\n# Send to: Claude, GPT-4, Cursor, etc.",
+      "codeLabel": "FUSION THREAD PROMPT",
+      "codeCaption": "Compare architectures, trade-offs, and implementation approaches",
+      "bullets": [
+        "Note different architectural approaches",
+        "Compare how each handles edge cases",
+        "Look for unique insights from each agent",
+        "Synthesize the best ideas manually"
+      ],
+      "troubleshoot": [
+        {
+          "label": "Responses too similar",
+          "error": "All agents giving nearly identical solutions",
+          "fix": "Add more constraints or ask for alternative approaches: 'Now give me 2 completely different architectures for the same problem.'"
+        }
+      ],
+      "cta": "Fusion experiment complete"
+    },
+    {
+      "type": "concept",
+      "emoji": "📊",
+      "title": "Measuring Your Thread Mastery",
+      "body": "Track these metrics to know you're improving: <strong>tool calls per thread</strong>, <strong>parallel threads you can manage</strong>, and <strong>review speed</strong>. Without measurement, you can't systematically improve.",
+      "bullets": [
+        "Baseline: Tool calls in your typical single thread",
+        "Scale: How many parallel threads can you manage?",
+        "Speed: How fast can you review and prompt?",
+        "Quality: Are your prompts generating more useful tool calls?"
+      ],
+      "safe": "Start with small improvements. Going from 1 to 2 parallel threads is a 100% increase in your compute usage.",
+      "modalities": {
+        "read": {
+          "body": "The best engineers are <strong>self-aware</strong> about their skills. Even Andrej Karpathy acknowledges feeling behind—that awareness is what will help him catch up quickly. <br><br>Your thread metrics give you concrete data about your agentic engineering progress. Are you running more parallel threads than last month? Are your prompts generating higher tool call counts? Are you reviewing faster without missing important details? <br><br>This isn't about comparing yourself to others—it's about having a clear trajectory of improvement in a rapidly evolving skill.",
+          "codeBlocks": [
+            {
+              "code": "# Weekly thread tracking\nWeek 1: 1 thread, avg 15 tool calls, 5min review\nWeek 4: 3 threads, avg 25 tool calls, 3min review\nWeek 8: 5 threads, avg 35 tool calls, 2min review",
+              "caption": "Example progression tracking your thread mastery"
+            }
+          ],
+          "callouts": [
+            {
+              "type": "tip",
+              "text": "Keep a simple log of your thread sessions. Even just noting 'ran 3 parallel threads today, 180 total tool calls' builds awareness."
+            }
+          ]
+        }
+      },
+      "cta": "I'll track my progress"
+    },
+    {
+      "type": "action",
+      "emoji": "📈",
+      "title": "Set Up Your Thread Metrics",
+      "body": "Create a simple tracking system for your thread performance. Start measuring so you can improve systematically.",
+      "code": "# Create a simple thread log\necho \"Date,Threads,Tool_Calls,Review_Time\" > thread_log.csv\necho \"$(date +%Y-%m-%d),3,45,2min\" >> thread_log.csv",
+      "codeLabel": "SIMPLE THREAD TRACKING",
+      "codeCaption": "Track your key metrics to measure improvement over time",
+      "bullets": [
+        "Date and session duration",
+        "Number of parallel threads managed",
+        "Total tool calls across all threads",
+        "Average review time per thread"
+      ],
+      "cta": "Tracking system ready"
+    },
+    {
+      "type": "quiz",
+      "emoji": "🧠",
+      "title": "Thread Mastery Assessment",
+      "question": "What's the most important reason to measure your thread performance?",
+      "options": [
+        {
+          "text": "To compete with other engineers",
+          "correct": false
+        },
+        {
+          "text": "To systematically improve your agentic engineering skills",
+          "correct": true
+        },
+        {
+          "text": "To impress your manager with metrics",
+          "correct": false
+        },
+        {
+          "text": "To justify using AI tools at work",
+          "correct": false
+        }
+      ],
+      "correctFeedback": "Exactly! Agentic engineering is a <strong>new skill that needs new frameworks</strong> for improvement. Without measuring your thread performance, you can't identify what's working and what needs refinement.",
+      "wrongFeedback": "Remember Dan's key insight: 'If you don't measure it, you will not be able to improve it.' This is about developing a concrete skill in a rapidly evolving field, not external validation.",
+      "cta": "Ready to ship like a pro"
+    },
+    {
+      "type": "celebration",
+      "emoji": "🏆",
+      "title": "You're Now a Thread Master!",
+      "body": "You've learned the complete agent thread framework used by top engineers. You can now: <strong>measure progress through tool calls</strong>, <strong>run parallel threads like Boris Cherny</strong>, <strong>chain threads for risky operations</strong>, and <strong>fuse multiple agent outputs</strong> for better results. Most importantly, you have a systematic way to improve your agentic engineering skills.",
+      "stats": true,
+      "cta": "Start shipping at scale"
+    }
+  ]
+}

@@ -1,0 +1,368 @@
+{
+  "id": "claude-context-optimization",
+  "title": "2 Tips to Save Context Space in Claude Code",
+  "description": "Learn how to audit and optimize Claude's context usage by splitting large docs and filtering MCP tools.",
+  "tool": "claude",
+  "tags": [
+    "claude",
+    "mcp",
+    "prompting",
+    "workflow",
+    "tokens"
+  ],
+  "difficulty": "intermediate",
+  "estimatedMinutes": 20,
+  "source": {
+    "airtableRecordId": "rec6TsHsXYjsYSb4G",
+    "sourceUrl": "https://www.youtube.com/watch?v=b0HVbEleHKw",
+    "author": "AI Coding Daily",
+    "authorImage": "https://yt3.googleusercontent.com/STs0a9eCYNnsJ50Wpo2kyIyld8_r5l1fc4cYPt_qjGQbM_kyxYizSOOGDVo55Oq9q1QS7n5BF4o=s900-c-k-c0x00ffffff-no-rj",
+    "thumbnailImage": "https://img.youtube.com/vi/b0HVbEleHKw/maxresdefault.jpg",
+    "publishedAt": "2026-01-28T07:00:37.000Z"
+  },
+  "cards": [
+    {
+      "type": "intro",
+      "emoji": "🎯",
+      "title": "Stop Wasting Claude's Context Window",
+      "body": "You'll discover how to audit Claude Code's token usage and apply two proven techniques that can save 3-15% of your context space. We'll analyze real data from 20+ prompts to identify the biggest context hogs.",
+      "cta": "Let's optimize Claude"
+    },
+    {
+      "type": "concept",
+      "emoji": "📊",
+      "title": "Understanding Context Usage Patterns",
+      "body": "Claude Code can show you exactly what's consuming your context tokens. After running ~20 prompts, clear patterns emerge: large spec documents and over-fetching MCP tools are the biggest culprits.",
+      "analogy": {
+        "icon": "🍕",
+        "text": "Think of context like pizza slices at a party. If two people take half the pizza (large docs + MCP tools), everyone else gets tiny portions (your actual code work)."
+      },
+      "bullets": [
+        "Large project documents can consume <strong>15,000+ tokens</strong>",
+        "MCP database tools may pull <strong>entire schemas</strong> unnecessarily",
+        "Small optimizations add up to significant context savings"
+      ],
+      "cta": "I see the problem",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/b0HVbEleHKw",
+          "startTime": "0:00",
+          "endTime": "1:30",
+          "source": {
+            "author": "AI Coding Daily",
+            "description": "Introduction to context usage analysis"
+          }
+        }
+      }
+    },
+    {
+      "type": "action",
+      "emoji": "🔍",
+      "title": "Audit Your Context Usage",
+      "body": "First, let's see what's actually eating your tokens. Add this request to your next Claude prompt to generate a breakdown table.",
+      "code": "When done, analyze and output a table of what used context space in this prompt, showing token counts and percentages for each component.",
+      "codeLabel": "Add to your Claude prompt",
+      "codeCaption": "Claude will show exactly where your tokens are going",
+      "troubleshoot": [
+        {
+          "label": "No table appears",
+          "error": "Claude doesn't show the context breakdown",
+          "fix": "Make sure you're using <strong>Claude Code</strong> (not regular Claude) and add the request at the <strong>end</strong> of your prompt after your main task."
+        }
+      ],
+      "cta": "Context audit requested",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/b0HVbEleHKw",
+          "startTime": "1:30",
+          "endTime": "3:00",
+          "source": {
+            "author": "AI Coding Daily",
+            "description": "How to request context usage analysis"
+          }
+        }
+      }
+    },
+    {
+      "type": "concept",
+      "emoji": "⚠️",
+      "title": "The Large Document Problem",
+      "body": "When you prompt \"work on phase 1 of this doc\", Claude loads the <em>entire</em> document into context first, then filters. A 1,000-line project spec consumes massive tokens even if you only need 160 lines.",
+      "diagram": {
+        "nodes": [
+          "1,000-line doc",
+          "→",
+          "Full context load",
+          "→",
+          "Filter to phase 1",
+          "→",
+          "Work on 160 lines"
+        ],
+        "highlight": [
+          2
+        ],
+        "caption": "Claude loads everything before filtering"
+      },
+      "warn": "Even referencing one section of a large doc loads the entire file into context",
+      "cta": "I understand the issue",
+      "modalities": {
+        "read": {
+          "body": "This is the core inefficiency in most Claude workflows. When you reference any part of a large document, Claude's context window gets polluted with irrelevant content. <br><br>The solution isn't to write shorter specs (you need those details), but to <strong>restructure how you reference them</strong>. Think of it like asking someone to read an entire encyclopedia to answer one question about Chapter 5.",
+          "callouts": [
+            {
+              "type": "tip",
+              "text": "Large documents are fine for planning—just don't load them all at once into Claude"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "quiz",
+      "emoji": "🧠",
+      "title": "Quick Check",
+      "question": "What happens when you prompt Claude to \"work on phase 2\" of a multi-phase document?",
+      "options": [
+        {
+          "text": "Claude loads only phase 2 into context",
+          "correct": false
+        },
+        {
+          "text": "Claude loads the entire document first, then filters to phase 2",
+          "correct": true
+        },
+        {
+          "text": "Claude asks you to specify which parts to load",
+          "correct": false
+        },
+        {
+          "text": "Claude loads phase 2 plus adjacent phases for context",
+          "correct": false
+        }
+      ],
+      "correctFeedback": "Exactly! Claude always loads the full document into context before filtering, which wastes tokens on irrelevant content.",
+      "wrongFeedback": "Actually, Claude loads the entire referenced document into context first, then filters to find what it needs. This wastes tokens on unused content.",
+      "cta": "Continue"
+    },
+    {
+      "type": "action",
+      "emoji": "✂️",
+      "title": "Split Large Documents",
+      "body": "Break your large project document into separate Markdown files—one per phase or section. This lets you reference only what you need.",
+      "code": "# Instead of:\nproject-phases.md (1,000 lines)\n\n# Create:\nphase1.md (160 lines)\nphase2.md (180 lines)\nphase3.md (170 lines)\nphase4.md (160 lines)",
+      "codeLabel": "Document restructuring",
+      "codeCaption": "Each file contains only one phase's details",
+      "bullets": [
+        "Keep the same level of detail in each file",
+        "Use clear, consistent naming conventions",
+        "Include cross-references between phases if needed"
+      ],
+      "troubleshoot": [
+        {
+          "label": "Losing context between phases",
+          "error": "Claude doesn't remember previous phases",
+          "fix": "Add a brief summary or reference to completed phases at the top of each new phase file, or include a <strong>project-overview.md</strong> that you can reference alongside the specific phase."
+        }
+      ],
+      "cta": "Documents split",
+      "modalities": {
+        "try": {
+          "prompt": "Practice splitting a document structure",
+          "commands": [
+            {
+              "input": "mkdir project-phases && cd project-phases",
+              "output": "Created project-phases directory",
+              "hint": "Create a folder to organize your phase files"
+            },
+            {
+              "input": "touch phase1.md phase2.md phase3.md phase4.md",
+              "output": "Created: phase1.md phase2.md phase3.md phase4.md",
+              "hint": "Create separate files for each phase"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "action",
+      "emoji": "🎯",
+      "title": "Reference Specific Phase Files",
+      "body": "Now prompt Claude to work with individual phase files instead of the master document. This drops context usage from ~15% to ~1%.",
+      "code": "# Before (inefficient):\n\"Work on phase 4 from the project-phases.md file\"\n\n# After (optimized):\n\"Work on phase 4 from the phase4.md file\"",
+      "codeLabel": "Updated prompting approach",
+      "codeCaption": "Reference only the specific file you need",
+      "cta": "Phase-specific prompting enabled",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/b0HVbEleHKw",
+          "startTime": "6:00",
+          "endTime": "8:00",
+          "source": {
+            "author": "AI Coding Daily",
+            "description": "Demonstrating the document splitting technique"
+          }
+        }
+      }
+    },
+    {
+      "type": "milestone",
+      "emoji": "🎉",
+      "title": "First Optimization Complete!",
+      "body": "You've just implemented document splitting, which can reduce large document context usage from ~15% to ~1%. Now let's tackle the second major context hog: over-fetching MCP tools.",
+      "cta": "Ready for MCP optimization"
+    },
+    {
+      "type": "concept",
+      "emoji": "🛠️",
+      "title": "The MCP Over-fetching Problem",
+      "body": "MCP tools can pull way more data than needed. A database schema tool might fetch entire databases when you only need the current one, consuming 12,000+ tokens unnecessarily.",
+      "diagram": {
+        "nodes": [
+          "MCP Request",
+          "→",
+          "Fetches ALL databases",
+          "→",
+          "12,000 tokens",
+          "→",
+          "You need 1 database"
+        ],
+        "highlight": [
+          2
+        ],
+        "caption": "MCP tools often over-fetch data"
+      },
+      "warn": "Some MCP tools have bugs that cause them to fetch excessive data",
+      "safe": "You can override MCP behavior using Claude instructions without waiting for tool fixes",
+      "cta": "I see the MCP issue",
+      "modalities": {
+        "ask": {
+          "initialMessages": [
+            {
+              "role": "bot",
+              "content": "Why do you think MCP tools might over-fetch data instead of being more selective? What would you do if you discovered an MCP tool was using 15% of your context unnecessarily?"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "action",
+      "emoji": "⚙️",
+      "title": "Override MCP Tool Behavior",
+      "body": "Add filtering instructions to your Claude.md file to control how MCP tools behave, even when they have bugs.",
+      "code": "# Add to your Claude.md:\n\nwhen using database schema, filter only current database",
+      "codeLabel": "Claude.md override",
+      "codeCaption": "This instruction overrides the MCP tool's default behavior",
+      "bullets": [
+        "This works even if the MCP tool itself has bugs",
+        "You can add multiple override rules for different tools",
+        "Test the results in your next context audit"
+      ],
+      "troubleshoot": [
+        {
+          "label": "Override not working",
+          "error": "MCP tool still over-fetches after adding instructions",
+          "fix": "Make sure your Claude.md file is in the <strong>project root directory</strong> and be more specific in your instruction, like 'when using [tool name], only fetch data for the current working database, not all databases in the instance.'"
+        }
+      ],
+      "cta": "MCP override configured",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/b0HVbEleHKw",
+          "startTime": "8:00",
+          "endTime": "10:00",
+          "source": {
+            "author": "AI Coding Daily",
+            "description": "Adding MCP override instructions"
+          }
+        }
+      }
+    },
+    {
+      "type": "quiz",
+      "emoji": "🧠",
+      "title": "Quick Check",
+      "question": "Where should you add MCP tool override instructions?",
+      "options": [
+        {
+          "text": "In your prompt each time you use the tool",
+          "correct": false
+        },
+        {
+          "text": "In the Claude.md file in your project root",
+          "correct": true
+        },
+        {
+          "text": "In the MCP tool's configuration file",
+          "correct": false
+        },
+        {
+          "text": "In Claude's global settings",
+          "correct": false
+        }
+      ],
+      "correctFeedback": "Perfect! Claude.md in your project root is where Claude looks for project-specific instructions and overrides.",
+      "wrongFeedback": "The Claude.md file in your project root is the right place. This gives Claude persistent instructions for how to handle MCP tools in this project.",
+      "cta": "Continue"
+    },
+    {
+      "type": "action",
+      "emoji": "📋",
+      "title": "Test Your Optimizations",
+      "body": "Run another context audit with the same type of prompt to verify your improvements. You should see dramatic reductions in token usage.",
+      "code": "# Expected improvements:\n# Large documents: 15% → 1%\n# MCP tools: 12% → 0.5%\n# Total context saved: ~3-15%",
+      "codeLabel": "Expected results",
+      "codeCaption": "Your context audit should show these improvements",
+      "bullets": [
+        "Document context drops from ~15,000 to ~1,500 tokens",
+        "MCP tools show \"filtered\" in the breakdown table",
+        "Overall context usage becomes more balanced"
+      ],
+      "cta": "Optimizations verified",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/b0HVbEleHKw",
+          "startTime": "10:00",
+          "endTime": "12:00",
+          "source": {
+            "author": "AI Coding Daily",
+            "description": "Results after implementing both optimizations"
+          }
+        }
+      }
+    },
+    {
+      "type": "concept",
+      "emoji": "🔄",
+      "title": "Make Context Auditing a Habit",
+      "body": "Run context audits across 5-10 prompts to identify patterns, not just one-off issues. Different project phases reveal different optimization opportunities.",
+      "bullets": [
+        "Audit at the start of each major project phase",
+        "Look for recurring patterns across multiple prompts",
+        "Document your project-specific optimization rules",
+        "Share findings with your team for consistent practices"
+      ],
+      "safe": "Context auditing helps you catch problems early, before they impact your workflow",
+      "cta": "I'll audit regularly",
+      "modalities": {
+        "read": {
+          "body": "Context optimization isn't a one-time fix—it's an ongoing practice. Different project phases surface different inefficiencies. <br><br><strong>Early phases</strong> often have bloated planning documents. <strong>Development phases</strong> might over-fetch database schemas or API docs. <strong>Testing phases</strong> could load excessive test files. <br><br>By auditing regularly, you'll develop a sixth sense for context efficiency and catch problems before they slow you down.",
+          "callouts": [
+            {
+              "type": "tip",
+              "text": "Keep a simple log of your optimization rules—they often apply to future projects"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "celebration",
+      "emoji": "🏆",
+      "title": "Context Master Achievement Unlocked!",
+      "body": "You've mastered Claude context optimization! You can now audit token usage, split large documents to save 10-15% context, override MCP tool behavior, and identify recurring efficiency patterns. These techniques will keep your Claude sessions fast and focused.",
+      "stats": true,
+      "cta": "Start optimizing projects"
+    }
+  ]
+}

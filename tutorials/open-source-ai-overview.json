@@ -1,0 +1,424 @@
+{
+  "id": "open-source-ai-overview",
+  "title": "Open Source AI In 17 Minutes",
+  "description": "Discover what open-source AI means, why it matters for cost and privacy, and how to run powerful models locally on your own machine.",
+  "tool": "ollama",
+  "tags": [
+    "ollama",
+    "open-source",
+    "local",
+    "models",
+    "agents"
+  ],
+  "difficulty": "beginner",
+  "estimatedMinutes": 17,
+  "source": {
+    "airtableRecordId": "rec683cvIWEWiLEKx",
+    "sourceUrl": "https://www.youtube.com/watch?v=1uCE0uoKXL8",
+    "author": "Tina Huang",
+    "authorImage": "https://yt3.googleusercontent.com/5Eyvt8Lqdea_DD_YRQoZ1EPrROHQuhbqfZmBfiiXrqYBv1PGU2cHAWGR0QzXKp3O9NVxTtOd=s900-c-k-c0x00ffffff-no-rj",
+    "thumbnailImage": "https://img.youtube.com/vi/1uCE0uoKXL8/maxresdefault.jpg",
+    "publishedAt": "2026-02-12T12:00:00.000Z"
+  },
+  "cards": [
+    {
+      "type": "intro",
+      "emoji": "🚀",
+      "title": "Break Free from AI Vendor Lock-in",
+      "body": "Learn what open-source AI means, why it's exploding in 2026, and how to run powerful models locally on your own machine. <strong>Save money, protect your privacy, and break free from cloud dependencies.</strong><br><br>You'll discover the leading models, set up Ollama, and run your first local AI in under 20 minutes.",
+      "cta": "Start my AI journey"
+    },
+    {
+      "type": "concept",
+      "emoji": "🔓",
+      "title": "Open Source vs Closed Source AI",
+      "body": "Open source AI makes the <strong>model weights, architecture, and training code publicly available</strong> — unlike closed systems like ChatGPT or Claude where you only access them through APIs.",
+      "analogy": {
+        "icon": "🏠",
+        "text": "It's like owning your house vs renting. With open source, you own the model and can modify it however you want. With closed source, you're always paying rent to someone else's platform."
+      },
+      "bullets": [
+        "<strong>Open source:</strong> Download, modify, run anywhere you want",
+        "<strong>Closed source:</strong> Pay per API call, limited customization",
+        "<strong>Control:</strong> Your data never leaves your machine"
+      ],
+      "cta": "I see the difference",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/1uCE0uoKXL8",
+          "startTime": "0:30",
+          "endTime": "2:15",
+          "source": {
+            "author": "Tina Huang",
+            "description": "Breaking down open source vs closed source AI models"
+          }
+        }
+      }
+    },
+    {
+      "type": "concept",
+      "emoji": "💰",
+      "title": "Why Open Source AI is Taking Over",
+      "body": "<strong>2025 was the turning point.</strong> DeepSeek R1 became the first open-source model to match GPT-4, and Chinese models now dominate the leaderboards.",
+      "bullets": [
+        "<strong>Cost:</strong> No API fees — run unlimited queries for free",
+        "<strong>Privacy:</strong> Your data stays on your machine, never sent to cloud servers",
+        "<strong>Customization:</strong> Fine-tune models for your specific use case",
+        "<strong>No vendor lock-in:</strong> Switch models anytime without rebuilding your app"
+      ],
+      "safe": "Even Chinese models are safe when run locally — the whole point is that nothing goes to external servers.",
+      "cta": "These benefits are huge",
+      "modalities": {
+        "read": {
+          "body": "The shift happened fast. In 2024, closed-source models like GPT-4 and Claude dominated because they were simply better. But January 2025 changed everything when DeepSeek R1 proved open-source could compete at the highest level.<br><br>Now 80% of A16Z startups use Chinese open-source models according to partner Martin Casado. The combination of cost savings, privacy control, and rapidly improving capabilities made the switch inevitable.<br><br>For developers, this means you can build production AI applications without worrying about API costs scaling with usage, or your data being processed by third parties.",
+          "callouts": [
+            {
+              "type": "tip",
+              "text": "Chinese models leading doesn't mean data goes to China — open source means you download and run everything locally."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "quiz",
+      "emoji": "🧠",
+      "title": "Quick Check: Open Source Benefits",
+      "question": "What's the biggest advantage of open-source AI for most developers?",
+      "options": [
+        {
+          "text": "Open source models are always more accurate than closed source",
+          "correct": false
+        },
+        {
+          "text": "No ongoing API costs and complete data privacy control",
+          "correct": true
+        },
+        {
+          "text": "Open source models are easier to set up than cloud APIs",
+          "correct": false
+        },
+        {
+          "text": "Open source models run faster than cloud-based models",
+          "correct": false
+        }
+      ],
+      "correctFeedback": "Exactly! The combination of zero API costs and keeping your data local are the game-changers for most use cases.",
+      "wrongFeedback": "While setup and performance matter, the real wins are economic and privacy-based — no recurring costs and your data never leaves your machine.",
+      "cta": "Got the key benefits"
+    },
+    {
+      "type": "concept",
+      "emoji": "⚖️",
+      "title": "The Trade-offs You Should Know",
+      "body": "Open source isn't perfect. You'll face <strong>setup complexity, hardware requirements, and fewer built-in features</strong> compared to plug-and-play cloud APIs.",
+      "diagram": {
+        "nodes": [
+          "Setup Complexity",
+          "→",
+          "Hardware Needs",
+          "→",
+          "Fewer Features",
+          "→",
+          "But Full Control"
+        ],
+        "highlight": [
+          6
+        ],
+        "caption": "The learning curve pays off with complete ownership"
+      },
+      "bullets": [
+        "<strong>Setup:</strong> Install software, download models (vs click-and-use APIs)",
+        "<strong>Hardware:</strong> Need decent RAM/GPU for larger models",
+        "<strong>Features:</strong> Less polished than ChatGPT/Claude out of the box",
+        "<strong>Maintenance:</strong> You handle security, scaling, uptime yourself"
+      ],
+      "safe": "These challenges are shrinking fast — tools like Ollama make setup much easier, and quantized models run on regular laptops.",
+      "cta": "I understand the trade-offs"
+    },
+    {
+      "type": "concept",
+      "emoji": "🏆",
+      "title": "Today's Leading Open Source Models",
+      "body": "The leaderboards change fast, but as of early 2026, <strong>Chinese models dominate the rankings.</strong> Here's what to watch:",
+      "bullets": [
+        "<strong>Kimi models</strong> from Moonshot AI — strong general performance",
+        "<strong>GLM models</strong> from Z.AI (formerly Zhipu AI) — great for coding",
+        "<strong>Hunyuan models</strong> from Tencent — excellent for image processing",
+        "<strong>DeepSeek R1</strong> — the breakthrough model that started it all"
+      ],
+      "warn": "Model rankings change monthly. Always check current leaderboards before choosing.",
+      "cta": "I know what to look for",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/1uCE0uoKXL8",
+          "startTime": "8:45",
+          "endTime": "10:30",
+          "source": {
+            "author": "Tina Huang",
+            "description": "Overview of leading open source models in 2026"
+          }
+        }
+      }
+    },
+    {
+      "type": "action",
+      "emoji": "🔍",
+      "title": "Scout Models on the Leaderboards",
+      "body": "Before installing anything, <strong>research current model rankings and try them online first.</strong> This saves time downloading models that might not fit your needs.",
+      "bullets": [
+        "Visit <strong>lmsys.org/chatbot-arena</strong> for real user battle rankings",
+        "Check <strong>lmstats.com</strong> for detailed benchmarks and comparisons",
+        "Try models directly in the arena before committing to downloads"
+      ],
+      "codeLabel": "BOOKMARK THESE SITES",
+      "code": "lmsys.org/chatbot-arena\nlmstats.com\nhuggingface.co/spaces/open-llm-leaderboard",
+      "codeCaption": "These sites show real-time model rankings and let you test before downloading",
+      "cta": "I've explored the rankings",
+      "modalities": {
+        "ask": {
+          "initialMessages": [
+            {
+              "role": "bot",
+              "content": "Why check leaderboards first instead of just installing the most popular model? Think about it — models are huge downloads (several GB), and what's 'best' depends on your specific use case. What factors should you consider when choosing?"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "milestone",
+      "emoji": "🎯",
+      "title": "You've Got the Foundation!",
+      "body": "Great progress! You now understand <strong>what open-source AI is, why it's exploding, and which models are leading</strong> the pack. You've also scoped out the leaderboards to see what's currently hot.<br><br>Next up: we'll get you actually <strong>running these models locally</strong> with Ollama.",
+      "cta": "Ready to install"
+    },
+    {
+      "type": "action",
+      "emoji": "📥",
+      "title": "Install Ollama Model Manager",
+      "body": "<strong>Ollama is your gateway to running open-source models locally.</strong> It handles downloads, updates, and running models so you don't have to deal with complex setup.",
+      "bullets": [
+        "Go to <strong>ollama.com</strong> and download for your OS",
+        "Run the installer (it's a standard app install)",
+        "Open terminal/command prompt to verify it worked"
+      ],
+      "codeLabel": "VERIFY INSTALLATION",
+      "code": "ollama --version",
+      "codeCaption": "Should show version number if installed correctly",
+      "troubleshoot": [
+        {
+          "label": "Command not found",
+          "error": "ollama: command not found",
+          "fix": "Restart your terminal after installation, or add Ollama to your PATH. On Mac, try <code>/usr/local/bin/ollama --version</code>"
+        },
+        {
+          "label": "Permission denied",
+          "error": "Permission denied when installing",
+          "fix": "Run installer as administrator on Windows, or use <code>sudo</code> on Mac/Linux if needed"
+        }
+      ],
+      "cta": "Ollama installed and verified",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/1uCE0uoKXL8",
+          "startTime": "12:00",
+          "endTime": "13:30",
+          "source": {
+            "author": "Tina Huang",
+            "description": "Installing Ollama and verifying the installation"
+          }
+        }
+      }
+    },
+    {
+      "type": "action",
+      "emoji": "⬇️",
+      "title": "Download Your First Model",
+      "body": "Time to download a real AI model! <strong>We'll start with Llama 3</strong> — it's well-tested, reliable, and runs on most hardware.",
+      "codeLabel": "DOWNLOAD LLAMA 3",
+      "code": "ollama pull llama3",
+      "codeCaption": "This downloads the ~4GB model file to your machine",
+      "bullets": [
+        "The download takes 5-15 minutes depending on your internet speed",
+        "Ollama automatically manages storage in <code>~/.ollama</code>",
+        "You can download multiple models and switch between them"
+      ],
+      "troubleshoot": [
+        {
+          "label": "Download fails or stalls",
+          "error": "Error downloading model or very slow progress",
+          "fix": "Check your internet connection and free disk space (need ~5GB). Try <code>ollama pull llama3:latest</code> to force refresh"
+        },
+        {
+          "label": "Out of disk space",
+          "error": "No space left on device",
+          "fix": "Models are large! Free up at least 5GB disk space, or use <code>ollama list</code> and <code>ollama rm model-name</code> to remove unused models"
+        }
+      ],
+      "cta": "Model downloaded successfully",
+      "modalities": {
+        "try": {
+          "prompt": "Practice downloading a model with Ollama",
+          "commands": [
+            {
+              "input": "ollama pull llama3",
+              "output": "pulling manifest\npulling 8ab4849b038cf... 100% ▕████████████████████▏ 4.7 GB\npulling 943e1b1f5e40... 100% ▕████████████████████▏ 1.4 KB\nverifying sha256 digest\nwriting manifest\nsuccess",
+              "hint": "The pull command downloads the model files to your local machine"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "action",
+      "emoji": "🚀",
+      "title": "Run Your First Local AI Chat",
+      "body": "The moment of truth! <strong>Let's start a chat session with your locally-running Llama 3 model.</strong> No internet required from this point forward.",
+      "codeLabel": "START CHAT SESSION",
+      "code": "ollama run llama3",
+      "codeCaption": "Opens an interactive chat with your local model",
+      "bullets": [
+        "You'll see a <code>>>></code> prompt where you can type questions",
+        "Try asking: <em>\"Explain quantum computing in simple terms\"</em>",
+        "Type <code>/bye</code> to exit the chat session"
+      ],
+      "safe": "Your conversations are completely private — nothing is sent to any external servers.",
+      "troubleshoot": [
+        {
+          "label": "Model not found",
+          "error": "Error: model 'llama3' not found",
+          "fix": "Make sure the download completed with <code>ollama list</code> to see installed models. Re-run <code>ollama pull llama3</code> if needed"
+        }
+      ],
+      "cta": "AI is responding locally!",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/1uCE0uoKXL8",
+          "startTime": "13:45",
+          "endTime": "15:30",
+          "source": {
+            "author": "Tina Huang",
+            "description": "First conversation with a locally-running AI model"
+          }
+        }
+      }
+    },
+    {
+      "type": "concept",
+      "emoji": "🔧",
+      "title": "Handling Hardware Limitations",
+      "body": "If your computer struggles with the full model, <strong>quantized versions use less RAM while maintaining most of the performance.</strong> It's like compressing a video — smaller file, still watchable.",
+      "analogy": {
+        "icon": "📦",
+        "text": "Quantization is like packing a suitcase more efficiently. You fit the same clothes in less space, with just minor wrinkles."
+      },
+      "bullets": [
+        "<strong>Q4 models:</strong> 4-bit quantization, ~75% of original size",
+        "<strong>Q5 models:</strong> 5-bit quantization, ~85% of original size",
+        "<strong>Q8 models:</strong> 8-bit quantization, ~95% of original size"
+      ],
+      "codeLabel": "TRY SMALLER VERSION",
+      "code": "ollama pull llama3:q4_0",
+      "codeCaption": "Downloads the 4-bit quantized version that uses less memory",
+      "cta": "I understand quantization"
+    },
+    {
+      "type": "quiz",
+      "emoji": "🧠",
+      "title": "Quick Check: Model Management",
+      "question": "Your laptop is running slowly with the full Llama3 model. What should you try?",
+      "options": [
+        {
+          "text": "Download a different model like GPT-4",
+          "correct": false
+        },
+        {
+          "text": "Use a quantized version like llama3:q4_0",
+          "correct": true
+        },
+        {
+          "text": "Switch to using the cloud API instead",
+          "correct": false
+        },
+        {
+          "text": "Install more RAM immediately",
+          "correct": false
+        }
+      ],
+      "correctFeedback": "Perfect! Quantized models like Q4 give you most of the performance with much lower hardware requirements.",
+      "wrongFeedback": "Before buying hardware or switching to cloud, try quantized models — they're designed exactly for this situation and often work great on modest hardware.",
+      "cta": "Got the optimization strategy"
+    },
+    {
+      "type": "concept",
+      "emoji": "🤖",
+      "title": "Building AI Agents with Your Local Models",
+      "body": "<strong>Now for the fun part!</strong> Connect your local Ollama models to agent frameworks like n8n to build automations that don't cost anything per usage.",
+      "diagram": {
+        "nodes": [
+          "Local Model",
+          "→",
+          "Agent Framework",
+          "→",
+          "Your App",
+          "→",
+          "Zero API Costs"
+        ],
+        "highlight": [
+          6
+        ],
+        "caption": "Build unlimited automations without worrying about usage charges"
+      },
+      "bullets": [
+        "<strong>n8n:</strong> Visual workflow builder with Ollama integration",
+        "<strong>LangChain:</strong> Python framework for AI applications",
+        "<strong>AutoGen:</strong> Multi-agent conversation framework",
+        "<strong>CrewAI:</strong> Specialized for agent teams and workflows"
+      ],
+      "safe": "Start with n8n if you prefer visual tools, or LangChain if you code — both have great Ollama support.",
+      "cta": "Ready to build agents",
+      "modalities": {
+        "read": {
+          "body": "The real power of local models emerges when you connect them to agent frameworks. Unlike cloud APIs where every request costs money, your local model can process unlimited requests for free.<br><br>This enables entirely new use cases: chatbots that can run 24/7, data processing pipelines that don't worry about token limits, or personal assistants that never stop learning from your interactions.<br><br>Popular frameworks like n8n provide visual interfaces to connect your Ollama models to other services — email, calendars, databases, web scraping, and more. You can build sophisticated automations without writing code.",
+          "codeBlocks": [
+            {
+              "code": "# Example: Connect to Ollama from Python\nimport requests\n\nresponse = requests.post('http://localhost:11434/api/generate',\n    json={'model': 'llama3', 'prompt': 'Hello!'})\n\nprint(response.json())",
+              "caption": "Ollama provides a simple REST API for integration"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "action",
+      "emoji": "🔗",
+      "title": "Test the Ollama API Connection",
+      "body": "Let's verify your local model can be accessed by other applications. <strong>Ollama automatically starts an API server</strong> that other tools can connect to.",
+      "codeLabel": "TEST API ENDPOINT",
+      "code": "curl http://localhost:11434/api/generate -d '{\"model\":\"llama3\",\"prompt\":\"Hi there!\",\"stream\":false}'",
+      "codeCaption": "Tests the REST API that agent frameworks will use",
+      "bullets": [
+        "You should see a JSON response with the model's answer",
+        "This API endpoint is what n8n, LangChain, and other tools connect to",
+        "The server runs automatically when you start Ollama"
+      ],
+      "troubleshoot": [
+        {
+          "label": "Connection refused",
+          "error": "curl: (7) Failed to connect to localhost port 11434",
+          "fix": "Start the Ollama service with <code>ollama serve</code> in another terminal window, or restart the Ollama app"
+        }
+      ],
+      "cta": "API is responding correctly"
+    },
+    {
+      "type": "celebration",
+      "emoji": "🏆",
+      "title": "You're Now Running AI Locally!",
+      "body": "Incredible work! You've successfully set up your own local AI infrastructure. You can now:<br><br><strong>• Run powerful AI models without any cloud dependencies</strong><br><strong>• Chat with AI completely privately on your machine</strong><br><strong>• Connect models to agent frameworks for unlimited automation</strong><br><strong>• Save money with zero ongoing API costs</strong><br><br>The open-source AI revolution is here, and you're part of it.",
+      "stats": true,
+      "cta": "Start building amazing things"
+    }
+  ]
+}

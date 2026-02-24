@@ -1,0 +1,487 @@
+{
+  "id": "openclaw-antigravity-integration",
+  "title": "Wire OpenClaw to Anti-Gravity for Autonomous Engineering",
+  "description": "Transform your AI into a full autonomous engineering team by connecting OpenClaw orchestration with Anti-Gravity's specialist agents and free model access.",
+  "tool": "openclaw",
+  "tags": [
+    "openclaw",
+    "anti-gravity",
+    "agents",
+    "gemini",
+    "workflow"
+  ],
+  "difficulty": "expert",
+  "estimatedMinutes": 35,
+  "source": {
+    "airtableRecordId": "rec08cPAQzOKkWOss",
+    "sourceUrl": "https://www.youtube.com/watch?v=1Jqaj1KN5vA",
+    "author": "WorldofAI",
+    "authorImage": "https://yt3.googleusercontent.com/Aee59geVCIWJz9y7AzVdnY3I1jPR1S4VFF4kIkNJ46VD6jrEGhH2VszD-vKly0XhHz_sLBN3u4A=s900-c-k-c0x00ffffff-no-rj",
+    "thumbnailImage": "https://img.youtube.com/vi/1Jqaj1KN5vA/maxresdefault.jpg",
+    "publishedAt": "2026-02-03T08:05:34.000Z"
+  },
+  "cards": [
+    {
+      "type": "intro",
+      "emoji": "🤖",
+      "title": "Build an Autonomous Engineering Team",
+      "body": "You'll learn to wire OpenClaw to Google's Anti-Gravity for a powerful workflow where OpenClaw orchestrates tasks and Anti-Gravity executes with specialist agents. Access models like Opus 4.5 and Gemini for free while building complete apps from simple prompts. This takes about 35 minutes.",
+      "cta": "Let's build the future"
+    },
+    {
+      "type": "concept",
+      "emoji": "⚡",
+      "title": "The Perfect AI Workflow Architecture",
+      "body": "This integration creates a command center where <strong>OpenClaw handles planning and orchestration</strong> while <strong>Anti-Gravity handles execution</strong> with specialist agents trained for specific jobs.",
+      "diagram": {
+        "nodes": [
+          "Your Prompt",
+          "→",
+          "OpenClaw (Orchestrator)",
+          "→",
+          "Anti-Gravity (Executor)",
+          "→",
+          "Complete App"
+        ],
+        "highlight": [
+          2,
+          4
+        ],
+        "caption": "OpenClaw plans, Anti-Gravity builds with specialist agents"
+      },
+      "bullets": [
+        "<strong>Builder agents:</strong> Create functional components and SaaS apps",
+        "<strong>Reviewer agents:</strong> Refine output and fix errors",
+        "<strong>Debugger agents:</strong> Identify and solve code issues",
+        "<strong>UX designer agents:</strong> Improve user experience"
+      ],
+      "cta": "I see the architecture",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/1Jqaj1KN5vA",
+          "startTime": "0:30",
+          "endTime": "2:15",
+          "source": {
+            "author": "WorldofAI",
+            "description": "See OpenClaw building complete apps through WhatsApp prompts"
+          }
+        }
+      }
+    },
+    {
+      "type": "concept",
+      "emoji": "🚨",
+      "title": "Critical Security Warning",
+      "body": "OpenClaw is a <strong>local RCE (Remote Code Execution) risk</strong>. It can execute any command on your system, making it potentially dangerous if not properly contained.",
+      "warn": "Never run OpenClaw on your main system without proper sandboxing. Use a VM or isolated environment.",
+      "bullets": [
+        "OpenClaw can execute terminal commands directly",
+        "It has full system access when running",
+        "Malicious prompts could damage your system",
+        "Always follow the official security documentation"
+      ],
+      "safe": "The creator recommends using a virtual machine or sandbox environment for safety.",
+      "cta": "I understand the risks",
+      "modalities": {
+        "read": {
+          "body": "OpenClaw's power comes from its ability to directly interact with your system - reading files, running commands, installing software, and making network requests. This makes it incredibly capable but also potentially dangerous.<br><br>The recommended security measures include:<br><br><strong>Containerization:</strong> Run OpenClaw inside Docker containers or virtual machines to limit system access.<br><br><strong>Permission Controls:</strong> Use restricted user accounts with limited file system access.<br><br><strong>Network Isolation:</strong> Consider firewall rules to limit network access from the OpenClaw environment.<br><br><strong>Regular Monitoring:</strong> Watch for unexpected system changes or network activity.",
+          "callouts": [
+            {
+              "type": "warning",
+              "text": "Production systems should never run OpenClaw with full administrator privileges."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "action",
+      "emoji": "📦",
+      "title": "Install Node.js and OpenClaw",
+      "body": "First, ensure you have Node.js 22+ installed, then install OpenClaw globally using npm.",
+      "code": "npm install -g openclaw",
+      "codeLabel": "INSTALL OPENCLAW GLOBALLY",
+      "codeCaption": "This installs OpenClaw as a global command-line tool",
+      "bullets": [
+        "Download Node.js 22+ from nodejs.org if not installed",
+        "Verify installation with <code>node --version</code>",
+        "The global install lets you run <code>openclaw</code> from anywhere"
+      ],
+      "troubleshoot": [
+        {
+          "label": "Permission denied error",
+          "error": "EACCES: permission denied",
+          "fix": "Use <code>sudo npm install -g openclaw</code> on Mac/Linux or run terminal as administrator on Windows"
+        },
+        {
+          "label": "Node version too old",
+          "error": "Unsupported engine",
+          "fix": "Update Node.js to version 22 or higher from <a href='https://nodejs.org'>nodejs.org</a>"
+        }
+      ],
+      "cta": "OpenClaw installed",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/1Jqaj1KN5vA",
+          "startTime": "6:45",
+          "endTime": "7:30",
+          "source": {
+            "author": "WorldofAI",
+            "description": "Installing OpenClaw with npm"
+          }
+        }
+      }
+    },
+    {
+      "type": "action",
+      "emoji": "🔑",
+      "title": "Enable Anti-Gravity OAuth Plugin",
+      "body": "Enable the Anti-Gravity OAuth plugin in OpenClaw to access Google's models through the Anti-Gravity platform.",
+      "code": "openclaw plugin enable @openclaw/plugin-google-antigravity-oauth",
+      "codeLabel": "ENABLE ANTI-GRAVITY PLUGIN",
+      "codeCaption": "This plugin provides OAuth authentication for Anti-Gravity integration",
+      "troubleshoot": [
+        {
+          "label": "Plugin not found",
+          "error": "Module not found",
+          "fix": "Ensure OpenClaw is properly installed and you're using the latest version. Try reinstalling if needed."
+        }
+      ],
+      "cta": "Plugin enabled"
+    },
+    {
+      "type": "action",
+      "emoji": "🔐",
+      "title": "Authenticate with Google Account",
+      "body": "Log in with your Google account to access Anti-Gravity's free models including Gemini and Opus 4.5.",
+      "code": "openclaw auth login google-antigravity",
+      "codeLabel": "LOGIN TO GOOGLE ACCOUNT",
+      "codeCaption": "This opens a browser window for OAuth authentication",
+      "bullets": [
+        "Use any Google account (Gmail, Workspace, etc.)",
+        "Alternative: Use Gemini CLI OAuth or Vertex ADC",
+        "Google officially supports these authentication methods"
+      ],
+      "troubleshoot": [
+        {
+          "label": "Browser doesn't open",
+          "error": "Auth URL not opening",
+          "fix": "Manually copy the auth URL from the terminal and paste it into your browser"
+        },
+        {
+          "label": "Authentication timeout",
+          "error": "OAuth timeout",
+          "fix": "Try the command again and complete the browser authentication more quickly"
+        }
+      ],
+      "cta": "Google account connected",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/1Jqaj1KN5vA",
+          "startTime": "8:15",
+          "endTime": "9:45",
+          "source": {
+            "author": "WorldofAI",
+            "description": "Setting up Google OAuth authentication"
+          }
+        }
+      }
+    },
+    {
+      "type": "quiz",
+      "emoji": "🧠",
+      "title": "Quick Security Check",
+      "question": "Why is OpenClaw considered a security risk?",
+      "options": [
+        {
+          "text": "It sends your data to external servers",
+          "correct": false
+        },
+        {
+          "text": "It can execute any command on your local system",
+          "correct": true
+        },
+        {
+          "text": "It requires administrator passwords",
+          "correct": false
+        },
+        {
+          "text": "It modifies system registry settings",
+          "correct": false
+        }
+      ],
+      "correctFeedback": "Exactly! OpenClaw has RCE (Remote Code Execution) capabilities, meaning it can run terminal commands, install software, and access files on your system - making proper sandboxing essential.",
+      "wrongFeedback": "OpenClaw's main risk is its ability to execute system commands directly. It's essentially giving AI agents terminal access to your computer, which requires careful containment.",
+      "cta": "Continue setup"
+    },
+    {
+      "type": "action",
+      "emoji": "🚀",
+      "title": "Run OpenClaw Onboarding",
+      "body": "Initialize OpenClaw with the onboarding process to configure your provider, model, and communication channels.",
+      "code": "openclaw onboard",
+      "codeLabel": "START ONBOARDING PROCESS",
+      "codeCaption": "This interactive setup configures your OpenClaw installation",
+      "bullets": [
+        "Read and accept the security warning carefully",
+        "Choose 'Quick start' for faster setup",
+        "Keep existing OAuth provider (Anti-Gravity)"
+      ],
+      "warn": "The security warning is serious - consider running this in a VM or sandbox environment first.",
+      "troubleshoot": [
+        {
+          "label": "Onboarding fails to start",
+          "error": "Command not found",
+          "fix": "Ensure OpenClaw was installed globally with the <code>-g</code> flag and restart your terminal"
+        }
+      ],
+      "cta": "Onboarding started",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/1Jqaj1KN5vA",
+          "startTime": "10:30",
+          "endTime": "12:00",
+          "source": {
+            "author": "WorldofAI",
+            "description": "Running the OpenClaw onboarding process"
+          }
+        }
+      }
+    },
+    {
+      "type": "action",
+      "emoji": "🎯",
+      "title": "Select Anti-Gravity Models",
+      "body": "During onboarding, choose Google's Anti-Gravity as your provider and select from powerful models like Opus 4.5 Thinking or Gemini.",
+      "bullets": [
+        "Provider: Select <strong>Google Anti-Gravity</strong>",
+        "Model: Choose <strong>Opus 4.5 Thinking</strong> or <strong>Gemini 3</strong>",
+        "Both models are available through Anti-Gravity's free access"
+      ],
+      "concept": {
+        "icon": "🧠",
+        "text": "Anti-Gravity provides free access to premium models that would normally cost hundreds per month through direct APIs."
+      },
+      "cta": "Model configured"
+    },
+    {
+      "type": "action",
+      "emoji": "📱",
+      "title": "Choose Communication Channel",
+      "body": "Select how you want to interact with OpenClaw - through CLI, WhatsApp, or other gateway options.",
+      "bullets": [
+        "<strong>WhatsApp:</strong> Send prompts from your phone anywhere",
+        "<strong>CLI:</strong> Direct terminal interaction for development",
+        "<strong>Other gateways:</strong> Slack, Discord, or custom integrations"
+      ],
+      "safe": "You can always add more channels later from the dashboard.",
+      "cta": "Channel selected",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/1Jqaj1KN5vA",
+          "startTime": "12:45",
+          "endTime": "13:30",
+          "source": {
+            "author": "WorldofAI",
+            "description": "Selecting communication channels for OpenClaw"
+          }
+        }
+      }
+    },
+    {
+      "type": "milestone",
+      "emoji": "🎉",
+      "title": "OpenClaw + Anti-Gravity Connected!",
+      "body": "You've successfully wired OpenClaw to Anti-Gravity with OAuth authentication, selected your AI models, and configured communication channels. Your autonomous engineering team foundation is ready. Next, we'll add specialist agents to supercharge your capabilities.",
+      "cta": "Add specialist agents"
+    },
+    {
+      "type": "action",
+      "emoji": "🛠️",
+      "title": "Install Anti-Gravity Agent Kit",
+      "body": "Add the specialist agent toolkit to unlock builder, reviewer, debugger, and UX designer agents that can be called from OpenClaw.",
+      "code": "npm install -g @antigravity/agent-kit",
+      "codeLabel": "INSTALL AGENT TOOLKIT",
+      "codeCaption": "This provides specialized agents for different development tasks",
+      "bullets": [
+        "<strong>Builder agents:</strong> Create and scaffold applications",
+        "<strong>Reviewer agents:</strong> Code review and quality checks",
+        "<strong>Debugger agents:</strong> Error detection and fixing",
+        "<strong>UX Designer agents:</strong> Interface and experience improvements"
+      ],
+      "troubleshoot": [
+        {
+          "label": "Package not found",
+          "error": "404 Not Found",
+          "fix": "Verify the exact package name from the Anti-Gravity documentation as it may have changed"
+        }
+      ],
+      "cta": "Agent kit installed",
+      "modalities": {
+        "try": {
+          "prompt": "Install the Anti-Gravity agent kit to unlock specialist agents",
+          "commands": [
+            {
+              "input": "npm install -g @antigravity/agent-kit",
+              "output": "✓ @antigravity/agent-kit@1.2.0 installed globally\n✓ Builder agent available\n✓ Reviewer agent available\n✓ Debugger agent available\n✓ UX Designer agent available",
+              "hint": "This installs all the specialist agents you can use with slash commands"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "concept",
+      "emoji": "💬",
+      "title": "Using Slash Commands with Agents",
+      "body": "Once your agents are installed, you can call specific specialist agents using slash commands in your OpenClaw prompts.",
+      "bullets": [
+        "<code>/builder</code> - Scaffold and create new applications",
+        "<code>/reviewer</code> - Review code quality and suggest improvements",
+        "<code>/debugger</code> - Identify and fix errors in your code",
+        "<code>/ux-designer</code> - Improve user interface and experience"
+      ],
+      "analogy": {
+        "icon": "👥",
+        "text": "Think of it like @mentioning experts in a chat - each agent specializes in different aspects of development."
+      },
+      "cta": "Ready to use agents",
+      "modalities": {
+        "ask": {
+          "initialMessages": [
+            {
+              "role": "bot",
+              "content": "How do slash commands work with the specialist agents? When you type <code>/builder create a todo app</code>, OpenClaw routes that specific request to the builder agent, which is trained specifically for application scaffolding. It's like having different experts on your team - you wouldn't ask a UX designer to debug server errors, right? Each agent has its specialized training and capabilities."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "action",
+      "emoji": "🏪",
+      "title": "Browse Claw Hub for Skills",
+      "body": "Explore the Claw Hub marketplace for additional community skills like quota checkers, image generators, and workflow automations.",
+      "bullets": [
+        "Visit the Claw Hub in your OpenClaw dashboard",
+        "Browse skills by category (productivity, development, utilities)",
+        "Install skills with the <code>npx</code> command shown in each listing",
+        "Popular skills: Anti-Gravity quota checker, image generation tools"
+      ],
+      "safe": "All skills in Claw Hub are community-reviewed, but always check permissions before installing.",
+      "cta": "Hub explored"
+    },
+    {
+      "type": "concept",
+      "emoji": "⚙️",
+      "title": "Advanced Automation Workflows",
+      "body": "Take your setup further by combining OpenClaw orchestration with scheduled tasks and specialized commands for fully autonomous operations.",
+      "bullets": [
+        "<strong>Cron jobs:</strong> Schedule regular tasks like code reviews or deployments",
+        "<strong>Webhook triggers:</strong> Respond to Git commits or issue updates automatically",
+        "<strong>Multi-agent workflows:</strong> Chain builder → reviewer → debugger sequences",
+        "<strong>Context persistence:</strong> Agents remember project details across sessions"
+      ],
+      "diagram": {
+        "nodes": [
+          "Git Push",
+          "→",
+          "OpenClaw Detects",
+          "→",
+          "Builder Updates",
+          "→",
+          "Reviewer Checks",
+          "→",
+          "Auto Deploy"
+        ],
+        "highlight": [
+          1,
+          3,
+          5
+        ],
+        "caption": "Fully automated development pipeline"
+      },
+      "cta": "I see the possibilities",
+      "modalities": {
+        "read": {
+          "body": "The real power emerges when you chain these tools together. For example, you could set up a workflow where:<br><br><strong>1. Code Changes Trigger:</strong> A git webhook sends a payload to OpenClaw when code is pushed.<br><br><strong>2. Builder Agent Reviews:</strong> OpenClaw routes the changes to a builder agent that analyzes the diff and suggests improvements.<br><br><strong>3. Reviewer Agent Validates:</strong> The code then goes through a reviewer agent that checks for bugs, security issues, and style compliance.<br><br><strong>4. Auto-deployment:</strong> If everything passes, the debugger agent runs tests and deploys automatically.<br><br>This creates a fully autonomous development pipeline that runs 24/7, constantly improving your codebase.",
+          "codeBlocks": [
+            {
+              "code": "// Example cron job for daily code review\n0 9 * * * openclaw run '/reviewer analyze recent-changes'",
+              "caption": "Daily automated code review at 9 AM"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "quiz",
+      "emoji": "🧠",
+      "title": "Workflow Understanding Check",
+      "question": "In the OpenClaw + Anti-Gravity workflow, what is OpenClaw's primary role?",
+      "options": [
+        {
+          "text": "Executing code and building applications directly",
+          "correct": false
+        },
+        {
+          "text": "Planning, orchestrating, and routing tasks to specialist agents",
+          "correct": true
+        },
+        {
+          "text": "Providing free access to AI models",
+          "correct": false
+        },
+        {
+          "text": "Managing user authentication and permissions",
+          "correct": false
+        }
+      ],
+      "correctFeedback": "Perfect! OpenClaw acts as the command center - it understands your requests, makes decisions about which agents to use, and orchestrates the entire workflow while Anti-Gravity handles the actual execution.",
+      "wrongFeedback": "Think of OpenClaw as the conductor of an orchestra. It doesn't play the instruments (execute code) but decides which musicians (agents) should play when and coordinates the entire performance.",
+      "cta": "Continue"
+    },
+    {
+      "type": "action",
+      "emoji": "🧪",
+      "title": "Test Your Autonomous Engineering Team",
+      "body": "Create a test prompt to verify everything is working. Try building a simple app to see OpenClaw orchestrate with Anti-Gravity's specialist agents.",
+      "code": "openclaw chat \"Create a simple todo app with React\"",
+      "codeLabel": "TEST COMMAND",
+      "codeCaption": "This should trigger the builder agent through Anti-Gravity",
+      "bullets": [
+        "Watch as OpenClaw analyzes your request",
+        "See it route to the appropriate builder agent",
+        "Observe the agent create files, install dependencies, and build the app",
+        "Note how it uses the reviewer agent for quality checks"
+      ],
+      "troubleshoot": [
+        {
+          "label": "No response from agents",
+          "error": "Timeout or no agent response",
+          "fix": "Check your OAuth connection is still valid and try re-authenticating with <code>openclaw auth login google-antigravity</code>"
+        }
+      ],
+      "cta": "Test successful",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/1Jqaj1KN5vA",
+          "startTime": "16:20",
+          "endTime": "18:45",
+          "source": {
+            "author": "WorldofAI",
+            "description": "Seeing the complete workflow create a beautiful website from a single prompt"
+          }
+        }
+      }
+    },
+    {
+      "type": "celebration",
+      "emoji": "🏆",
+      "title": "Your Autonomous Engineering Team is Live!",
+      "body": "You've successfully created a powerful AI workflow that combines OpenClaw's orchestration with Anti-Gravity's specialist agents. You can now build complete applications from simple prompts, access premium models for free, automate code reviews, and scale your development workflow with specialized AI agents.",
+      "stats": true,
+      "cta": "Start building"
+    }
+  ]
+}

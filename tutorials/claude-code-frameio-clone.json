@@ -1,0 +1,418 @@
+{
+  "id": "claude-code-frameio-clone",
+  "title": "Clone a $1.275B App in 30 Minutes with Claude Code",
+  "description": "Build a custom Frame.io alternative using Claude Code - save thousands yearly by creating exactly what your team needs.",
+  "tool": "claude-code",
+  "tags": [
+    "claude-code",
+    "vibe-code-dev",
+    "internal-tools",
+    "frame-io",
+    "business-automation"
+  ],
+  "difficulty": "beginner",
+  "estimatedMinutes": 45,
+  "source": {
+    "airtableRecordId": "rec3PHBSsRnuqLw3N",
+    "sourceUrl": "https://www.youtube.com/watch?v=hLsP4gULKWs",
+    "author": "Riley Brown",
+    "authorImage": "https://yt3.googleusercontent.com/Cm_AOGXEC3TYdp2iOXTUj07zgqBkCMJjh4C-0iD0DJOALbMb-D2tz9fJ2e-EDE5DJnJCnd3PaA=s900-c-k-c0x00ffffff-no-rj",
+    "thumbnailImage": "https://img.youtube.com/vi/hLsP4gULKWs/maxresdefault.jpg",
+    "publishedAt": "2026-01-19T12:00:00.000Z"
+  },
+  "cards": [
+    {
+      "type": "intro",
+      "emoji": "🚀",
+      "title": "Build a $1.275B App Clone in 30 Minutes",
+      "body": "You'll learn how to recreate Frame.io's core features using Claude Code, saving your team thousands yearly. We'll build video commenting, file attachments, project sharing, and deploy it live. <strong>No coding experience required</strong> - just smart prompting and iteration.",
+      "cta": "Let's clone this billion-dollar app"
+    },
+    {
+      "type": "concept",
+      "emoji": "💡",
+      "title": "The 80/20 SaaS Replacement Strategy",
+      "body": "Most teams pay full price for SaaS tools but only use 20% of features. The smart approach: identify exactly what you use daily, then build only those features.",
+      "analogy": {
+        "icon": "🍕",
+        "text": "Like ordering a whole pizza when you only eat pepperoni slices. Instead, make exactly the slices you want."
+      },
+      "diagram": {
+        "nodes": [
+          "Full SaaS Tool",
+          "→",
+          "Feature Audit",
+          "→",
+          "Custom Build",
+          "→",
+          "Team Savings"
+        ],
+        "highlight": [
+          2
+        ],
+        "caption": "Build only what you actually use"
+      },
+      "safe": "This approach works for internal tools where you control the requirements.",
+      "cta": "I see the strategy",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/hLsP4gULKWs",
+          "startTime": "1:30",
+          "endTime": "3:00",
+          "source": {
+            "author": "Riley Brown",
+            "description": "The cost breakdown of Frame.io vs custom solution"
+          }
+        }
+      }
+    },
+    {
+      "type": "action",
+      "emoji": "📝",
+      "title": "Audit Your Current Tool Usage",
+      "body": "Before building anything, list every feature you <strong>actually use daily</strong> in your current SaaS tool. Ignore everything else - this becomes your build specification.",
+      "bullets": [
+        "Open your current tool (Frame.io, Notion, Airtable, etc.)",
+        "Screenshot or write down only the features you use weekly",
+        "Note specific workflows that matter to your team",
+        "Skip advanced features you've never touched"
+      ],
+      "warn": "Don't get feature-creep excited. Stick to genuine daily needs only.",
+      "cta": "Feature audit completed"
+    },
+    {
+      "type": "concept",
+      "emoji": "🤖",
+      "title": "Why Claude Code vs Regular Claude",
+      "body": "Claude Code isn't just the API - it's the full coding agent that can run terminal commands, manage files, and iterate on code. Think of it as having a senior developer who never gets tired.",
+      "diagram": {
+        "nodes": [
+          "Regular Claude",
+          "vs",
+          "Claude Code",
+          "=",
+          "Code + Terminal + Iteration"
+        ],
+        "highlight": [
+          4
+        ],
+        "caption": "Claude Code handles the full development workflow"
+      },
+      "bullets": [
+        "Runs actual terminal commands in a sandbox",
+        "Can install packages and manage dependencies",
+        "Iterates and fixes issues without starting over",
+        "Handles database setup and deployment"
+      ],
+      "cta": "Ready to use the full agent",
+      "modalities": {
+        "read": {
+          "body": "The key difference is execution environment. Regular Claude can write code but can't run it. Claude Code operates in a full development sandbox where it can:<br><br><strong>Execute commands:</strong> Install npm packages, run build scripts, start servers<br><strong>Manage files:</strong> Create, edit, and organize project structure<br><strong>Debug issues:</strong> See actual error messages and fix them<br><strong>Test functionality:</strong> Run the app and verify features work<br><br>This makes Claude Code perfect for complete application development, not just code generation.",
+          "callouts": [
+            {
+              "type": "tip",
+              "text": "Tools like Vibe Code, Replit, and Lovable all provide different interfaces to similar coding agents."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "quiz",
+      "emoji": "🧠",
+      "title": "Quick Strategy Check",
+      "question": "What should you include when prompting Claude Code to build a SaaS alternative?",
+      "options": [
+        {
+          "text": "Every feature the original tool has to be comprehensive",
+          "correct": false
+        },
+        {
+          "text": "Only the features you actually use daily, plus context research",
+          "correct": true
+        },
+        {
+          "text": "A detailed technical architecture and database schema",
+          "correct": false
+        },
+        {
+          "text": "All the advanced features to future-proof the build",
+          "correct": false
+        }
+      ],
+      "correctFeedback": "Exactly! Focus on real usage patterns and let Claude research the original tool for context. Less is more for internal tools.",
+      "wrongFeedback": "Remember the 80/20 rule - most SaaS complexity comes from features you'll never use. Build exactly what you need, nothing more.",
+      "cta": "Strategy locked in"
+    },
+    {
+      "type": "action",
+      "emoji": "⚡",
+      "title": "Set Up Your Development Environment",
+      "body": "Choose your Claude Code platform and create your first project. We'll use a tool that runs Claude Code in the browser for instant deployment.",
+      "bullets": [
+        "Go to <strong>Vibe Code, Replit, or similar Claude Code platform</strong>",
+        "Create a new web app project",
+        "Verify you can access the Claude Code interface",
+        "Test with a simple prompt like 'make a hello world app'"
+      ],
+      "warn": "Different platforms have different Claude Code implementations. Pick one that feels intuitive to you.",
+      "cta": "Environment ready to build",
+      "modalities": {
+        "try": {
+          "prompt": "Set up your development environment by creating a test project",
+          "commands": [
+            {
+              "input": "Create new web app project",
+              "output": "✓ New project initialized\n✓ Claude Code agent ready\n✓ Development environment active",
+              "hint": "Look for a 'New Project' or 'Create App' button"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "action",
+      "emoji": "📋",
+      "title": "Craft Your Build Prompt",
+      "body": "Write a comprehensive prompt that includes your feature list, context research instruction, and security basics. This prompt quality determines your build success.",
+      "code": "Build an app like Frame.io with these features:\n1. Upload video and save as project\n2. Add timestamped comments while watching\n3. Attach files to comments\n4. Password protect with 'banana'\n5. Generate shareable project links\n\nSearch internet for context on Frame.io layout and UX.",
+      "codeLabel": "EXAMPLE BUILD PROMPT",
+      "codeCaption": "Notice the specific features, security method, and research instruction",
+      "bullets": [
+        "Start with 'Search internet for context on [tool name]'",
+        "List only your essential features (3-6 max for first build)",
+        "Add simple password protection for internal tools",
+        "Specify sharing/collaboration requirements"
+      ],
+      "warn": "Don't write a novel. Claude Code works better with clear, structured feature lists.",
+      "cta": "Prompt crafted and ready",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/hLsP4gULKWs",
+          "startTime": "8:30",
+          "endTime": "10:30",
+          "source": {
+            "author": "Riley Brown",
+            "description": "Breaking down the Frame.io clone prompt structure"
+          }
+        }
+      }
+    },
+    {
+      "type": "milestone",
+      "emoji": "🎯",
+      "title": "Ready to Build Like a Pro!",
+      "body": "You've identified your target features, understand Claude Code's capabilities, and crafted a solid build prompt. Now comes the exciting part - watching Claude Code transform your idea into a working application in minutes.",
+      "cta": "Fire up Claude Code"
+    },
+    {
+      "type": "action",
+      "emoji": "🚀",
+      "title": "Execute Your First Build",
+      "body": "Paste your prompt into Claude Code and let it work. You'll see it create a task list, set up the database, build the interface, and deploy your app.",
+      "code": "[Paste your crafted prompt here and hit enter]",
+      "codeLabel": "CLAUDE CODE EXECUTION",
+      "bullets": [
+        "Paste your complete prompt into the Claude Code interface",
+        "Watch it break down tasks (usually 6-10 steps)",
+        "Let it complete the full build (takes 5-15 minutes)",
+        "Don't interrupt - Claude Code works best uninterrupted"
+      ],
+      "warn": "The first build won't be perfect. That's expected - we'll iterate in the next steps.",
+      "troubleshoot": [
+        {
+          "label": "Build seems stuck",
+          "error": "No progress for 5+ minutes",
+          "fix": "Refresh the page and try a simpler prompt first. Break complex features into separate builds."
+        },
+        {
+          "label": "Too many errors",
+          "error": "Multiple red error messages",
+          "fix": "Let Claude Code finish, then describe what's wrong conversationally rather than technical debugging."
+        }
+      ],
+      "cta": "First build launched",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/hLsP4gULKWs",
+          "startTime": "11:00",
+          "endTime": "13:30",
+          "source": {
+            "author": "Riley Brown",
+            "description": "Watching Claude Code execute the Frame.io build in real-time"
+          }
+        }
+      }
+    },
+    {
+      "type": "concept",
+      "emoji": "🔄",
+      "title": "The Art of Conversational Iteration",
+      "body": "When your first build has issues (it will), don't rewrite everything. Talk to Claude Code like a teammate - describe the problem conversationally and let it fix incrementally.",
+      "analogy": {
+        "icon": "🗣️",
+        "text": "Like telling a designer 'make the button bigger' instead of redrawing the whole mockup."
+      },
+      "bullets": [
+        "<strong>Good:</strong> 'I don't want URL input, I want file upload'",
+        "<strong>Good:</strong> 'The comments should appear on the right side'",
+        "<strong>Bad:</strong> Completely rewriting the original prompt",
+        "<strong>Bad:</strong> Technical debugging instructions"
+      ],
+      "safe": "Claude Code remembers the entire conversation context, so iterations build on each other.",
+      "cta": "Ready to iterate like a pro"
+    },
+    {
+      "type": "action",
+      "emoji": "🛠️",
+      "title": "Fix the Major Issues",
+      "body": "Test your app and identify the biggest problems. Address them one at a time with simple, conversational prompts to Claude Code.",
+      "bullets": [
+        "Test every core feature you specified",
+        "Note what's missing or not working as expected",
+        "Write one conversational fix request at a time",
+        "Let Claude Code complete each fix before requesting the next"
+      ],
+      "code": "I don't want a URL input, I want a file upload button where I can select a video from my computer. Please fix this.",
+      "codeLabel": "EXAMPLE ITERATION PROMPT",
+      "codeCaption": "Clear, conversational, specific to one issue",
+      "warn": "Fix one major issue at a time. Don't pile on 5 requests in one prompt.",
+      "troubleshoot": [
+        {
+          "label": "Fix breaks other features",
+          "error": "Changing one thing breaks something else",
+          "fix": "Tell Claude Code exactly what broke: 'The upload works now but the password page disappeared. Please restore the password protection.'"
+        }
+      ],
+      "cta": "Core issues addressed",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/hLsP4gULKWs",
+          "startTime": "17:00",
+          "endTime": "19:30",
+          "source": {
+            "author": "Riley Brown",
+            "description": "Iterating on the file upload functionality conversationally"
+          }
+        }
+      }
+    },
+    {
+      "type": "quiz",
+      "emoji": "🧠",
+      "title": "Iteration Best Practices",
+      "question": "When your app has multiple issues after the first build, what's the best approach?",
+      "options": [
+        {
+          "text": "List all problems in one big prompt to save time",
+          "correct": false
+        },
+        {
+          "text": "Address one major issue at a time with conversational language",
+          "correct": true
+        },
+        {
+          "text": "Start over with a more detailed technical prompt",
+          "correct": false
+        },
+        {
+          "text": "Fix the code manually and then ask Claude to continue",
+          "correct": false
+        }
+      ],
+      "correctFeedback": "Perfect! One issue at a time prevents Claude Code from getting confused and lets you verify each fix works before moving on.",
+      "wrongFeedback": "Claude Code works best with incremental, conversational fixes. Overwhelming it with multiple requests or starting over loses all the context it's built up.",
+      "cta": "Iteration strategy mastered"
+    },
+    {
+      "type": "action",
+      "emoji": "🎨",
+      "title": "Add Your Custom Features",
+      "body": "Once core functionality works, add features that make your tool better than the original. This is where you get competitive advantage over expensive SaaS.",
+      "bullets": [
+        "Think about workflow improvements your team would love",
+        "Add integrations the original tool doesn't have",
+        "Customize the UI for your team's specific needs",
+        "Consider mobile responsiveness if your team works on phones"
+      ],
+      "code": "Add a feature where I can export all comments from a project as a PDF report with timestamps and file attachments included.",
+      "codeLabel": "EXAMPLE CUSTOM FEATURE",
+      "codeCaption": "Features like this would cost extra in most SaaS tools",
+      "safe": "Custom features are where internal tools really shine - build exactly what your workflow needs.",
+      "cta": "Custom features added"
+    },
+    {
+      "type": "action",
+      "emoji": "🌐",
+      "title": "Deploy and Share Your App",
+      "body": "Get your app live on the internet so your team can start using it immediately. Most Claude Code platforms handle deployment automatically.",
+      "bullets": [
+        "Look for a 'Deploy' or 'Share' button in your platform",
+        "Copy the public URL for your team",
+        "Test the app from the public URL (not preview)",
+        "Update your password from 'banana' to something secure"
+      ],
+      "code": "Your app is live at: https://your-app-domain.com\nPassword: [your-secure-password]",
+      "codeLabel": "SHARE WITH TEAM",
+      "warn": "Change the default password before sharing widely. Consider IP restrictions for sensitive tools.",
+      "troubleshoot": [
+        {
+          "label": "Deploy button missing",
+          "error": "Can't find deployment option",
+          "fix": "Ask Claude Code: 'How do I deploy this app so my team can access it?' Different platforms have different deployment flows."
+        },
+        {
+          "label": "App not loading publicly",
+          "error": "Works in preview but not on public URL",
+          "fix": "Check if all files were included in deployment. Ask Claude Code to verify the build includes all necessary assets."
+        }
+      ],
+      "cta": "App deployed and shared",
+      "modalities": {
+        "ask": {
+          "initialMessages": [
+            {
+              "role": "bot",
+              "content": "Congratulations on building your first SaaS clone! 🎉 How does it feel to have created in 30 minutes what took a team months to build? What other expensive tools could you replace with custom builds?"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "concept",
+      "emoji": "💰",
+      "title": "Calculate Your Savings Impact",
+      "body": "Your custom tool just saved your team thousands per year. Here's how to think about the ROI and what tools to tackle next.",
+      "diagram": {
+        "nodes": [
+          "Frame.io: $240/year/user",
+          "→",
+          "Custom Tool: $0/year",
+          "=",
+          "$2,400/year saved (10 users)"
+        ],
+        "highlight": [
+          4
+        ],
+        "caption": "Multiply this across multiple tools for massive savings"
+      },
+      "bullets": [
+        "<strong>Time invested:</strong> 30-60 minutes to build and deploy",
+        "<strong>Annual savings:</strong> $200-500+ per user per tool",
+        "<strong>Team benefit:</strong> Exactly the features you need, no bloat",
+        "<strong>Control:</strong> Add features instantly when needs change"
+      ],
+      "safe": "This approach works best for tools where you use <20% of features and have stable requirements.",
+      "cta": "ROI calculated and impressed"
+    },
+    {
+      "type": "celebration",
+      "emoji": "🏆",
+      "title": "You Just Cloned a Billion-Dollar App!",
+      "body": "You've successfully built a custom Frame.io alternative with video commenting, file attachments, project sharing, and deployment. You can now <strong>identify underused SaaS features</strong>, <strong>prompt Claude Code effectively</strong>, <strong>iterate conversationally</strong>, and <strong>deploy internal tools</strong> that save thousands yearly.",
+      "stats": true,
+      "cta": "Build the next tool"
+    }
+  ]
+}

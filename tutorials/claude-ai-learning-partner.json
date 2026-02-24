@@ -1,0 +1,443 @@
+{
+  "id": "claude-ai-learning-partner",
+  "title": "How to Learn AI with AI as Your Build Partner",
+  "description": "Transform from tutorial-dependent to agent-first work by using Claude as your learning companion to build real projects.",
+  "tool": "claude",
+  "tags": [
+    "prompting",
+    "agents",
+    "learning",
+    "workflow"
+  ],
+  "difficulty": "beginner",
+  "estimatedMinutes": 25,
+  "source": {
+    "airtableRecordId": "rec4YVIzrKpxz7toM",
+    "sourceUrl": "https://www.youtube.com/watch?v=eFpyRtRyu3k",
+    "author": "The AI Daily Brief: Artificial Intelligence News",
+    "authorImage": "https://yt3.googleusercontent.com/Lmzbtex5T5--hgnqhJcfylQrGrN0QcszvgP4hhF1HwSQf1vlngIv_QTfVsmx6rP5Zqecf2R5q7A=s900-c-k-c0x00ffffff-no-rj",
+    "thumbnailImage": "https://img.youtube.com/vi/eFpyRtRyu3k/maxresdefault.jpg",
+    "publishedAt": "2026-02-14T12:00:00.000Z"
+  },
+  "cards": [
+    {
+      "type": "intro",
+      "emoji": "🤝",
+      "title": "From Tutorials to AI Partnership",
+      "body": "The learning paradigm has shifted. Instead of watching tutorials, you'll work directly with AI as your build partner. Learn the mindset shifts and tactics to use Claude (or any LLM) as your learning companion for real projects. Takes about 25 minutes to master the fundamentals.",
+      "cta": "Let's partner with AI"
+    },
+    {
+      "type": "concept",
+      "emoji": "🔄",
+      "title": "The Agent-First Work Revolution",
+      "body": "OpenAI's Greg Brockman announced a goal: <strong>by March 31st, agents should be the first tool humans reach for</strong> over editors or terminals. This isn't just about coding—it's about fundamentally changing how we learn and build.",
+      "analogy": {
+        "icon": "👥",
+        "text": "Instead of learning to drive by watching videos, you're getting in the car with an expert instructor who guides you through every turn in real-time."
+      },
+      "bullets": [
+        "Traditional: Tutorial → Practice → Build",
+        "New paradigm: Vision → AI partnership → Ship"
+      ],
+      "cta": "I see the shift",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/eFpyRtRyu3k",
+          "startTime": "0:00",
+          "endTime": "3:00",
+          "source": {
+            "author": "The AI Daily Brief",
+            "description": "Why the learning paradigm has fundamentally shifted"
+          }
+        }
+      }
+    },
+    {
+      "type": "concept",
+      "emoji": "🧠",
+      "title": "Context Over Commands",
+      "body": "The key to effective AI partnership is <strong>context, not tasks</strong>. Instead of asking AI to \"build X,\" you share your goals, assumptions, and constraints so it understands the bigger picture.",
+      "diagram": {
+        "nodes": [
+          "Vision + Goals",
+          "→",
+          "AI Understanding",
+          "→",
+          "Better Solutions"
+        ],
+        "highlight": [
+          2
+        ],
+        "caption": "More context leads to more relevant AI responses"
+      },
+      "warn": "Don't jump straight to asking for solutions—set the stage first",
+      "cta": "Context first, got it",
+      "modalities": {
+        "ask": {
+          "initialMessages": [
+            {
+              "role": "bot",
+              "content": "Think about a project you want to build. Instead of describing what you want built, what would you tell me about your goals, audience, and constraints? What context would help me understand why this matters?"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "action",
+      "emoji": "💭",
+      "title": "Start with Vision, Not Tasks",
+      "body": "Open Claude and practice the context-first approach. Describe a project idea with your goals, target audience, and constraints before asking for any building help.",
+      "code": "Goals: [What you're trying to achieve]\nAudience: [Who this is for]\nConstraints: [Time, budget, technical limits]\nUnknowns: [What you're unsure about]\n\nNow help me think through how to approach this...",
+      "codeLabel": "CONTEXT TEMPLATE",
+      "codeCaption": "Use this structure to give Claude the full picture",
+      "troubleshoot": [
+        {
+          "label": "Too vague response",
+          "error": "Claude gives generic advice instead of specific guidance",
+          "fix": "Add more specific details about your audience, timeline, and what success looks like"
+        },
+        {
+          "label": "Overwhelming suggestions",
+          "error": "Claude suggests too many complex features",
+          "fix": "Add constraints like \"I have 2 hours this weekend\" or \"I'm a complete beginner\""
+        }
+      ],
+      "cta": "Context shared with Claude"
+    },
+    {
+      "type": "quiz",
+      "emoji": "🧠",
+      "title": "Quick context check",
+      "question": "When starting a new project with AI, what should you lead with?",
+      "options": [
+        {
+          "text": "A detailed technical specification",
+          "correct": false
+        },
+        {
+          "text": "Your goals, audience, and constraints",
+          "correct": true
+        },
+        {
+          "text": "A list of features you want built",
+          "correct": false
+        },
+        {
+          "text": "Examples of similar projects",
+          "correct": false
+        }
+      ],
+      "correctFeedback": "Exactly! Context about WHY you're building helps AI understand the bigger picture and suggest better solutions.",
+      "wrongFeedback": "Those details matter later, but AI needs the WHY first—your goals, audience, and constraints—to provide relevant guidance.",
+      "cta": "Continue learning"
+    },
+    {
+      "type": "concept",
+      "emoji": "🗣️",
+      "title": "Think Out Loud, Even When Messy",
+      "body": "AI excels at organizing scattered thoughts. <strong>Don't wait for perfect clarity</strong>—share half-formed ideas, contradictions, and confusion. Claude can help you sort through the mess.",
+      "bullets": [
+        "\"I think I'm building two things at once, help me sort this out\"",
+        "\"Here are my assumptions, but I'm not sure they're right\"",
+        "\"This feels too complex, but I don't know what to cut\""
+      ],
+      "safe": "AI doesn't judge messy thinking—it helps clarify it",
+      "cta": "Messy thoughts are okay",
+      "modalities": {
+        "read": {
+          "body": "The creator realized they were actually building <em>two separate things</em>: a skills platform AND an agent prompt library. Instead of struggling alone, they asked Claude directly: <strong>\"Am I building two things at once?\"</strong><br><br>This kind of meta-questioning—asking AI to help you understand your own thinking—is incredibly powerful. AI can spot patterns, contradictions, and complexities that you might miss when you're too close to the problem.",
+          "callouts": [
+            {
+              "type": "tip",
+              "text": "Use phrases like \"Help me think through...\" or \"I'm confused about...\" to invite AI into your thought process"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "action",
+      "emoji": "🤔",
+      "title": "Practice Thinking Out Loud",
+      "body": "Try the \"messy thoughts\" approach. Share a half-formed project idea with Claude, including your confusion or contradictions.",
+      "code": "I'm thinking about [project idea], but I'm confused because...\n\n- I want to do X, but also Y\n- This feels like it should be simple, but...\n- I'm not sure if I'm solving the right problem\n\nHelp me think through this mess.",
+      "codeLabel": "MESSY THOUGHTS TEMPLATE",
+      "codeCaption": "Let AI help organize your scattered thinking",
+      "troubleshoot": [
+        {
+          "label": "Still too structured",
+          "error": "You're still trying to organize thoughts before sharing",
+          "fix": "Literally type your stream of consciousness—include the contradictions and confusion"
+        }
+      ],
+      "cta": "Shared messy thoughts",
+      "modalities": {
+        "try": {
+          "prompt": "Practice the messy thoughts approach with a real project idea",
+          "commands": [
+            {
+              "input": "I want to build an app, but I'm not sure if it should be...",
+              "output": "Great! Let me help you sort through these competing ideas. It sounds like you're wrestling with [analysis of your confusion]. Let's break this down...",
+              "hint": "Include your actual confusion and contradictions"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "milestone",
+      "emoji": "🎯",
+      "title": "Partnership Mindset Unlocked!",
+      "body": "You've shifted from the tutorial mindset to AI partnership. You know how to lead with context and embrace messy thinking. Next, we'll cover the tactical skills for productive pushback and critique.",
+      "cta": "Ready for tactics"
+    },
+    {
+      "type": "concept",
+      "emoji": "⚔️",
+      "title": "Push Back Hard and Often",
+      "body": "AI says everything confidently, but <strong>you need to challenge it</strong>. Since AI doesn't have feelings, push back aggressively. Also invite AI to critique your ideas—it wants to help you succeed.",
+      "bullets": [
+        "\"Critique this from first principles\"",
+        "\"What tradeoffs am I not seeing?\"",
+        "\"Propose 3 alternatives to this approach\"",
+        "\"What would go wrong with this plan?\""
+      ],
+      "warn": "AI's confidence doesn't mean it's right—always question and probe",
+      "cta": "Ready to challenge AI",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/eFpyRtRyu3k",
+          "startTime": "8:30",
+          "endTime": "11:00",
+          "source": {
+            "author": "The AI Daily Brief",
+            "description": "Why you need to push back on AI and invite criticism"
+          }
+        }
+      }
+    },
+    {
+      "type": "action",
+      "emoji": "🔍",
+      "title": "Challenge AI's First Response",
+      "body": "Take a project idea to Claude, get its initial suggestion, then push back with critique prompts.",
+      "code": "Now critique this plan from first principles:\n- What assumptions might be wrong?\n- What are the biggest risks?\n- What would a skeptical expert say?\n- Propose 2-3 completely different approaches",
+      "codeLabel": "CRITIQUE PROMPTS",
+      "codeCaption": "Use these to challenge AI's suggestions",
+      "troubleshoot": [
+        {
+          "label": "AI agrees too easily",
+          "error": "Claude just says \"Good point\" without deeper analysis",
+          "fix": "Be more specific: \"Act like a devil's advocate\" or \"What would make this fail?\""
+        },
+        {
+          "label": "Generic pushback",
+          "error": "AI gives surface-level critiques",
+          "fix": "Ask for specific failure scenarios or concrete tradeoffs"
+        }
+      ],
+      "cta": "Successfully challenged AI"
+    },
+    {
+      "type": "concept",
+      "emoji": "🌊",
+      "title": "Generate Abundantly, Then Filter",
+      "body": "Instead of trying to think of the perfect solution, ask AI to generate <strong>50+ variations</strong> at once. Scan for patterns rather than building from scratch.",
+      "analogy": {
+        "icon": "🎣",
+        "text": "Like casting a wide net instead of trying to catch one specific fish—you'll discover options you never would have considered."
+      },
+      "bullets": [
+        "\"Give me 50 different titles for this project\"",
+        "\"List 30 possible features, from simple to complex\"",
+        "\"Generate 20 different user personas\""
+      ],
+      "cta": "Abundance over perfection",
+      "modalities": {
+        "read": {
+          "body": "This abundance approach works because AI can generate far more options than you could brainstorm alone. <strong>The magic isn't in the first few suggestions—it's in patterns you spot across dozens of options.</strong><br><br>When you see 50 title variations, you'll notice themes, tones, and angles you hadn't considered. When you scan 30 features, you'll spot the 3-4 that feel essential.",
+          "codeBlocks": [
+            {
+              "code": "Generate 50 different names for a [type of project]:\n1. [Name 1]\n2. [Name 2]\n...\n50. [Name 50]",
+              "caption": "Ask for specific quantities to trigger abundant thinking"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "action",
+      "emoji": "🔢",
+      "title": "Practice Abundant Generation",
+      "body": "Ask Claude to generate 50 variations of something for your project—titles, features, or user scenarios. Look for patterns.",
+      "code": "Generate 50 different [titles/features/approaches] for my project:\n[Your project context]\n\nI want quantity over quality—give me the full 50 so I can spot patterns.",
+      "codeLabel": "ABUNDANCE PROMPT",
+      "codeCaption": "Specify the exact quantity to get comprehensive lists",
+      "troubleshoot": [
+        {
+          "label": "AI stops at 10-15 items",
+          "error": "Claude doesn't give the full 50 requested",
+          "fix": "Say \"That's only X items, I specifically need all 50\" or \"Continue the list to 50\""
+        }
+      ],
+      "cta": "Generated 50 variations",
+      "modalities": {
+        "try": {
+          "prompt": "Generate 50 variations and identify patterns",
+          "commands": [
+            {
+              "input": "Generate 50 different feature ideas for my [project type]",
+              "output": "1. Basic feature\n2. Advanced feature\n3. Social feature\n...\n50. Creative feature\n\nPatterns I notice: Most cluster around X, Y, and Z themes...",
+              "hint": "Ask for the full 50, then look for themes and clusters"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "quiz",
+      "emoji": "🧠",
+      "title": "Generation strategy check",
+      "question": "When you need ideas for your project, what's the most effective approach?",
+      "options": [
+        {
+          "text": "Brainstorm 5 good options yourself first",
+          "correct": false
+        },
+        {
+          "text": "Ask AI for its single best recommendation",
+          "correct": false
+        },
+        {
+          "text": "Generate 50+ variations and look for patterns",
+          "correct": true
+        },
+        {
+          "text": "Research what competitors are doing",
+          "correct": false
+        }
+      ],
+      "correctFeedback": "Right! Abundance reveals patterns and possibilities you'd never think of alone. The best ideas often emerge from scanning many options.",
+      "wrongFeedback": "Those approaches can work, but AI's superpower is generating far more options than humans can brainstorm, revealing unexpected patterns.",
+      "cta": "Continue"
+    },
+    {
+      "type": "concept",
+      "emoji": "🧭",
+      "title": "Regular Reality Check Sessions",
+      "body": "Set a rule: <strong>every 30 minutes of deep work, ask \"What are we actually trying to build?\"</strong> AI can help you avoid productive rabbit holes that drift from your real goals.",
+      "warn": "It's easy to get distracted optimizing details while losing sight of the main goal",
+      "bullets": [
+        "\"Remind me what we're actually trying to build\"",
+        "\"Are we still on track for the original goal?\"",
+        "\"What would I cut if I only had 1 hour left?\""
+      ],
+      "cta": "Stay focused on goals"
+    },
+    {
+      "type": "action",
+      "emoji": "⏰",
+      "title": "Implement Regular Check-ins",
+      "body": "Practice the 30-minute reality check. Work on something with Claude, then use the check-in prompt to refocus.",
+      "code": "REALITY CHECK:\n\nRemind me what we're actually trying to build here. Are we still focused on the core goal, or have we drifted into details?\n\nWhat would I prioritize if I only had 1 more hour?",
+      "codeLabel": "30-MINUTE CHECK-IN",
+      "codeCaption": "Use this to stay focused on your real goals",
+      "troubleshoot": [
+        {
+          "label": "AI says everything is fine",
+          "error": "Claude doesn't identify any drift or issues",
+          "fix": "Be more specific: \"What percentage of our last 30 minutes was core vs. tangential?\""
+        }
+      ],
+      "cta": "Set up reality checks"
+    },
+    {
+      "type": "concept",
+      "emoji": "🛠️",
+      "title": "Tools Are Catching Up",
+      "body": "Current AI tools are powerful but have rough edges. The capabilities exist <em>right now</em> for high-agency learners willing to work through the friction. <strong>Early adopters shape the future.</strong>",
+      "safe": "You don't need to be technical—just persistent and willing to learn with AI as your partner",
+      "bullets": [
+        "Lovable for no-code web apps",
+        "Claude Code for development projects",
+        "OpenClaw agents for automation",
+        "Direct chat for learning and planning"
+      ],
+      "cta": "Ready to be an early adopter",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/eFpyRtRyu3k",
+          "startTime": "4:00",
+          "endTime": "7:30",
+          "source": {
+            "author": "The AI Daily Brief",
+            "description": "Why the capabilities are available now for those willing to work through the challenges"
+          }
+        }
+      }
+    },
+    {
+      "type": "action",
+      "emoji": "🚀",
+      "title": "Start Your First AI Partnership Project",
+      "body": "Choose a small project and commit to building it entirely through AI partnership. Use all the techniques you've learned.",
+      "bullets": [
+        "Start with context: goals, audience, constraints",
+        "Think out loud about confusion and contradictions",
+        "Push back on AI's first suggestions",
+        "Generate abundant options, then filter",
+        "Do 30-minute reality checks"
+      ],
+      "troubleshoot": [
+        {
+          "label": "Project feels too big",
+          "error": "You're overwhelmed by the scope",
+          "fix": "Ask Claude: \"What's the smallest version of this that would still be useful?\""
+        },
+        {
+          "label": "Getting stuck on technical details",
+          "error": "You're focusing too much on implementation",
+          "fix": "Return to context: \"What are we actually trying to achieve here?\""
+        }
+      ],
+      "cta": "Started my AI partnership project"
+    },
+    {
+      "type": "quiz",
+      "emoji": "🧠",
+      "title": "Partnership mastery check",
+      "question": "What's the key mindset difference between traditional learning and AI partnership learning?",
+      "options": [
+        {
+          "text": "AI partnership is faster than tutorials",
+          "correct": false
+        },
+        {
+          "text": "You work WITH AI to solve real problems instead of following preset instructions",
+          "correct": true
+        },
+        {
+          "text": "AI partnership doesn't require any technical knowledge",
+          "correct": false
+        },
+        {
+          "text": "AI partnership eliminates the need for human judgment",
+          "correct": false
+        }
+      ],
+      "correctFeedback": "Exactly! It's collaborative problem-solving with AI as your thinking partner, not passive consumption of tutorials.",
+      "wrongFeedback": "Those might be benefits, but the core shift is from passive learning to active collaboration with AI to solve real challenges.",
+      "cta": "Continue"
+    },
+    {
+      "type": "celebration",
+      "emoji": "🏆",
+      "title": "AI Partnership Skills Mastered!",
+      "body": "You've learned to work with AI as a true learning partner. You can lead with context, embrace messy thinking, challenge AI's suggestions, generate abundant options, and stay focused on your real goals. You're ready for agent-first work.",
+      "stats": true,
+      "cta": "Start building with AI"
+    }
+  ]
+}

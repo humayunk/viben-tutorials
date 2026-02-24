@@ -1,0 +1,498 @@
+{
+  "id": "claude-compound-engineering-workflow",
+  "title": "Master Compound Engineering: AI-First Development Workflow",
+  "description": "Learn the complete workflow that transforms AI from a coding assistant to your compound engineering system.",
+  "tool": "claude",
+  "tags": [
+    "claude",
+    "cursor",
+    "windsurf",
+    "agents",
+    "workflow"
+  ],
+  "difficulty": "expert",
+  "estimatedMinutes": 45,
+  "source": {
+    "airtableRecordId": "rec1Yi068iZrqL8kn",
+    "sourceUrl": "https://www.youtube.com/watch?v=kjVNYUnM-_0",
+    "author": "Every",
+    "authorImage": "https://yt3.googleusercontent.com/R4P_tnr5Eh-_yEhKUE144h2o7L7_maYCtKG1Y0DaNf_q-zSQWZSYCp2Erdd90OshDp0WSCLUFA=s900-c-k-c0x00ffffff-no-rj",
+    "thumbnailImage": "https://img.youtube.com/vi/kjVNYUnM-_0/maxresdefault.jpg",
+    "publishedAt": "2026-02-09T12:00:00.000Z"
+  },
+  "cards": [
+    {
+      "type": "intro",
+      "emoji": "🚀",
+      "title": "Welcome to Compound Engineering",
+      "body": "You're about to learn the complete workflow that turns AI from a coding assistant into a <strong>compound engineering system</strong>. This isn't just using AI to write code—it's restructuring how you build software so each project makes the next one exponentially easier.<br><br>We'll cover the mindset shifts, practical workflows, and the 80/20 rule that successful AI-first engineers use to ship faster than traditional development.",
+      "cta": "Transform my workflow"
+    },
+    {
+      "type": "concept",
+      "emoji": "🔄",
+      "title": "The Compound Loop That Changes Everything",
+      "body": "Traditional development is linear—each project starts from scratch. <strong>Compound engineering creates a feedback loop</strong> where every piece of work makes the next one easier by teaching your AI system your preferences, patterns, and taste.",
+      "diagram": {
+        "nodes": [
+          "Build Feature",
+          "→",
+          "Extract Learnings",
+          "→",
+          "Update System",
+          "→",
+          "Next Feature (Faster)"
+        ],
+        "highlight": [
+          2,
+          4
+        ],
+        "caption": "Each iteration compounds your development speed"
+      },
+      "bullets": [
+        "<strong>Traditional:</strong> Write code → Ship → Start over",
+        "<strong>Compound:</strong> Plan → Build → Extract taste → System learns → Next build is 2x faster"
+      ],
+      "cta": "I see the compounding effect",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/kjVNYUnM-_0",
+          "startTime": "0:00",
+          "endTime": "2:30",
+          "source": {
+            "author": "Every",
+            "description": "Introduction to compound engineering philosophy"
+          }
+        }
+      }
+    },
+    {
+      "type": "action",
+      "emoji": "🔌",
+      "title": "Install the Compound Engineering Plugin",
+      "body": "The fastest way to start is with the official Claude plugin that implements these workflows. It includes brainstorm commands, planning templates, and review flows.",
+      "code": "Visit every.to/guide/compound-engineering and copy the guide into Claude",
+      "codeLabel": "SETUP COMMAND",
+      "codeCaption": "This gives Claude the full context of compound engineering principles and commands",
+      "bullets": [
+        "Install the plugin from Claude's plugin directory",
+        "Copy the complete guide into your Claude conversation",
+        "Test with a simple <code>@compound brainstorm</code> command"
+      ],
+      "troubleshoot": [
+        {
+          "label": "Plugin not appearing",
+          "error": "Compound Engineering plugin missing from directory",
+          "fix": "Make sure you're using Claude Pro and check the plugins section in settings. The plugin may be region-restricted."
+        }
+      ],
+      "cta": "Plugin installed and tested"
+    },
+    {
+      "type": "concept",
+      "emoji": "💭",
+      "title": "The Critical Mindset Shifts",
+      "body": "Before diving into workflows, you need to <strong>let go of old engineering habits</strong> that actually slow down AI-first development. These beliefs worked for manual coding but become barriers in the AI era.",
+      "bullets": [
+        "❌ <strong>Code must be written by hand</strong> → ✅ AI writes, you steer",
+        "❌ <strong>Every line must be reviewed</strong> → ✅ PR-level review with safety nets",
+        "❌ <strong>Writing code is the core job</strong> → ✅ Planning and taste extraction is the core job",
+        "❌ <strong>First attempt should be perfect</strong> → ✅ Iteration with compound learning"
+      ],
+      "warn": "Your ego might resist this shift. Remember: your value isn't in typing—it's in architectural thinking and taste.",
+      "cta": "Ready to shift my approach",
+      "modalities": {
+        "read": {
+          "body": "The hardest part of compound engineering isn't learning new tools—it's <strong>unlearning old habits</strong>. Many experienced engineers struggle because they're fighting their training.<br><br><strong>Code as self-expression</strong> is perhaps the biggest barrier. If your identity is tied to the specific lines you write, it becomes emotionally difficult to let AI handle implementation. But remember: architecture, taste, and system design are far more valuable than syntax.<br><br><strong>The fear of not learning</strong> is also common. \"If I don't type it, do I really understand it?\" The answer: understanding comes from reading, reviewing, and iterating—not from typing. You'll actually see more code patterns by reviewing AI output than by manually writing everything.",
+          "callouts": [
+            {
+              "type": "tip",
+              "text": "Start with small, non-critical features to build trust in the AI workflow before applying it to core systems."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "quiz",
+      "emoji": "🧠",
+      "title": "Quick Check: Core Shift",
+      "question": "What should be your primary focus in compound engineering?",
+      "options": [
+        {
+          "text": "Writing clean, well-documented code by hand",
+          "correct": false
+        },
+        {
+          "text": "Planning, brainstorming, and extracting taste into the system",
+          "correct": true
+        },
+        {
+          "text": "Learning every programming language and framework",
+          "correct": false
+        },
+        {
+          "text": "Reviewing every line of AI-generated code for errors",
+          "correct": false
+        }
+      ],
+      "correctFeedback": "Exactly! Your job shifts from implementation to high-level thinking: planning what to build, defining how it should work, and teaching the system your preferences.",
+      "wrongFeedback": "That's old-school thinking. In compound engineering, your brain cycles shift from low-level coding to high-level architecture and taste extraction.",
+      "cta": "Continue to workflow"
+    },
+    {
+      "type": "action",
+      "emoji": "🎯",
+      "title": "Master the Brainstorm → Plan Flow",
+      "body": "Every feature starts with brainstorming to clarify requirements, then moves to detailed planning. <strong>Never jump straight to code</strong>—the planning phase is where compound engineering shines.",
+      "code": "@compound brainstorm \"Build user authentication with social login\"",
+      "codeLabel": "BRAINSTORM COMMAND",
+      "codeCaption": "This explores the problem space before any technical decisions",
+      "bullets": [
+        "<strong>Brainstorm:</strong> Clarify what you're actually building",
+        "<strong>Plan:</strong> Create detailed technical architecture",
+        "<strong>Build:</strong> Let AI implement the plan",
+        "<strong>Review:</strong> Compare output against plan, not individual lines"
+      ],
+      "cta": "Brainstormed my first feature",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/kjVNYUnM-_0",
+          "startTime": "8:30",
+          "endTime": "11:00",
+          "source": {
+            "author": "Every",
+            "description": "Demonstration of brainstorm and planning commands"
+          }
+        }
+      }
+    },
+    {
+      "type": "concept",
+      "emoji": "⚖️",
+      "title": "The 80/20 and 50/50 Rules",
+      "body": "Compound engineering follows two key time allocation principles that maximize your development velocity and system learning.",
+      "diagram": {
+        "nodes": [
+          "80% Planning",
+          "20% Building",
+          "50% Feature Work",
+          "50% Meta Work"
+        ],
+        "highlight": [
+          0,
+          2
+        ],
+        "caption": "Two complementary rules for time allocation"
+      },
+      "bullets": [
+        "<strong>80/20 Rule:</strong> Spend 4x more time planning than building",
+        "<strong>50/50 Rule:</strong> For every hour on features, spend one hour improving your system prompts, docs, and style guides"
+      ],
+      "safe": "This feels counterintuitive at first, but the compound effect kicks in after 2-3 projects when your system knows your taste.",
+      "cta": "I understand the time allocation",
+      "modalities": {
+        "ask": {
+          "initialMessages": [
+            {
+              "role": "bot",
+              "content": "Let me help you understand why these ratios work. What part of traditional development do you think takes the longest—writing code, or figuring out what to write?"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "milestone",
+      "emoji": "🎯",
+      "title": "Core Workflow Mastered!",
+      "body": "You've learned the fundamental shift from code-first to plan-first development, installed the compound engineering plugin, and understand the time allocation principles. <br><br>Next, we'll make your entire development environment <strong>agent-native</strong> so AI can handle deployment, debugging, and support tasks autonomously.",
+      "cta": "Make everything agent-ready"
+    },
+    {
+      "type": "concept",
+      "emoji": "🤖",
+      "title": "Agent-Native Environment Design",
+      "body": "If your AI agent can't deploy, debug, or handle customer support, you're still the bottleneck. <strong>Agent-native</strong> means every manual task has a CLI equivalent that AI can execute.",
+      "analogy": {
+        "icon": "🏭",
+        "text": "Think of it like factory automation—if a human still needs to flip switches, the automation is incomplete."
+      },
+      "bullets": [
+        "<strong>Deploy:</strong> CLI commands instead of dashboard clicking",
+        "<strong>Debug:</strong> Log queries and metrics via API",
+        "<strong>Support:</strong> Customer lookup and resolution tools",
+        "<strong>Monitor:</strong> Automated alerts and health checks"
+      ],
+      "warn": "Add proper permissions and safety rails—don't give AI access to production databases or destructive operations.",
+      "cta": "Ready to automate everything"
+    },
+    {
+      "type": "action",
+      "emoji": "⚡",
+      "title": "Add CLI for Every Manual Task",
+      "body": "Audit your current workflow and create CLI commands for each manual step. Start with deployment and debugging—these are the highest-impact automations.",
+      "code": "# Example deployment CLI\nnpm run deploy:staging\nnpm run deploy:production\n\n# Debug commands\nnpm run logs:error\nnpm run metrics:performance",
+      "codeLabel": "CLI EXAMPLES",
+      "codeCaption": "Replace dashboard clicks with commands AI can run",
+      "bullets": [
+        "Create deploy scripts for each environment",
+        "Add log aggregation commands",
+        "Build customer support lookup tools",
+        "Set up monitoring and alerting APIs"
+      ],
+      "troubleshoot": [
+        {
+          "label": "Permission errors",
+          "error": "Access denied when running CLI commands",
+          "fix": "Set up proper API keys and environment variables. Use service accounts with limited permissions for AI operations."
+        },
+        {
+          "label": "CLI not found",
+          "error": "Command not found: npm run deploy",
+          "fix": "Add all automation commands to your package.json scripts section or create dedicated CLI tools in your project."
+        }
+      ],
+      "cta": "CLIs created and tested"
+    },
+    {
+      "type": "quiz",
+      "emoji": "🧠",
+      "title": "Quick Check: Agent Readiness",
+      "question": "What's the main goal of making your environment agent-native?",
+      "options": [
+        {
+          "text": "To make your codebase more organized and clean",
+          "correct": false
+        },
+        {
+          "text": "To eliminate yourself as the bottleneck in operations",
+          "correct": true
+        },
+        {
+          "text": "To reduce the number of tools you need to learn",
+          "correct": false
+        },
+        {
+          "text": "To speed up your manual development workflow",
+          "correct": false
+        }
+      ],
+      "correctFeedback": "Exactly! Agent-native environments let AI handle operations autonomously, so you can focus on high-level planning and architecture.",
+      "wrongFeedback": "Those are nice side effects, but the core goal is removing human bottlenecks so AI can handle the full development and operations lifecycle.",
+      "cta": "Continue to safety nets"
+    },
+    {
+      "type": "concept",
+      "emoji": "🛡️",
+      "title": "Trust Through Safety Nets",
+      "body": "Compound engineering requires trusting AI to handle more autonomy. But trust isn't blind faith—it's <strong>confidence backed by safety systems</strong> that catch problems before they impact users.",
+      "diagram": {
+        "nodes": [
+          "AI Action",
+          "→",
+          "Safety Check",
+          "→",
+          "Monitor",
+          "→",
+          "Alert if Issues"
+        ],
+        "highlight": [
+          2,
+          4
+        ],
+        "caption": "Multiple layers prevent problems from reaching users"
+      },
+      "bullets": [
+        "<strong>Automated tests:</strong> Catch regressions before deployment",
+        "<strong>Staging environments:</strong> Test in production-like conditions",
+        "<strong>Monitoring:</strong> Real-time error tracking and performance metrics",
+        "<strong>Rollback mechanisms:</strong> Quick recovery from any issues"
+      ],
+      "safe": "Start with lower-risk environments and gradually expand AI autonomy as your safety nets prove reliable.",
+      "cta": "I trust with verification"
+    },
+    {
+      "type": "action",
+      "emoji": "🔄",
+      "title": "Implement the 50/50 Rule",
+      "body": "For every hour spent building a feature, spend another hour improving your system's compound learning. This meta-work is what creates the exponential gains.",
+      "bullets": [
+        "Update system prompts with new patterns you like",
+        "Document architectural decisions in your style guide",
+        "Create reusable templates for common features",
+        "Refine your brainstorming and planning templates"
+      ],
+      "code": "# After building user auth feature:\n1. Update style guide with preferred auth patterns\n2. Save authentication template for future use\n3. Document security requirements in system prompt\n4. Create reusable auth components library",
+      "codeLabel": "META-WORK EXAMPLE",
+      "codeCaption": "The compound work that makes next features faster",
+      "cta": "Meta-work scheduled and tracked",
+      "modalities": {
+        "try": {
+          "prompt": "Practice the compound learning extraction. After building a feature, what meta-work would you do?",
+          "commands": [
+            {
+              "input": "identify patterns",
+              "output": "Found 3 reusable patterns:\n- API error handling structure\n- Database migration template\n- Component testing approach",
+              "hint": "Look for repeated code structures and decision patterns"
+            },
+            {
+              "input": "update system",
+              "output": "Updated system prompts with:\n- Preferred error handling\n- Migration naming conventions\n- Testing requirements",
+              "hint": "Extract your preferences into system documentation"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "concept",
+      "emoji": "🚀",
+      "title": "The Four Stages of AI Development",
+      "body": "Most developers progress through predictable stages. Understanding where you are helps you focus on the right next steps rather than trying to jump ahead.",
+      "bullets": [
+        "<strong>Stage 0 - Manual:</strong> Traditional hand-coding",
+        "<strong>Stage 1 - Chat-based:</strong> ChatGPT copy-paste, Cursor with Command+K",
+        "<strong>Stage 2 - Agentic:</strong> Windsurf, Claude Code doing multi-file changes",
+        "<strong>Stage 3 - Plan-first:</strong> PR-only review, full compound engineering workflow"
+      ],
+      "concept": "Each stage requires letting go of control from the previous stage. Most developers get stuck trying to maintain Stage 1 habits in Stage 2 tools.",
+      "cta": "I know my current stage",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/kjVNYUnM-_0",
+          "startTime": "15:30",
+          "endTime": "18:00",
+          "source": {
+            "author": "Every",
+            "description": "Explanation of the four development stages"
+          }
+        }
+      }
+    },
+    {
+      "type": "quiz",
+      "emoji": "🧠",
+      "title": "Quick Check: Development Stages",
+      "question": "What's the key difference between Stage 2 (Agentic) and Stage 3 (Plan-first) development?",
+      "options": [
+        {
+          "text": "Stage 3 uses better AI tools than Stage 2",
+          "correct": false
+        },
+        {
+          "text": "Stage 3 focuses on planning and PR-level review instead of line-by-line oversight",
+          "correct": true
+        },
+        {
+          "text": "Stage 3 requires more manual coding than Stage 2",
+          "correct": false
+        },
+        {
+          "text": "Stage 3 is only for senior developers with years of experience",
+          "correct": false
+        }
+      ],
+      "correctFeedback": "Correct! Stage 3 is about trusting the planning process and reviewing at the PR level, letting go of the need to supervise every code change.",
+      "wrongFeedback": "The tools might be similar, but Stage 3 is a workflow shift—from micro-managing AI to macro-managing through better planning and system-level review.",
+      "cta": "Ready for advanced techniques"
+    },
+    {
+      "type": "action",
+      "emoji": "📊",
+      "title": "Set Up Plan vs. PR Comparison",
+      "body": "After each AI-built feature, compare what was delivered against your original plan. <strong>Feed the gaps back into your planning templates</strong> to compound your planning accuracy.",
+      "code": "# Post-PR Review Questions:\n1. What did the plan miss that the AI had to figure out?\n2. What assumptions were wrong?\n3. Which requirements were ambiguous?\n4. What would make the next plan clearer?",
+      "codeLabel": "REVIEW TEMPLATE",
+      "codeCaption": "Use this checklist after every PR to improve your planning",
+      "bullets": [
+        "Document what the plan missed or got wrong",
+        "Update your planning templates with better prompts",
+        "Note which technical details need to be specified upfront",
+        "Track how your planning accuracy improves over time"
+      ],
+      "troubleshoot": [
+        {
+          "label": "AI went off-plan significantly",
+          "error": "The implemented feature doesn't match the plan",
+          "fix": "Your plan likely lacked technical specificity. Add more architectural details, API contracts, and component structure to future plans."
+        }
+      ],
+      "cta": "Comparison framework implemented",
+      "modalities": {
+        "read": {
+          "body": "The plan vs. PR comparison is where the real compound learning happens. Most developers skip this step and wonder why their AI development doesn't improve over time.<br><br><strong>Common planning gaps to watch for:</strong><br>• Vague UI requirements that lead to multiple design iterations<br>• Missing error handling specifications<br>• Unclear data flow between components<br>• Ambiguous business logic edge cases<br><br><strong>Pro tip:</strong> Keep a planning improvement log. After 5-10 features, you'll see clear patterns in what your plans consistently miss, and you can create templates to address those gaps.",
+          "callouts": [
+            {
+              "type": "tip",
+              "text": "Set a calendar reminder to do plan vs. PR comparison within 24 hours of merging. If you wait longer, you'll forget the important details."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "action",
+      "emoji": "⚙️",
+      "title": "Build Your Taste Extraction System",
+      "body": "Create a system for capturing and encoding your preferences so AI learns your style, architectural decisions, and quality standards over time.",
+      "bullets": [
+        "Document your preferred libraries and frameworks",
+        "Create style guides for UI patterns you like",
+        "Record architectural decision templates",
+        "Build a library of code patterns and examples"
+      ],
+      "code": "# Example taste documentation:\nPREFERRED_STACK = {\n  \"frontend\": \"Next.js + Tailwind + shadcn/ui\",\n  \"backend\": \"Node.js + Prisma + tRPC\",\n  \"auth\": \"NextAuth.js\",\n  \"deployment\": \"Vercel + Railway\"\n}",
+      "codeLabel": "TASTE EXAMPLE",
+      "codeCaption": "Document your technical preferences for consistent AI output",
+      "cta": "Taste system documented",
+      "modalities": {
+        "ask": {
+          "initialMessages": [
+            {
+              "role": "bot",
+              "content": "Let's build your taste extraction system. What's one technical decision you make consistently across projects? For example, do you always choose the same CSS framework, state management library, or database ORM?"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "concept",
+      "emoji": "📈",
+      "title": "Measuring Compound Success",
+      "body": "Track the compound effect by measuring velocity improvements over time. The goal is <strong>exponential gains in development speed</strong> while maintaining or improving quality.",
+      "bullets": [
+        "<strong>Velocity metrics:</strong> Time from idea to shipped feature",
+        "<strong>Quality metrics:</strong> Bug reports, user feedback, test coverage",
+        "<strong>System metrics:</strong> How often AI gets it right on first try",
+        "<strong>Learning metrics:</strong> How much manual correction is needed"
+      ],
+      "diagram": {
+        "nodes": [
+          "Project 1: 2 weeks",
+          "→",
+          "Project 2: 1 week",
+          "→",
+          "Project 3: 3 days",
+          "→",
+          "Project 4: 1 day"
+        ],
+        "highlight": [
+          0,
+          6
+        ],
+        "caption": "Compound engineering velocity curve"
+      },
+      "cta": "Ready to measure progress"
+    },
+    {
+      "type": "celebration",
+      "emoji": "🏆",
+      "title": "Compound Engineering Master!",
+      "body": "You've mastered the complete compound engineering workflow that successful AI-first developers use. You can now: <br><br>• Apply the brainstorm → plan → build flow that frontloads thinking<br>• Create agent-native environments that eliminate operational bottlenecks<br>• Use the 80/20 and 50/50 rules for optimal time allocation<br>• Build safety nets that enable trust in AI autonomy<br>• Extract and compound your taste into the system for exponential gains",
+      "stats": true,
+      "cta": "Start compounding immediately"
+    }
+  ]
+}

@@ -1,0 +1,405 @@
+{
+  "id": "claude-daily-engine-setup",
+  "title": "Turn Claude Into Your Self-Directing Daily Engine",
+  "description": "Set up a system where one phrase triggers Claude to interview you, choose tasks, and execute work autonomously across multiple projects.",
+  "tool": "claude-cowork",
+  "tags": [
+    "claude-cowork",
+    "workflow",
+    "automation",
+    "prompting",
+    "agents"
+  ],
+  "difficulty": "intermediate",
+  "estimatedMinutes": 25,
+  "source": {
+    "airtableRecordId": "rec0HH4rylCQjl2CE",
+    "sourceUrl": "https://www.youtube.com/watch?v=rdURhrS4xHI",
+    "author": "Alex Finn",
+    "authorImage": "https://yt3.ggpht.com/-f755CqfJVpDAZZCQU5b_-9OVVDsqFoW8aSV9sOgGp4VfBx-AJR62Q4j-OmoO-muAw1LqE-vEA=s800-c-k-c0x00ffffff-no-rj",
+    "thumbnailImage": "https://img.youtube.com/vi/rdURhrS4xHI/maxresdefault.jpg",
+    "publishedAt": "2024-12-01"
+  },
+  "cards": [
+    {
+      "type": "intro",
+      "emoji": "🚀",
+      "title": "Build Your Self-Directing Claude Engine",
+      "body": "You'll learn to set up a system where typing <strong>\"Let's start our day\"</strong> triggers Claude to interview you, choose your most important tasks, and execute them autonomously. This workflow flips the usual AI relationship — Claude asks YOU questions, then decides what it can tackle. Takes about 25 minutes to build, then saves hours daily.",
+      "cta": "Let's automate my workflow"
+    },
+    {
+      "type": "concept",
+      "emoji": "🔄",
+      "title": "The Self-Directing Workflow Concept",
+      "body": "Most people micromanage AI with constant prompts. This system reverses that relationship — <strong>Claude interviews you</strong> with three questions, then autonomously chooses and executes tasks based on your priorities.",
+      "analogy": {
+        "icon": "🎯",
+        "text": "Like having a personal assistant who starts each day by asking what's most important, then goes off and handles everything without constant check-ins"
+      },
+      "diagram": {
+        "nodes": [
+          "\"Let's start our day\"",
+          "→",
+          "Claude interviews you",
+          "→",
+          "Claude chooses tasks",
+          "→",
+          "Parallel execution"
+        ],
+        "highlight": [
+          2,
+          4
+        ],
+        "caption": "One phrase triggers autonomous task selection and execution"
+      },
+      "cta": "I see the workflow",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/rdURhrS4xHI",
+          "startTime": "0:00",
+          "endTime": "2:30",
+          "source": {
+            "author": "Alex Finn",
+            "description": "Overview of the self-directing Claude system"
+          }
+        }
+      }
+    },
+    {
+      "type": "action",
+      "emoji": "📁",
+      "title": "Create Your Claude Project Structure",
+      "body": "Set up the essential folder structure that Claude will use to organize your work. Create a dedicated directory and three key folders inside it.",
+      "code": "mkdir claude-daily-engine\ncd claude-daily-engine\nmkdir context inbox outbox",
+      "codeLabel": "TERMINAL SETUP",
+      "codeCaption": "Creates the workspace folders Claude needs to organize inputs and outputs",
+      "bullets": [
+        "<strong>context:</strong> Your profile, projects, and reference materials",
+        "<strong>inbox:</strong> Tasks and inputs waiting to be processed",
+        "<strong>outbox:</strong> Completed work and deliverables from Claude"
+      ],
+      "troubleshoot": [
+        {
+          "label": "Permission denied error",
+          "error": "mkdir: cannot create directory: Permission denied",
+          "fix": "Run <code>sudo mkdir claude-daily-engine</code> or choose a directory where you have write permissions like your home folder"
+        }
+      ],
+      "cta": "Folders created"
+    },
+    {
+      "type": "concept",
+      "emoji": "🧠",
+      "title": "The Claude Rules File: Your AI's Brain",
+      "body": "The <code>claude.md</code> file is Claude's memory and personality. It contains your profile, current projects, working preferences, and instructions that Claude reads at the start of every session.",
+      "bullets": [
+        "Your professional background and expertise areas",
+        "Current projects with priorities and deadlines",
+        "Work preferences and communication style",
+        "Available tools and resources Claude can use"
+      ],
+      "safe": "This file stays local — Claude only reads it when you explicitly share it in Co-work sessions",
+      "cta": "Ready to build my brain file",
+      "modalities": {
+        "read": {
+          "body": "The rules file acts as Claude's persistent memory across sessions. Unlike regular Claude conversations that start fresh each time, this system gives Claude context about who you are, what you're working on, and how you prefer to work.<br><br>Think of it as briefing a new assistant on their first day — except you only have to do it once, and they remember perfectly every time you work together.",
+          "callouts": [
+            {
+              "type": "tip",
+              "text": "Keep your rules file updated with current projects. As priorities change, update the file so Claude stays aligned with your actual needs."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "action",
+      "emoji": "✍️",
+      "title": "Write Your Claude Rules File",
+      "body": "Create the <code>claude.md</code> file that will serve as Claude's instructions and your profile. This is what Claude reads first in every session.",
+      "code": "touch claude.md",
+      "codeLabel": "CREATE RULES FILE",
+      "bullets": [
+        "Start with your role and expertise (e.g., \"Senior Product Manager at TechCorp\")",
+        "List current top 3 projects with brief descriptions",
+        "Add your work style preferences (communication, meeting frequency, etc.)",
+        "Include any tools or resources Claude should know about"
+      ],
+      "cta": "Rules file drafted",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/rdURhrS4xHI",
+          "startTime": "3:45",
+          "endTime": "6:15",
+          "source": {
+            "author": "Alex Finn",
+            "description": "Example of setting up the claude.md rules file"
+          }
+        }
+      }
+    },
+    {
+      "type": "quiz",
+      "emoji": "🧠",
+      "title": "Quick Check",
+      "question": "What happens when you type \"Let's start our day\" in this system?",
+      "options": [
+        {
+          "text": "Claude immediately starts working on your last project",
+          "correct": false
+        },
+        {
+          "text": "Claude interviews you with three questions, then chooses tasks to execute",
+          "correct": true
+        },
+        {
+          "text": "Claude shows you a list of available commands",
+          "correct": false
+        },
+        {
+          "text": "Claude creates a new project folder structure",
+          "correct": false
+        }
+      ],
+      "correctFeedback": "Exactly! The system flips the usual AI relationship — Claude becomes the interviewer, asking about your top priority, to-do list, and urgent items before autonomously deciding what it can tackle.",
+      "wrongFeedback": "The magic of this system is that Claude takes the initiative. It doesn't wait for detailed instructions or show menus — it actively interviews you to understand your priorities, then makes decisions about what to work on.",
+      "cta": "Continue"
+    },
+    {
+      "type": "action",
+      "emoji": "🎯",
+      "title": "Launch Your First Daily Engine Session",
+      "body": "Open Claude Co-work, upload your <code>claude.md</code> file, and trigger the interview process. Let Claude take the lead.",
+      "code": "Let's start our day",
+      "codeLabel": "TRIGGER PHRASE",
+      "codeCaption": "Type exactly this phrase to start Claude's interview process",
+      "bullets": [
+        "Claude will ask about your #1 priority for the day",
+        "It'll request your current to-do list",
+        "Finally, it'll check for any urgent or time-sensitive items"
+      ],
+      "cta": "Interview completed",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/rdURhrS4xHI",
+          "startTime": "6:30",
+          "endTime": "9:00",
+          "source": {
+            "author": "Alex Finn",
+            "description": "Demonstrating the daily trigger phrase and interview process"
+          }
+        }
+      }
+    },
+    {
+      "type": "milestone",
+      "emoji": "⚡",
+      "title": "Your Claude Engine is Running!",
+      "body": "You've created the folder structure, written your rules file, and triggered your first daily interview. Claude now has everything it needs to autonomously choose and execute tasks. Next, you'll see how it parallelizes work using sub-agents to deliver multiple assets quickly.",
+      "cta": "Show me the parallel execution"
+    },
+    {
+      "type": "concept",
+      "emoji": "🔀",
+      "title": "Parallel Execution with Sub-Agents",
+      "body": "Claude Co-work can spawn multiple sub-agents to work on different tasks simultaneously. Instead of doing one thing at a time, it might draft a Twitter thread, research stocks, and plan YouTube content all at once.",
+      "diagram": {
+        "nodes": [
+          "Main Claude",
+          "→",
+          "Sub-agent 1: Twitter",
+          "Sub-agent 2: Research",
+          "Sub-agent 3: YouTube"
+        ],
+        "highlight": [
+          2,
+          3,
+          4
+        ],
+        "caption": "One conversation spawns multiple parallel workstreams"
+      },
+      "bullets": [
+        "Each sub-agent focuses on a specific deliverable",
+        "All work happens simultaneously, not sequentially",
+        "Outputs appear in your outbox folder as they complete"
+      ],
+      "cta": "I understand parallel execution",
+      "modalities": {
+        "ask": {
+          "initialMessages": [
+            {
+              "role": "bot",
+              "content": "Think about your typical workday. How many tasks do you juggle at once? What if an AI could literally work on 3-5 different deliverables simultaneously while you focus on high-level priorities? That's what sub-agent parallelization achieves — turning your scattered task list into multiple focused work streams that complete at the same time."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "action",
+      "emoji": "👀",
+      "title": "Monitor Your Outbox for Deliverables",
+      "body": "As Claude's sub-agents work, they'll deposit completed files in your outbox folder. Check it regularly to see what's been delivered.",
+      "bullets": [
+        "Draft content appears as markdown or text files",
+        "Research data comes as organized documents",
+        "Strategy documents include actionable recommendations",
+        "Each file is clearly named with its purpose"
+      ],
+      "warn": "Files may appear at different times as sub-agents work at different speeds",
+      "cta": "Outbox monitoring set up",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/rdURhrS4xHI",
+          "startTime": "9:15",
+          "endTime": "12:00",
+          "source": {
+            "author": "Alex Finn",
+            "description": "Examples of parallel work output and file organization"
+          }
+        }
+      }
+    },
+    {
+      "type": "quiz",
+      "emoji": "🧠",
+      "title": "Quick Check",
+      "question": "What's the main advantage of Claude's sub-agent parallelization?",
+      "options": [
+        {
+          "text": "It makes each individual task higher quality",
+          "correct": false
+        },
+        {
+          "text": "It completes multiple different tasks simultaneously instead of sequentially",
+          "correct": true
+        },
+        {
+          "text": "It reduces the number of prompts you need to write",
+          "correct": false
+        },
+        {
+          "text": "It automatically prioritizes tasks by importance",
+          "correct": false
+        }
+      ],
+      "correctFeedback": "Exactly! Instead of waiting for one task to finish before starting the next, sub-agents work in parallel. This means a 15-minute conversation might produce a Twitter thread, research report, and content strategy all at the same time.",
+      "wrongFeedback": "While those benefits might occur, the core advantage is speed through parallelization. Think of it like having multiple people working on your to-do list simultaneously, rather than one person doing everything sequentially.",
+      "cta": "Continue"
+    },
+    {
+      "type": "action",
+      "emoji": "🌅",
+      "title": "End Your Day with a Summary",
+      "body": "Close each session by asking Claude to summarize what was accomplished. This creates continuity between daily sessions.",
+      "code": "end of day",
+      "codeLabel": "END-OF-DAY TRIGGER",
+      "codeCaption": "Type this phrase to get a completion summary",
+      "bullets": [
+        "Claude lists all completed deliverables",
+        "It notes any incomplete or ongoing tasks",
+        "Provides context for tomorrow's session",
+        "Suggests priorities for the next day"
+      ],
+      "cta": "Day summary received",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/rdURhrS4xHI",
+          "startTime": "13:30",
+          "endTime": "15:00",
+          "source": {
+            "author": "Alex Finn",
+            "description": "End-of-day summary process and continuity setup"
+          }
+        }
+      }
+    },
+    {
+      "type": "concept",
+      "emoji": "🔧",
+      "title": "Customizing Your Engine",
+      "body": "The beauty of this system is its adaptability. Change the <code>claude.md</code> file to change Claude's behavior without rebuilding the entire workflow.",
+      "bullets": [
+        "<strong>Update priorities:</strong> Modify current projects as they evolve",
+        "<strong>Change work style:</strong> Adjust communication preferences or output formats",
+        "<strong>Add new tools:</strong> Include new resources or integrations Claude should use",
+        "<strong>Refine focus:</strong> Narrow or broaden the types of tasks Claude handles"
+      ],
+      "safe": "All changes take effect immediately in the next session — no complex reconfiguration needed",
+      "cta": "I understand customization",
+      "modalities": {
+        "read": {
+          "body": "The system's power comes from its simplicity. Your entire AI workflow is controlled by a single text file that you can edit anytime. Want Claude to focus more on creative work? Update the rules. Need it to handle different types of research? Modify the project descriptions.<br><br>This approach means your AI assistant evolves with your needs without requiring technical changes to the underlying system. It's like updating your assistant's job description rather than hiring a new person.",
+          "codeBlocks": [
+            {
+              "code": "# Updated priority example\nCurrent focus: Q1 product launch\nDeadline: March 15\nKey deliverables: messaging, competitive analysis, launch plan",
+              "caption": "Simple text updates change Claude's entire focus"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "quiz",
+      "emoji": "🧠",
+      "title": "Quick Check",
+      "question": "How do you modify Claude's behavior in this system?",
+      "options": [
+        {
+          "text": "Rebuild the folder structure with new parameters",
+          "correct": false
+        },
+        {
+          "text": "Edit the claude.md rules file with updated priorities and preferences",
+          "correct": true
+        },
+        {
+          "text": "Create new trigger phrases for different workflows",
+          "correct": false
+        },
+        {
+          "text": "Train a new version of Claude with different examples",
+          "correct": false
+        }
+      ],
+      "correctFeedback": "Perfect! The genius of this system is that everything Claude knows about you and your work comes from that one text file. Update it, and Claude's behavior changes immediately in the next session.",
+      "wrongFeedback": "The system stays simple — no rebuilding or retraining needed. Just edit the claude.md file like updating a document, and Claude adapts its behavior based on your new information and priorities.",
+      "cta": "Continue"
+    },
+    {
+      "type": "action",
+      "emoji": "🚀",
+      "title": "Test Your Complete System",
+      "body": "Run through a full cycle to verify everything works: trigger the interview, let Claude work, check outputs, and get an end-of-day summary.",
+      "bullets": [
+        "Start with \"Let's start our day\" and answer the three questions",
+        "Let Claude choose and execute tasks autonomously",
+        "Monitor your outbox folder for completed deliverables",
+        "End with \"end of day\" for a summary",
+        "Note what worked well and what to adjust in your rules file"
+      ],
+      "troubleshoot": [
+        {
+          "label": "Claude seems confused about my projects",
+          "error": "Claude asks for clarification on basic project details",
+          "fix": "Your claude.md file needs more specific project descriptions. Add current context, deadlines, and key stakeholders for each active project."
+        },
+        {
+          "label": "No files appearing in outbox",
+          "error": "Claude mentions completing work but no deliverables show up",
+          "fix": "In Claude Co-work, explicitly ask Claude to save files to your outbox folder. It may need a reminder about your local file structure."
+        }
+      ],
+      "cta": "Full system tested"
+    },
+    {
+      "type": "celebration",
+      "emoji": "🎉",
+      "title": "Your Self-Directing Claude Engine is Live!",
+      "body": "You've built a system where one phrase triggers Claude to interview you, autonomously choose tasks, and execute them in parallel. You can now: <strong>start each day with a single trigger phrase</strong>, <strong>let Claude interview and prioritize your work</strong>, <strong>receive multiple deliverables from parallel sub-agents</strong>, and <strong>customize the entire system by editing one text file</strong>. Time to experience what Alex calls \"80% of daily work done in 3 minutes.\"",
+      "stats": true,
+      "cta": "Start my productive day"
+    }
+  ]
+}

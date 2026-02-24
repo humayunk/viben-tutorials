@@ -1,0 +1,426 @@
+{
+  "id": "llm-tokens-context-optimization",
+  "title": "Understanding AI Tokens and Context for Smarter Prompting",
+  "description": "Learn how tokens work, why context matters, and how to optimize your prompts for better AI performance.",
+  "tool": "openai-tokenizer",
+  "tags": [
+    "tokens",
+    "context",
+    "prompting",
+    "optimization",
+    "cost"
+  ],
+  "difficulty": "intermediate",
+  "estimatedMinutes": 18,
+  "source": {
+    "airtableRecordId": "rec0Mxuf3FN1GQq2Y",
+    "sourceUrl": "https://www.youtube.com/watch?v=0ATtrgKFfnw",
+    "author": "Ras Mic",
+    "authorImage": "https://yt3.googleusercontent.com/i9xxBhNuLi0XRlbITf05bV7KsrG-k_B2_bULh7DvZYoqCzUij4sCGi1Ijqyb1A3yfOD88jtY=s900-c-k-c0x00ffffff-no-rj",
+    "thumbnailImage": "https://img.youtube.com/vi/0ATtrgKFfnw/maxresdefault.jpg",
+    "publishedAt": "2026-02-02T03:40:45.000Z"
+  },
+  "cards": [
+    {
+      "type": "intro",
+      "emoji": "🔤",
+      "title": "Master AI Tokens and Context",
+      "body": "You'll understand what tokens are, how AI pricing really works, and practical techniques to optimize your prompts for better performance and lower costs. We'll use real tools to analyze token usage and explore context management strategies.",
+      "cta": "Let's decode tokens"
+    },
+    {
+      "type": "concept",
+      "emoji": "🧩",
+      "title": "What Are Tokens Anyway?",
+      "body": "Tokens are the fundamental units that AI models process — they're not exactly words, but pieces of text that can be whole words, parts of words, or even punctuation marks.",
+      "analogy": {
+        "icon": "🧩",
+        "text": "Think of tokens like puzzle pieces. Just as you break down a complex image into interlocking pieces to work with it, AI models break down your text into token pieces to understand and process it."
+      },
+      "bullets": [
+        "<strong>Whole words:</strong> 'open' = 1 token",
+        "<strong>Word parts:</strong> 'AI's' = 2 tokens ('AI' + 's')",
+        "<strong>Punctuation:</strong> Each mark usually = 1 token"
+      ],
+      "cta": "I see the pieces",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/0ATtrgKFfnw",
+          "startTime": "0:45",
+          "endTime": "2:30",
+          "source": {
+            "author": "Ras Mic",
+            "description": "Visual explanation of how text gets converted to tokens"
+          }
+        }
+      }
+    },
+    {
+      "type": "action",
+      "emoji": "🔍",
+      "title": "See Your Text as Tokens",
+      "body": "Let's use OpenAI's tokenizer to see exactly how your text gets broken down into tokens.",
+      "bullets": [
+        "Go to <strong>platform.openai.com/tokenizer</strong>",
+        "Paste any text you want to analyze",
+        "Watch how it gets colored and segmented into tokens"
+      ],
+      "code": "platform.openai.com/tokenizer",
+      "codeLabel": "TOKENIZER URL",
+      "codeCaption": "This free tool shows exactly how any text becomes tokens",
+      "troubleshoot": [
+        {
+          "label": "Page won't load",
+          "error": "Site unavailable or slow loading",
+          "fix": "Try refreshing or check your internet connection. The tokenizer is a free OpenAI tool that should be accessible without an API key."
+        }
+      ],
+      "cta": "Tokenizer loaded",
+      "modalities": {
+        "try": {
+          "prompt": "Paste this text into the tokenizer and see how many tokens it creates: 'Hello world! How are you today?'",
+          "commands": [
+            {
+              "input": "Hello world! How are you today?",
+              "output": "6 tokens: [Hello] [world] [!] [ How] [ are] [ you] [ today] [?]",
+              "hint": "Notice how spaces and punctuation affect tokenization"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "concept",
+      "emoji": "💰",
+      "title": "Why Token Count = Your Bill",
+      "body": "AI services charge you based on tokens, not characters or words. Understanding this changes how you think about prompt efficiency.",
+      "diagram": {
+        "nodes": [
+          "Your Text",
+          "→",
+          "Tokens",
+          "→",
+          "AI Processing",
+          "→",
+          "Token Bill"
+        ],
+        "highlight": [
+          2,
+          4
+        ],
+        "caption": "Every step in this pipeline affects your costs"
+      },
+      "bullets": [
+        "<strong>Input tokens:</strong> What you send to the AI",
+        "<strong>Output tokens:</strong> What the AI sends back",
+        "<strong>Both count:</strong> You pay for the full conversation"
+      ],
+      "warn": "280 characters ≈ 52 tokens. The conversion isn't 1:1, so always check actual token count for cost estimates.",
+      "cta": "I get the pricing",
+      "modalities": {
+        "read": {
+          "body": "Here's the reality: GPT-4o costs $1.75 per million input tokens and $14 per million output tokens. This means a 1000-word essay might cost around $0.003 to process, but if the AI generates a 2000-word response, that costs $0.028. The output is 8x more expensive than input.<br><br>This pricing model explains why being concise in your prompts saves money, and why getting shorter, more focused responses is often better for your wallet.",
+          "callouts": [
+            {
+              "type": "tip",
+              "text": "Pro tip: Ask for bullet points or summaries instead of long explanations when you don't need the detail. Your wallet will thank you."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "quiz",
+      "emoji": "🧠",
+      "title": "Token Economics Check",
+      "question": "If you have a 500-word prompt and want a 200-word response, which will likely cost more?",
+      "options": [
+        {
+          "text": "The input (your 500-word prompt)",
+          "correct": false
+        },
+        {
+          "text": "The output (AI's 200-word response)",
+          "correct": true
+        },
+        {
+          "text": "They cost exactly the same",
+          "correct": false
+        },
+        {
+          "text": "It depends on the model version",
+          "correct": false
+        }
+      ],
+      "correctFeedback": "Exactly! Output tokens typically cost 5-10x more than input tokens. Even though your prompt is longer, the AI's shorter response will likely cost more.",
+      "wrongFeedback": "Remember: output tokens (what the AI generates) are much more expensive than input tokens (what you send). Always check the pricing ratio for your specific model.",
+      "cta": "Continue"
+    },
+    {
+      "type": "concept",
+      "emoji": "📚",
+      "title": "Context Windows: AI's Memory Limit",
+      "body": "Every AI model has a context window — the maximum number of tokens it can 'remember' in a single conversation. Think of it as the AI's working memory.",
+      "diagram": {
+        "nodes": [
+          "Message 1",
+          "→",
+          "Response 1",
+          "→",
+          "Message 2",
+          "→",
+          "Response 2",
+          "→",
+          "Context Full"
+        ],
+        "highlight": [
+          4
+        ],
+        "caption": "Each exchange adds to your context usage"
+      },
+      "bullets": [
+        "<strong>Claude Opus:</strong> 200,000 tokens (~150,000 words)",
+        "<strong>GPT-4:</strong> 8,000-128,000 tokens (varies by version)",
+        "<strong>When full:</strong> AI forgets earlier parts of conversation"
+      ],
+      "safe": "Don't worry about hitting limits in normal chats. Context windows are huge — you'd need to paste entire books to max them out.",
+      "cta": "I understand context limits",
+      "modalities": {
+        "ask": {
+          "initialMessages": [
+            {
+              "role": "bot",
+              "content": "Here's a way to think about it: imagine you're having a conversation while walking through a tunnel. You can hear everything clearly until you get too far from the start — then the earlier parts of the conversation fade away. That's exactly how AI context windows work. What questions do you have about how this affects your AI interactions?"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "action",
+      "emoji": "📊",
+      "title": "Check Your Context Usage",
+      "body": "Let's see how much context you're actually using in Claude and what happens when you're running low.",
+      "code": "/context",
+      "codeLabel": "CLAUDE COMMAND",
+      "codeCaption": "Run this in any Claude conversation to see your token breakdown",
+      "bullets": [
+        "Open Claude (Code or regular version)",
+        "Type <strong>/context</strong> in any conversation",
+        "Review your token usage breakdown"
+      ],
+      "troubleshoot": [
+        {
+          "label": "Command not recognized",
+          "error": "/context command does nothing",
+          "fix": "Make sure you're using Claude (not ChatGPT). The command works in both Claude.ai and Claude Code applications."
+        },
+        {
+          "label": "No context data shown",
+          "error": "Command runs but shows minimal info",
+          "fix": "Try having a longer conversation first, or paste some content. The context command is more useful when you have substantial conversation history."
+        }
+      ],
+      "cta": "Context checked",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/0ATtrgKFfnw",
+          "startTime": "8:45",
+          "endTime": "10:30",
+          "source": {
+            "author": "Ras Mic",
+            "description": "Live demo of checking context usage in Claude Code"
+          }
+        }
+      }
+    },
+    {
+      "type": "milestone",
+      "emoji": "🎯",
+      "title": "You're Getting the Full Picture!",
+      "body": "You now understand tokens, pricing, and context windows — the three pillars of effective AI usage. Next, we'll dive into practical optimization techniques to make your prompts faster, cheaper, and more effective.",
+      "cta": "Ready to optimize"
+    },
+    {
+      "type": "concept",
+      "emoji": "✂️",
+      "title": "Prompt Optimization Strategies",
+      "body": "Smaller token footprints mean cheaper costs, faster responses, and more room for conversation history. Here's how to trim the fat from your prompts.",
+      "bullets": [
+        "<strong>Remove boilerplate:</strong> Cut repetitive instructions",
+        "<strong>Dedupe examples:</strong> One good example beats three similar ones",
+        "<strong>Summarize long content:</strong> Don't paste entire documents"
+      ],
+      "diagram": {
+        "nodes": [
+          "Bloated Prompt",
+          "→",
+          "Trim & Optimize",
+          "→",
+          "Efficient Prompt"
+        ],
+        "highlight": [
+          1
+        ],
+        "caption": "Less tokens = better performance"
+      },
+      "warn": "Don't cut essential context or instructions. The goal is removing redundancy, not removing clarity.",
+      "cta": "Ready to optimize",
+      "modalities": {
+        "read": {
+          "body": "Here's the optimization hierarchy:<br><br><strong>1. Remove duplicate examples:</strong> If you have 5 examples showing the same pattern, keep the best 1-2.<br><br><strong>2. Cut boilerplate phrases:</strong> Remove 'please', 'thank you', 'I would appreciate if' — AIs don't need politeness tokens.<br><br><strong>3. Summarize long references:</strong> Instead of pasting a 10-page document, summarize the key points in 2-3 paragraphs.<br><br><strong>4. Use bullet points:</strong> Lists are more token-efficient than long paragraphs for structured information.",
+          "codeBlocks": [
+            {
+              "code": "// Instead of this:\n\"Please analyze this data and provide insights. I would really appreciate a detailed analysis with recommendations. Thank you in advance.\"\n\n// Use this:\n\"Analyze this data. Provide insights and recommendations.\"",
+              "caption": "Same meaning, 60% fewer tokens"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "action",
+      "emoji": "🧹",
+      "title": "Optimize a Real Prompt",
+      "body": "Take one of your existing prompts and run it through the optimization process.",
+      "bullets": [
+        "Find a prompt you use regularly (system prompt, work template, etc.)",
+        "Paste it into the OpenAI tokenizer to get baseline count",
+        "Remove duplicate examples and boilerplate language",
+        "Summarize any long background information",
+        "Check the new token count"
+      ],
+      "troubleshoot": [
+        {
+          "label": "Optimized prompt doesn't work as well",
+          "error": "AI responses are less accurate after optimization",
+          "fix": "You may have cut essential context. Add back key examples or clarifying instructions one by one until quality returns."
+        }
+      ],
+      "cta": "Prompt optimized"
+    },
+    {
+      "type": "quiz",
+      "emoji": "🧠",
+      "title": "Optimization Strategy",
+      "question": "You have a prompt with 5 similar examples, lots of 'please' and 'thank you', and a 3-page background document. What's the BEST first optimization step?",
+      "options": [
+        {
+          "text": "Remove all the 'please' and 'thank you' words",
+          "correct": false
+        },
+        {
+          "text": "Summarize the 3-page document into key points",
+          "correct": true
+        },
+        {
+          "text": "Keep only 1 example instead of 5",
+          "correct": false
+        },
+        {
+          "text": "Rewrite everything as bullet points",
+          "correct": false
+        }
+      ],
+      "correctFeedback": "Perfect! Long documents are usually the biggest token drain. Summarizing that 3-page document will likely save hundreds of tokens — much more than removing politeness words or cutting examples.",
+      "wrongFeedback": "While removing politeness and reducing examples helps, long documents are typically the biggest token wasters. Always tackle the largest sources of bloat first.",
+      "cta": "Continue"
+    },
+    {
+      "type": "concept",
+      "emoji": "⚠️",
+      "title": "Context Health in Long Sessions",
+      "body": "During long conversations or agent sessions, monitor your context usage. AI performance degrades as you approach the context limit.",
+      "bullets": [
+        "<strong>Sweet spot:</strong> Stay under 60% of context window",
+        "<strong>Warning zone:</strong> 70-90% context usage",
+        "<strong>Danger zone:</strong> 90%+ context leads to hallucinations"
+      ],
+      "warn": "When context gets full, AIs start 'forgetting' earlier instructions and may contradict themselves or make up information.",
+      "safe": "Most AI services auto-compress context when it gets full, but compression can lose important nuances from your conversation.",
+      "cta": "I'll monitor context health",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/0ATtrgKFfnw",
+          "startTime": "10:45",
+          "endTime": "12:15",
+          "source": {
+            "author": "Ras Mic",
+            "description": "Explanation of auto-compact and context management"
+          }
+        }
+      }
+    },
+    {
+      "type": "action",
+      "emoji": "📈",
+      "title": "Monitor Context During Sessions",
+      "body": "Set up a habit of checking context health during long AI sessions.",
+      "bullets": [
+        "Run <strong>/context</strong> every 10-15 exchanges in long conversations",
+        "Watch for the 'auto-compact buffer' getting close",
+        "Start a new conversation when context hits 70%+",
+        "Summarize key points before starting fresh"
+      ],
+      "code": "Context: 140k/200k tokens (70% full)\nAuto-compact buffer: 33k tokens remaining",
+      "codeLabel": "EXAMPLE CONTEXT WARNING",
+      "codeCaption": "Time to start a new conversation or summarize progress",
+      "troubleshoot": [
+        {
+          "label": "Context percentage unclear",
+          "error": "Can't tell if context usage is problematic",
+          "fix": "Simple rule: if you're over 100k tokens in a 200k window (50%+) and having a complex conversation, check every few exchanges."
+        }
+      ],
+      "cta": "Context monitoring activated"
+    },
+    {
+      "type": "concept",
+      "emoji": "🏗️",
+      "title": "Bonus: Safe Sandboxes with Daytona",
+      "body": "When building AI agents that need to execute code, you need secure environments. Daytona provides prewarmed sandboxes with file systems, code execution, and development tools.",
+      "bullets": [
+        "<strong>Full file system access:</strong> Real development environment",
+        "<strong>Code execution:</strong> Run and test safely",
+        "<strong>Prewarmed environments:</strong> Instant startup with tools installed",
+        "<strong>Multiple languages:</strong> Support for various tech stacks"
+      ],
+      "diagram": {
+        "nodes": [
+          "Init Daytona",
+          "→",
+          "Create Sandbox",
+          "→",
+          "Pick Language",
+          "→",
+          "Build & Execute"
+        ],
+        "highlight": [
+          3
+        ],
+        "caption": "Simple SDK flow for agent development"
+      },
+      "safe": "Sandboxes are isolated — code can't affect your main system or other projects.",
+      "cta": "I see the sandbox value",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/0ATtrgKFfnw",
+          "startTime": "3:00",
+          "endTime": "7:30",
+          "source": {
+            "author": "Ras Mic",
+            "description": "Demo of Daytona sandbox creation and management"
+          }
+        }
+      }
+    },
+    {
+      "type": "celebration",
+      "emoji": "🏆",
+      "title": "You're Now Token-Savvy!",
+      "body": "You've mastered the fundamentals that separate efficient AI users from everyone else. You understand how tokens work, can optimize prompts for cost and performance, monitor context health, and know when to use secure sandboxes for code execution.",
+      "stats": true,
+      "cta": "Start optimizing everything"
+    }
+  ]
+}
