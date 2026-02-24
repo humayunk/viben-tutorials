@@ -1,0 +1,318 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Viben Tutorial Schema",
+  "description": "Schema for Viben tutorial content. Supports both standalone card-based lessons and multi-modal dashboard lessons. This is the target format the content processing pipeline outputs into.",
+  "type": "object",
+  "required": ["id", "title", "tool", "difficulty", "cards"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique tutorial identifier (e.g., 'openclaw-setup')"
+    },
+    "title": {
+      "type": "string",
+      "description": "Tutorial display title"
+    },
+    "description": {
+      "type": "string",
+      "description": "Short description for cards/previews"
+    },
+    "tool": {
+      "type": "string",
+      "description": "Primary tool/topic (e.g., 'openclaw', 'cursor', 'replit')"
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Topic tags from Airtable ai_editor_tags"
+    },
+    "difficulty": {
+      "type": "string",
+      "enum": ["beginner", "intermediate", "expert"],
+      "description": "Tutorial difficulty level"
+    },
+    "estimatedMinutes": {
+      "type": "integer",
+      "description": "Estimated completion time in minutes"
+    },
+    "source": {
+      "type": "object",
+      "description": "Original content source from Airtable",
+      "properties": {
+        "airtableRecordId": { "type": "string" },
+        "sourceUrl": { "type": "string", "format": "uri" },
+        "author": { "type": "string" },
+        "authorImage": { "type": "string", "format": "uri" },
+        "thumbnailImage": { "type": "string", "format": "uri" },
+        "publishedAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "cards": {
+      "type": "array",
+      "description": "Ordered sequence of lesson cards",
+      "items": { "$ref": "#/definitions/card" }
+    }
+  },
+  "definitions": {
+    "card": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["intro", "concept", "action", "quiz", "choice", "milestone", "celebration"],
+          "description": "Card type determines rendering and interaction"
+        },
+        "emoji": { "type": "string" },
+        "title": { "type": "string" },
+        "body": { "type": "string", "description": "HTML body content" },
+        "body2": { "type": "string", "description": "Secondary body text (shown after interactive elements)" },
+        "cta": { "type": "string", "description": "Continue button text" },
+        "modalities": {
+          "$ref": "#/definitions/modalities",
+          "description": "Multi-modal content variants (read/watch/try/ask). When present, replaces the static body content with switchable modes."
+        }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "type": { "const": "concept" } } },
+          "then": {
+            "properties": {
+              "diagram": { "$ref": "#/definitions/diagram" },
+              "analogy": { "$ref": "#/definitions/analogy" },
+              "bullets": {
+                "type": "array",
+                "items": { "type": "string" },
+                "description": "Bullet point list (HTML strings)"
+              },
+              "warn": { "type": "string", "description": "Warning callout (HTML)" },
+              "safe": { "type": "string", "description": "Safety/reassurance callout (HTML)" },
+              "concept": {
+                "type": "object",
+                "properties": {
+                  "label": { "type": "string" },
+                  "title": { "type": "string" },
+                  "desc": { "type": "string" }
+                },
+                "description": "Highlighted concept box"
+              }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "type": { "const": "action" } } },
+          "then": {
+            "properties": {
+              "code": { "type": "string", "description": "Command or code to run" },
+              "codeLabel": { "type": "string", "description": "Label above code block (e.g., 'TYPE THIS IN THE OPENCLAW CHAT')" },
+              "codeCaption": { "type": "string", "description": "Explanatory text below code block" },
+              "link": {
+                "type": "object",
+                "properties": {
+                  "url": { "type": "string", "format": "uri" },
+                  "text": { "type": "string" }
+                }
+              },
+              "bullets": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "safe": { "type": "string" },
+              "warn": { "type": "string" },
+              "helpItems": {
+                "type": "array",
+                "items": { "$ref": "#/definitions/helpItem" }
+              },
+              "troubleshoot": {
+                "type": "array",
+                "items": { "$ref": "#/definitions/troubleshootItem" }
+              }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "type": { "const": "quiz" } } },
+          "then": {
+            "required": ["question", "options"],
+            "properties": {
+              "question": { "type": "string" },
+              "options": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["text", "correct"],
+                  "properties": {
+                    "text": { "type": "string" },
+                    "correct": { "type": "boolean" }
+                  }
+                }
+              },
+              "correctFeedback": { "type": "string" },
+              "wrongFeedback": { "type": "string" }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "type": { "const": "choice" } } },
+          "then": {
+            "required": ["choices", "store"],
+            "properties": {
+              "choices": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["label", "tag"],
+                  "properties": {
+                    "icon": { "type": "string" },
+                    "label": { "type": "string" },
+                    "desc": { "type": "string" },
+                    "tag": { "type": "string" }
+                  }
+                }
+              },
+              "store": { "type": "string", "description": "Key to store the user's choice under (e.g., 'level', 'motivation')" }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "type": { "const": "milestone" } } },
+          "then": {
+            "properties": {
+              "body2": { "type": "string" }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "type": { "const": "celebration" } } },
+          "then": {
+            "properties": {
+              "stats": {
+                "type": "boolean",
+                "description": "Whether to show completion stats (steps completed, quizzes passed, etc.)"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "modalities": {
+      "type": "object",
+      "description": "Multi-modal content for a single lesson step. User picks their preferred learning format.",
+      "properties": {
+        "read": {
+          "type": "object",
+          "description": "Text-based step-by-step explanation",
+          "properties": {
+            "body": { "type": "string", "description": "HTML content" },
+            "codeBlocks": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "code": { "type": "string" },
+                  "caption": { "type": "string" }
+                }
+              }
+            },
+            "callouts": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": { "type": "string", "enum": ["warn", "safe", "tip", "info"] },
+                  "text": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "watch": {
+          "type": "object",
+          "description": "Video clip from creator content",
+          "properties": {
+            "videoUrl": { "type": "string", "format": "uri" },
+            "thumbnailUrl": { "type": "string", "format": "uri" },
+            "startTime": { "type": "string", "description": "Timestamp in video (e.g., '7:00')" },
+            "endTime": { "type": "string" },
+            "source": {
+              "type": "object",
+              "properties": {
+                "author": { "type": "string" },
+                "authorInitial": { "type": "string" },
+                "description": { "type": "string" }
+              }
+            }
+          }
+        },
+        "try": {
+          "type": "object",
+          "description": "Interactive terminal simulator",
+          "properties": {
+            "prompt": { "type": "string", "description": "Task instruction" },
+            "commands": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "input": { "type": "string", "description": "Expected command" },
+                  "output": { "type": "string", "description": "Simulated terminal output" },
+                  "hint": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "ask": {
+          "type": "object",
+          "description": "Chat-based tutoring conversation",
+          "properties": {
+            "initialMessages": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["role", "content"],
+                "properties": {
+                  "role": { "type": "string", "enum": ["bot", "user"] },
+                  "content": { "type": "string", "description": "HTML content" }
+                }
+              }
+            },
+            "supportsImageUpload": { "type": "boolean" }
+          }
+        }
+      }
+    },
+    "diagram": {
+      "type": "object",
+      "properties": {
+        "nodes": { "type": "array", "items": { "type": "string" } },
+        "highlight": { "type": "array", "items": { "type": "integer" } },
+        "caption": { "type": "string" }
+      }
+    },
+    "analogy": {
+      "type": "object",
+      "properties": {
+        "icon": { "type": "string" },
+        "text": { "type": "string", "description": "HTML content" }
+      }
+    },
+    "helpItem": {
+      "type": "object",
+      "required": ["q", "a"],
+      "properties": {
+        "q": { "type": "string", "description": "Question text" },
+        "a": { "type": "string", "description": "Answer (HTML)" }
+      }
+    },
+    "troubleshootItem": {
+      "type": "object",
+      "required": ["label", "fix"],
+      "properties": {
+        "label": { "type": "string", "description": "Short error description for accordion header" },
+        "error": { "type": "string", "description": "Example error message" },
+        "fix": { "type": "string", "description": "Fix instructions (HTML)" }
+      }
+    }
+  }
+}
