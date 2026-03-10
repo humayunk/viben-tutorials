@@ -5,7 +5,6 @@ interface ReadWatchToggleProps {
   onChange: (mode: "read" | "watch") => void;
   hasRead: boolean;
   hasWatch: boolean;
-  onAsk: () => void;
 }
 
 export function ReadWatchToggle({
@@ -13,7 +12,6 @@ export function ReadWatchToggle({
   onChange,
   hasRead,
   hasWatch,
-  onAsk,
 }: ReadWatchToggleProps) {
   return (
     <div className="mb-5 rounded-xl border border-border bg-zinc-900/60 px-5 py-4">
@@ -43,12 +41,6 @@ export function ReadWatchToggle({
             Watch
           </button>
         )}
-        <button
-          onClick={onAsk}
-          className="rounded-lg border border-border px-4 py-1.5 text-sm font-medium text-muted-foreground transition-all hover:text-zinc-300"
-        >
-          Ask
-        </button>
       </div>
     </div>
   );

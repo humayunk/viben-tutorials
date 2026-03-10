@@ -22,7 +22,6 @@ interface CardRendererProps {
   onChoice: (store: string, tag: string) => void;
   activeModality: "read" | "watch";
   onModalityChange: (mode: "read" | "watch") => void;
-  onAsk: () => void;
 }
 
 export function CardRenderer({
@@ -37,7 +36,6 @@ export function CardRenderer({
   onChoice,
   activeModality,
   onModalityChange,
-  onAsk,
 }: CardRendererProps) {
   const showBack = cardIndex > 0;
   const isLastCard = cardIndex === totalCards - 1;
@@ -61,7 +59,6 @@ export function CardRenderer({
           onChange={onModalityChange}
           hasRead={!!card.modalities?.read}
           hasWatch={!!card.modalities?.watch}
-          onAsk={onAsk}
         />
       )}
 

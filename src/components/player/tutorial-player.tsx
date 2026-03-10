@@ -6,7 +6,7 @@ import type { Tutorial } from "@/types";
 import { PlayerTopBar } from "./player-top-bar";
 import { CardRenderer } from "./card-renderer";
 import { TocSidebar } from "./toc-sidebar";
-import { ChatSidebar } from "./chat-sidebar";
+import { ChatBubble } from "./chat-bubble";
 
 interface TutorialPlayerProps {
   tutorial: Tutorial;
@@ -70,7 +70,6 @@ export function TutorialPlayer({ tutorial }: TutorialPlayerProps) {
         current={current}
         total={tutorial.cards.length}
         onToggleToc={() => setTocOpen((o) => !o)}
-        onToggleChat={() => setChatOpen((o) => !o)}
       />
 
       {/* Scrollable content area — padded for fixed bottom bar */}
@@ -88,7 +87,6 @@ export function TutorialPlayer({ tutorial }: TutorialPlayerProps) {
             onChoice={handleChoice}
             activeModality={modality}
             onModalityChange={setModality}
-            onAsk={() => setChatOpen(true)}
           />
         </div>
       </div>
@@ -137,11 +135,11 @@ export function TutorialPlayer({ tutorial }: TutorialPlayerProps) {
         onClose={() => setTocOpen(false)}
         onJump={jumpTo}
       />
-      <ChatSidebar
+      <ChatBubble
         card={card}
         tutorialTitle={tutorial.title}
         open={chatOpen}
-        onClose={() => setChatOpen(false)}
+        onToggle={() => setChatOpen((o) => !o)}
       />
     </>
   );

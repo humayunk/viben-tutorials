@@ -6,14 +6,12 @@ interface PlayerTopBarProps {
   current: number;
   total: number;
   onToggleToc: () => void;
-  onToggleChat: () => void;
 }
 
 export function PlayerTopBar({
   current,
   total,
   onToggleToc,
-  onToggleChat,
 }: PlayerTopBarProps) {
   return (
     <div className="flex items-center justify-between border-b border-border px-4 py-3">
@@ -81,25 +79,8 @@ export function PlayerTopBar({
         })}
       </div>
 
-      {/* Right: Chat icon */}
-      <button
-        onClick={onToggleChat}
-        className="flex h-8 w-8 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-zinc-800 hover:text-zinc-300"
-        aria-label="Chat"
-      >
-        <svg
-          width="18"
-          height="18"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-        </svg>
-      </button>
+      {/* Right: spacer to keep dot pager centered */}
+      <div className="w-8" />
     </div>
   );
 }
