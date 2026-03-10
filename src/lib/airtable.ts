@@ -114,6 +114,48 @@ export async function listYouTubeRecords(
   return res.json();
 }
 
+/**
+ * Fetch records that have raw_content, across YouTube + article sources.
+ * Used by the cron to find records eligible for tutorial generation.
+ */
+export async function listRecordsWithContent(
+  pageSize = 10
+): Promise<AirtableListResponse> {
+  const params = new URLSearchParams();
+  params.set("pageSize", String(pageSize));
+
+  // YouTube OR article sources, must have raw_content
+  const formula = `AND(
+    OR(
+      {source} = "YouTube",
+      {source} = "HackerNews",
+      {source} = "Blog",
+      {source} = "Newsletter"
+    ),
+    {raw_content} != ""
+  )`;
+  params.set("filterByFormula", formula);
+
+  params.set("sort[0][field]", "published_at");
+  params.set("sort[0][direction]", "desc");
+
+  for (const field of FIELDS) {
+    params.append("fields[]", field);
+  }
+
+  const res = await fetch(`${API_URL}?${params}`, {
+    headers: getHeaders(),
+    cache: "no-store",
+  });
+
+  if (!res.ok) {
+    const text = await res.text();
+    throw new Error(`Airtable error ${res.status}: ${text}`);
+  }
+
+  return res.json();
+}
+
 export async function getRecord(
   recordId: string
 ): Promise<AirtableRecord> {

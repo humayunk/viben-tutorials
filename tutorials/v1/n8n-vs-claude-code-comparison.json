@@ -1,0 +1,245 @@
+{
+  "id": "n8n-vs-claude-code-comparison",
+  "title": "n8n vs Claude Code: Which AI Automation Tool to Choose?",
+  "description": "Compare n8n and Claude Code to understand which automation tool fits your needs and experience level.",
+  "tool": "n8n",
+  "tags": [
+    "ai-automation",
+    "claude-code",
+    "n8n"
+  ],
+  "difficulty": "beginner",
+  "estimatedMinutes": 12,
+  "source": {
+    "airtableRecordId": "recmJ8b400HKh2Oql",
+    "sourceUrl": "https://www.youtube.com/watch?v=wb4uDdsFh6o",
+    "author": "Nate Herk | AI Automation",
+    "authorImage": "https://yt3.googleusercontent.com/rjiskq1h4EjTgsqvP_BOsnpwCdHUHKvSo00RmUraoWqDuHQN6RAUMdo1ircHs0ZcKQrrWNvukEs=s900-c-k-c0x00ffffff-no-rj",
+    "thumbnailImage": "https://img.youtube.com/vi/wb4uDdsFh6o/maxresdefault.jpg",
+    "publishedAt": "2026-02-01T09:16:58.000Z"
+  },
+  "cards": [
+    {
+      "type": "intro",
+      "emoji": "⚡",
+      "title": "n8n vs Claude Code: The Great Debate",
+      "body": "You'll learn the key differences between n8n and Claude Code, which tool to choose based on your experience level, and practical tips for making the right decision for your automation needs.",
+      "cta": "Let's compare"
+    },
+    {
+      "type": "concept",
+      "emoji": "📊",
+      "title": "The Current Landscape",
+      "body": "While Claude Code has been gaining search interest recently, <strong>n8n isn't dead</strong>. These tools solve different problems and serve different audiences in the AI automation space.",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/wb4uDdsFh6o",
+          "startTime": "0:20",
+          "source": {
+            "author": "Nate Herk | AI Automation",
+            "description": "Google Trends comparison showing Claude Code vs n8n search interest"
+          }
+        }
+      },
+      "bullets": [
+        "Claude Code: Rising in search interest and popularity",
+        "n8n: Established, stable, with strong community support",
+        "Both tools have carved out distinct niches"
+      ],
+      "cta": "Got it"
+    },
+    {
+      "type": "concept",
+      "emoji": "🔍",
+      "title": "They're Fundamentally Different",
+      "body": "Think of n8n and Claude Code like <strong>a visual dashboard vs a coding assistant</strong>. They approach automation from completely different angles.",
+      "analogy": {
+        "icon": "🏗️",
+        "text": "n8n is like using LEGO blocks - visual, intuitive building. Claude Code is like having a coding mentor - powerful but requires more technical understanding."
+      },
+      "bullets": [
+        "<strong>n8n:</strong> Visual workflow builder with drag-and-drop interface",
+        "<strong>Claude Code:</strong> AI-powered rapid prototyping with Python scripts",
+        "Different use cases, different learning curves"
+      ],
+      "cta": "Makes sense"
+    },
+    {
+      "type": "quiz",
+      "emoji": "🧠",
+      "title": "Quick Check",
+      "question": "What's the main difference between n8n and Claude Code?",
+      "options": [
+        {
+          "text": "n8n is newer and more advanced",
+          "correct": false
+        },
+        {
+          "text": "n8n is visual, Claude Code is code-based",
+          "correct": true
+        },
+        {
+          "text": "Claude Code can't handle automation",
+          "correct": false
+        },
+        {
+          "text": "They're essentially the same tool",
+          "correct": false
+        }
+      ],
+      "correctFeedback": "Exactly! n8n uses visual workflows while Claude Code works with AI-generated scripts.",
+      "wrongFeedback": "Not quite. The key difference is n8n's visual interface vs Claude Code's code-based approach.",
+      "cta": "Continue"
+    },
+    {
+      "type": "concept",
+      "emoji": "🎯",
+      "title": "For Beginners: Start with n8n",
+      "body": "If you're new to automation, <strong>n8n is the clear winner</strong>. The visual interface teaches you how automations work without getting lost in code.",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/wb4uDdsFh6o",
+          "startTime": "2:45",
+          "source": {
+            "author": "Nate Herk | AI Automation",
+            "description": "Why beginners should choose n8n over Claude Code"
+          }
+        }
+      },
+      "bullets": [
+        "Visual workflow builder is easier to understand",
+        "Clear execution logs show exactly what happened",
+        "Lower barrier to entry for first automation",
+        "Instant publish - no deployment complexity"
+      ],
+      "safe": "Even technically savvy users find Claude Code confusing at first!",
+      "cta": "Good to know"
+    },
+    {
+      "type": "action",
+      "emoji": "⏰",
+      "title": "Apply the 10-Minute Rule",
+      "body": "Here's a practical decision-making framework: <strong>If you can build it in n8n in under 10 minutes, just do it there</strong>.",
+      "bullets": [
+        "Time yourself building simple workflows in n8n",
+        "Don't overthink tool choice for quick automations",
+        "Use muscle memory to your advantage",
+        "Save complex prototyping for Claude Code"
+      ],
+      "helpItems": [
+        "Simple email notifications: n8n",
+        "Data sync between apps: n8n",
+        "Complex data processing: Consider Claude Code",
+        "Rapid AI experimentation: Claude Code"
+      ],
+      "cta": "Will try this"
+    },
+    {
+      "type": "concept",
+      "emoji": "⚠️",
+      "title": "Claude Code's Deployment Challenge",
+      "body": "While Claude Code excels at rapid prototyping, <strong>getting from prototype to production is where it gets tricky</strong>.",
+      "bullets": [
+        "Easy to generate Python scripts with AI assistance",
+        "Deployment and maintenance become complex quickly",
+        "Execution logs are harder to read than n8n's visual logs",
+        "Server management knowledge required"
+      ],
+      "warn": "Can you handle deployment and ongoing maintenance? If not, stick with n8n until you're comfortable with server management.",
+      "cta": "Understood"
+    },
+    {
+      "type": "milestone",
+      "emoji": "🎉",
+      "title": "You're Getting the Picture!",
+      "body": "You now understand the key differences and know that <strong>both tools have their place</strong>. Let's explore some advanced strategies.",
+      "cta": "Keep learning"
+    },
+    {
+      "type": "action",
+      "emoji": "🧠",
+      "title": "Use Claude Code as a Teacher",
+      "body": "Don't just build with Claude Code - <strong>use it to deepen your understanding</strong> of automation concepts.",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/wb4uDdsFh6o",
+          "startTime": "5:30",
+          "source": {
+            "author": "Nate Herk | AI Automation",
+            "description": "How to use Claude Code as a learning tool, not just a builder"
+          }
+        }
+      },
+      "bullets": [
+        "Set up projects with your business context",
+        "Ask Claude to explain what it's doing and why",
+        "Question its decisions: 'What happens if you didn't do that?'",
+        "Read through the code trail to understand the logic"
+      ],
+      "cta": "Great idea"
+    },
+    {
+      "type": "action",
+      "emoji": "🔒",
+      "title": "Leave Working n8n Automations Alone",
+      "body": "If you have reliable n8n workflows running, <strong>don't migrate them just because</strong>. Stability beats novelty.",
+      "bullets": [
+        "Working automations are valuable assets",
+        "Migration introduces unnecessary risk",
+        "Keep paying for your VPS - it's worth the reliability",
+        "Focus new experiments on new projects"
+      ],
+      "safe": "Like people who kept their Zapier workflows when switching to n8n - if it works, let it work!",
+      "cta": "Smart approach"
+    },
+    {
+      "type": "quiz",
+      "emoji": "🧠",
+      "title": "Decision Time",
+      "question": "You're a beginner who wants to automate sending daily reports. Which tool should you choose?",
+      "options": [
+        {
+          "text": "Claude Code - it's more powerful",
+          "correct": false
+        },
+        {
+          "text": "n8n - visual interface will teach you how automation works",
+          "correct": true
+        },
+        {
+          "text": "Both at the same time",
+          "correct": false
+        },
+        {
+          "text": "Wait until you're more technical",
+          "correct": false
+        }
+      ],
+      "correctFeedback": "Perfect! n8n's visual interface will help you understand automation fundamentals.",
+      "wrongFeedback": "For beginners, n8n's visual approach is much clearer for learning automation concepts.",
+      "cta": "Continue"
+    },
+    {
+      "type": "concept",
+      "emoji": "🚀",
+      "title": "The Expanding Toolkit Approach",
+      "body": "Rather than thinking <em>'n8n vs Claude Code'</em>, think <strong>'n8n AND Claude Code'</strong>. Each tool has its strengths for different scenarios.",
+      "bullets": [
+        "n8n: Visual workflows, reliable deployment, beginner-friendly",
+        "Claude Code: Rapid prototyping, AI assistance, learning tool",
+        "Use the right tool for the right job",
+        "Build skills in both as your expertise grows"
+      ],
+      "concept": "The future belongs to automation builders who can leverage multiple tools effectively.",
+      "cta": "I'm ready"
+    },
+    {
+      "type": "celebration",
+      "emoji": "🏆",
+      "title": "Tool Choice Mastery Unlocked!",
+      "body": "You now understand that <strong>n8n isn't dead - it's thriving alongside Claude Code</strong>. You have a clear framework for choosing the right tool and strategies for expanding your automation toolkit.",
+      "stats": true,
+      "cta": "Start automating"
+    }
+  ]
+}

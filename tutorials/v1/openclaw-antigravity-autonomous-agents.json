@@ -1,0 +1,301 @@
+{
+  "id": "openclaw-antigravity-autonomous-agents",
+  "title": "Build an Autonomous AI Engineering Team with OpenClaw + Anti-Gravity",
+  "description": "Wire OpenClaw to Google's Anti-Gravity for free access to powerful models like Gemini and Opus 4.5, creating specialized AI agents for coding tasks.",
+  "tool": "openclaw",
+  "tags": [
+    "openclaw",
+    "anti-gravity",
+    "agents",
+    "gemini",
+    "workflow"
+  ],
+  "difficulty": "expert",
+  "estimatedMinutes": 25,
+  "source": {
+    "airtableRecordId": "rec08cPAQzOKkWOss",
+    "sourceUrl": "https://www.youtube.com/watch?v=1Jqaj1KN5vA",
+    "author": "WorldofAI",
+    "authorImage": "https://yt3.googleusercontent.com/Aee59geVCIWJz9y7AzVdnY3I1jPR1S4VFF4kIkNJ46VD6jrEGhH2VszD-vKly0XhHz_sLBN3u4A=s900-c-k-c0x00ffffff-no-rj",
+    "thumbnailImage": "https://img.youtube.com/vi/1Jqaj1KN5vA/maxresdefault.jpg",
+    "publishedAt": "2026-02-03T08:05:34.000Z"
+  },
+  "cards": [
+    {
+      "type": "intro",
+      "emoji": "🤖",
+      "title": "Build Your AI Engineering Team",
+      "body": "You'll learn to wire OpenClaw to Google's Anti-Gravity, creating autonomous AI agents that can code, debug, and deploy apps using powerful models like Opus 4.5 and Gemini — all for free. This setup turns your computer into a command center for specialized AI agents.",
+      "cta": "Let's go"
+    },
+    {
+      "type": "concept",
+      "emoji": "🧠",
+      "title": "Understanding the Architecture",
+      "body": "This setup creates a powerful division of labor between two AI systems.",
+      "analogy": {
+        "icon": "🏢",
+        "text": "Think of OpenClaw as the CEO making strategic decisions, while Anti-Gravity is like having specialized departments (coding, reviewing, debugging) that execute the work."
+      },
+      "bullets": [
+        "<strong>OpenClaw:</strong> Handles planning, orchestration, and task routing",
+        "<strong>Anti-Gravity:</strong> Provides free access to powerful models and specialist agents",
+        "<strong>Result:</strong> Autonomous agents that can build entire applications from prompts"
+      ],
+      "cta": "Got it"
+    },
+    {
+      "type": "action",
+      "emoji": "📋",
+      "title": "Check Prerequisites",
+      "body": "Before we start, make sure you have these requirements ready.",
+      "bullets": [
+        "Node.js 22 or higher installed",
+        "A Google account (free)",
+        "Anti-Gravity installed for your OS (Mac, Windows, or Linux)",
+        "Access to a terminal/command prompt"
+      ],
+      "warn": "OpenClaw poses security risks as it can execute code on your machine. Consider using a VM or sandbox environment.",
+      "cta": "Ready"
+    },
+    {
+      "type": "action",
+      "emoji": "⬇️",
+      "title": "Install OpenClaw Globally",
+      "body": "Install OpenClaw using npm to make it available system-wide.",
+      "code": "npm install -g openclaw",
+      "codeLabel": "TERMINAL COMMAND",
+      "codeCaption": "This installs OpenClaw globally so you can run it from anywhere",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/1Jqaj1KN5vA",
+          "startTime": "5:30",
+          "source": {
+            "author": "WorldofAI",
+            "description": "Installing OpenClaw with npm"
+          }
+        }
+      },
+      "cta": "Installed"
+    },
+    {
+      "type": "action",
+      "emoji": "🔌",
+      "title": "Enable Anti-Gravity Plugin",
+      "body": "Enable the Anti-Gravity OAuth plugin in OpenClaw to connect with Google's models.",
+      "code": "openclaw plugin enable google-antigravity-oauth",
+      "codeLabel": "ENABLE PLUGIN",
+      "codeCaption": "This enables the plugin that lets OpenClaw connect to Anti-Gravity",
+      "cta": "Enabled"
+    },
+    {
+      "type": "action",
+      "emoji": "🔐",
+      "title": "Login with Google OAuth",
+      "body": "Authenticate your Google account to access Anti-Gravity's free models.",
+      "code": "openclaw auth login google-antigravity",
+      "codeLabel": "AUTHENTICATION",
+      "codeCaption": "Follow the OAuth flow to connect your Google account",
+      "helpItems": [
+        "Alternative: Use Gemini CLI OAuth or Vertex ADC",
+        "Google officially supports these methods",
+        "Your account will be verified in the terminal"
+      ],
+      "cta": "Authenticated"
+    },
+    {
+      "type": "quiz",
+      "emoji": "🧠",
+      "title": "Quick Security Check",
+      "question": "Why is OpenClaw considered a security risk?",
+      "options": [
+        {
+          "text": "It only works with Google accounts",
+          "correct": false
+        },
+        {
+          "text": "It can execute code directly on your local machine",
+          "correct": true
+        },
+        {
+          "text": "It requires expensive API keys",
+          "correct": false
+        },
+        {
+          "text": "It sends data to third parties",
+          "correct": false
+        }
+      ],
+      "correctFeedback": "Exactly! OpenClaw has local code execution capabilities, which is why VM/sandbox usage is recommended.",
+      "wrongFeedback": "OpenClaw's main risk is its ability to execute code directly on your machine - consider using a secure environment.",
+      "cta": "Continue"
+    },
+    {
+      "type": "action",
+      "emoji": "🚀",
+      "title": "Run OpenClaw Onboarding",
+      "body": "Start the onboarding process to configure your AI agent setup.",
+      "code": "openclaw onboard",
+      "codeLabel": "START ONBOARDING",
+      "codeCaption": "This launches the interactive setup wizard",
+      "warn": "You'll see a security warning - read it carefully and understand the risks before proceeding.",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/1Jqaj1KN5vA",
+          "startTime": "7:45",
+          "source": {
+            "author": "WorldofAI",
+            "description": "Walking through the OpenClaw onboarding process"
+          }
+        }
+      },
+      "cta": "Started"
+    },
+    {
+      "type": "action",
+      "emoji": "⚙️",
+      "title": "Configure Your Provider",
+      "body": "During onboarding, set Anti-Gravity as your model provider and choose your preferred model.",
+      "bullets": [
+        "Keep existing OAuth values when prompted",
+        "Select <strong>Google Anti-Gravity</strong> as your provider",
+        "Choose your model (Opus 4.5 Thinking, Gemini, etc.)",
+        "Pick a communication channel (WhatsApp, CLI, etc.)"
+      ],
+      "safe": "The onboarding wizard will guide you through each step with clear prompts.",
+      "cta": "Configured"
+    },
+    {
+      "type": "milestone",
+      "emoji": "🎯",
+      "title": "Core Setup Complete!",
+      "body": "You've successfully connected OpenClaw to Anti-Gravity with OAuth authentication. Your AI command center is ready for specialist agents.",
+      "cta": "Add agents"
+    },
+    {
+      "type": "action",
+      "emoji": "🛠️",
+      "title": "Install Anti-Gravity Agent Kit",
+      "body": "Add specialist agents for specific tasks like building, reviewing, and debugging.",
+      "code": "npm install -g @google/antigravity-agent-kit",
+      "codeLabel": "INSTALL AGENT KIT",
+      "codeCaption": "This unlocks specialist agents you can call with slash commands",
+      "bullets": [
+        "<strong>Builder:</strong> Creates and scaffolds applications",
+        "<strong>Reviewer:</strong> Analyzes and improves code quality",
+        "<strong>Debugger:</strong> Identifies and fixes issues",
+        "<strong>UX Designer:</strong> Optimizes user experience"
+      ],
+      "cta": "Installed"
+    },
+    {
+      "type": "concept",
+      "emoji": "🎛️",
+      "title": "Using Your Agent Command Center",
+      "body": "OpenClaw now acts as your orchestration layer, routing tasks to specialized Anti-Gravity agents.",
+      "bullets": [
+        "Send commands through your chosen channel (WhatsApp, CLI, etc.)",
+        "OpenClaw analyzes the task and routes it to the right specialist",
+        "Anti-Gravity agents execute with access to powerful models",
+        "Results are refined and iterated automatically"
+      ],
+      "safe": "The agents work together - you don't need to manually coordinate between them.",
+      "cta": "Understood"
+    },
+    {
+      "type": "action",
+      "emoji": "🏪",
+      "title": "Browse Claw Hub for Skills",
+      "body": "Explore the community marketplace for additional capabilities and install useful skills.",
+      "bullets": [
+        "Visit Claw Hub through your OpenClaw dashboard",
+        "Browse skills like quota checker, image generation, etc.",
+        "Install skills using the npx commands shown",
+        "Configure skills from the dashboard"
+      ],
+      "helpItems": [
+        "Skills extend OpenClaw's capabilities",
+        "Community contributions add specialized functions",
+        "Easy one-command installation process"
+      ],
+      "cta": "Browsed"
+    },
+    {
+      "type": "action",
+      "emoji": "⚡",
+      "title": "Test Your Setup",
+      "body": "Send your first task to verify everything is working correctly.",
+      "bullets": [
+        "Send a simple coding request through your chosen channel",
+        "Watch as OpenClaw routes the task to Anti-Gravity",
+        "Observe the specialist agents collaborating",
+        "Verify the output meets your requirements"
+      ],
+      "troubleshoot": [
+        "If authentication fails, re-run the OAuth login",
+        "Check that your selected model is available",
+        "Verify your communication channel is properly configured"
+      ],
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/1Jqaj1KN5vA",
+          "startTime": "12:30",
+          "source": {
+            "author": "WorldofAI",
+            "description": "Demonstration of the complete workflow in action"
+          }
+        }
+      },
+      "cta": "Tested"
+    },
+    {
+      "type": "quiz",
+      "emoji": "🧠",
+      "title": "Workflow Understanding",
+      "question": "In this setup, what is Anti-Gravity's primary role?",
+      "options": [
+        {
+          "text": "Planning and task orchestration",
+          "correct": false
+        },
+        {
+          "text": "Providing free model access and specialist execution",
+          "correct": true
+        },
+        {
+          "text": "Managing security and authentication",
+          "correct": false
+        },
+        {
+          "text": "Installing and configuring OpenClaw",
+          "correct": false
+        }
+      ],
+      "correctFeedback": "Perfect! Anti-Gravity provides the models and specialist agents, while OpenClaw handles orchestration.",
+      "wrongFeedback": "Remember: OpenClaw orchestrates, Anti-Gravity executes with specialized agents and powerful models.",
+      "cta": "Continue"
+    },
+    {
+      "type": "concept",
+      "emoji": "🔄",
+      "title": "Advanced Automation Options",
+      "body": "Take your setup further with automated workflows and scheduled tasks.",
+      "bullets": [
+        "<strong>Cron Jobs:</strong> Schedule regular tasks to run automatically",
+        "<strong>Specialized Commands:</strong> Create custom workflows for repeated tasks",
+        "<strong>Multi-Agent Collaboration:</strong> Chain different specialists together",
+        "<strong>Continuous Integration:</strong> Integrate with your development workflow"
+      ],
+      "safe": "Start simple and gradually add more automation as you become comfortable with the system.",
+      "cta": "Ready to scale"
+    },
+    {
+      "type": "celebration",
+      "emoji": "🏆",
+      "title": "Your AI Engineering Team is Ready!",
+      "body": "You've successfully created an autonomous AI engineering team that combines OpenClaw's orchestration with Anti-Gravity's powerful models and specialist agents. You can now build, review, debug, and deploy applications through simple prompts, all running locally with free access to cutting-edge AI models.",
+      "stats": true,
+      "cta": "Start building"
+    }
+  ]
+}

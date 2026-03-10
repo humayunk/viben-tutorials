@@ -1,0 +1,381 @@
+{
+  "id": "claude-code-agentic-workflows",
+  "title": "Build Self-Healing AI Workflows with Claude Code",
+  "description": "Learn to create agentic workflows that fix themselves when they break and adapt to changes automatically.",
+  "tool": "claude-code",
+  "tags": [
+    "agents",
+    "agentic-workflows",
+    "automation",
+    "prompting"
+  ],
+  "difficulty": "beginner",
+  "estimatedMinutes": 25,
+  "source": {
+    "airtableRecordId": "recGPTtuDa2Ryhe5a",
+    "sourceUrl": "https://www.youtube.com/watch?v=AO5aW01DKHo",
+    "author": "Nate Herk | AI Automation",
+    "authorImage": "https://yt3.googleusercontent.com/rjiskq1h4EjTgsqvP_BOsnpwCdHUHKvSo00RmUraoWqDuHQN6RAUMdo1ircHs0ZcKQrrWNvukEs=s900-c-k-c0x00ffffff-no-rj",
+    "thumbnailImage": "https://img.youtube.com/vi/AO5aW01DKHo/maxresdefault.jpg",
+    "publishedAt": "2024-12-01T00:00:00Z"
+  },
+  "cards": [
+    {
+      "type": "intro",
+      "emoji": "🤖",
+      "title": "Welcome to Agentic Automation",
+      "body": "You'll learn to build AI workflows that <strong>fix themselves when they break</strong> and adapt without manual debugging. We'll cover self-healing systems, natural language control, and building your first agentic workflow from scratch.",
+      "cta": "Let's start"
+    },
+    {
+      "type": "concept",
+      "emoji": "🔄",
+      "title": "Traditional vs Agentic Workflows",
+      "body": "Traditional automation is like giving step-by-step instructions to a robot. <strong>Agentic workflows</strong> are like hiring a smart assistant — you describe the outcome, they figure out how to get there.",
+      "analogy": {
+        "icon": "👥",
+        "text": "It's like the difference between micromanaging every task versus hiring a competent employee and letting them solve problems independently."
+      },
+      "bullets": [
+        "Traditional: You configure every node and connection",
+        "Agentic: You describe the goal in plain English",
+        "Traditional: You debug every error manually",
+        "Agentic: The system fixes itself and learns"
+      ],
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/AO5aW01DKHo",
+          "startTime": "0:00",
+          "source": {
+            "author": "Nate Herk | AI Automation",
+            "description": "The fundamental shift from traditional to agentic automation"
+          }
+        }
+      },
+      "cta": "Got it"
+    },
+    {
+      "type": "quiz",
+      "emoji": "🧠",
+      "title": "Quick Check",
+      "question": "What's the main difference between traditional and agentic workflows?",
+      "options": [
+        {
+          "text": "Agentic workflows are faster to execute",
+          "correct": false
+        },
+        {
+          "text": "Agentic workflows use better APIs",
+          "correct": false
+        },
+        {
+          "text": "You describe outcomes, not steps, and the agent figures out how to achieve them",
+          "correct": true
+        },
+        {
+          "text": "Agentic workflows don't need any setup",
+          "correct": false
+        }
+      ],
+      "correctFeedback": "Exactly! You focus on <strong>what</strong> you want, not <strong>how</strong> to get there.",
+      "wrongFeedback": "Not quite. The key difference is that you describe the desired outcome and let the agent determine the steps.",
+      "cta": "Continue"
+    },
+    {
+      "type": "concept",
+      "emoji": "🩹",
+      "title": "Self-Healing: The Game Changer",
+      "body": "When your workflow breaks, instead of you reading error messages and fixing code, the agent <strong>reads the error, tests a fix, and updates its own code</strong>. It only calls you in if it's really stuck.",
+      "bullets": [
+        "Agent detects the error automatically",
+        "Analyzes what went wrong",
+        "Tests potential solutions",
+        "Updates its own code and instructions",
+        "Learns to avoid the same mistake"
+      ],
+      "safe": "You don't need to read or write any code — the agent handles the technical details while you approve changes.",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/AO5aW01DKHo",
+          "startTime": "4:30",
+          "source": {
+            "author": "Nate Herk | AI Automation",
+            "description": "How self-healing workflows automatically fix errors and improve over time"
+          }
+        }
+      },
+      "cta": "Amazing!"
+    },
+    {
+      "type": "action",
+      "emoji": "🚀",
+      "title": "Install Claude Code",
+      "body": "Let's get Claude Code set up in VS Code so you can start building agentic workflows.",
+      "bullets": [
+        "Open VS Code",
+        "Go to Extensions (Ctrl/Cmd + Shift + X)",
+        "Search for 'Claude Code'",
+        "Install the official Anthropic extension",
+        "Sign in with your Claude account"
+      ],
+      "helpItems": [
+        "Need a Claude account? Sign up at claude.ai",
+        "Make sure you have VS Code version 1.70 or higher"
+      ],
+      "modalities": {
+        "try": {
+          "prompt": "Practice the installation steps and verify Claude Code is working",
+          "commands": [
+            {
+              "input": "Open VS Code and check Extensions",
+              "output": "Extensions panel opens",
+              "hint": "Use Ctrl/Cmd + Shift + X"
+            },
+            {
+              "input": "Search for 'Claude Code'",
+              "output": "Claude Code extension appears in results",
+              "hint": "Look for the official Anthropic extension"
+            }
+          ]
+        }
+      },
+      "cta": "Installed"
+    },
+    {
+      "type": "concept",
+      "emoji": "💬",
+      "title": "Natural Language Control (For Real)",
+      "body": "Unlike tools that just convert prompts to code, new agentic systems <strong>interview you first</strong>. They ask clarifying questions before writing any code, getting much closer to production-ready results.",
+      "bullets": [
+        "Who are the users?",
+        "How often should this run?",
+        "What tools are you connecting?",
+        "What happens if X goes wrong?",
+        "What are the edge cases?"
+      ],
+      "concept": "The agent asks questions you wouldn't think of until problems arise weeks later. This front-loaded discovery prevents most issues before they happen.",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/AO5aW01DKHo",
+          "startTime": "6:45",
+          "source": {
+            "author": "Nate Herk | AI Automation",
+            "description": "How modern agentic tools interview you to understand requirements fully"
+          }
+        }
+      },
+      "cta": "Makes sense"
+    },
+    {
+      "type": "action",
+      "emoji": "📝",
+      "title": "Start Your First Agentic Project",
+      "body": "Create a new project and describe your automation goal in plain English. <strong>Don't write any code</strong> — let the agent figure out the technical implementation.",
+      "bullets": [
+        "Open Claude Code in VS Code",
+        "Create a new project folder",
+        "Start by describing your automation goal in plain English",
+        "Example: 'I want to automatically summarize meeting transcripts from Fireflies and create tasks in ClickUp based on action items'"
+      ],
+      "code": "// Don't write this - just describe in natural language:\n'Take Fireflies transcripts, extract action items, create ClickUp tasks'",
+      "codeLabel": "NATURAL LANGUAGE PROMPT",
+      "codeCaption": "Describe the outcome, not the implementation steps",
+      "warn": "Resist the urge to specify technical details. Let the agent ask you what it needs to know.",
+      "cta": "Project started"
+    },
+    {
+      "type": "milestone",
+      "emoji": "🎯",
+      "title": "Halfway There!",
+      "body": "You've grasped the core concepts of agentic workflows and started your first project. <strong>Next up:</strong> we'll handle the agent's questions and set up security guardrails.",
+      "cta": "Keep building"
+    },
+    {
+      "type": "concept",
+      "emoji": "❓",
+      "title": "Answer the Agent's Questions Fully",
+      "body": "When the agent asks clarifying questions, <strong>answer them thoroughly</strong>. These questions identify gaps that would cause problems later in production.",
+      "bullets": [
+        "Edge cases: What if the API is down?",
+        "User permissions: Who can trigger this?",
+        "Data limits: How much data are we processing?",
+        "Error handling: What should happen if something fails?",
+        "Budget constraints: Any cost limits?"
+      ],
+      "safe": "The agent's questions often reveal issues you hadn't considered. Taking time here prevents debugging later.",
+      "cta": "Got it"
+    },
+    {
+      "type": "action",
+      "emoji": "🛡️",
+      "title": "Set Security Guardrails",
+      "body": "Use natural language to define what should <strong>never happen</strong> in your workflow. The agent will enforce these constraints automatically.",
+      "code": "Never send customer emails to third-party tools\nStop if API costs exceed $5\nAlways encrypt sensitive data\nDon't log personal information",
+      "codeLabel": "EXAMPLE GUARDRAILS",
+      "codeCaption": "State your security requirements in plain English",
+      "bullets": [
+        "Define data privacy rules",
+        "Set spending limits",
+        "Specify access restrictions",
+        "Outline logging constraints"
+      ],
+      "warn": "Be specific about sensitive data handling — the agent will follow your exact instructions.",
+      "cta": "Guardrails set"
+    },
+    {
+      "type": "quiz",
+      "emoji": "🔒",
+      "title": "Security Check",
+      "question": "How do agentic workflows handle security?",
+      "options": [
+        {
+          "text": "They automatically encrypt everything",
+          "correct": false
+        },
+        {
+          "text": "You set guardrails in natural language and the agent enforces them",
+          "correct": true
+        },
+        {
+          "text": "Security is handled by the platform provider",
+          "correct": false
+        },
+        {
+          "text": "You need to write security code manually",
+          "correct": false
+        }
+      ],
+      "correctFeedback": "Right! You define security rules in plain English, and the agent continuously enforces them.",
+      "wrongFeedback": "The agent enforces security rules that <strong>you define</strong> in natural language.",
+      "cta": "Continue"
+    },
+    {
+      "type": "concept",
+      "emoji": "🏃‍♂️",
+      "title": "Parallel Agent Testing",
+      "body": "Instead of guessing which approach is best, you can run <strong>multiple agents simultaneously</strong> to test different solutions and compare results.",
+      "bullets": [
+        "Ask for 3-5 different approaches",
+        "Run each approach with a separate agent",
+        "Compare speed, cost, and quality",
+        "Pick the winner based on real results"
+      ],
+      "analogy": {
+        "icon": "🏁",
+        "text": "Like having 5 developers build the same feature in parallel, then choosing the best implementation — except it happens in minutes, not weeks."
+      },
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/AO5aW01DKHo",
+          "startTime": "9:15",
+          "source": {
+            "author": "Nate Herk | AI Automation",
+            "description": "Running multiple agents in parallel to test different approaches"
+          }
+        }
+      },
+      "cta": "Clever!"
+    },
+    {
+      "type": "action",
+      "emoji": "🔗",
+      "title": "Gather Your API Keys",
+      "body": "Collect API keys for all the tools you want to connect. <strong>This is your only technical task</strong> — the agent handles all the integration complexity.",
+      "bullets": [
+        "Fireflies: Get API key from settings",
+        "ClickUp: Generate key in Apps section",
+        "Gmail: Use Google Cloud Console",
+        "Slack: Create app and get token",
+        "Store keys securely (never share them)"
+      ],
+      "helpItems": [
+        "Most APIs have free tiers for testing",
+        "Save keys in a secure password manager",
+        "Check rate limits for each service"
+      ],
+      "warn": "Never commit API keys to version control or share them in screenshots.",
+      "cta": "Keys ready"
+    },
+    {
+      "type": "action",
+      "emoji": "⚡",
+      "title": "Let the Agent Build",
+      "body": "Provide your API keys to the agent and let it handle all the technical integration work. You just monitor progress and approve changes.",
+      "bullets": [
+        "Give the agent your API keys",
+        "Watch it build the connections",
+        "Review and approve suggested changes",
+        "Test the workflow when complete"
+      ],
+      "safe": "The agent will show you what it's building and ask for approval before making changes. You stay in control.",
+      "modalities": {
+        "try": {
+          "prompt": "Practice handing off to the agent and monitoring its work",
+          "commands": [
+            {
+              "input": "Provide API keys to agent",
+              "output": "Agent begins building integrations",
+              "hint": "The agent will ask for keys as needed"
+            },
+            {
+              "input": "Review agent's proposed solution",
+              "output": "Agent shows workflow structure and asks for approval",
+              "hint": "You can ask for changes before approving"
+            }
+          ]
+        }
+      },
+      "cta": "Building..."
+    },
+    {
+      "type": "concept",
+      "emoji": "🔄",
+      "title": "Natural Language Updates",
+      "body": "Once your workflow is running, you can modify it using plain English commands. <strong>No coding required</strong> — just tell it what you want changed.",
+      "bullets": [
+        "'Make this faster'",
+        "'Add a manual review step here'",
+        "'Log all outputs to Google Sheets'",
+        "'Make it run every hour instead of daily'",
+        "'Add email notifications for errors'"
+      ],
+      "concept": "Natural language becomes your remote control for the entire automation system.",
+      "cta": "Powerful!"
+    },
+    {
+      "type": "quiz",
+      "emoji": "🎛️",
+      "title": "Final Check",
+      "question": "What's the biggest advantage of agentic workflows?",
+      "options": [
+        {
+          "text": "They run faster than traditional workflows",
+          "correct": false
+        },
+        {
+          "text": "They cost less to operate",
+          "correct": false
+        },
+        {
+          "text": "They fix themselves when they break and adapt to changes",
+          "correct": true
+        },
+        {
+          "text": "They require no setup time",
+          "correct": false
+        }
+      ],
+      "correctFeedback": "Exactly! Self-healing eliminates the debugging loop that consumes most automation maintenance time.",
+      "wrongFeedback": "The killer feature is <strong>self-healing</strong> — agents that fix their own problems and learn from mistakes.",
+      "cta": "Finish up"
+    },
+    {
+      "type": "celebration",
+      "emoji": "🏆",
+      "title": "You're Ready for Agentic Automation!",
+      "body": "You've learned to build <strong>self-healing workflows</strong> that adapt and improve automatically. You can now describe outcomes in plain English and let AI agents handle the technical complexity. <strong>Welcome to the future of automation!</strong>",
+      "stats": true,
+      "cta": "Start building"
+    }
+  ]
+}

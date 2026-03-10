@@ -104,3 +104,27 @@ export async function findByAirtableRecord(
   }
   return null;
 }
+
+export async function findBySourceUrl(
+  sourceUrl: string
+): Promise<Tutorial | null> {
+  await ensureDir();
+  const files = await fs.readdir(TUTORIALS_DIR);
+  const jsonFiles = files.filter((f) => f.endsWith(".json"));
+
+  for (const file of jsonFiles) {
+    try {
+      const content = await fs.readFile(
+        path.join(TUTORIALS_DIR, file),
+        "utf-8"
+      );
+      const tutorial: Tutorial = JSON.parse(content);
+      if (tutorial.source?.sourceUrl === sourceUrl) {
+        return tutorial;
+      }
+    } catch {
+      // Skip invalid files
+    }
+  }
+  return null;
+}

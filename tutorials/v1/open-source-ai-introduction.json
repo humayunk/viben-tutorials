@@ -1,0 +1,306 @@
+{
+  "id": "open-source-ai-introduction",
+  "title": "Open Source AI In 17 Minutes",
+  "description": "Learn what open-source AI is, why it matters, and how to run powerful models locally with Ollama.",
+  "tool": "ollama",
+  "tags": [
+    "ollama",
+    "open-source",
+    "local",
+    "models",
+    "agents"
+  ],
+  "difficulty": "beginner",
+  "estimatedMinutes": 17,
+  "source": {
+    "airtableRecordId": "rec683cvIWEWiLEKx",
+    "sourceUrl": "https://www.youtube.com/watch?v=1uCE0uoKXL8",
+    "author": "Tina Huang",
+    "authorImage": "https://yt3.googleusercontent.com/5Eyvt8Lqdea_DD_YRQoZ1EPrROHQuhbqfZmBfiiXrqYBv1PGU2cHAWGR0QzXKp3O9NVxTtOd=s900-c-k-c0x00ffffff-no-rj",
+    "thumbnailImage": "https://img.youtube.com/vi/1uCE0uoKXL8/maxresdefault.jpg",
+    "publishedAt": "2026-02-12T12:00:00.000Z"
+  },
+  "cards": [
+    {
+      "type": "intro",
+      "emoji": "🤖",
+      "title": "Welcome to Open Source AI",
+      "body": "You'll learn what open-source AI is, why it's taking over (hint: it's way cheaper!), and how to run powerful models locally on your own computer. No cloud required!",
+      "cta": "Let's start"
+    },
+    {
+      "type": "concept",
+      "emoji": "🔓",
+      "title": "What is Open Source AI?",
+      "body": "Open source AI means the model's core components are <strong>publicly available</strong> — architecture, weights, training code. You can use, modify, and redistribute them freely.",
+      "analogy": {
+        "icon": "📖",
+        "text": "Think of it like an open book recipe vs. a secret sauce. You can see exactly how it's made and adapt it to your needs."
+      },
+      "bullets": [
+        "Model architecture and weights are public",
+        "Comes with permissive licenses",
+        "Can be modified and redistributed",
+        "Contrast to closed models like GPT, Claude, Gemini"
+      ],
+      "cta": "Got it",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/1uCE0uoKXL8",
+          "startTime": "0:30",
+          "source": {
+            "author": "Tina Huang",
+            "description": "Defining open source AI vs closed source"
+          }
+        }
+      }
+    },
+    {
+      "type": "concept",
+      "emoji": "💰",
+      "title": "Why Open Source AI is Taking Over",
+      "body": "Since DeepSeek R1 in January 2025, open source models finally compete with the best closed models. The advantages are <strong>massive</strong>:",
+      "bullets": [
+        "<strong>Cost:</strong> Much cheaper than API fees",
+        "<strong>Privacy:</strong> Your data stays on your machine",
+        "<strong>Control:</strong> Run anywhere, customize everything",
+        "<strong>No vendor lock-in:</strong> Switch models anytime"
+      ],
+      "safe": "Chinese models dominate the leaderboards, but since they're open source, you run them locally — no external servers involved!",
+      "cta": "Makes sense"
+    },
+    {
+      "type": "quiz",
+      "emoji": "🧠",
+      "title": "Quick check",
+      "question": "What's the main advantage of open source AI over closed source models like GPT?",
+      "options": [
+        {
+          "text": "They're always more accurate",
+          "correct": false
+        },
+        {
+          "text": "You can run them locally with full control and lower costs",
+          "correct": true
+        },
+        {
+          "text": "They're easier to set up",
+          "correct": false
+        },
+        {
+          "text": "They require less computing power",
+          "correct": false
+        }
+      ],
+      "correctFeedback": "Exactly! Cost, privacy, and control are the killer advantages.",
+      "wrongFeedback": "Not quite. The main win is cost, privacy, and control — you can run them locally without API fees.",
+      "cta": "Continue"
+    },
+    {
+      "type": "concept",
+      "emoji": "⚠️",
+      "title": "The Trade-offs You Should Know",
+      "body": "Open source models aren't perfect yet. Here's what to expect:",
+      "bullets": [
+        "<strong>Setup complexity:</strong> More steps than clicking a web app",
+        "<strong>Hardware needs:</strong> AI models are resource-intensive",
+        "<strong>Fewer bells & whistles:</strong> Less polished out of the box",
+        "<strong>DIY maintenance:</strong> You manage security and updates"
+      ],
+      "safe": "The gap is closing fast! Quantization tech now lets you run powerful models on regular PCs.",
+      "cta": "Fair enough"
+    },
+    {
+      "type": "concept",
+      "emoji": "🏆",
+      "title": "Top Models to Watch",
+      "body": "The leaderboard keeps changing, but here are the current champions:",
+      "bullets": [
+        "<strong>Kimi models</strong> from Moonshot AI",
+        "<strong>GLM models</strong> from Z.AI (formerly Zhipu)",
+        "<strong>Hunyuan models</strong> from Tencent (great for images)",
+        "<strong>DeepSeek R1</strong> — the model that changed everything"
+      ],
+      "safe": "Don't memorize these names! We'll show you how to find the latest top performers.",
+      "cta": "Show me how"
+    },
+    {
+      "type": "action",
+      "emoji": "🔍",
+      "title": "Find the Best Models",
+      "body": "Before downloading anything, check the current rankings and try models online:",
+      "bullets": [
+        "Visit <strong>lmsys.org/arena</strong> to see live model battles",
+        "Check <strong>lmstats.com</strong> for detailed comparisons",
+        "Try models directly in the browser before committing"
+      ],
+      "safe": "These leaderboards update constantly as new models are released. Always check before choosing!",
+      "cta": "I've explored"
+    },
+    {
+      "type": "milestone",
+      "emoji": "🎯",
+      "title": "Halfway There!",
+      "body": "You now understand what open source AI is and why it's exploding. Next up: <strong>actually running these models</strong> on your own computer!",
+      "cta": "Let's do this"
+    },
+    {
+      "type": "concept",
+      "emoji": "🛠️",
+      "title": "Meet Ollama: Your Model Manager",
+      "body": "To run models locally, you need a <strong>model manager</strong>. Ollama is the most popular choice — think of it as an app store for AI models.",
+      "analogy": {
+        "icon": "📱",
+        "text": "Just like how your phone's app store downloads and manages apps, Ollama downloads and manages AI models on your computer."
+      },
+      "bullets": [
+        "Free and open source",
+        "Works on Mac, Windows, and Linux",
+        "Handles model downloads and updates",
+        "Provides simple commands to run models"
+      ],
+      "cta": "Let's install it",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/1uCE0uoKXL8",
+          "startTime": "8:30",
+          "source": {
+            "author": "Tina Huang",
+            "description": "Introduction to Ollama and model managers"
+          }
+        }
+      }
+    },
+    {
+      "type": "action",
+      "emoji": "⬇️",
+      "title": "Install Ollama",
+      "body": "Get Ollama running on your computer:",
+      "bullets": [
+        "Go to <strong>ollama.com</strong>",
+        "Click the download button for your operating system",
+        "Run the installer and follow the prompts",
+        "Open your terminal/command prompt to verify"
+      ],
+      "code": "ollama --version",
+      "codeLabel": "VERIFY INSTALLATION",
+      "codeCaption": "You should see version info if installed correctly",
+      "cta": "Ollama is installed"
+    },
+    {
+      "type": "action",
+      "emoji": "📥",
+      "title": "Download Your First Model",
+      "body": "Let's download Llama 3, one of the most popular models:",
+      "code": "ollama pull llama3",
+      "codeLabel": "DOWNLOAD MODEL",
+      "codeCaption": "This will download several GB — be patient! The model is being stored locally on your machine.",
+      "warn": "Large models (7B+ parameters) can be several gigabytes. Make sure you have enough storage space!",
+      "cta": "Download complete"
+    },
+    {
+      "type": "action",
+      "emoji": "🚀",
+      "title": "Run Your Local AI",
+      "body": "Now for the magic moment — start chatting with your local AI:",
+      "code": "ollama run llama3",
+      "codeLabel": "START THE MODEL",
+      "codeCaption": "You'll see a prompt where you can type questions. Type 'exit' or '/bye' to quit.",
+      "safe": "Your conversations are completely private — nothing leaves your computer!",
+      "cta": "It's working!"
+    },
+    {
+      "type": "quiz",
+      "emoji": "🧠",
+      "title": "Quick check",
+      "question": "If your PC struggles to run a large model, what should you look for?",
+      "options": [
+        {
+          "text": "A newer version of Ollama",
+          "correct": false
+        },
+        {
+          "text": "A quantized version (like Q4 variants)",
+          "correct": true
+        },
+        {
+          "text": "A different model manager",
+          "correct": false
+        },
+        {
+          "text": "More RAM immediately",
+          "correct": false
+        }
+      ],
+      "correctFeedback": "Right! Quantized models are compressed versions that run on modest hardware.",
+      "wrongFeedback": "Try quantized models! Look for Q4 or Q8 variants — same model, smaller footprint.",
+      "cta": "Got it"
+    },
+    {
+      "type": "concept",
+      "emoji": "🔧",
+      "title": "Hardware Struggling? Try Quantization",
+      "body": "If models run slowly or crash, <strong>quantized versions</strong> are your friend:",
+      "bullets": [
+        "Q4 models use 4-bit precision (much smaller)",
+        "Q8 models use 8-bit precision (medium size)",
+        "Same model intelligence, less memory usage",
+        "Perfect for regular laptops and PCs"
+      ],
+      "code": "ollama pull llama3:8b-instruct-q4_0",
+      "codeLabel": "QUANTIZED MODEL EXAMPLE",
+      "codeCaption": "The 'q4_0' suffix means it's quantized to 4-bit precision",
+      "cta": "Smart!"
+    },
+    {
+      "type": "action",
+      "emoji": "🤖",
+      "title": "Build Your First Agent",
+      "body": "Connect Ollama to agent frameworks for automation:",
+      "bullets": [
+        "Try <strong>n8n</strong> for no-code workflows",
+        "Use <strong>LangChain</strong> for Python development",
+        "Connect to <strong>Open WebUI</strong> for a ChatGPT-like interface",
+        "All work with Ollama's local models"
+      ],
+      "safe": "Since you're running locally, there are no API costs for your automations!",
+      "cta": "Ready to build"
+    },
+    {
+      "type": "concept",
+      "emoji": "📊",
+      "title": "The Four Model Sizes",
+      "body": "Models come in different sizes based on parameters. Choose based on your hardware:",
+      "bullets": [
+        "<strong>1-3B parameters:</strong> Phones, basic laptops (4-8GB RAM)",
+        "<strong>7-13B parameters:</strong> Good laptops (16GB+ RAM)",
+        "<strong>30-70B parameters:</strong> High-end workstations (32GB+ RAM)",
+        "<strong>100B+ parameters:</strong> Server-grade hardware"
+      ],
+      "safe": "Start small! A 7B quantized model can be surprisingly capable on most modern computers.",
+      "cta": "I understand"
+    },
+    {
+      "type": "concept",
+      "emoji": "🔮",
+      "title": "The Future is Bright",
+      "body": "Open source AI is rapidly improving:",
+      "bullets": [
+        "Models getting better every month",
+        "Quantization making them more accessible",
+        "Easier setup tools and frameworks",
+        "Growing community and ecosystem"
+      ],
+      "safe": "You picked the perfect time to jump in. The tools are finally mature enough for everyone!",
+      "cta": "Exciting!"
+    },
+    {
+      "type": "celebration",
+      "emoji": "🏆",
+      "title": "You're Now an Open Source AI User!",
+      "body": "You've learned what open source AI is, why it's taking over, and how to run powerful models locally with Ollama. <strong>Your data stays private, costs stay low, and possibilities are endless!</strong>",
+      "stats": true,
+      "cta": "Start building"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 import Anthropic from "@anthropic-ai/sdk";
 import type { Tutorial } from "@/types";
-import { SYSTEM_PROMPT } from "./prompts";
+import { SYSTEM_PROMPT, ARTICLE_SYSTEM_PROMPT } from "./prompts";
 
 let client: Anthropic | null = null;
 
@@ -44,6 +44,37 @@ export async function generateTutorial(
     throw new Error(
       "Invalid tutorial: missing id, title, or cards"
     );
+  }
+
+  return tutorial;
+}
+
+export async function generateTutorialFromArticle(
+  userPrompt: string
+): Promise<Tutorial> {
+  const anthropic = getClient();
+
+  const message = await anthropic.messages.create({
+    model: "claude-sonnet-4-20250514",
+    max_tokens: 16384,
+    system: ARTICLE_SYSTEM_PROMPT,
+    messages: [{ role: "user", content: userPrompt }],
+  });
+
+  const textBlock = message.content.find((block) => block.type === "text");
+  if (!textBlock || textBlock.type !== "text") {
+    throw new Error("No text in Claude response");
+  }
+
+  let jsonStr = textBlock.text.trim();
+  if (jsonStr.startsWith("```")) {
+    jsonStr = jsonStr.replace(/^```(?:json)?\s*/, "").replace(/```\s*$/, "");
+  }
+
+  const tutorial: Tutorial = JSON.parse(jsonStr);
+
+  if (!tutorial.id || !tutorial.title || !tutorial.cards?.length) {
+    throw new Error("Invalid tutorial: missing id, title, or cards");
   }
 
   return tutorial;

@@ -1,0 +1,314 @@
+{
+  "id": "cursor-legacy-modernization-ai",
+  "title": "Modernize Legacy Software with AI Agents",
+  "description": "Build a portal that replaces legacy call tasks using Cursor, Supabase, and Retell AI for automated customer outreach.",
+  "tool": "cursor",
+  "tags": [
+    "cursor",
+    "claude",
+    "supabase",
+    "retell-ai",
+    "n8n"
+  ],
+  "difficulty": "intermediate",
+  "estimatedMinutes": 45,
+  "source": {
+    "airtableRecordId": "rec0TCJ4XotZKEC4A",
+    "sourceUrl": "https://www.youtube.com/watch?v=NitOygP-9zY",
+    "author": "Bart Slodyczka",
+    "authorImage": "https://yt3.googleusercontent.com/0F2EkfLH4lFFt2oieQSrwfyiq0Bp006Es5QqCvppFRBme2ACBh3pKxt4jeBTWoutEL6BiJdLXMs=s900-c-k-c0x00ffffff-no-rj",
+    "thumbnailImage": "https://img.youtube.com/vi/NitOygP-9zY/maxresdefault.jpg",
+    "publishedAt": "2026-01-28T11:31:05.000Z"
+  },
+  "cards": [
+    {
+      "type": "intro",
+      "emoji": "🚀",
+      "title": "Replace Legacy Tools with AI",
+      "body": "You'll build a portal that takes a phone number and task description, automatically calls customers using AI, and tracks results. This replaces manual calling workflows with automated AI agents.",
+      "cta": "Let's modernize"
+    },
+    {
+      "type": "concept",
+      "emoji": "🏗️",
+      "title": "Architecture Overview",
+      "body": "We're building a three-part system that works together seamlessly.",
+      "bullets": [
+        "<strong>Portal:</strong> Web interface for submitting calls (Cursor + Claude)",
+        "<strong>Database:</strong> Shared storage for call data (Supabase)",
+        "<strong>AI Caller:</strong> Voice agent that makes actual calls (Retell AI)",
+        "<strong>Automation:</strong> Workflow that connects everything (n8n)"
+      ],
+      "analogy": {
+        "icon": "🔗",
+        "text": "Think of it like a modern call center where the portal is your desk, Supabase is the filing cabinet, and Retell AI is your AI assistant making the calls."
+      },
+      "cta": "Got the big picture"
+    },
+    {
+      "type": "action",
+      "emoji": "📂",
+      "title": "Clone the Starter Template",
+      "body": "Start with Bart's pre-built template that includes authentication, dashboard, and Supabase integration.",
+      "code": "git clone https://github.com/your-repo/starter-template.git modernize-portal\ncd modernize-portal\nnpm install",
+      "codeLabel": "TERMINAL COMMANDS",
+      "codeCaption": "This gives you login, dashboard, and logout pages already wired up",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/NitOygP-9zY",
+          "startTime": "3:20",
+          "source": {
+            "author": "Bart Slodyczka",
+            "description": "Cloning the starter template and installing dependencies"
+          }
+        }
+      },
+      "cta": "Template cloned"
+    },
+    {
+      "type": "action",
+      "emoji": "⚙️",
+      "title": "Configure Environment Variables",
+      "body": "Set up your Supabase connection by creating the environment file and adding your credentials.",
+      "code": "mv .env.local.example .env.local",
+      "codeLabel": "RENAME ENV FILE",
+      "helpItems": [
+        "Go to Supabase → Project Settings → Data API",
+        "Copy your Project URL and paste into SUPABASE_URL",
+        "Copy your Publishable Key and paste into SUPABASE_PUBLISHABLE_KEY"
+      ],
+      "cta": "Environment configured"
+    },
+    {
+      "type": "action",
+      "emoji": "👤",
+      "title": "Create Test User in Supabase",
+      "body": "Before you can log into your portal, create a user account in Supabase Authentication.",
+      "bullets": [
+        "Go to Supabase → Authentication → Users",
+        "Click 'Create a new user'",
+        "Use any test email and strong password",
+        "Check 'Automatically confirm user'"
+      ],
+      "safe": "This is just for testing - you're creating a secure user account in your own database",
+      "cta": "User created"
+    },
+    {
+      "type": "action",
+      "emoji": "🔥",
+      "title": "Test the Portal Locally",
+      "body": "Run the development server and verify everything works.",
+      "code": "npm run dev",
+      "codeLabel": "START DEVELOPMENT SERVER",
+      "codeCaption": "Open the localhost URL and log in with your test user",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/NitOygP-9zY",
+          "startTime": "6:45",
+          "source": {
+            "author": "Bart Slodyczka",
+            "description": "Testing the login and viewing the basic dashboard"
+          }
+        }
+      },
+      "cta": "Portal is running"
+    },
+    {
+      "type": "quiz",
+      "emoji": "🧠",
+      "title": "Quick Check",
+      "question": "What role does Supabase play in this architecture?",
+      "options": [
+        {
+          "text": "It makes the AI phone calls",
+          "correct": false
+        },
+        {
+          "text": "It stores call data and provides authentication",
+          "correct": true
+        },
+        {
+          "text": "It generates the web interface",
+          "correct": false
+        },
+        {
+          "text": "It handles the workflow automation",
+          "correct": false
+        }
+      ],
+      "correctFeedback": "Exactly! Supabase is your shared database and handles user authentication.",
+      "wrongFeedback": "Supabase is the database layer - it stores your call records and handles user login.",
+      "cta": "Continue building"
+    },
+    {
+      "type": "concept",
+      "emoji": "💭",
+      "title": "Planning the New Call Page",
+      "body": "Before building, let's think about what data we need to collect and store.",
+      "bullets": [
+        "<strong>Input fields:</strong> Phone number and task description",
+        "<strong>Submit action:</strong> Save to Supabase and trigger AI call",
+        "<strong>Database schema:</strong> Store number, task, call status, transcript, recording"
+      ],
+      "analogy": {
+        "icon": "📋",
+        "text": "Like a digital version of writing call instructions on a sticky note, but it automatically triggers the call and tracks results."
+      },
+      "cta": "Ready to build"
+    },
+    {
+      "type": "action",
+      "emoji": "🤖",
+      "title": "Ask Claude Code to Build the Page",
+      "body": "Use Claude Code in Cursor to generate the 'New Call' page with proper Supabase integration.",
+      "code": "I want to create a new page called 'New Call' with:\n- Phone number input field\n- Short description field for the task\n- Submit button that saves to Supabase\n- Table schema that includes: phone, task, status, transcript, recording\n\nFocus on the portal and Supabase side for now.",
+      "codeLabel": "CLAUDE CODE PROMPT",
+      "codeCaption": "Claude will generate the React components and Supabase table schema",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/NitOygP-9zY",
+          "startTime": "8:30",
+          "source": {
+            "author": "Bart Slodyczka",
+            "description": "Using Claude Code to generate the new call page and database schema"
+          }
+        }
+      },
+      "cta": "Page generated"
+    },
+    {
+      "type": "milestone",
+      "emoji": "🎉",
+      "title": "Portal Foundation Complete!",
+      "body": "You've successfully set up the web portal with authentication, database connection, and a form to submit calls. Next, we'll build the AI voice agent.",
+      "cta": "Let's add the AI"
+    },
+    {
+      "type": "action",
+      "emoji": "📞",
+      "title": "Create Retell AI Voice Agent",
+      "body": "Set up a simple voice agent that can handle appointment confirmations.",
+      "bullets": [
+        "Go to Retell AI dashboard",
+        "Create new Voice Agent → Single Prompt Agent",
+        "Keep the prompt simple for testing"
+      ],
+      "code": "You are calling to confirm an appointment. Be polite and brief:\n\n1. Ask to speak with the person\n2. Confirm the appointment: {{appointment_details}}\n3. Thank them and end the call\n\nUse {{appointment_details}} for dynamic information.",
+      "codeLabel": "SIMPLE AGENT PROMPT",
+      "warn": "Start simple! You can always make the agent more sophisticated after testing",
+      "cta": "Agent created"
+    },
+    {
+      "type": "concept",
+      "emoji": "🔄",
+      "title": "Connecting Everything with n8n",
+      "body": "n8n acts as the glue between your portal, AI agent, and database updates.",
+      "bullets": [
+        "<strong>Trigger:</strong> New submission from your portal",
+        "<strong>Action 1:</strong> Fire outbound call via Retell AI",
+        "<strong>Action 2:</strong> Update Supabase row with call results"
+      ],
+      "analogy": {
+        "icon": "🕷️",
+        "text": "Think of n8n like a spider sitting in the web - when something happens in one part (form submission), it automatically triggers actions in other parts (call + database update)."
+      },
+      "cta": "Makes sense"
+    },
+    {
+      "type": "action",
+      "emoji": "⚡",
+      "title": "Build the n8n Workflow",
+      "body": "Create the automation that connects form submission to AI calling and result tracking.",
+      "bullets": [
+        "Set up webhook trigger for form submissions",
+        "Add Retell AI node to initiate outbound calls",
+        "Add Supabase node to update call status",
+        "Test with a real phone number"
+      ],
+      "helpItems": [
+        "Use webhook URL from n8n in your portal's submit function",
+        "Pass phone number and task description to Retell AI",
+        "Update the database row with call completion status"
+      ],
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/NitOygP-9zY",
+          "startTime": "12:15",
+          "source": {
+            "author": "Bart Slodyczka",
+            "description": "Setting up the n8n workflow and testing the complete system"
+          }
+        }
+      },
+      "cta": "Workflow built"
+    },
+    {
+      "type": "quiz",
+      "emoji": "🔧",
+      "title": "System Check",
+      "question": "What happens when you click 'Submit Call' in the portal?",
+      "options": [
+        {
+          "text": "Only saves to database",
+          "correct": false
+        },
+        {
+          "text": "Saves to database, triggers n8n workflow, initiates AI call, updates status",
+          "correct": true
+        },
+        {
+          "text": "Directly calls Retell AI",
+          "correct": false
+        },
+        {
+          "text": "Sends an email notification",
+          "correct": false
+        }
+      ],
+      "correctFeedback": "Perfect! The submit triggers a complete workflow chain reaction.",
+      "wrongFeedback": "The submit button kicks off the entire workflow - database save, n8n trigger, AI call, and status update.",
+      "cta": "Ready to test"
+    },
+    {
+      "type": "action",
+      "emoji": "📱",
+      "title": "Test the Complete System",
+      "body": "Time for the moment of truth - test your AI-powered call system end-to-end.",
+      "bullets": [
+        "Enter your own phone number in the portal",
+        "Add a simple appointment confirmation task",
+        "Click submit and wait for your phone to ring",
+        "Answer the call and interact with your AI agent",
+        "Check the portal to see updated call status"
+      ],
+      "safe": "Testing with your own number first ensures you can control the experience",
+      "troubleshoot": [
+        "If call doesn't come through, check n8n webhook logs",
+        "If agent sounds robotic, simplify the Retell AI prompt",
+        "If status doesn't update, verify Supabase webhook connection"
+      ],
+      "cta": "System tested"
+    },
+    {
+      "type": "concept",
+      "emoji": "🎯",
+      "title": "Scaling Your AI System",
+      "body": "Now that you have the foundation, here's how to expand and improve.",
+      "bullets": [
+        "<strong>Add complexity:</strong> Handle objections, reschedule requests, multiple scenarios",
+        "<strong>Improve data:</strong> Store call recordings, sentiment analysis, success rates",
+        "<strong>Scale operations:</strong> Bulk upload contacts, scheduled calling, team management",
+        "<strong>Enhance UX:</strong> Real-time call status, better reporting, mobile optimization"
+      ],
+      "cta": "Ready to scale"
+    },
+    {
+      "type": "celebration",
+      "emoji": "🏆",
+      "title": "Legacy System Modernized!",
+      "body": "You've successfully replaced a manual calling process with an AI-powered system. Your portal can now automatically handle customer outreach, track results, and scale infinitely. This same pattern can modernize any legacy workflow.",
+      "stats": true,
+      "cta": "Build more AI systems"
+    }
+  ]
+}

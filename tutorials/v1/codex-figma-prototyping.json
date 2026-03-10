@@ -1,0 +1,277 @@
+{
+  "id": "codex-figma-prototyping",
+  "title": "Rapid Prototyping with Codex and Figma Integration",
+  "description": "Transform Figma designs into interactive prototypes using OpenAI's Codex app with one-click MCP integration.",
+  "tool": "codex",
+  "tags": [
+    "codex",
+    "figma",
+    "mcp"
+  ],
+  "difficulty": "intermediate",
+  "estimatedMinutes": 12,
+  "source": {
+    "airtableRecordId": "rec13scRzbomkrPbL",
+    "sourceUrl": "https://www.youtube.com/watch?v=P7HXxl14dCA",
+    "author": "OpenAI",
+    "authorImage": "https://yt3.googleusercontent.com/MopgmVAFV9BqlzOJ-UINtmutvEPcNe5IbKMmP_4vZZo3vnJXcZGtybUBsXaEVxkmxKyGqX9R=s900-c-k-c0x00ffffff-no-rj",
+    "thumbnailImage": "https://img.youtube.com/vi/P7HXxl14dCA/maxresdefault.jpg",
+    "publishedAt": "2026-02-04T18:29:45.000Z"
+  },
+  "cards": [
+    {
+      "type": "intro",
+      "emoji": "🚀",
+      "title": "Turn Figma Designs Into Live Prototypes",
+      "body": "Learn to use OpenAI's Codex app with Figma integration to transform static designs into interactive prototypes in minutes. You'll set up the MCP connection, generate prototypes from design links, and refine the output.",
+      "cta": "Let's start"
+    },
+    {
+      "type": "concept",
+      "emoji": "🔗",
+      "title": "What is MCP Integration?",
+      "body": "MCP (Model Context Protocol) lets Codex directly access your Figma files and design system components. Instead of exporting images or copying designs manually, the AI reads your actual design tokens and components.",
+      "analogy": {
+        "icon": "🔌",
+        "text": "Like plugging your design tool directly into the AI's brain — no translation needed"
+      },
+      "bullets": [
+        "One-click setup through the OpenAI app",
+        "Direct access to your Figma design system",
+        "Preserves component relationships and tokens"
+      ],
+      "cta": "Got it"
+    },
+    {
+      "type": "action",
+      "emoji": "📱",
+      "title": "Install the OpenAI App",
+      "body": "First, download the OpenAI app and navigate to Settings to set up the Figma integration.",
+      "bullets": [
+        "Download the OpenAI app from your app store",
+        "Open the app and go to Settings",
+        "Look for the MCP or Figma integration option"
+      ],
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/P7HXxl14dCA",
+          "startTime": "0:00",
+          "source": {
+            "author": "OpenAI",
+            "description": "Setting up the one-click MCP install with Figma"
+          }
+        }
+      },
+      "cta": "App installed"
+    },
+    {
+      "type": "action",
+      "emoji": "🎨",
+      "title": "Connect Your Figma Account",
+      "body": "Enable the Figma skill by logging into your Figma account through the app.",
+      "bullets": [
+        "Click the Figma integration option in Settings",
+        "Sign in with your Figma credentials when prompted",
+        "Enable the 'Figma skill' in your skill settings"
+      ],
+      "safe": "Your Figma login is secure — the app only accesses files you explicitly share",
+      "cta": "Connected"
+    },
+    {
+      "type": "quiz",
+      "emoji": "🧠",
+      "title": "Quick Check",
+      "question": "What's the main advantage of MCP integration over traditional design handoffs?",
+      "options": [
+        {
+          "text": "It exports higher quality images",
+          "correct": false
+        },
+        {
+          "text": "It directly reads design tokens and components",
+          "correct": true
+        },
+        {
+          "text": "It works faster than copy-paste",
+          "correct": false
+        }
+      ],
+      "correctFeedback": "Exactly! MCP gives Codex direct access to your design system, not just visual exports.",
+      "wrongFeedback": "Not quite. The key is that MCP reads your actual design tokens and components, not just images.",
+      "cta": "Continue"
+    },
+    {
+      "type": "action",
+      "emoji": "📋",
+      "title": "Copy Your Figma Frame Link",
+      "body": "Get the direct link to the Figma frame or page you want to prototype.",
+      "bullets": [
+        "Open your Figma file",
+        "Select the frame or page you want to convert",
+        "Right-click and choose 'Copy link' or use the share button",
+        "Make sure you're copying a frame-specific link, not just the file link"
+      ],
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/P7HXxl14dCA",
+          "startTime": "0:45",
+          "source": {
+            "author": "OpenAI",
+            "description": "Copying a frame link directly from Figma"
+          }
+        }
+      },
+      "cta": "Link copied"
+    },
+    {
+      "type": "action",
+      "emoji": "⚡",
+      "title": "Paste Link Into Codex",
+      "body": "Start the prototype generation by pasting your Figma link into the Codex chat.",
+      "bullets": [
+        "Open the chat interface in the OpenAI app",
+        "Paste your Figma frame link",
+        "Send the message to kick off the build process"
+      ],
+      "safe": "The app will show a hot-reload preview so you can watch the prototype build in real-time",
+      "cta": "Generation started"
+    },
+    {
+      "type": "concept",
+      "emoji": "🔥",
+      "title": "Hot-Reload Preview Magic",
+      "body": "Watch as Codex builds your prototype in real-time. The hot-reload feature refreshes the preview as each component gets generated, so you can spot issues early.",
+      "bullets": [
+        "Components appear as they're built",
+        "Design system tokens are automatically applied",
+        "You can identify problems before generation completes"
+      ],
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/P7HXxl14dCA",
+          "startTime": "1:15",
+          "source": {
+            "author": "OpenAI",
+            "description": "Watching the hot-reload preview as Codex generates the prototype"
+          }
+        }
+      },
+      "cta": "Watching"
+    },
+    {
+      "type": "milestone",
+      "emoji": "🎯",
+      "title": "Prototype Generated!",
+      "body": "Your Figma design is now a working interactive prototype. You've successfully connected your design system and generated about 80-90% of the final result.",
+      "cta": "Let's refine it"
+    },
+    {
+      "type": "concept",
+      "emoji": "🔧",
+      "title": "The 80-90% Rule",
+      "body": "Codex typically gets you <strong>80-90% of the way there</strong> on the first try. The remaining work involves fine-tuning styles, removing unwanted elements, and adding interactive behaviors.",
+      "bullets": [
+        "Design system components are properly mapped",
+        "Layout and spacing are mostly accurate",
+        "Some borders or styling may need adjustment",
+        "Interactive behaviors need to be added separately"
+      ],
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/P7HXxl14dCA",
+          "startTime": "1:30",
+          "source": {
+            "author": "OpenAI",
+            "description": "Comparing the generated prototype to the original Figma design"
+          }
+        }
+      },
+      "cta": "Makes sense"
+    },
+    {
+      "type": "action",
+      "emoji": "✨",
+      "title": "Refine Styling Issues",
+      "body": "Use follow-up prompts to fix common styling problems in your generated prototype.",
+      "bullets": [
+        "Remove unwanted borders or outlines",
+        "Adjust spacing and alignment",
+        "Fix color inconsistencies",
+        "Match typography to your design system"
+      ],
+      "code": "Remove the border from the main card component and adjust the padding to match the original design",
+      "codeLabel": "EXAMPLE REFINEMENT PROMPT",
+      "cta": "Styles refined"
+    },
+    {
+      "type": "action",
+      "emoji": "🖱️",
+      "title": "Add Interactive Behaviors",
+      "body": "Enhance your prototype with interactive elements that static designs can't show.",
+      "bullets": [
+        "Add click-out dismissal for modals",
+        "Implement hover states and transitions",
+        "Create state changes between screens",
+        "Add form validation and feedback"
+      ],
+      "code": "Add a click-outside-to-close behavior for the chat modal and implement smooth transitions between states",
+      "codeLabel": "EXAMPLE BEHAVIOR PROMPT",
+      "warn": "Be specific about the interaction you want — vague prompts may not give you the exact behavior",
+      "cta": "Interactions added"
+    },
+    {
+      "type": "quiz",
+      "emoji": "🧠",
+      "title": "Knowledge Check",
+      "question": "Why is interactive prototyping especially valuable for AI-powered interfaces?",
+      "options": [
+        {
+          "text": "AI outputs are static and predictable",
+          "correct": false
+        },
+        {
+          "text": "AI outputs are dynamic and non-deterministic",
+          "correct": true
+        },
+        {
+          "text": "AI doesn't work well with static designs",
+          "correct": false
+        }
+      ],
+      "correctFeedback": "Right! AI interfaces have unpredictable outputs, so you need interactive prototypes to stress-test edge cases.",
+      "wrongFeedback": "Not quite. AI outputs are actually dynamic and unpredictable, which is why interactive prototypes are so valuable.",
+      "cta": "Continue"
+    },
+    {
+      "type": "concept",
+      "emoji": "⚡",
+      "title": "2-3x Faster Prototyping",
+      "body": "This workflow dramatically speeds up the design-to-prototype process. Instead of building components from scratch or dealing with export workflows, you go from Figma link to interactive prototype in minutes.",
+      "bullets": [
+        "No manual component building required",
+        "Design system automatically preserved",
+        "Real-time preview shows progress",
+        "Perfect for testing AI interface edge cases"
+      ],
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/P7HXxl14dCA",
+          "startTime": "2:30",
+          "source": {
+            "author": "OpenAI",
+            "description": "Explaining the speed benefits and use cases for AI interface prototyping"
+          }
+        }
+      },
+      "cta": "I see the value"
+    },
+    {
+      "type": "celebration",
+      "emoji": "🏆",
+      "title": "You're a Prototyping Pro!",
+      "body": "You've mastered rapid prototyping with Codex and Figma. You can now transform static designs into interactive prototypes in minutes, preserving your design system and testing AI interface edge cases effectively.",
+      "stats": true,
+      "cta": "Finish"
+    }
+  ]
+}

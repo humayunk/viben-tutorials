@@ -1,0 +1,264 @@
+{
+  "id": "ai-context-tokens-explained",
+  "title": "Understanding AI Context & Tokens",
+  "description": "Learn how tokens work, why context windows matter, and how to optimize your AI interactions for better performance and lower costs.",
+  "tool": "openai-tokenizer",
+  "tags": [
+    "tokens",
+    "context",
+    "ai-fundamentals",
+    "optimization",
+    "pricing"
+  ],
+  "difficulty": "intermediate",
+  "estimatedMinutes": 20,
+  "source": {
+    "airtableRecordId": "rec0Mxuf3FN1GQq2Y",
+    "sourceUrl": "https://www.youtube.com/watch?v=0ATtrgKFfnw",
+    "author": "Ras Mic",
+    "authorImage": "https://yt3.googleusercontent.com/i9xxBhNuLi0XRlbITf05bV7KsrG-k_B2_bULh7DvZYoqCzUij4sCGi1Ijqyb1A3yfOD88jtY=s900-c-k-c0x00ffffff-no-rj",
+    "thumbnailImage": "https://img.youtube.com/vi/0ATtrgKFfnw/maxresdefault.jpg",
+    "publishedAt": "2026-02-02T03:40:45.000Z"
+  },
+  "cards": [
+    {
+      "type": "intro",
+      "emoji": "🧠",
+      "title": "Master AI Context & Tokens",
+      "body": "Ever wonder why AI sometimes gets <strong>expensive</strong> or <strong>forgets</strong> what you said? It all comes down to tokens and context windows. You'll learn how AI processes text, why it costs what it costs, and how to optimize your prompts for better results.",
+      "cta": "Let's dive in"
+    },
+    {
+      "type": "concept",
+      "emoji": "🔤",
+      "title": "What Are Tokens?",
+      "body": "Tokens are the <strong>fundamental units</strong> that AI models actually understand. They're not quite words — they can be whole words, parts of words, characters, or punctuation.",
+      "analogy": {
+        "icon": "🧩",
+        "text": "Think of tokens like puzzle pieces. AI doesn't see your sentence as words — it breaks everything into small numbered chunks that fit together to represent meaning."
+      },
+      "bullets": [
+        "One word might be multiple tokens",
+        "Short words are often single tokens",
+        "Punctuation usually gets its own token",
+        "Models work with numbers, not text"
+      ],
+      "cta": "Got it"
+    },
+    {
+      "type": "action",
+      "emoji": "🔍",
+      "title": "See Tokens in Action",
+      "body": "Let's use OpenAI's tokenizer to see how text becomes tokens. This will show you exactly how your prompts get processed.",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/0ATtrgKFfnw",
+          "startTime": "2:30",
+          "source": {
+            "author": "Ras Mic",
+            "description": "Watch how text gets converted to tokens using OpenAI's tokenizer"
+          }
+        }
+      },
+      "bullets": [
+        "Go to <strong>platform.openai.com/tokenizer</strong>",
+        "Paste any text you want to analyze",
+        "Watch how it breaks into colored token chunks",
+        "Note the character count vs token count"
+      ],
+      "cta": "I tried it"
+    },
+    {
+      "type": "concept",
+      "emoji": "💰",
+      "title": "Why Token Count Matters",
+      "body": "AI pricing is based on <strong>tokens, not words</strong>. Understanding this helps you save money and get faster responses.",
+      "bullets": [
+        "Input tokens: what you send to the AI",
+        "Output tokens: what the AI sends back",
+        "Both input and output count toward your bill",
+        "Smaller prompts = cheaper + faster responses"
+      ],
+      "warn": "Output tokens typically cost 5-10x more than input tokens, so asking for shorter responses can save significant money.",
+      "cta": "Makes sense"
+    },
+    {
+      "type": "quiz",
+      "emoji": "🧠",
+      "title": "Token Knowledge Check",
+      "question": "If a 280-character paragraph converts to 52 tokens, what's the approximate character-to-token ratio?",
+      "options": [
+        {
+          "text": "1 character = 1 token",
+          "correct": false
+        },
+        {
+          "text": "About 5-6 characters = 1 token",
+          "correct": true
+        },
+        {
+          "text": "10 characters = 1 token",
+          "correct": false
+        },
+        {
+          "text": "Tokens and characters are the same",
+          "correct": false
+        }
+      ],
+      "correctFeedback": "Exactly! There's roughly 5-6 characters per token on average, though this varies by language and content type.",
+      "wrongFeedback": "Not quite. In this example, 280 characters became 52 tokens — that's about 5-6 characters per token.",
+      "cta": "Continue"
+    },
+    {
+      "type": "concept",
+      "emoji": "🪟",
+      "title": "Understanding Context Windows",
+      "body": "The <strong>context window</strong> is like AI's short-term memory — it's the total amount of text (in tokens) the model can remember and reference in a conversation.",
+      "analogy": {
+        "icon": "📚",
+        "text": "Imagine reading a book but only being able to remember the last 20 pages. That's what a context window is like for AI — it can only 'remember' a limited amount of recent conversation."
+      },
+      "bullets": [
+        "Different models have different context limits",
+        "Includes your messages + AI responses + system prompts",
+        "When full, older messages get 'forgotten'",
+        "Larger context = more expensive processing"
+      ],
+      "cta": "I understand"
+    },
+    {
+      "type": "action",
+      "emoji": "📊",
+      "title": "Check Your Context Usage",
+      "body": "If you're using Claude Code, you can see exactly how much context you're using and how much space is left.",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/0ATtrgKFfnw",
+          "startTime": "8:45",
+          "source": {
+            "author": "Ras Mic",
+            "description": "See how to check context usage in Claude Code"
+          }
+        }
+      },
+      "code": "/context",
+      "codeLabel": "CLAUDE CODE COMMAND",
+      "codeCaption": "This shows your token usage breakdown and remaining space",
+      "bullets": [
+        "Shows system prompt token usage",
+        "Displays tools and skills token cost",
+        "Reveals how much free space remains",
+        "Warns when auto-compact will trigger"
+      ],
+      "cta": "Checked it"
+    },
+    {
+      "type": "milestone",
+      "emoji": "🎯",
+      "title": "Halfway There!",
+      "body": "You now understand what tokens are, how context windows work, and why they matter for cost and performance. Next up: how to optimize your prompts!",
+      "cta": "Keep going"
+    },
+    {
+      "type": "concept",
+      "emoji": "⚠️",
+      "title": "When Context Gets Full",
+      "body": "When your context window approaches its limit, AI models start to <strong>struggle and hallucinate</strong> more. Understanding this helps you manage long conversations better.",
+      "bullets": [
+        "Performance degrades near context limits",
+        "Auto-compact summarizes old messages",
+        "Some information gets lost in compression",
+        "Models work best at 50-60% context capacity"
+      ],
+      "warn": "Stay under 50-60% of your context window for optimal performance. When you hit 80-90%, consider starting a fresh conversation.",
+      "cta": "Good to know"
+    },
+    {
+      "type": "action",
+      "emoji": "✂️",
+      "title": "Optimize Your Prompts",
+      "body": "Now let's reduce your token footprint. Every token you save makes your AI interactions faster and cheaper.",
+      "bullets": [
+        "<strong>Remove duplicate examples</strong> — one good example beats three similar ones",
+        "<strong>Cut boilerplate</strong> — skip 'please' and 'thank you' in prompts",
+        "<strong>Summarize long documents</strong> before pasting them",
+        "<strong>Use bullet points</strong> instead of full sentences when possible"
+      ],
+      "safe": "Don't worry about being too brief — AI models prefer concise, clear instructions over polite conversation.",
+      "cta": "I'll trim my prompts"
+    },
+    {
+      "type": "action",
+      "emoji": "🔧",
+      "title": "Test Your Optimizations",
+      "body": "Put your new knowledge to work. Take a prompt you've used before and optimize it for fewer tokens.",
+      "bullets": [
+        "Copy an old prompt you've used",
+        "Paste it into OpenAI's tokenizer",
+        "Remove unnecessary words and examples",
+        "Compare the before/after token counts"
+      ],
+      "code": "platform.openai.com/tokenizer",
+      "codeLabel": "TOKENIZER URL",
+      "cta": "Optimized a prompt"
+    },
+    {
+      "type": "quiz",
+      "emoji": "🧠",
+      "title": "Context Management Check",
+      "question": "What's the best practice for context window usage to maintain optimal AI performance?",
+      "options": [
+        {
+          "text": "Fill it completely for maximum context",
+          "correct": false
+        },
+        {
+          "text": "Stay under 50-60% capacity",
+          "correct": true
+        },
+        {
+          "text": "Always start fresh conversations",
+          "correct": false
+        },
+        {
+          "text": "Context usage doesn't affect performance",
+          "correct": false
+        }
+      ],
+      "correctFeedback": "Perfect! Staying under 50-60% context capacity helps maintain optimal performance and reduces hallucinations.",
+      "wrongFeedback": "Not quite. Models perform best when you stay under 50-60% of the context window capacity.",
+      "cta": "Continue"
+    },
+    {
+      "type": "concept",
+      "emoji": "🏗️",
+      "title": "Bonus: Safe Sandboxes with Daytona",
+      "body": "For AI agents that need to execute code safely, <strong>Daytona provides pre-warmed sandboxes</strong> with file systems, code execution, and LSP support.",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/0ATtrgKFfnw",
+          "startTime": "3:30",
+          "source": {
+            "author": "Ras Mic",
+            "description": "See how Daytona makes it easy to spin up safe development sandboxes"
+          }
+        }
+      },
+      "bullets": [
+        "Initialize Daytona with simple SDK",
+        "Create sandbox and specify language",
+        "Get full file system access",
+        "Built-in LSP and code execution"
+      ],
+      "cta": "Interesting"
+    },
+    {
+      "type": "celebration",
+      "emoji": "🏆",
+      "title": "Context Master!",
+      "body": "You've mastered the fundamentals of AI context and tokens! You now know how to <strong>optimize prompts for cost and performance</strong>, understand <strong>context window limits</strong>, and can <strong>manage long AI conversations</strong> effectively.",
+      "stats": true,
+      "cta": "Finish"
+    }
+  ]
+}

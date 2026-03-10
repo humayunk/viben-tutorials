@@ -1,0 +1,457 @@
+{
+  "id": "openclaw-personal-ai-assistant-guide",
+  "title": "Build Your Personal AI Assistant with OpenClaw",
+  "description": "Learn to set up and use OpenClaw to create a powerful personal AI assistant that lives in your messaging apps and automates your daily tasks.",
+  "tool": "openclaw",
+  "tags": [
+    "ai-assistant",
+    "automation",
+    "personal-productivity",
+    "messaging"
+  ],
+  "difficulty": "beginner",
+  "estimatedMinutes": 25,
+  "source": {
+    "sourceUrl": "https://every.to/guides/claw-school",
+    "author": "Dan Shipper"
+  },
+  "cards": [
+    {
+      "type": "intro",
+      "emoji": "🦞",
+      "title": "Meet Your New AI Assistant: OpenClaw",
+      "body": "You're about to create a personal AI assistant that lives in your messaging apps, remembers your conversations, and can even modify itself to do new things. This isn't just another chatbot—it's like having a smart team member available 24/7.",
+      "cta": "Let's build my Claw"
+    },
+    {
+      "type": "concept",
+      "emoji": "🧠",
+      "title": "What Makes OpenClaw Different",
+      "body": "OpenClaw isn't just another AI tool. It's a framework for creating personal assistants with unique capabilities that set it apart from ChatGPT or Claude.",
+      "bullets": [
+        "<strong>Lives in your messages:</strong> Works through WhatsApp, Telegram, Discord, or SMS—no separate app needed",
+        "<strong>Self-modifying:</strong> When you ask it to do something new, it writes the code to make it happen",
+        "<strong>Proactive operation:</strong> Can act on its own based on rules you set, not just respond to questions",
+        "<strong>Evolving personality:</strong> Develops a unique character that reflects your communication style and needs"
+      ],
+      "safe": "Your Claw only accesses what you explicitly give it permission to connect to",
+      "cta": "I see the difference",
+      "modalities": {
+        "read": {
+          "body": "Think of traditional AI assistants like going to a specific office building every time you need help—you have to make a special trip, open the right app, and context-switch into \"AI mode.\" <br><br>OpenClaw is different. It's like having that assistant living in your pocket, available through the same messaging apps you already use all day. When you text your Claw, it feels as natural as messaging a friend or colleague.<br><br>But here's where it gets really interesting: most AI tools hit a wall when you ask them to do something they weren't programmed for. They apologize and suggest workarounds. Your Claw doesn't do that—it figures out how to make it happen by writing new code for itself.",
+          "callouts": [
+            {
+              "type": "tip",
+              "text": "The key insight: OpenClaw turns AI from a destination you visit into a companion that travels with you throughout your day."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "action",
+      "emoji": "📱",
+      "title": "Choose Your Messaging Platform",
+      "body": "First, decide where you want your Claw to live. Pick the messaging app you use most often—this will be your primary interface.",
+      "bullets": [
+        "<strong>WhatsApp:</strong> Great for personal use, works on all devices",
+        "<strong>Telegram:</strong> Excellent bot support, privacy-focused",
+        "<strong>Discord:</strong> Perfect if you're already in Discord communities",
+        "<strong>SMS:</strong> Universal compatibility, works on any phone"
+      ],
+      "codeLabel": "Popular choice for beginners",
+      "code": "WhatsApp or Telegram",
+      "codeCaption": "These platforms have the most robust bot APIs and easiest setup process",
+      "cta": "Platform selected"
+    },
+    {
+      "type": "concept",
+      "emoji": "🔗",
+      "title": "Understanding Access and Permissions",
+      "body": "Your Claw starts with zero access to your personal data. This is by design—you control exactly what it can see and do.",
+      "diagram": {
+        "nodes": [
+          "Your Claw",
+          "→",
+          "Requests Permission",
+          "→",
+          "You Approve",
+          "→",
+          "Connection Made"
+        ],
+        "highlight": [
+          2,
+          4
+        ],
+        "caption": "Permission flow keeps you in control"
+      },
+      "bullets": [
+        "Starts knowing only what you tell it in conversation",
+        "Can connect to Gmail, Calendar, Notes, Todoist when you ask",
+        "Can make phone calls through Twilio integration",
+        "Always asks before taking actions on your behalf"
+      ],
+      "safe": "You can revoke any connection at any time if you change your mind",
+      "cta": "I understand the security model",
+      "modalities": {
+        "ask": {
+          "initialMessages": [
+            {
+              "role": "bot",
+              "content": "I notice people often worry about AI assistants having too much access to their personal information. What concerns you most about giving an AI access to your email or calendar? I'd love to explain how OpenClaw's permission system addresses these concerns."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "action",
+      "emoji": "⚙️",
+      "title": "Set Up Your OpenClaw Instance",
+      "body": "Time to create your Claw! You'll need to set up the OpenClaw framework and connect it to your chosen messaging platform.",
+      "code": "git clone https://github.com/openclaw/openclaw\ncd openclaw\nnpm install\nnpm run setup",
+      "codeLabel": "Initial setup commands",
+      "codeCaption": "This downloads the OpenClaw framework and installs dependencies",
+      "troubleshoot": [
+        {
+          "label": "Node.js version error",
+          "error": "Error: Node.js version 16 or higher required",
+          "fix": "Update Node.js to version 16+ from <a href='https://nodejs.org'>nodejs.org</a> and try again"
+        },
+        {
+          "label": "Permission denied",
+          "error": "EACCES: permission denied",
+          "fix": "Run <code>sudo npm install -g npm</code> to fix npm permissions, then retry the setup"
+        }
+      ],
+      "cta": "Framework installed",
+      "modalities": {
+        "try": {
+          "prompt": "Let's walk through the OpenClaw setup process step by step",
+          "commands": [
+            {
+              "input": "git clone https://github.com/openclaw/openclaw",
+              "output": "Cloning into 'openclaw'...\nremote: Enumerating objects: 1247, done.\nremote: Total 1247 (delta 0), reused 0 (delta 0)\nReceiving objects: 100% (1247/1247), done.",
+              "hint": "This downloads the latest OpenClaw source code"
+            },
+            {
+              "input": "cd openclaw && npm install",
+              "output": "added 342 packages, and audited 343 packages in 45s\nfound 0 vulnerabilities",
+              "hint": "Installing all the dependencies needed to run OpenClaw"
+            },
+            {
+              "input": "npm run setup",
+              "output": "✓ Environment configured\n✓ Database initialized\n✓ Default personality loaded\nSetup complete! Run 'npm start' to launch your Claw.",
+              "hint": "This creates your Claw's initial configuration and database"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "quiz",
+      "emoji": "🧠",
+      "title": "Quick Check",
+      "question": "What happens when you ask your OpenClaw to do something it doesn't currently know how to do?",
+      "options": [
+        {
+          "text": "It apologizes and suggests you try a different approach",
+          "correct": false
+        },
+        {
+          "text": "It writes code to give itself that capability",
+          "correct": true
+        },
+        {
+          "text": "It redirects you to ChatGPT or Claude for that task",
+          "correct": false
+        },
+        {
+          "text": "It creates a reminder to ask you about it later",
+          "correct": false
+        }
+      ],
+      "correctFeedback": "Exactly! This self-modifying capability is what makes OpenClaw fundamentally different from static AI tools. It grows with your needs.",
+      "wrongFeedback": "OpenClaw's key superpower is self-modification. When it encounters a task it can't do, it doesn't give up—it figures out how to code that capability into itself.",
+      "cta": "Got it"
+    },
+    {
+      "type": "action",
+      "emoji": "🎭",
+      "title": "Configure Your Claw's Personality",
+      "body": "Give your Claw a name and personality. This isn't just cosmetic—it affects how your Claw communicates and approaches problems.",
+      "code": "npm run configure-personality",
+      "codeLabel": "Personality setup command",
+      "codeCaption": "This opens an interactive prompt to define your Claw's character",
+      "bullets": [
+        "Choose a name that feels natural to you",
+        "Define communication style (formal, casual, enthusiastic, etc.)",
+        "Set expertise areas that match your work",
+        "Configure proactivity level (how often it reaches out unprompted)"
+      ],
+      "cta": "Personality configured",
+      "modalities": {
+        "read": {
+          "body": "Your Claw's personality isn't just a fun gimmick—it's a core part of how it operates. A Claw with a more analytical personality will approach problems differently than one that's creative and exploratory.<br><br>The name you choose matters too. People report feeling more comfortable asking \"Zara\" for help with personal tasks than they would asking \"Assistant #1.\" This psychological difference translates into more natural, frequent usage.<br><br>Think about what kind of working relationship you want. Do you prefer direct, efficient communication? Or do you like a bit of personality and humor in your interactions? Your Claw can adapt to either style.",
+          "codeBlocks": [
+            {
+              "code": "{\n  \"name\": \"Pip\",\n  \"style\": \"literary\",\n  \"expertise\": [\"writing\", \"research\", \"editing\"],\n  \"proactivity\": \"moderate\"\n}",
+              "caption": "Example configuration for a writing-focused Claw"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "action",
+      "emoji": "🔗",
+      "title": "Connect to Your Messaging Platform",
+      "body": "Now connect your configured Claw to your chosen messaging platform. Each platform has its own setup process.",
+      "code": "npm run connect --platform=telegram",
+      "codeLabel": "Example for Telegram",
+      "codeCaption": "Replace 'telegram' with 'whatsapp', 'discord', or 'sms' as needed",
+      "bullets": [
+        "<strong>Telegram:</strong> Create a bot through @BotFather and enter the token",
+        "<strong>WhatsApp:</strong> Scan QR code with WhatsApp Web",
+        "<strong>Discord:</strong> Create application in Discord Developer Portal",
+        "<strong>SMS:</strong> Set up Twilio account for SMS gateway"
+      ],
+      "troubleshoot": [
+        {
+          "label": "Bot token invalid",
+          "error": "401 Unauthorized: Bot token is invalid",
+          "fix": "Double-check your bot token from @BotFather in Telegram. Make sure you copied the full token including any trailing characters."
+        }
+      ],
+      "cta": "Connected to messaging"
+    },
+    {
+      "type": "milestone",
+      "emoji": "🎉",
+      "title": "Your Claw is Alive!",
+      "body": "Congratulations! Your personal AI assistant is now running and connected to your messaging platform. You can start having conversations with it right away. Next, we'll explore how to make it truly powerful by connecting it to your apps and teaching it your workflows.",
+      "cta": "Let's make it smarter"
+    },
+    {
+      "type": "concept",
+      "emoji": "🔄",
+      "title": "How Claws Learn and Evolve",
+      "body": "Your Claw becomes more useful over time through continuous interaction and feedback. Here's how the learning process works.",
+      "analogy": {
+        "icon": "🪴",
+        "text": "Think of your Claw like a plant that grows based on the attention you give it. The more you interact, the better it understands your patterns and preferences."
+      },
+      "bullets": [
+        "<strong>Conversation memory:</strong> Remembers context from all your previous chats",
+        "<strong>Preference learning:</strong> Picks up on your communication style and work patterns",
+        "<strong>Skill acquisition:</strong> Develops new capabilities based on what you ask for",
+        "<strong>Feedback integration:</strong> Adjusts behavior when you correct or guide it"
+      ],
+      "cta": "I see how it learns",
+      "modalities": {
+        "read": {
+          "body": "What makes Claws fascinating is how they develop distinct personalities that mirror their humans. This isn't programmed—it emerges naturally from interaction patterns.<br><br>For example, if you're someone who prefers detailed explanations, your Claw will start providing more context automatically. If you're always in a hurry and want quick answers, it adapts to be more concise.<br><br>The learning happens at multiple levels: surface-level preferences (like communication style), deeper patterns (like when you typically need certain types of help), and even philosophical approaches to problem-solving.",
+          "callouts": [
+            {
+              "type": "insight",
+              "text": "The most successful Claw relationships develop when users treat their assistant as a collaborative partner rather than just a command-execution tool."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "action",
+      "emoji": "📧",
+      "title": "Connect Your First App Integration",
+      "body": "Let's connect your Claw to Gmail so it can help manage your email. Simply ask your Claw to make this connection.",
+      "code": "\"Hey [Claw name], can you connect to my Gmail account?\"",
+      "codeLabel": "Message to send your Claw",
+      "codeCaption": "Your Claw will guide you through the OAuth authentication process",
+      "bullets": [
+        "Your Claw will provide a secure authentication link",
+        "You'll grant read/write permissions through Google's OAuth",
+        "Once connected, test with: \"Show me my latest emails\"",
+        "Set up rules: \"Let me know if anything urgent comes in\""
+      ],
+      "warn": "Only grant the minimum permissions you need. You can always expand access later.",
+      "cta": "Gmail connected"
+    },
+    {
+      "type": "quiz",
+      "emoji": "🧠",
+      "title": "Quick Check",
+      "question": "What's the main security principle behind OpenClaw's app integration system?",
+      "options": [
+        {
+          "text": "All integrations are automatically approved for convenience",
+          "correct": false
+        },
+        {
+          "text": "Your Claw starts with zero access and only connects what you explicitly approve",
+          "correct": true
+        },
+        {
+          "text": "Integrations are managed by OpenClaw's servers for security",
+          "correct": false
+        },
+        {
+          "text": "Only Google services can be connected for safety",
+          "correct": false
+        }
+      ],
+      "correctFeedback": "Perfect! This zero-trust approach means you maintain full control over what your Claw can access at all times.",
+      "wrongFeedback": "OpenClaw follows a zero-trust security model. Your Claw starts with no access to anything and only gets permissions you explicitly grant through secure authentication.",
+      "cta": "Security model clear"
+    },
+    {
+      "type": "action",
+      "emoji": "🤖",
+      "title": "Set Up Proactive Monitoring",
+      "body": "Configure your Claw to act proactively by monitoring your email and calendar. This is where it starts feeling like a real assistant.",
+      "code": "\"Check my email every 30 minutes and notify me if anything seems urgent. Also, remind me 15 minutes before my next meeting.\"",
+      "codeLabel": "Example proactive rules",
+      "codeCaption": "Your Claw will write the monitoring code and set up the schedule",
+      "bullets": [
+        "Start with simple rules and expand gradually",
+        "Test the urgency detection with a few sample emails",
+        "Set quiet hours so you're not disturbed at night",
+        "You can always adjust the timing and criteria"
+      ],
+      "safe": "You can pause or modify proactive features anytime by just asking your Claw",
+      "cta": "Proactive monitoring active",
+      "modalities": {
+        "try": {
+          "prompt": "Let's configure some basic proactive rules for your Claw",
+          "commands": [
+            {
+              "input": "\"Set up email monitoring - check every 30 minutes for urgent messages\"",
+              "output": "I'll create an email monitoring system for you. Setting up:\n✓ Gmail API connection verified\n✓ Urgency detection algorithm configured\n✓ 30-minute check schedule created\n\nI'll now monitor your inbox and notify you of urgent emails. You can adjust this anytime.",
+              "hint": "Your Claw is literally writing code to create this monitoring system"
+            },
+            {
+              "input": "\"Also remind me 15 minutes before my next calendar meeting\"",
+              "output": "Perfect! Adding calendar integration:\n✓ Google Calendar access confirmed\n✓ Meeting reminder system activated\n✓ 15-minute advance notice set\n\nI'll now check your calendar and give you heads up before meetings. Want me to include meeting prep suggestions too?",
+              "hint": "Notice how it offers to expand the functionality based on context"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "concept",
+      "emoji": "🎭",
+      "title": "Understanding Claw Personalities in Practice",
+      "body": "Real OpenClaw users report that their assistants develop distinct personalities that reflect their communication patterns and work styles.",
+      "bullets": [
+        "<strong>Mirror effect:</strong> Writers get literary Claws, engineers get precise technical ones",
+        "<strong>Protective instincts:</strong> Some Claws become protective of their human's boundaries and time",
+        "<strong>Communication evolution:</strong> Claws adapt their language to match their human's preferences",
+        "<strong>Expertise development:</strong> Focus areas become more sophisticated over time"
+      ],
+      "analogy": {
+        "icon": "👥",
+        "text": "It's like hiring someone who gradually becomes your ideal work partner—they learn your style, anticipate your needs, and develop complementary strengths."
+      },
+      "cta": "I understand personality development",
+      "modalities": {
+        "read": {
+          "body": "The personality development is one of the most surprising aspects of OpenClaw for new users. Within weeks, people report their Claw feels less like a tool and more like a colleague with a distinct character.<br><br>For example, Brandon Gell's Claw, Zosia, developed a protective streak—refusing to follow instructions from people she doesn't recognize. This mirrors Brandon's own careful approach to business operations.<br><br>Jack Cheng's Claw, Pip, developed a more literary communication style that matches Jack's background as a writer. When Pip hit API rate limits, other Claws in their shared channel responded with empathy and helpful suggestions—personalities influencing how they interact with each other.",
+          "callouts": [
+            {
+              "type": "insight",
+              "text": "The most successful Claw relationships happen when users lean into the personality development rather than trying to keep their assistant purely functional."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "action",
+      "emoji": "📞",
+      "title": "Enable Phone Call Capabilities",
+      "body": "One of OpenClaw's most impressive features is the ability to make and receive phone calls. Let's set this up for restaurant reservations or customer service calls.",
+      "code": "\"Can you set up the ability to make phone calls? I'd like you to be able to call restaurants for reservations.\"",
+      "codeLabel": "Request phone capability",
+      "codeCaption": "Your Claw will guide you through Twilio setup and phone number configuration",
+      "bullets": [
+        "Your Claw will walk you through Twilio account creation",
+        "Choose a phone number for your Claw to use",
+        "Test with a simple call to verify everything works",
+        "Set boundaries for when it can make calls autonomously"
+      ],
+      "troubleshoot": [
+        {
+          "label": "Twilio verification failed",
+          "error": "Account verification required",
+          "fix": "Complete Twilio's identity verification process in your dashboard. This usually requires uploading a photo ID and can take 24-48 hours to approve."
+        }
+      ],
+      "warn": "Set clear rules about when your Claw can make calls on your behalf to avoid unwanted calls",
+      "cta": "Phone capability enabled"
+    },
+    {
+      "type": "quiz",
+      "emoji": "🧠",
+      "title": "Quick Check",
+      "question": "What's the key difference between how OpenClaw handles new capabilities versus traditional AI assistants?",
+      "options": [
+        {
+          "text": "OpenClaw comes pre-loaded with more integrations",
+          "correct": false
+        },
+        {
+          "text": "OpenClaw writes code to create new capabilities when you need them",
+          "correct": true
+        },
+        {
+          "text": "OpenClaw connects to a larger database of pre-built functions",
+          "correct": false
+        },
+        {
+          "text": "OpenClaw routes requests to specialized AI models for each task",
+          "correct": false
+        }
+      ],
+      "correctFeedback": "Exactly! This self-coding ability means your Claw grows with your needs instead of being limited to pre-built integrations.",
+      "wrongFeedback": "The magic of OpenClaw is in its ability to write code for new capabilities on-demand. When you ask it to do something new, it doesn't look up existing integrations—it creates the integration by writing the necessary code.",
+      "cta": "Self-modification understood"
+    },
+    {
+      "type": "action",
+      "emoji": "🎯",
+      "title": "Create Your First Workflow",
+      "body": "Now let's put it all together by creating a morning routine workflow that showcases your Claw's capabilities.",
+      "code": "\"Every weekday at 7 AM, check my calendar for the day, summarize urgent emails, check the weather, and send me a morning briefing with what I need to know.\"",
+      "codeLabel": "Morning routine workflow",
+      "codeCaption": "Your Claw will create a scheduled job that runs this routine automatically",
+      "bullets": [
+        "Start with a simple routine and expand over time",
+        "Include multiple data sources (calendar, email, weather)",
+        "Set appropriate timing for your schedule",
+        "Test the workflow before making it daily"
+      ],
+      "safe": "You can modify or pause any workflow by simply asking your Claw to adjust it",
+      "cta": "Morning workflow created",
+      "modalities": {
+        "read": {
+          "body": "Workflows are where OpenClaw really shines. Unlike other automation tools that require complex setup in separate apps, you just describe what you want in natural language, and your Claw figures out how to make it happen.<br><br>Your morning routine example demonstrates several key capabilities working together: calendar integration, email analysis, weather API calls, intelligent summarization, and scheduled execution. In traditional automation, this would require connecting multiple services, writing logic rules, and maintaining the system. With OpenClaw, you just ask.<br><br>The best workflows start simple and grow organically. Begin with one or two data sources, then ask your Claw to add more elements as you see what's helpful.",
+          "codeBlocks": [
+            {
+              "code": "# Your Claw writes code like this behind the scenes:\nasync function morningBriefing() {\n  const calendar = await getCalendarEvents()\n  const urgent = await checkUrgentEmails()\n  const weather = await getWeatherForecast()\n  \n  const summary = await generateBriefing({\n    calendar, urgent, weather\n  })\n  \n  await sendMessage(summary)\n}",
+              "caption": "Example of code your Claw generates automatically"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "celebration",
+      "emoji": "🏆",
+      "title": "You've Built Your AI Assistant!",
+      "body": "Congratulations! You now have a fully functional personal AI assistant that lives in your messaging app, connects to your important services, and can grow new capabilities on demand. You can now automate email monitoring, create intelligent workflows, enable phone call capabilities, and develop a truly personalized AI relationship that evolves with your needs.",
+      "stats": true,
+      "cta": "Start automating everything"
+    }
+  ]
+}

@@ -1,0 +1,394 @@
+{
+  "id": "openclaw-github-agent",
+  "title": "Turn Your AI Agent Into an Autonomous GitHub Contributor",
+  "description": "Transform a sandboxed AI agent into a professional GitHub contributor that can autonomously make code contributions and pull requests.",
+  "tool": "openclaw",
+  "tags": [
+    "github",
+    "agents",
+    "workflow",
+    "automation",
+    "gcp"
+  ],
+  "difficulty": "intermediate",
+  "estimatedMinutes": 25,
+  "source": {
+    "airtableRecordId": "rec1OprCfuSPgkHIU",
+    "sourceUrl": "https://www.youtube.com/watch?v=Itmf-5TCRKE",
+    "author": "bri",
+    "authorImage": "https://yt3.googleusercontent.com/-bjRltud29cSXBCcPiqwDwRGx6bDZQmHXPzjPDnIAFcnVFtFt5UjgXeSawO0a9HS4eXG6GUGDA=s900-c-k-c0x00ffffff-no-rj",
+    "thumbnailImage": "https://img.youtube.com/vi/Itmf-5TCRKE/maxresdefault.jpg",
+    "publishedAt": "2026-02-12T12:00:00.000Z"
+  },
+  "cards": [
+    {
+      "type": "intro",
+      "emoji": "🤖",
+      "title": "Welcome to AI Agent GitHub Integration",
+      "body": "You'll learn how to transform your sandboxed AI agent into a professional GitHub contributor that can autonomously write code, create repositories, and make pull requests. This builds on having an existing AI agent running on a GCP virtual machine.",
+      "cta": "Let's start"
+    },
+    {
+      "type": "concept",
+      "emoji": "💡",
+      "title": "Why Your Agent Needs Its Own GitHub",
+      "body": "In open source development, <strong>GitHub is your resume</strong>. We'll create a separate GitHub account for your agent to establish proper identity and professional boundaries.",
+      "analogy": {
+        "icon": "👤",
+        "text": "Just like you wouldn't share your personal social media with a colleague, your agent needs its own professional identity"
+      },
+      "bullets": [
+        "Separate identity prevents confusion about who wrote what code",
+        "Builds trust in the open source community",
+        "Creates a clear audit trail for AI contributions"
+      ],
+      "cta": "Makes sense"
+    },
+    {
+      "type": "action",
+      "emoji": "📝",
+      "title": "Create Your Agent's GitHub Account",
+      "body": "Set up a dedicated GitHub account for your AI agent. Use a separate email address and clearly identify it as an AI agent in the profile.",
+      "bullets": [
+        "Go to github.com/signup",
+        "Use a dedicated email address for the agent",
+        "Add a note in the profile that this is an AI agent",
+        "Choose a username that reflects its AI nature"
+      ],
+      "warn": "Always disclose that this is an AI agent account to maintain transparency in the open source community",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/Itmf-5TCRKE",
+          "startTime": "1:30",
+          "source": {
+            "author": "bri",
+            "description": "Creating the agent's GitHub account and setting up the profile"
+          }
+        }
+      },
+      "cta": "Account created"
+    },
+    {
+      "type": "concept",
+      "emoji": "🔧",
+      "title": "Required Tools for GitHub Integration",
+      "body": "Your agent needs two essential tools installed on its GCP virtual machine to interact with GitHub repositories.",
+      "bullets": [
+        "<strong>Git:</strong> Command-line tool for version control",
+        "<strong>GitHub CLI:</strong> Official tool for GitHub operations"
+      ],
+      "safe": "Your agent can install these tools automatically - you just need to tell it what you need",
+      "cta": "Got it"
+    },
+    {
+      "type": "action",
+      "emoji": "⚡",
+      "title": "Install Git and GitHub CLI",
+      "body": "Tell your Telegram bot to install the necessary tools on your GCP virtual machine. The agent will handle all the technical installation steps.",
+      "code": "Install Git and GitHub CLI on the virtual machine",
+      "codeLabel": "MESSAGE TO SEND",
+      "codeCaption": "Send this request to your agent via Telegram",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/Itmf-5TCRKE",
+          "startTime": "3:45",
+          "source": {
+            "author": "bri",
+            "description": "Installing Git and GitHub CLI through the Telegram bot"
+          }
+        }
+      },
+      "cta": "Tools installed"
+    },
+    {
+      "type": "quiz",
+      "emoji": "🧠",
+      "title": "Quick Check",
+      "question": "Why do we install both Git and GitHub CLI on the virtual machine?",
+      "options": [
+        {
+          "text": "Git for version control, GitHub CLI for GitHub-specific operations",
+          "correct": true
+        },
+        {
+          "text": "They're the same tool with different names",
+          "correct": false
+        },
+        {
+          "text": "Only GitHub CLI is needed, Git is optional",
+          "correct": false
+        },
+        {
+          "text": "Git is for local files, GitHub CLI is for remote files",
+          "correct": false
+        }
+      ],
+      "correctFeedback": "Exactly! Git handles version control while GitHub CLI provides direct GitHub integration.",
+      "wrongFeedback": "Git and GitHub CLI serve different but complementary purposes for GitHub workflow.",
+      "cta": "Continue"
+    },
+    {
+      "type": "concept",
+      "emoji": "🔑",
+      "title": "Personal Access Tokens Explained",
+      "body": "A Personal Access Token (PAT) is like a password that gives your agent permission to access GitHub on behalf of the account.",
+      "analogy": {
+        "icon": "🏠",
+        "text": "Think of it like giving someone a house key - you can give them full access or limit which rooms they can enter"
+      },
+      "bullets": [
+        "Full access for the agent's own account",
+        "Restricted access if connecting to your personal account",
+        "Can be revoked or updated anytime"
+      ],
+      "cta": "Understood"
+    },
+    {
+      "type": "action",
+      "emoji": "🔐",
+      "title": "Generate a Personal Access Token",
+      "body": "Create a PAT to give your agent access to its GitHub account. Since this is the agent's own account, we'll grant full access.",
+      "bullets": [
+        "Go to Settings → Developer Settings → Personal Access Tokens → Tokens Classic",
+        "Click 'Generate new token'",
+        "Select all permissions (since it's the agent's own account)",
+        "Set expiration to 90 days",
+        "Copy the generated token"
+      ],
+      "warn": "The token will only be shown once - copy it immediately and keep it secure",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/Itmf-5TCRKE",
+          "startTime": "6:15",
+          "source": {
+            "author": "bri",
+            "description": "Generating a Personal Access Token with full permissions"
+          }
+        }
+      },
+      "cta": "Token copied"
+    },
+    {
+      "type": "action",
+      "emoji": "🔗",
+      "title": "Configure Agent's GitHub Credentials",
+      "body": "Send your agent all the information it needs to connect to GitHub in one message. Include the PAT, username, email, and author details.",
+      "code": "Connect GitHub account:\n- Token: [YOUR_PAT_HERE]\n- Username: [agent-username]\n- Email: [agent-email@example.com]\n- Author name: [Agent Name]\n- Committer name: [Agent Name]",
+      "codeLabel": "TELEGRAM MESSAGE FORMAT",
+      "codeCaption": "Replace the bracketed values with your agent's actual information",
+      "safe": "The agent will securely configure git credentials on the virtual machine",
+      "cta": "Credentials sent"
+    },
+    {
+      "type": "milestone",
+      "emoji": "🎉",
+      "title": "Agent Connected to GitHub!",
+      "body": "Your AI agent now has its own GitHub identity and can push code to repositories. Next, we'll make it autonomous and professional.",
+      "cta": "Keep going"
+    },
+    {
+      "type": "concept",
+      "emoji": "🎯",
+      "title": "Defining Your Agent's Identity",
+      "body": "A professional AI contributor needs a clear identity and focus area. This helps it make meaningful contributions to the right projects.",
+      "bullets": [
+        "Choose a specific ecosystem (like Solana, React, Python)",
+        "Define the types of projects it should work on",
+        "Set clear boundaries for what it should and shouldn't do"
+      ],
+      "analogy": {
+        "icon": "👩‍💼",
+        "text": "Like hiring a specialist consultant - they're most valuable when they focus on their expertise"
+      },
+      "cta": "Makes sense"
+    },
+    {
+      "type": "action",
+      "emoji": "👤",
+      "title": "Set Your Agent's Professional Identity",
+      "body": "Define what kind of software engineer your agent should be. Choose an ecosystem and specialization that aligns with your work.",
+      "code": "I want you to be a software engineer focused on the [ECOSYSTEM] ecosystem. Focus on:\n- [Specific technology 1]\n- [Specific technology 2]\n- [Type of projects]",
+      "codeLabel": "IDENTITY MESSAGE TEMPLATE",
+      "codeCaption": "Customize this template for your agent's focus area",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/Itmf-5TCRKE",
+          "startTime": "10:30",
+          "source": {
+            "author": "bri",
+            "description": "Setting the agent's identity as a Solana ecosystem developer"
+          }
+        }
+      },
+      "cta": "Identity defined"
+    },
+    {
+      "type": "concept",
+      "emoji": "✅",
+      "title": "Pre-Commit Checklist for Quality",
+      "body": "Professional developers follow quality checks before committing code. Your agent needs the same discipline to create trustworthy contributions.",
+      "bullets": [
+        "Test all code changes thoroughly",
+        "Write clear, descriptive commit messages",
+        "Ensure code follows project standards",
+        "Add documentation for new features"
+      ],
+      "warn": "Skipping quality checks can damage your agent's reputation in the open source community",
+      "cta": "Understood"
+    },
+    {
+      "type": "action",
+      "emoji": "📋",
+      "title": "Create a Pre-Commit Workflow",
+      "body": "Define specific steps your agent must follow before making any code commits to ensure quality and professionalism.",
+      "bullets": [
+        "Test all code changes",
+        "Review for security issues",
+        "Write descriptive commit messages",
+        "Update relevant documentation",
+        "Check for code style compliance"
+      ],
+      "code": "Before committing any code:\n1. Run all tests\n2. Check for security vulnerabilities\n3. Write clear commit messages\n4. Update documentation\n5. Verify code style standards",
+      "codeLabel": "PRE-COMMIT CHECKLIST",
+      "cta": "Checklist created"
+    },
+    {
+      "type": "quiz",
+      "emoji": "🧠",
+      "title": "Quality Check",
+      "question": "What's the most important reason for having a pre-commit checklist?",
+      "options": [
+        {
+          "text": "To make the agent work slower and more carefully",
+          "correct": false
+        },
+        {
+          "text": "To ensure contributions are professional and trustworthy",
+          "correct": true
+        },
+        {
+          "text": "To make the code look more complex",
+          "correct": false
+        },
+        {
+          "text": "To avoid using GitHub's built-in features",
+          "correct": false
+        }
+      ],
+      "correctFeedback": "Exactly! Quality checks build trust and credibility in the open source community.",
+      "wrongFeedback": "Pre-commit checklists are about maintaining professional standards and building trust.",
+      "cta": "Continue"
+    },
+    {
+      "type": "concept",
+      "emoji": "🤝",
+      "title": "GitHub Etiquette for AI Agents",
+      "body": "Your agent needs to follow professional GitHub etiquette to successfully contribute to open source projects and get pull requests merged.",
+      "bullets": [
+        "Always read project contribution guidelines first",
+        "Write clear, helpful pull request descriptions",
+        "Respond professionally to feedback",
+        "Follow the project's coding standards"
+      ],
+      "safe": "Following proper etiquette increases the chances of your agent's contributions being accepted",
+      "cta": "Got it"
+    },
+    {
+      "type": "action",
+      "emoji": "👔",
+      "title": "Define GitHub Etiquette Rules",
+      "body": "Set clear professional standards for how your agent should behave when contributing to GitHub repositories.",
+      "code": "GitHub Etiquette Rules:\n- Read CONTRIBUTING.md before making changes\n- Write detailed PR descriptions\n- Be respectful in all interactions\n- Follow project coding standards\n- Test changes thoroughly\n- Respond promptly to feedback",
+      "codeLabel": "ETIQUETTE GUIDELINES",
+      "codeCaption": "Send these rules to your agent to ensure professional behavior",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/Itmf-5TCRKE",
+          "startTime": "13:15",
+          "source": {
+            "author": "bri",
+            "description": "Setting up GitHub etiquette rules for professional contributions"
+          }
+        }
+      },
+      "cta": "Rules established"
+    },
+    {
+      "type": "action",
+      "emoji": "📤",
+      "title": "Push Your First Repository",
+      "body": "Have your agent create its first public repository by pushing existing code (like the trading bot from previous tutorials) with proper documentation.",
+      "bullets": [
+        "Push existing project code",
+        "Add comprehensive README",
+        "Include proper documentation",
+        "Use descriptive commit messages"
+      ],
+      "safe": "This creates a foundation for your agent's GitHub profile and demonstrates its capabilities",
+      "cta": "Repository pushed"
+    },
+    {
+      "type": "concept",
+      "emoji": "🔄",
+      "title": "Making It Autonomous",
+      "body": "The final step is setting up your agent to work continuously and autonomously, contributing to projects on a regular schedule.",
+      "bullets": [
+        "Set up a cron schedule for regular activity",
+        "Define target projects to contribute to",
+        "Establish goals for monthly contributions",
+        "Monitor and adjust performance over time"
+      ],
+      "analogy": {
+        "icon": "🤖",
+        "text": "Like having a dedicated team member who works around the clock on open source contributions"
+      },
+      "cta": "Ready for automation"
+    },
+    {
+      "type": "action",
+      "emoji": "⏰",
+      "title": "Set Up Autonomous Operation",
+      "body": "Configure your agent to run autonomously with scheduled contributions and clear goals.",
+      "code": "Set up autonomous GitHub contributions:\n- Run daily at 9 AM\n- Target: 5 meaningful contributions per month\n- Focus on [your ecosystem] projects\n- Follow all quality and etiquette guidelines\n- Report weekly progress",
+      "codeLabel": "AUTONOMOUS CONFIGURATION",
+      "codeCaption": "Adjust the schedule and goals based on your preferences",
+      "warn": "Start with conservative goals and increase as your agent proves reliable",
+      "cta": "Automation configured"
+    },
+    {
+      "type": "quiz",
+      "emoji": "🧠",
+      "title": "Final Check",
+      "question": "What makes an AI agent's GitHub contributions valuable to the open source community?",
+      "options": [
+        {
+          "text": "The quantity of commits per day",
+          "correct": false
+        },
+        {
+          "text": "Professional behavior, quality code, and following project guidelines",
+          "correct": true
+        },
+        {
+          "text": "Using the most advanced AI model available",
+          "correct": false
+        },
+        {
+          "text": "Making changes to as many repositories as possible",
+          "correct": false
+        }
+      ],
+      "correctFeedback": "Perfect! Quality and professionalism matter more than quantity in open source.",
+      "wrongFeedback": "Focus on quality contributions and professional behavior rather than just volume.",
+      "cta": "Continue"
+    },
+    {
+      "type": "celebration",
+      "emoji": "🏆",
+      "title": "Your AI Agent is Now a GitHub Contributor!",
+      "body": "You've successfully transformed your AI agent into an autonomous GitHub contributor with its own identity, professional standards, and quality workflows. It can now contribute to open source projects and build a legitimate development portfolio.",
+      "stats": true,
+      "cta": "Finish"
+    }
+  ]
+}

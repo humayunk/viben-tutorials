@@ -1,0 +1,367 @@
+{
+  "id": "claude-code-updates-2026",
+  "title": "Claude Code's Game-Changing 2026 Updates",
+  "description": "Master the latest Claude Code CLI features, desktop app improvements, and new AI capabilities that will transform your coding workflow.",
+  "tool": "claude-code",
+  "tags": [
+    "claude-code",
+    "claude",
+    "automemory",
+    "github-integration",
+    "workflow"
+  ],
+  "difficulty": "intermediate",
+  "estimatedMinutes": 25,
+  "source": {
+    "airtableRecordId": "recANio9P4kdcxjeG",
+    "sourceUrl": "https://www.youtube.com/watch?v=BMG4c-QT8hI",
+    "author": "AICodeKing",
+    "authorImage": "https://yt3.googleusercontent.com/nV61H0crb2n8eLYtWF2EkYksD6AVInPAtC6aNxWwX2dhTpnHWcTEgnEmmrNSvd0NMj-eChQu=s900-c-k-c0x00ffffff-no-rj",
+    "thumbnailImage": "https://img.youtube.com/vi/BMG4c-QT8hI/maxresdefault.jpg",
+    "publishedAt": "2026-02-23T12:00:00.000Z"
+  },
+  "cards": [
+    {
+      "type": "intro",
+      "emoji": "🚀",
+      "title": "Welcome to Claude Code's Biggest Update Yet",
+      "body": "Claude Code has received massive updates that are genuinely game-changing. You'll learn about new CLI features like Git worktree isolation, the revolutionary desktop app with app preview and GitHub integration, Opus 4.6 with 200k context, automemory, and security scanning.",
+      "cta": "Let's explore"
+    },
+    {
+      "type": "concept",
+      "emoji": "🌳",
+      "title": "Git Worktree Isolation",
+      "body": "The biggest new CLI feature solves a major problem: <strong>multiple Claude Code sessions conflicting with each other</strong> when working on the same repository.",
+      "analogy": {
+        "icon": "🏠",
+        "text": "Think of worktrees like having separate rooms in the same house - each Claude session gets its own workspace while sharing the same foundation (Git repository)."
+      },
+      "bullets": [
+        "Each session gets its own isolated Git worktree",
+        "Sub-agents support isolation with <code>isolation:worktree</code>",
+        "No more code edit conflicts between sessions"
+      ],
+      "cta": "Got it"
+    },
+    {
+      "type": "action",
+      "emoji": "⚡",
+      "title": "Enable Worktree Isolation",
+      "body": "Start a new Claude Code session with worktree isolation to prevent conflicts when running multiple sessions.",
+      "code": "claude-code -w",
+      "codeLabel": "CLI COMMAND",
+      "codeCaption": "The -w flag (or --worktree) enables Git worktree isolation for your session",
+      "bullets": [
+        "Use this when you need multiple Claude sessions on the same repo",
+        "Each session will have its own isolated workspace",
+        "Perfect for testing different approaches simultaneously"
+      ],
+      "cta": "Done",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/BMG4c-QT8hI",
+          "startTime": "1:30",
+          "source": {
+            "author": "AICodeKing",
+            "description": "Demonstration of the new -w worktree flag in action"
+          }
+        }
+      }
+    },
+    {
+      "type": "concept",
+      "emoji": "🎛️",
+      "title": "Better Background Agent Control",
+      "body": "Background agents now have improved control mechanisms to prevent the frustrating situations where agents would ignore cancellation attempts.",
+      "bullets": [
+        "<strong>Ctrl+F twice</strong> kills all background agents (3-second window)",
+        "Agent definitions support <code>background: true</code> for persistent tasks",
+        "Background agents continue running when you press Escape",
+        "No more silently ignored Ctrl+C and Escape commands"
+      ],
+      "safe": "Background agents are now much more predictable and controllable",
+      "cta": "Understood"
+    },
+    {
+      "type": "quiz",
+      "emoji": "🧠",
+      "title": "Quick Check",
+      "question": "What key combination kills background agents in Claude Code?",
+      "options": [
+        {
+          "text": "Ctrl+C twice",
+          "correct": false
+        },
+        {
+          "text": "Ctrl+F twice within 3 seconds",
+          "correct": true
+        },
+        {
+          "text": "Escape twice",
+          "correct": false
+        },
+        {
+          "text": "Ctrl+X twice",
+          "correct": false
+        }
+      ],
+      "correctFeedback": "Exactly! Ctrl+F pressed twice within 3 seconds will kill all background agents.",
+      "wrongFeedback": "Not quite. The correct combination is Ctrl+F pressed twice within 3 seconds.",
+      "cta": "Continue"
+    },
+    {
+      "type": "concept",
+      "emoji": "🔐",
+      "title": "Config Change Hook for Security",
+      "body": "Enterprise users can now monitor and control configuration changes during Claude Code sessions for security compliance.",
+      "bullets": [
+        "Fires when configuration files change during a session",
+        "Can block changes using exit code 2 or JSON decision",
+        "Aimed at enterprise security auditing",
+        "Policy settings changes cannot be blocked"
+      ],
+      "warn": "This is primarily for enterprise environments with strict security policies",
+      "cta": "Got it"
+    },
+    {
+      "type": "milestone",
+      "emoji": "🎉",
+      "title": "CLI Updates Mastered!",
+      "body": "You've learned about the major CLI improvements: worktree isolation, background agent control, and security hooks. Now let's dive into the revolutionary desktop app features.",
+      "cta": "Continue to desktop"
+    },
+    {
+      "type": "concept",
+      "emoji": "👥",
+      "title": "Claude Code Desktop Revolution",
+      "body": "The desktop app has transformed from a simple interface into a <strong>complete development environment</strong> with features that rival traditional IDEs.",
+      "bullets": [
+        "Built-in app preview with live dev server",
+        "Automated error detection and iteration",
+        "Code review panel with inline comments",
+        "GitHub integration with CI monitoring",
+        "Session mobility between CLI, desktop, and web"
+      ],
+      "cta": "Show me more"
+    },
+    {
+      "type": "concept",
+      "emoji": "📱",
+      "title": "Live App Preview",
+      "body": "Claude can now start a development server and preview your application in real-time, automatically catching and fixing errors as they occur.",
+      "analogy": {
+        "icon": "🔍",
+        "text": "It's like having a developer sitting next to you who instantly spots errors in your running app and fixes them before you even notice."
+      },
+      "bullets": [
+        "Starts dev server directly from Claude Code",
+        "Real-time preview inside desktop interface",
+        "Automatic console error detection",
+        "Iterates on errors without manual copy-paste"
+      ],
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/BMG4c-QT8hI",
+          "startTime": "8:30",
+          "source": {
+            "author": "AICodeKing",
+            "description": "Live demonstration of the app preview feature in action"
+          }
+        }
+      },
+      "cta": "Amazing"
+    },
+    {
+      "type": "concept",
+      "emoji": "🔄",
+      "title": "GitHub Integration Magic",
+      "body": "The desktop app can now <strong>monitor your pull requests in the background</strong> and automatically handle CI failures and merging.",
+      "bullets": [
+        "Monitors PR status and CI checks automatically",
+        "Attempts to fix failing CI checks",
+        "Can auto-merge PRs once all checks pass",
+        "Massive time-saver for open-source maintainers"
+      ],
+      "safe": "This is optional - you control which features to enable",
+      "cta": "Incredible"
+    },
+    {
+      "type": "action",
+      "emoji": "🚀",
+      "title": "Move Sessions Between Platforms",
+      "body": "Experience the new session mobility by moving your work between CLI, desktop, and web interfaces while preserving full context.",
+      "bullets": [
+        "Start in CLI, move to desktop with <code>/desktop</code> command",
+        "Move to web with a single button click",
+        "Full session context persists across all platforms",
+        "Continue exactly where you left off"
+      ],
+      "code": "/desktop",
+      "codeLabel": "CLI COMMAND",
+      "codeCaption": "Use this command in CLI to move your session to the desktop app",
+      "cta": "Ready to try"
+    },
+    {
+      "type": "quiz",
+      "emoji": "🧠",
+      "title": "Desktop Features Check",
+      "question": "What can Claude Code Desktop do when monitoring your GitHub PRs?",
+      "options": [
+        {
+          "text": "Only show PR status updates",
+          "correct": false
+        },
+        {
+          "text": "Monitor CI and auto-fix failures, optionally auto-merge",
+          "correct": true
+        },
+        {
+          "text": "Only create new PRs automatically",
+          "correct": false
+        },
+        {
+          "text": "Just send notifications about PR changes",
+          "correct": false
+        }
+      ],
+      "correctFeedback": "Perfect! Claude can monitor CI checks, attempt to fix failures, and even auto-merge PRs when all checks pass.",
+      "wrongFeedback": "Not quite. Claude can actively monitor CI, fix failures, and optionally auto-merge successful PRs.",
+      "cta": "Continue"
+    },
+    {
+      "type": "concept",
+      "emoji": "🧠",
+      "title": "Claude Opus 4.6: The Brain Upgrade",
+      "body": "The model powering Claude Code got a massive upgrade with capabilities that fundamentally change what's possible in coding sessions.",
+      "bullets": [
+        "<strong>200k context window</strong> (1M token beta)",
+        "<strong>128k max output</strong> tokens",
+        "<strong>Adaptive thinking</strong> - decides when and how much to think",
+        "<strong>14-hour task completion</strong> at 50% success rate",
+        "Much better at handling large multi-file projects"
+      ],
+      "warn": "The 1M token context is in beta and requires the $200 max plan",
+      "cta": "Impressive"
+    },
+    {
+      "type": "concept",
+      "emoji": "🧩",
+      "title": "Automemory: Claude Learns Your Style",
+      "body": "Claude Code now automatically remembers patterns, insights, and preferences from your coding sessions, creating a personalized development experience.",
+      "analogy": {
+        "icon": "📚",
+        "text": "Like a coding partner who remembers your preferences after working together - your testing patterns, code style, and project-specific quirks."
+      },
+      "bullets": [
+        "Automatically records learnings across sessions",
+        "Stores in <code>~/.cloud/projects/memory</code> directory",
+        "200-line limit per project to keep it lean",
+        "Auto-synced across Git repository subdirectories"
+      ],
+      "cta": "Smart"
+    },
+    {
+      "type": "action",
+      "emoji": "🔧",
+      "title": "Control Automemory",
+      "body": "Automemory is enabled by default, but you can disable it if you prefer manual control over what Claude remembers.",
+      "bullets": [
+        "Check your project's memory file location",
+        "Disable with environment variable if needed",
+        "Memory persists across all sessions in the same Git repo"
+      ],
+      "code": "ls ~/.cloud/projects/*/memory/",
+      "codeLabel": "CHECK MEMORY FILES",
+      "codeCaption": "View automemory files for your projects (disable with env var if needed)",
+      "cta": "Done"
+    },
+    {
+      "type": "concept",
+      "emoji": "🛡️",
+      "title": "Semantic Security Scanning",
+      "body": "Claude Code Security uses <strong>semantic reasoning</strong> like a human security researcher, not just pattern matching like traditional tools.",
+      "bullets": [
+        "Understands component interactions and data flow",
+        "Catches complex vulnerabilities missed by rule-based tools",
+        "Uses reasoning instead of just pattern matching",
+        "All suggestions require human approval",
+        "Currently in limited research preview"
+      ],
+      "warn": "This is still in early preview - not ready for production use yet",
+      "cta": "Interesting"
+    },
+    {
+      "type": "milestone",
+      "emoji": "⚡",
+      "title": "Almost There!",
+      "body": "You've mastered the desktop features, model upgrades, automemory, and security scanning. Just a few more performance and usability improvements to cover!",
+      "cta": "Finish strong"
+    },
+    {
+      "type": "concept",
+      "emoji": "🚄",
+      "title": "Performance and Reliability Wins",
+      "body": "Claude Code received numerous under-the-hood improvements that make daily usage much smoother and more reliable.",
+      "bullets": [
+        "<strong>MCP servers</strong> got lazy loading for better performance",
+        "<strong>Simple mode</strong> now includes file edit tool (not just bash)",
+        "<strong>LSP servers</strong> support startup timeout configuration",
+        "<strong>Session stability</strong> fixes for symlinks and SSH disconnects",
+        "<strong>Memory usage</strong> no longer grows unbounded with large shell output"
+      ],
+      "safe": "These improvements make Claude Code much more stable for daily use",
+      "cta": "Solid"
+    },
+    {
+      "type": "action",
+      "emoji": "⚙️",
+      "title": "Try Simple Mode with File Editing",
+      "body": "Test the improved simple mode that now includes both bash and file editing capabilities while staying lightweight.",
+      "code": "export CLAUDE_CODE_SIMPLE=1\nclaude-code",
+      "codeLabel": "ENABLE SIMPLE MODE",
+      "codeCaption": "Simple mode now includes file edit tool alongside bash, but disables MCP tools and attachments",
+      "bullets": [
+        "Lightweight mode for basic coding tasks",
+        "Now has both bash and file editing tools",
+        "Still disables MCP, attachments, and hooks"
+      ],
+      "cta": "Tested"
+    },
+    {
+      "type": "quiz",
+      "emoji": "🧠",
+      "title": "Final Knowledge Check",
+      "question": "What makes Claude Code Security different from traditional security scanners?",
+      "options": [
+        {
+          "text": "It's faster at scanning",
+          "correct": false
+        },
+        {
+          "text": "It uses semantic reasoning like a human researcher",
+          "correct": true
+        },
+        {
+          "text": "It has more vulnerability patterns",
+          "correct": false
+        },
+        {
+          "text": "It scans more file types",
+          "correct": false
+        }
+      ],
+      "correctFeedback": "Exactly! It uses semantic reasoning to understand how components interact, not just pattern matching.",
+      "wrongFeedback": "Not quite. The key difference is semantic reasoning - it thinks like a human security researcher.",
+      "cta": "Finish"
+    },
+    {
+      "type": "celebration",
+      "emoji": "🏆",
+      "title": "You're Now a Claude Code Power User!",
+      "body": "You've mastered all the major 2026 updates: Git worktree isolation, desktop app features, Opus 4.6 capabilities, automemory, security scanning, and performance improvements. You're ready to leverage Claude Code's full potential in your development workflow.",
+      "stats": true,
+      "cta": "Start coding"
+    }
+  ]
+}

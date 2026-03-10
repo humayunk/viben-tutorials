@@ -1,0 +1,339 @@
+{
+  "id": "frame-io-clone-claude-vibe-code",
+  "title": "Clone Frame.io in 30 Minutes with Claude Code",
+  "description": "Build a custom video commenting tool that replaces expensive SaaS subscriptions using Claude Code and vibe coding.",
+  "tool": "claude-code",
+  "tags": [
+    "claude-code",
+    "vibe-code-dev",
+    "tutorial",
+    "frame-io",
+    "internal-tools"
+  ],
+  "difficulty": "beginner",
+  "estimatedMinutes": 35,
+  "source": {
+    "airtableRecordId": "rec3PHBSsRnuqLw3N",
+    "sourceUrl": "https://www.youtube.com/watch?v=hLsP4gULKWs",
+    "author": "Riley Brown",
+    "authorImage": "https://yt3.googleusercontent.com/Cm_AOGXEC3TYdp2iOXTUj07zgqBkCMJjh4C-0iD0DJOALbMb-D2tz9fJ2e-EDE5DJnJCnd3PaA=s900-c-k-c0x00ffffff-no-rj",
+    "thumbnailImage": "https://img.youtube.com/vi/hLsP4gULKWs/maxresdefault.jpg",
+    "publishedAt": "2026-01-19T12:00:00.000Z"
+  },
+  "cards": [
+    {
+      "type": "intro",
+      "emoji": "🚀",
+      "title": "Clone a Billion Dollar App",
+      "body": "You'll learn to recreate Frame.io's core features using Claude Code in just 30 minutes. We'll build a custom video commenting tool that costs nothing and does exactly what you need.",
+      "cta": "Let's build"
+    },
+    {
+      "type": "concept",
+      "emoji": "💰",
+      "title": "The SaaS Problem",
+      "body": "Most teams pay thousands yearly for tools like Frame.io but only use 20% of the features. The solution? Build exactly what you need, skip what you don't.",
+      "analogy": {
+        "icon": "🍕",
+        "text": "It's like paying for a whole pizza when you only eat two slices"
+      },
+      "bullets": [
+        "Frame.io costs $20/month per team member",
+        "Most users only need video upload + timestamped comments",
+        "Custom tools can replace expensive subscriptions"
+      ],
+      "cta": "Makes sense"
+    },
+    {
+      "type": "action",
+      "emoji": "📝",
+      "title": "Map Your Essential Features",
+      "body": "Before coding, list every feature you actually use day-to-day. Ignore everything else — this becomes your prompt foundation.",
+      "bullets": [
+        "Upload and save video as project",
+        "Add comments at specific timestamps",
+        "Attach files to comments",
+        "Share projects with view-only links"
+      ],
+      "safe": "Focus only on features you use weekly — you can always add more later",
+      "cta": "Got my list"
+    },
+    {
+      "type": "concept",
+      "emoji": "🤖",
+      "title": "What is Claude Code?",
+      "body": "Claude Code is an AI agent that can browse the internet, write code, and deploy apps — all in one interface. It's not just an API wrapper, it's the full coding environment.",
+      "concept": {
+        "title": "Vibe Code vs Other Platforms",
+        "items": [
+          "Replit: Uses various AI models",
+          "Lovable: Custom AI for web apps",
+          "Vibe Code: Runs actual Claude Code in browser"
+        ]
+      },
+      "cta": "Understood"
+    },
+    {
+      "type": "action",
+      "emoji": "🌐",
+      "title": "Set Up Your Development Environment",
+      "body": "Open your preferred AI coding platform. We'll use Vibe Code, but you can also use Replit, Lovable, or direct Claude access.",
+      "bullets": [
+        "Go to vibecode.dev (or your preferred platform)",
+        "Click 'Web App' to start a new project",
+        "Select Claude Opus as your AI model"
+      ],
+      "helpItems": [
+        {
+          "title": "Alternative Platforms",
+          "content": "Replit Agent, Lovable, or Claude.ai with Artifacts all work for this tutorial"
+        }
+      ],
+      "cta": "Environment ready"
+    },
+    {
+      "type": "quiz",
+      "emoji": "🧠",
+      "title": "Quick Check",
+      "question": "Why should you focus only on features you actually use when building internal tools?",
+      "options": [
+        {
+          "text": "It makes the app look simpler",
+          "correct": false
+        },
+        {
+          "text": "It reduces development time and creates exactly what you need",
+          "correct": true
+        },
+        {
+          "text": "It's easier to maintain complex features later",
+          "correct": false
+        }
+      ],
+      "correctFeedback": "Exactly! Build only what you need to avoid complexity and save time.",
+      "wrongFeedback": "Focus on essential features to create tools that actually solve your problems efficiently.",
+      "cta": "Continue"
+    },
+    {
+      "type": "action",
+      "emoji": "✍️",
+      "title": "Craft Your AI Prompt",
+      "body": "Write a detailed prompt that includes feature requirements, security, and context about the original tool.",
+      "code": "Build an app like Frame.io with these features:\n1. Upload video, save as project\n2. Add timestamped comments while watching\n3. Attach files to comments\n4. Password protect with 'banana'\n5. Generate shareable public links\n\nSearch internet for context on Frame.io layout",
+      "codeLabel": "EXAMPLE PROMPT",
+      "codeCaption": "Include 'search internet for context' to help AI understand the original tool's design",
+      "warn": "Always add password protection for internal tools instead of building full authentication",
+      "cta": "Prompt ready"
+    },
+    {
+      "type": "action",
+      "emoji": "🚀",
+      "title": "Launch the Build",
+      "body": "Paste your prompt into the AI coding platform and watch Claude Code break down the project into tasks.",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/hLsP4gULKWs",
+          "startTime": "8:30",
+          "source": {
+            "author": "Riley Brown",
+            "description": "Watching Claude Code create the project structure and task list"
+          }
+        }
+      },
+      "bullets": [
+        "Paste your complete prompt",
+        "Select Claude Opus 4.5 model",
+        "Hit 'Generate' and watch the magic happen"
+      ],
+      "cta": "Build started"
+    },
+    {
+      "type": "milestone",
+      "emoji": "⚡",
+      "title": "First Build Complete!",
+      "body": "Claude Code just created your entire app structure, database, and frontend in minutes. Time to test what we've got and refine it.",
+      "cta": "Let's test it"
+    },
+    {
+      "type": "action",
+      "emoji": "🔍",
+      "title": "Test and Identify Issues",
+      "body": "Test your new app immediately. Don't expect perfection — identify what needs fixing and communicate clearly with the AI.",
+      "bullets": [
+        "Enter your password to access the app",
+        "Try creating a new project",
+        "Test the video upload functionality",
+        "Check if comments work at specific timestamps"
+      ],
+      "troubleshoot": [
+        {
+          "issue": "App asks for video URL instead of file upload",
+          "solution": "Tell AI: 'I want file upload, not URL input'"
+        },
+        {
+          "issue": "Comments don't save to specific timestamps",
+          "solution": "Specify: 'Comments should capture current video time when created'"
+        }
+      ],
+      "cta": "Found the issues"
+    },
+    {
+      "type": "concept",
+      "emoji": "💬",
+      "title": "Iterative Improvement",
+      "body": "The key to successful vibe coding is conversational debugging. Describe problems naturally instead of rewriting entire prompts.",
+      "analogy": {
+        "icon": "🗣️",
+        "text": "Talk to the AI like you'd explain a problem to a colleague — be specific but natural"
+      },
+      "bullets": [
+        "'I don't want a URL input, I want a file upload button'",
+        "'The comments aren't showing the timestamp'",
+        "'Make the video player bigger'"
+      ],
+      "safe": "Small iterative changes work better than complete rewrites",
+      "cta": "Got it"
+    },
+    {
+      "type": "action",
+      "emoji": "🛠️",
+      "title": "Fix the File Upload",
+      "body": "Address the most critical issue first — proper file upload instead of URL input.",
+      "code": "I don't want a video URL input. I want users to upload a video file directly. Please fix the upload to accept actual video files and store them properly.",
+      "codeLabel": "IMPROVEMENT PROMPT",
+      "modalities": {
+        "watch": {
+          "videoUrl": "https://www.youtube.com/embed/hLsP4gULKWs",
+          "startTime": "15:20",
+          "source": {
+            "author": "Riley Brown",
+            "description": "Fixing the file upload functionality with natural language"
+          }
+        }
+      },
+      "cta": "Upload fixed"
+    },
+    {
+      "type": "action",
+      "emoji": "📹",
+      "title": "Test Video Upload and Comments",
+      "body": "Upload a test video and verify the core functionality — timestamped comments and file attachments.",
+      "bullets": [
+        "Upload a short test video",
+        "Play the video and pause at different points",
+        "Add comments with timestamps",
+        "Try attaching files to comments",
+        "Test the sharing functionality"
+      ],
+      "helpItems": [
+        {
+          "title": "Testing Tips",
+          "content": "Use a short video (under 2 minutes) for faster testing iterations"
+        }
+      ],
+      "cta": "Core features work"
+    },
+    {
+      "type": "quiz",
+      "emoji": "🧠",
+      "title": "Understanding Vibe Coding",
+      "question": "What's the best approach when your AI-built app has issues?",
+      "options": [
+        {
+          "text": "Rewrite the entire prompt from scratch",
+          "correct": false
+        },
+        {
+          "text": "Describe the specific problem conversationally",
+          "correct": true
+        },
+        {
+          "text": "Start over with a different AI tool",
+          "correct": false
+        },
+        {
+          "text": "Try to fix the code manually",
+          "correct": false
+        }
+      ],
+      "correctFeedback": "Perfect! Conversational debugging is the key to effective vibe coding.",
+      "wrongFeedback": "Remember: describe problems naturally and let the AI iterate on the existing code.",
+      "cta": "Continue building"
+    },
+    {
+      "type": "action",
+      "emoji": "🔐",
+      "title": "Secure Your Internal Tool",
+      "body": "Change the default password and prepare your app for team sharing. For internal tools, simple password protection often beats complex authentication.",
+      "code": "Change the password from 'banana' to a secure password for my team. Also make sure the shared project links work properly for view-only access.",
+      "codeLabel": "SECURITY UPDATE",
+      "warn": "Never leave default passwords in production, even for internal tools",
+      "bullets": [
+        "Update to a strong password",
+        "Test the share link functionality",
+        "Verify view-only access works correctly"
+      ],
+      "cta": "App secured"
+    },
+    {
+      "type": "action",
+      "emoji": "✨",
+      "title": "Add Custom Features",
+      "body": "Now that core functionality works, add features that Frame.io doesn't have — this is where custom tools shine.",
+      "bullets": [
+        "Custom comment categories or tags",
+        "Bulk comment export",
+        "Team-specific commenting workflows",
+        "Integration with your existing tools"
+      ],
+      "concept": {
+        "title": "Custom Feature Ideas",
+        "items": [
+          "Comment templates for common feedback",
+          "Auto-generate edit lists from comments",
+          "Slack/email notifications for new comments"
+        ]
+      },
+      "cta": "Features added"
+    },
+    {
+      "type": "action",
+      "emoji": "🌍",
+      "title": "Deploy and Share",
+      "body": "Your app is ready for your team! Deploy it and start saving money on expensive SaaS subscriptions.",
+      "bullets": [
+        "Use the built-in sharing features",
+        "Send the app URL to your team",
+        "Update the password for security",
+        "Train your team on the new workflow"
+      ],
+      "safe": "Most vibe coding platforms handle deployment automatically — no server management needed",
+      "cta": "App deployed"
+    },
+    {
+      "type": "concept",
+      "emoji": "💡",
+      "title": "The Business Impact",
+      "body": "You've just saved thousands of dollars annually and built exactly what your team needs. This is the power of vibe coding for business.",
+      "bullets": [
+        "Replaced $240+ annual subscription per user",
+        "Built only needed features, no bloat",
+        "Customized workflow for your team",
+        "Can iterate and improve anytime"
+      ],
+      "analogy": {
+        "icon": "🎯",
+        "text": "Like having a custom suit instead of off-the-rack — perfect fit, better price"
+      },
+      "cta": "I see the potential"
+    },
+    {
+      "type": "celebration",
+      "emoji": "🏆",
+      "title": "You're Now a Vibe Coder!",
+      "body": "Congratulations! You've cloned a billion-dollar app in 30 minutes. You can now build custom internal tools for any business need, replacing expensive SaaS subscriptions with exactly what your team requires.",
+      "stats": true,
+      "cta": "Build something else"
+    }
+  ]
+}
