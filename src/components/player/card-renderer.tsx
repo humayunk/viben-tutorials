@@ -41,7 +41,6 @@ export function CardRenderer({
   const isLastCard = cardIndex === totalCards - 1;
   const isCelebration = card.type === "celebration";
   const hasReadAndWatch = !!(card.modalities?.read && card.modalities?.watch);
-  const hasAnyModality = !!(card.modalities?.read || card.modalities?.watch);
 
   return (
     <div>
@@ -53,7 +52,7 @@ export function CardRenderer({
       )}
 
       {/* Read/Watch toggle — above card content */}
-      {hasAnyModality && (
+      {hasReadAndWatch && (
         <ReadWatchToggle
           active={activeModality}
           onChange={onModalityChange}

@@ -105,7 +105,7 @@ export function ChatBubble({
       {/* Floating bubble */}
       <button
         onClick={onToggle}
-        className="fixed bottom-24 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#8b5cf6] text-white shadow-lg transition-all hover:bg-[#7c3aed] hover:scale-105 active:scale-95 sm:bottom-8 sm:right-8"
+        className="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#8b5cf6] text-white shadow-lg transition-all hover:bg-[#7c3aed] hover:scale-105 active:scale-95 sm:right-8"
         aria-label={open ? "Close chat" : "Open chat"}
       >
         {open ? (
@@ -141,7 +141,7 @@ export function ChatBubble({
       {/* Chat popup panel */}
       {open && (
         <div
-          className="fixed bottom-[7.5rem] right-5 z-50 flex w-[22rem] flex-col rounded-2xl border border-border bg-[#0a0a0c] shadow-2xl sm:bottom-[5rem] sm:right-8 sm:w-96"
+          className="fixed bottom-[5.5rem] right-5 z-50 flex w-[22rem] flex-col rounded-2xl border border-border bg-[#0a0a0c] shadow-2xl sm:right-8 sm:w-96"
           style={{
             height: "min(28rem, calc(100dvh - 12rem))",
             animation: "chat-panel-in 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
